@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description: "Espansione ecosistemi digitali con Agentic AI e architetture stabili.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   }
 };
 
