@@ -62,38 +62,57 @@ export default function Stack() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Animated SVG Filament Connections (Visible on large screens) */}
+          {/* Animated Epic Flow Connections (Visible on large screens) */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
             
-            {/* ---- TOP WIRE (To Core Logic) ---- */}
-            <path d="M 58 25 C 65 25, 60 25, 75 25" stroke={isHovered ? "#A78BFA" : "#00DBE9"} strokeWidth="1" fill="none" opacity="0.2" className="transition-colors duration-500" />
+            <defs>
+              <linearGradient id="glowTop" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#00DBE9" stopOpacity="0" />
+                <stop offset="50%" stopColor="#00DBE9" stopOpacity="1" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="glowBottom" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#00DBE9" stopOpacity="0" />
+                <stop offset="50%" stopColor="#00DBE9" stopOpacity="1" />
+                <stop offset="100%" stopColor="#A78BFA" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+
+            {/* ---- TOP FLOW (To Core Logic) ---- */}
+            <path d="M 58 25 C 65 25, 65 25, 75 25" stroke="url(#glowTop)" strokeWidth="8" fill="none" opacity="0.4" className="transition-all duration-700" style={{ filter: "drop-shadow(0 0 15px #00DBE9)" }} />
+            
+            {/* Plasma burst Core Logic */}
             <motion.path
-              d="M 58 25 C 65 25, 60 25, 75 25"
-              stroke={isHovered ? "#A78BFA" : "#00DBE9"}
-              strokeWidth="3"
+              d="M 58 25 C 65 25, 65 25, 75 25"
+              stroke="#ffffff"
+              strokeWidth="5"
               fill="none"
               strokeLinecap="round"
-              strokeDasharray="2 40"
-              animate={{ strokeDashoffset: [42, 0] }}
-              transition={{ duration: isHovered ? 0.4 : 1.5, repeat: Infinity, ease: "linear" }}
-              style={{ filter: isHovered ? "drop-shadow(0 0 10px #A78BFA)" : "drop-shadow(0 0 6px #00DBE9)" }}
-              className="transition-colors duration-500"
+              strokeDasharray="15 85"
+              animate={{ strokeDashoffset: [100, 0] }}
+              transition={{ duration: isHovered ? 0.6 : 1.5, repeat: Infinity, ease: "linear" }}
+              style={{ filter: "drop-shadow(0 0 20px #00DBE9) drop-shadow(0 0 40px #10b981)" }}
             />
 
-            {/* ---- BOTTOM WIRE (To Output Tier) ---- */}
-             <path d="M 58 75 C 65 75, 60 75, 75 75" stroke={isHovered ? "#A78BFA" : "#10b981"} strokeWidth="1" fill="none" opacity="0.2" className="transition-colors duration-500" />
+            {/* ---- BOTTOM FLOW (To Output Tier) ---- */}
+            <path d="M 58 75 C 65 75, 65 75, 75 75" stroke="url(#glowBottom)" strokeWidth="8" fill="none" opacity="0.4" className="transition-all duration-700" style={{ filter: "drop-shadow(0 0 15px #A78BFA)" }} />
+            
+            {/* Plasma burst Output Tier */}
             <motion.path
-               d="M 58 75 C 65 75, 60 75, 75 75"
-              stroke={isHovered ? "#A78BFA" : "#10b981"}
-              strokeWidth="3"
+               d="M 58 75 C 65 75, 65 75, 75 75"
+              stroke="#ffffff"
+              strokeWidth="5"
               fill="none"
               strokeLinecap="round"
-              strokeDasharray="2 40"
-              animate={{ strokeDashoffset: [42, 0] }}
-              transition={{ duration: isHovered ? 0.4 : 1.5, repeat: Infinity, ease: "linear", delay: 0.2 }}
-              style={{ filter: isHovered ? "drop-shadow(0 0 10px #A78BFA)" : "drop-shadow(0 0 6px #10b981)" }}
-              className="transition-colors duration-500"
+              strokeDasharray="15 85"
+              animate={{ strokeDashoffset: [100, 0] }}
+              transition={{ duration: isHovered ? 0.6 : 1.5, repeat: Infinity, ease: "linear", delay: 0.3 }}
+              style={{ filter: "drop-shadow(0 0 20px #00DBE9) drop-shadow(0 0 40px #A78BFA)" }}
             />
+            
+            {/* Pulsing Nodes at intersections */}
+            <circle cx="58" cy="25" r="3" fill="#ffffff" style={{ filter: "drop-shadow(0 0 15px #00DBE9)" }} className="animate-pulse" />
+            <circle cx="58" cy="75" r="3" fill="#ffffff" style={{ filter: "drop-shadow(0 0 15px #00DBE9)" }} className="animate-pulse" />
           </svg>
 
           <div className="flex flex-col lg:flex-row gap-12 relative z-10 w-full">

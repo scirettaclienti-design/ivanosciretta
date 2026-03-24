@@ -1,24 +1,24 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrambleText from "./ui/ScrambleText";
-import { Terminal, Cpu, Zap, AlertTriangle, CheckCircle2 } from "lucide-react";
+import Particles from "./ui/Particles";
+import { Sparkles, BrainCircuit, TrendingUp, AlertCircle, RefreshCw } from "lucide-react";
 
 type AuditResult = {
-  diagnosi: string;
-  architettura: string;
-  roi: string;
+  problema_reale: string;
+  soluzione_ai: string;
+  impatto_sul_business: string;
 } | null;
 
 const SIMULATED_LOGS = [
-  "> Inizializzazione protocollo Handshake...",
-  "> Bypass difese neurali (Livello 3)...",
-  "> Iniezione prompt architetturale in corso...",
-  "> Analisi inefficienze aziendali: CRITICA.",
-  "> Sintesi topologia RAG & Webhooks...",
-  "> Compilazione matrice di impatto...",
-  "> ESTREZIONE DATI COMPLETATA."
+  "Scansione flussi operativi in corso...",
+  "Individuazione colli di bottiglia e latenze...",
+  "Calcolo dispersione ore-uomo...",
+  "Progettazione architettura AI risolutiva...",
+  "Stima del Return on Investment (ROI)...",
+  "Generazione report completata."
 ];
 
 export default function NeuralAuditor() {
@@ -34,13 +34,12 @@ export default function NeuralAuditor() {
     setResult(null);
     setLogs([]);
 
-    // Effetto Log Simulati mentre aspetta l'API reale
     let logIndex = 0;
     const logInterval = setInterval(() => {
       setLogs(prev => [...prev, SIMULATED_LOGS[logIndex]]);
       logIndex++;
       if (logIndex >= SIMULATED_LOGS.length) clearInterval(logInterval);
-    }, 600);
+    }, 700);
 
     try {
       const res = await fetch("/api/audit", {
@@ -56,16 +55,16 @@ export default function NeuralAuditor() {
         setResult(data);
         setStatus("READY");
       } else {
-        setResult(data); // Renderizza gli errori (es. API KEY mancante)
+        setResult(data);
         setStatus("ERROR");
       }
     } catch (e) {
       clearInterval(logInterval);
       setStatus("ERROR");
       setResult({
-        diagnosi: "Connessione al core interrotta.",
-        architettura: "Verificare stack di rete.",
-        roi: "NULL"
+        problema_reale: "Connessione al motore AI interrotta.",
+        soluzione_ai: "Verificare lo stato della rete o le API keys.",
+        impatto_sul_business: "Impossibile calcolare il vantaggio."
       });
     }
   };
@@ -73,142 +72,202 @@ export default function NeuralAuditor() {
   return (
     <section className="relative py-32 md:py-48 z-10 overflow-hidden bg-black">
       {/* Background Ambience */}
-      <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary-cyan/5 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-20">
         
         {/* Header */}
-        <div className="text-center mb-16 relative">
+        <div className="text-center mb-20 relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block mb-6"
+            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-[0_0_30px_rgba(255,255,255,0.05)]"
           >
-            <span className="font-mono text-xs tracking-widest text-[#00DBE9] uppercase px-4 py-2 border border-[#00DBE9]/40 bg-[#00DBE9]/10 shadow-[0_0_15px_rgba(0,219,233,0.2)] flex items-center gap-3">
-              <Terminal className="w-3 h-3 text-[#00DBE9] animate-pulse" />
-              Live AI Demo
-            </span>
+            <Sparkles className="w-4 h-4 text-primary-cyan animate-pulse" />
+            <span className="font-sans text-sm tracking-wide text-white/80 uppercase">Scopri il tuo margine nascosto</span>
           </motion.div>
           
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-white tracking-tight drop-shadow-2xl mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white tracking-tight drop-shadow-2xl mb-8"
           >
-            <ScrambleText text="NEURAL AUDITOR" duration={1000} />
+            <ScrambleText text="PROVA IL SIMULATORE" duration={1200} />
           </motion.h2>
           <motion.p
              initial={{ opacity: 0 }}
              whileInView={{ opacity: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.2 }}
-             className="text-foreground/60 font-sans max-w-2xl mx-auto text-lg"
+             className="text-foreground/60 font-sans max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
           >
-            L'adozione inizia dalla diagnosi. Descrivi un processo lento, costoso o manuale che blocca la tua azienda. Il mio Orchestratore ti genererà l'architettura risolutiva e il R.O.I in tempo reale.
+            L'efficienza estrema si progetta su misura. Descrivi un processo lento, manuale o frustrante della tua azienda. L'AI analizzerà il problema e progetterà istantaneamente il sistema per automatizzarlo.
           </motion.p>
         </div>
 
-        {/* Terminal Window */}
+        {/* Premium Terminal Window */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto border border-white/20 bg-[#050505]/90 backdrop-blur-3xl shadow-[0_0_60px_rgba(0,219,233,0.1)] transition-all duration-700 hover:shadow-[0_0_80px_rgba(0,219,233,0.2)] hover:border-primary-cyan/40 relative overflow-hidden"
+          className="max-w-5xl mx-auto relative group"
         >
-          {/* Top Bar */}
-          <div className="w-full flex items-center px-4 py-3 border-b border-white/10 bg-[#0a0a0a]">
-            <div className="flex gap-2 mr-4">
-              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-            </div>
-            <span className="font-mono text-[10px] tracking-widest text-white/40 uppercase">orchestrator_kernel_v3.sh</span>
-          </div>
-
-          <div className="p-6 md:p-10 flex flex-col gap-8 min-h-[400px]">
-            {/* Input Area */}
-            {status === "IDLE" && (
-              <motion.div 
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                className="flex flex-col h-full"
-              >
-                <label className="font-mono text-primary-cyan text-sm tracking-widest uppercase mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-primary-cyan animate-pulse" />
-                  USER_INPUT: Describe your bottleneck
-                </label>
-                <textarea 
-                  value={inputVal}
-                  onChange={(e) => setInputVal(e.target.value)}
-                  placeholder="Es: Gestisco 300 ticket di assistenza via email al giorno copiando i dati a mano su un Excel centrale..."
-                  className="w-full h-40 bg-transparent border-none text-white text-lg font-mono focus:ring-0 outline-none resize-none placeholder:text-white/20 caret-primary-cyan"
-                  autoFocus
-                />
-                
-                <button 
-                  onClick={handleAudit}
-                  disabled={!inputVal.trim()}
-                  className="mt-auto self-start md:self-end px-8 py-4 bg-primary-cyan text-black font-mono font-bold tracking-widest text-sm uppercase hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed group relative"
-                >
-                  Esegui Diagnosi
-                  <div className="absolute inset-0 blur-md bg-primary-cyan/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </button>
-              </motion.div>
-            )}
-
-            {/* Scanning State */}
-            {status === "SCANNING" && (
-              <div className="flex flex-col font-mono text-sm tracking-widest text-white/50 space-y-3 h-full justify-center pl-4 border-l-2 border-primary-cyan">
-                <span className="text-primary-cyan animate-pulse mb-6">EXEC_SYS_SCAN --MODE=AGGRESSIVE</span>
-                {logs.map((log, i) => (
-                  <motion.div 
-                    key={i} 
-                    initial={{ opacity: 0, x: -10 }} 
-                    animate={{ opacity: 1, x: 0 }}
-                  >
-                    {log}
-                  </motion.div>
-                ))}
-              </div>
-            )}
-
-            {/* Result / Error State */}
-            {(status === "READY" || status === "ERROR") && result && (
-              <motion.div 
-                initial={{ opacity: 0, filter: "blur(10px)" }} 
-                animate={{ opacity: 1, filter: "blur(0px)" }} 
-                className="flex flex-col gap-8 h-full"
-              >
-                <div className="border-l-2 border-emerald-400 pl-6 py-2">
-                  <h4 className="font-mono text-[10px] text-emerald-400 tracking-widest uppercase mb-2">01_SYSTEM_DIAGNOSIS</h4>
-                  <p className="text-white md:text-lg leading-relaxed">{result.diagnosi}</p>
-                </div>
-                
-                <div className="border-l-2 border-primary-cyan pl-6 py-2">
-                  <h4 className="font-mono text-[10px] text-primary-cyan tracking-widest uppercase mb-2">02_PROPOSED_ARCHITECTURE</h4>
-                  <p className="text-white md:text-lg leading-relaxed">{result.architettura}</p>
-                </div>
-                
-                <div className="border-l-2 border-[#A78BFA] pl-6 py-2">
-                  <h4 className="font-mono text-[10px] text-[#A78BFA] tracking-widest uppercase mb-2">03_ESTIMATED_ROI</h4>
-                  <p className="text-white md:text-xl font-bold tracking-tight shadow-sm drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]">{result.roi}</p>
-                </div>
-
-                <button 
-                  onClick={() => { setStatus("IDLE"); setInputVal(""); }}
-                  className="mt-10 self-start px-6 py-3 border border-white/20 text-white/60 font-mono tracking-widest text-xs uppercase hover:bg-white/10 hover:text-white transition-all"
-                >
-                  ESEGUI NUOVO AUDIT
-                </button>
-              </motion.div>
-            )}
-            
-          </div>
+          {/* Outer Glow */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary-cyan/20 via-[#A78BFA]/20 to-primary-cyan/20 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
           
-          {/* Scanline Background over everything */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(transparent_50%,rgba(0,219,233,1)_50%)] bg-[length:100%_4px]" />
+          {/* Main Glassmorphic Container */}
+          <div className="relative border border-white/10 bg-[#050505]/60 backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] min-h-[500px] flex flex-col">
+            
+            {/* Embedded Particles Background */}
+            <div className="absolute inset-0 z-0 opacity-40">
+               <Particles quantity={60} staticity={30} ease={50} />
+               {/* Dark gradient to ensure text readability */}
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505]/90" />
+            </div>
+
+            <div className="relative z-10 p-8 md:p-14 flex-1 flex flex-col">
+              
+              {/* Input State */}
+              <AnimatePresence mode="wait">
+                {status === "IDLE" && (
+                  <motion.div 
+                    key="idle"
+                    initial={{ opacity: 0, scale: 0.95 }} 
+                    animate={{ opacity: 1, scale: 1 }} 
+                    exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                    transition={{ duration: 0.5 }}
+                    className="flex flex-col h-full flex-1 justify-center max-w-3xl mx-auto w-full"
+                  >
+                    <div className="flex items-center gap-3 mb-6 bg-primary-cyan/10 border border-primary-cyan/30 px-6 py-3 rounded-full flex-wrap justify-center text-center mx-auto shadow-[0_0_20px_rgba(0,219,233,0.15)] max-w-lg">
+                      <span className="flex h-3 w-3 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-cyan opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-cyan"></span>
+                      </span>
+                      <span className="font-sans text-primary-cyan font-medium text-sm md:text-base">Scrivi un problema aziendale e chiedi all'Intelligenza Artificiale come risolverlo gratis, adesso.</span>
+                    </div>
+
+                    <textarea 
+                      value={inputVal}
+                      onChange={(e) => setInputVal(e.target.value)}
+                      placeholder="👉 Es: Il mio team perde 3 ore al giorno a rispondere alle mail dei clienti copiando incollarndo vecchie risposte..."
+                      className="w-full h-56 bg-black/40 border border-white/20 hover:border-primary-cyan/50 rounded-[2rem] p-6 md:p-8 text-white text-xl md:text-3xl font-sans focus:ring-4 focus:ring-primary-cyan/30 focus:border-primary-cyan outline-none resize-none placeholder:text-white/30 transition-all shadow-[inset_0_4px_30px_rgba(0,0,0,0.5)]"
+                    />
+                    
+                    <button 
+                      onClick={handleAudit}
+                      disabled={!inputVal.trim()}
+                      className="mt-8 mx-auto w-full md:w-auto px-12 py-5 bg-gradient-to-r from-primary-cyan to-primary-blue text-black font-display font-bold text-xl md:text-2xl tracking-wide rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-[0_10px_50px_rgba(0,219,233,0.4)] hover:shadow-[0_20px_60px_rgba(0,219,233,0.6)] flex items-center justify-center gap-4 group"
+                    >
+                      <Sparkles className="w-6 h-6 animate-pulse" />
+                      INIZIA SIMULAZIONE ORA
+                      <BrainCircuit className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                    </button>
+                  </motion.div>
+                )}
+
+                {/* Scanning State */}
+                {status === "SCANNING" && (
+                  <motion.div 
+                    key="scanning"
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    exit={{ opacity: 0 }}
+                    className="flex flex-col justify-center items-center h-full flex-1 py-10"
+                  >
+                    <div className="relative w-24 h-24 mb-10">
+                      <div className="absolute inset-0 border-t-2 border-primary-cyan rounded-full animate-spin" />
+                      <div className="absolute inset-2 border-r-2 border-[#A78BFA] rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
+                      <BrainCircuit className="absolute inset-0 m-auto w-8 h-8 text-white animate-pulse" />
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-4 h-20">
+                      <AnimatePresence mode="popLayout">
+                        {logs.slice(-1).map((log, i) => (
+                           <motion.p 
+                             key={log}
+                             initial={{ opacity: 0, y: 10 }}
+                             animate={{ opacity: 1, y: 0 }}
+                             exit={{ opacity: 0, y: -10 }}
+                             className="font-mono text-primary-cyan tracking-widest text-sm uppercase text-center"
+                           >
+                             {log}
+                           </motion.p>
+                        ))}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Result State */}
+                {(status === "READY" || status === "ERROR") && result && (
+                  <motion.div 
+                    key="result"
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    transition={{ staggerChildren: 0.2 }}
+                    className="flex flex-col h-full flex-1"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 flex-1">
+                      
+                      {/* Left Column: Problem & Solution */}
+                      <div className="space-y-10">
+                        <motion.div 
+                          initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
+                          className="bg-white/5 border border-white/10 rounded-2xl p-6 relative overflow-hidden group"
+                        >
+                          <div className="absolute top-0 left-0 w-1 h-full bg-red-500/80" />
+                          <h4 className="flex items-center gap-2 font-display text-white/50 uppercase tracking-widest text-sm mb-4">
+                            <AlertCircle className="w-4 h-4" /> Il Problema Invisibile
+                          </h4>
+                          <p className="text-white md:text-lg leading-relaxed">{result.problema_reale}</p>
+                        </motion.div>
+                        
+                        <motion.div 
+                          initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
+                          className="bg-primary-cyan/5 border border-primary-cyan/20 rounded-2xl p-6 relative overflow-hidden"
+                        >
+                          <div className="absolute top-0 left-0 w-1 h-full bg-primary-cyan shadow-[0_0_15px_#00DBE9]" />
+                          <h4 className="flex items-center gap-2 font-display text-primary-cyan uppercase tracking-widest text-sm mb-4">
+                            <BrainCircuit className="w-4 h-4" /> L'Architettura Risolutiva
+                          </h4>
+                          <p className="text-white md:text-lg leading-relaxed">{result.soluzione_ai}</p>
+                        </motion.div>
+                      </div>
+
+                      {/* Right Column: ROI Impact */}
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.4 }}
+                        className="bg-gradient-to-br from-[#A78BFA]/10 to-transparent border border-[#A78BFA]/20 rounded-2xl p-8 md:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden"
+                      >
+                         <div className="absolute inset-0 bg-[#A78BFA]/5 blur-3xl rounded-full" />
+                         <TrendingUp className="w-12 h-12 text-[#A78BFA] mb-6 drop-shadow-[0_0_15px_rgba(167,139,250,0.5)]" />
+                         <h4 className="font-display text-[#A78BFA] uppercase tracking-widest text-sm mb-6">Impatto sul Business</h4>
+                         <p className="text-white text-2xl md:text-3xl lg:text-4xl font-medium leading-tight shadow-sm drop-shadow-md">
+                           {result.impatto_sul_business}
+                         </p>
+                      </motion.div>
+
+                    </div>
+
+                    <motion.div 
+                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+                       className="mt-12 flex justify-center"
+                    >
+                      <button 
+                        onClick={() => { setStatus("IDLE"); setInputVal(""); }}
+                        className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/70 font-sans text-sm hover:bg-white/10 hover:text-white transition-all shadow-sm"
+                      >
+                        <RefreshCw className="w-4 h-4" /> Esegui Nuova Simulazione
+                      </button>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
         </motion.div>
 
       </div>

@@ -71,6 +71,9 @@ export default function Hero() {
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tight text-foreground text-balance drop-shadow-2xl leading-tight">
+              <span className="block text-xl md:text-3xl font-mono text-primary-cyan tracking-[0.3em] uppercase mb-6 drop-shadow-[0_0_15px_rgba(0,219,233,0.5)]">
+                Ivano Sciretta
+              </span>
               <ScrambleText text="Non scrivo solo codice." duration={800} />
               <br />
               <span className="relative inline-block mt-2">
