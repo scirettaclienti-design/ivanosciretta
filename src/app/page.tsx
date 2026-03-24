@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero";
 import WhatIBuild from "@/components/WhatIBuild";
+import NeuralAuditor from "@/components/NeuralAuditor";
 import Projects from "@/components/Projects";
 import Journey from "@/components/Journey";
 import Stack from "@/components/Stack";
@@ -35,6 +36,8 @@ export default function Home() {
         <Stack />
         {/* Fase 3: Il Corpo (Competenze) */}
         <WhatIBuild />
+        {/* Fase 3.5: L'Impatto (Adozione Settoriale generativa) */}
+        <NeuralAuditor />
         {/* Fase 4: L'Esercito (AI + Human Team) */}
         <Journey />
         {/* Fase 5: La Realtà (I Progetti) */}
