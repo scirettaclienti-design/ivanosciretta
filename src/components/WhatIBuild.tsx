@@ -144,26 +144,26 @@ export default function WhatIBuild() {
             />
             
             {/* Modal Content - Fluid Explosive Scaling */}
-              <motion.div 
+            <motion.div 
               initial={{ scale: 0.6, y: 50, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.8, y: 30, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a]/70 backdrop-blur-2xl border border-primary-cyan/50 p-6 md:p-10 lg:p-16 shadow-[0_0_100px_rgba(0,219,233,0.3)]"
+              className="relative w-full max-w-4xl max-h-[85dvh] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-3xl border border-primary-cyan/50 shadow-[0_0_100px_rgba(0,219,233,0.3)] rounded-sm overflow-hidden"
             >
               {/* Scanline Background */}
               <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-              <div className="absolute top-0 left-0 w-1.5 h-full opacity-100 bg-primary-cyan shadow-[0_0_20px_rgba(0,219,233,0.8)]" />
+              <div className="absolute top-0 left-0 w-1.5 h-full opacity-100 bg-primary-cyan shadow-[0_0_20px_rgba(0,219,233,0.8)] z-10" />
 
               <button 
                 onClick={() => setActivePillar(null)} 
-                className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/5 z-20 bg-black/40 rounded-full md:bg-transparent md:rounded-none"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/5 z-50 bg-black/60 backdrop-blur-md rounded-full md:bg-transparent md:rounded-none"
               >
                  <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
-              <div className="relative z-10 flex flex-col items-start">
-                <div className="w-16 h-16 rounded-none border border-primary-cyan/30 flex items-center justify-center mb-6 bg-primary-cyan/10">
+              <div className="relative z-20 flex flex-col items-start p-6 md:p-10 lg:p-16 overflow-y-auto overscroll-contain w-full">
+                <div className="w-16 h-16 rounded-none border border-primary-cyan/30 flex items-center justify-center mb-6 bg-primary-cyan/10 shrink-0">
                   {pillars[activePillar].icon}
                 </div>
                 
