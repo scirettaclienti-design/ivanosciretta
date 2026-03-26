@@ -10,6 +10,14 @@ export default function ScrambleText({ text, duration = 800, className = "" }: {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
   const hasRun = useRef(false);
+  const prevText = useRef(text);
+
+  useEffect(() => {
+    if (prevText.current !== text) {
+      hasRun.current = false;
+      prevText.current = text;
+    }
+  }, [text]);
 
   useEffect(() => {
     // Wait until element is in viewport, and only run once

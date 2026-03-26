@@ -40,7 +40,7 @@ export default function Connect() {
             className="inline-block mb-6"
           >
             <span className="font-mono text-xs tracking-widest text-[#00DBE9] uppercase px-3 py-1 border border-[#00DBE9]/30 bg-[#00DBE9]/10">
-              [ STATUS: READY TO SCALE ]
+              [ PROJECT INITIATION ]
             </span>
           </motion.div>
 
@@ -51,7 +51,7 @@ export default function Connect() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-foreground tracking-tight mb-8 drop-shadow-[0_0_15px_rgba(0,0,0,1)]"
           >
-             <ScrambleText text="Inizializza la tua Visione." duration={1000} />
+             <ScrambleText text="Trasforma l'Idea in Asset Reale." duration={1000} />
           </motion.h2>
 
           <motion.p
@@ -61,8 +61,8 @@ export default function Connect() {
             transition={{ delay: 0.2 }}
             className="text-foreground/60 text-lg md:text-2xl max-w-2xl mx-auto mb-16 font-sans leading-relaxed drop-shadow-lg"
           >
-            Sei pronto ad uscire dal caos e costruire il tuo ecosistema?
-            Sincronizziamo i nostri modelli.
+            Sei pronto a costruire una piattaforma scalabile che posiziona il tuo brand al vertice del mercato?
+            Definiamo la rotta strategica.
           </motion.p>
 
           <motion.div
@@ -88,13 +88,13 @@ export default function Connect() {
                 
                 <span className="relative z-10 flex items-center gap-3">
                   <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
-                  AVVIA SEQUENZA
+                  PARLIAMO DEL TUO PROGETTO
                 </span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
               </a>
             </Magnetic>
             <p className="mt-8 font-mono text-xs text-foreground/40 tracking-widest uppercase max-w-sm text-balance leading-loose">
-              Avvio diretto Protocollo Email <br/> [ Oggetto Preconfigurato ]
+              Collegamento Diretto WhatsApp <br/> [ Parla direttamente con me ]
             </p>
           </motion.div>
 

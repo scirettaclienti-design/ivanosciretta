@@ -12,7 +12,7 @@ const projects = [
     metrics: ["Multi-Agentic Routing", "Opus + Gemini Core", "Zero Drift System"],
     gradient: "from-primary-cyan to-[#0a0a0a]",
     icon: <Cpu className="w-8 h-8 text-primary-cyan" />,
-    content: "Il motore che automatizza la creazione di contenuti e flussi di lavoro complessi. Una piattaforma nata per eliminare l'attrito tra l'idea e la sua messa in produzione.",
+    content: "Piattaforma proprietaria per l'orchestrazione di agenti IA. Automatizza la creazione di contenuti e interi flussi operativi, annullando l'attrito tra l'idea e la messa in produzione.",
     status: "ACTIVE_DEPLOYMENT"
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     metrics: ["Mapbox 3D Custom", "GenAI POI Routing", "Sub-second Latency"],
     gradient: "from-emerald-400 to-[#0a0a0a]",
     icon: <Network className="w-8 h-8 text-emerald-400" />,
-    content: "Ridefinire l'esplorazione digitale. Un'architettura che trasforma dati grezzi in esperienze immersive, mappando l'utilità del mondo reale su modelli di frontiera.",
+    content: "Un ecosistema di mappe 3D intelligenti basate su elaborazione spaziale e IA generativa. Trasforma dati crudi in esperienze di esplorazione premium per l'utente finale.",
     status: "BETA_SEQUENCE"
   }
 ];
@@ -51,7 +51,7 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-white tracking-tight mb-6"
           >
-            <ScrambleText text="Dal Caos al Protocollo." duration={800} />
+            <ScrambleText text="Sistemi in Produzione." duration={800} />
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function Projects() {
             transition={{ delay: 0.2 }}
             className="text-white/50 text-xl font-sans leading-relaxed bg-[#0a0a0a]/80 backdrop-blur-md p-6 border border-white/5 inline-block"
           >
-            Questo non è un esercizio di stile. È il motore che alimenta piattaforme vive e in produzione.
+            Non parlo di concept. Qui trovi piattaforme reali, complesse e scalabili che proietto costantemente sul mercato.
           </motion.p>
         </div>
 

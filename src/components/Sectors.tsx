@@ -3,58 +3,59 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrambleText from "./ui/ScrambleText";
-import { Briefcase, ShoppingCart, Truck, Landmark, ChevronRight, Activity } from "lucide-react";
+import { Briefcase, Building2, Rocket, Landmark, ChevronRight, Activity } from "lucide-react";
 
 const sectors = [
   {
     id: 1,
-    title: "Studi Professionali & Legal",
-    icon: <Briefcase className="w-5 h-5" />,
-    log: "AUTOMAZIONE_DOCUMENTALE: ACTIVE",
-    roi: "L'IA analizza incartamenti, sintetizza report in secondi e pre-compila contratti. Riduciamo il 90% del lavoro di back-office, azzerando l'errore umano e liberando le risorse esperte per la pura consulenza strategica.",
+    title: "Founder & Brand",
+    icon: <Rocket className="w-5 h-5" />,
+    log: "BRAND_SCALING: ACTIVE",
+    roi: "Dall'identità visiva premium allo sviluppo della piattaforma di conversione. Creo ecosistemi digitali che posizionano immediatamente la tua idea come leader di categoria irresistibile.",
     metrics: [
-      { label: "TIME_SAVED", value: "90%" },
-      { label: "HUMAN_ERROR", value: "0%" }
+      { label: "MARKET_AUTHORITY", value: "TOP 1%" },
+      { label: "CONVERSION_RATE", value: "MAX" }
     ],
     color: "#00DBE9"
   },
   {
     id: 2,
-    title: "E-Commerce & Retail",
-    icon: <ShoppingCart className="w-5 h-5" />,
-    log: "CUSTOMER_SERVICE: H24_AUTONOMOUS",
-    roi: "Agenti AI che non dormono. Gestiscono resi, consigliano prodotti basati sul contesto utente e scalano istantaneamente durante i picchi di traffico stagionale (Black Friday, Natale) senza assumere personale extra.",
+    title: "Aziende Strutturate",
+    icon: <Building2 className="w-5 h-5" />,
+    log: "PROCESS_AUTOMATION: ONLINE",
+    roi: "Riduciamo i costi operativi e aumentiamo i margini integrando agenti IA nei flussi di lavoro aziendali e unificando l'infrastruttura tecnologica in un unico sistema reattivo.",
     metrics: [
-      { label: "UPTIME", value: "24/7" },
-      { label: "TICKET_DEFLECTION", value: "85%" }
+      { label: "OPERATIONAL_COSTS", value: "-40%" },
+      { label: "EFFICIENCY_BOOST", value: "5x" }
     ],
     color: "#10b981"
   },
   {
     id: 3,
-    title: "Operations (HR & Logistica)",
-    icon: <Truck className="w-5 h-5" />,
-    log: "DATA_ROUTING: OPTIMIZED",
-    roi: "I dati passano da un software all'altro istantaneamente tramite webhooks. Dimentica il data-entry manuale: il sistema ragiona, smista i curriculum ottimali o traccia inventari notificando le anomalie in tempo reale.",
+    title: "Progetti Innovativi & Tech",
+    icon: <Activity className="w-5 h-5" />,
+    log: "PRODUCT_ENGINEERING: DEPLOYED",
+    roi: "Sviluppo MVP avanzati, piattaforme SaaS scalabili e integrazioni complesse (LLM, RAG, WebGL) pronte per acquisire utenti e sollevare round di investimenti.",
     metrics: [
-      { label: "DATA_ENTRY_COST", value: "-100%" },
-      { label: "PROCESS_SPEED", value: "10x" }
+      { label: "TIME_TO_MARKET", value: "-50%" },
+      { label: "TECH_DEBT", value: "0%" }
     ],
     color: "#A78BFA"
   },
   {
     id: 4,
-    title: "Corporate SaaS & Finanza",
-    icon: <Landmark className="w-5 h-5" />,
-    log: "PREDICTIVE_ANALYSIS: ONLINE",
-    roi: "Sistemi RAG proprietari che elaborano migliaia di database finanziari interni. Interroga i tuoi storici aziendali chattando con un assistente vocale che ti restituisce le proiezioni e i KPI aggiornati del Q3 in 3 secondi.",
+    title: "Studi Professionali & Consulenza",
+    icon: <Briefcase className="w-5 h-5" />,
+    log: "DATA_ANALYSIS: AUTOMATED",
+    roi: "L'IA analizza incartamenti, sintetizza report e pre-compila contratti. Riduciamo il lavoro di back-office liberando le risorse esperte per la pura consulenza strategica ad alto ticket.",
     metrics: [
-      { label: "DATA_RETRIEVAL", value: "3s" },
-      { label: "DECISION_QUALITY", value: "MAX" }
+      { label: "TIME_SAVED", value: "90%" },
+      { label: "HUMAN_ERROR", value: "0%" }
     ],
     color: "#F59E0B"
   }
 ];
+
 
 export default function Sectors() {
   const [activeTab, setActiveTab] = useState(sectors[0]);
@@ -77,7 +78,7 @@ export default function Sectors() {
           >
             <span className="font-mono text-xs tracking-widest text-primary-cyan uppercase px-4 py-2 border border-primary-cyan/40 bg-primary-cyan/10 flex items-center gap-3">
               <Activity className="w-3 h-3 text-primary-cyan animate-pulse" />
-              Scalabilità Cross-Settore
+              Per chi costruisco
             </span>
           </motion.div>
           <motion.h2
@@ -85,9 +86,9 @@ export default function Sectors() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-display font-medium text-white tracking-tight drop-shadow-2xl"
+            className="text-4xl md:text-6xl font-display font-medium text-white tracking-tight drop-shadow-2xl uppercase"
           >
-            <ScrambleText text="MATRICE DI IMPATTO" duration={800} />
+            <ScrambleText text="Ecosistemi per chi vuole dominare" duration={800} />
           </motion.h2>
           <motion.p
              initial={{ opacity: 0 }}
@@ -96,7 +97,7 @@ export default function Sectors() {
              transition={{ delay: 0.2 }}
              className="text-foreground/50 font-sans max-w-2xl mx-auto mt-6 text-lg"
           >
-            L'architettura intelligente non ha limiti di dominio. Un sistema ben orchestrato annienta inefficienze strutturali in qualsiasi mercato.
+            Sviluppo soluzioni tecnologiche per chi non si accontenta di essere un'alternativa, ma punta a dettare gli standard nel proprio mercato.
           </motion.p>
         </div>
 

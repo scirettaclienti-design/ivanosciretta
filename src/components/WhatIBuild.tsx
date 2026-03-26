@@ -7,30 +7,30 @@ import ScrambleText from "./ui/ScrambleText";
 
 const pillars = [
   {
-    title: "Design Cinematografico (Supreme UX)",
-    description: "L'estetica non è un decoro, è una funzione. Progetto interfacce che fondono il linguaggio del cinema con la reattività del software d’avanguardia. Ogni pixel è calibrato per guidare l'attenzione e convertire l'utente.",
-    approfondimento: "In parole semplici: il tuo sito o la tua app non devono solo funzionare, ma devono essere belli da togliere il fiato. Un bel design non è solo arte, è psicologia: fa percepire il tuo prodotto come premium, più costoso e assolutamente affidabile fin dal primo secondo della visita. Riduciamo l'attrito visivo per massimizzare le vendite o i contatti.",
+    title: "Siti & Esperienze Premium",
+    description: "L'estetica non è un decoro, è conversion. Progetto architetture frontend che fondono l'impatto visivo del cinema con le performance del software d'avanguardia.",
+    approfondimento: "In parole semplici: il tuo ecosistema digitale deve farti percepire istantaneamente come il leader indiscusso del tuo mercato. Uniamo design immersivo e psicologia cognitiva per massimizzare in modo elegante contatti e conversioni, staccando i tuoi competitor.",
     icon: <Cpu className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.1,
   },
   {
-    title: "Architetture Scalabili (Engineering)",
-    description: "Sviluppo motori digitali immuni al tempo. Dai backend agentic alle infrastrutture cloud distribuite, garantisco stabilità assoluta e una velocità di risposta che ridefinisce gli standard del mercato.",
-    approfondimento: "In parole semplici: costruiamo le fondamenta invisibili del tuo sistema in modo che non crolli mai, nemmeno se improvvisamente migliaia di persone o milioni di dati iniziano a muoversi contemporaneamente. È come costruire un grattacielo con fondamenta di puro titanio invece che di legno: dormi tranquillo sapendo che il tuo software non si bloccherà nel momento di massimo successo.",
+    title: "Piattaforme AI-Driven",
+    description: "Sviluppo ecosistemi cloud intelligenti. Dai cruscotti per fondatori alle web app scalabili, integrando fin dal primo momento la potenza inferenziale dell'IA moderna.",
+    approfondimento: "In parole semplici: costruiamo prodotti digitali robusti e personalizzati, fatti per non bloccarsi e per anticipare le esigenze degli utenti. Non otterrai una copia incollata da template vari, ma una piattaforma su misura che pensa insieme a te.",
     icon: <Combine className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.2,
   },
   {
-    title: "Strategia & Market Dominance",
-    description: "Un prodotto eccezionale senza posizionamento è invisibile. Uso l'IA per analizzare i gap di mercato e costruire narrazioni brandizzate che posizionano le tue idee nel top 1% della loro categoria.",
-    approfondimento: "In parole semplici: prima di scrivere una singola riga di codice, studiamo ossessivamente i tuoi clienti e i tuoi concorrenti. Identifichiamo dove gli altri stanno sbagliando e creiamo un prodotto progettato come una 'trappola perfetta' per catturare l'attenzione del mercato. Non creiamo cloni, creiamo leader di categoria che rendono i competitor irrilevanti.",
+    title: "Sistemi di Posizionamento",
+    description: "La tecnologia fine a se stessa non genera vendite. Strutturo narrazioni, brand identity ed esperienze digitali che elevano immediatamente l'authority della tua attività.",
+    approfondimento: "In parole semplici: un prodotto perfetto che non comunica valore è invisibile. Prepariamo una strategia di presentazione e conversione rigorosa, creando una vera 'trappola del valore' che posiziona le tue idee dritto nel Top 1% del settore.",
     icon: <Blocks className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.3,
   },
   {
-    title: "Intelligence Orchestration",
-    description: "Il mio core. Coordino team umani e agenti IA (Gemini 3.1, Claude Opus 4.6, GPT 5.4) in un flusso unico. Trasformo la complessità tecnica in una macchina produttiva autonoma e instancabile.",
-    approfondimento: "In parole semplici: invece di dover assumere dieci dipendenti separati per analizzare fogli di calcolo, scrivere testi, o elaborare dati ripetitivi, creiamo dei 'dipendenti virtuali' (Agenti di Intelligenza Artificiale) specializzati. Trasferiscono dati, ragionano e compilano output 24 ore su 24 senza sosta. Noi costruiamo e dirigiamo questa orchestra invisibile in modo che tu possa solo leggerne il risultato.",
+    title: "Automazioni & Workflow",
+    description: "Il mio core. Coordino operatori virtuali e flussi di dati IA per annullare i colli di bottiglia e trasformare la complessità in una linea produttiva automatizzata.",
+    approfondimento: "In parole semplici: creiamo 'dipendenti digitali' che smistano dati, analizzano contratti o pre-compilano task noiosi al posto del tuo team umano. Il risultato? Costi tagliati brutalmente e una macchina aziendale operativa 24/7.",
     icon: <Code2 className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.4,
   },
@@ -144,12 +144,12 @@ export default function WhatIBuild() {
             />
             
             {/* Modal Content - Fluid Explosive Scaling */}
-            <motion.div 
+              <motion.div 
               initial={{ scale: 0.6, y: 50, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.8, y: 30, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="relative w-full max-w-4xl bg-[#0a0a0a]/70 backdrop-blur-2xl border border-primary-cyan/50 p-10 md:p-16 shadow-[0_0_100px_rgba(0,219,233,0.3)] overflow-hidden"
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a]/70 backdrop-blur-2xl border border-primary-cyan/50 p-6 md:p-10 lg:p-16 shadow-[0_0_100px_rgba(0,219,233,0.3)]"
             >
               {/* Scanline Background */}
               <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
@@ -157,9 +157,9 @@ export default function WhatIBuild() {
 
               <button 
                 onClick={() => setActivePillar(null)} 
-                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/5 z-20"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors p-2 hover:bg-white/5 z-20 bg-black/40 rounded-full md:bg-transparent md:rounded-none"
               >
-                 <X className="w-6 h-6" />
+                 <X className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
               <div className="relative z-10 flex flex-col items-start">

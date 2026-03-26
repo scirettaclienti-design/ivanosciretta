@@ -7,31 +7,31 @@ import ScrambleText from "./ui/ScrambleText";
 const levels = [
   {
     id: "LEVEL 00",
-    name: "INFRASTRUTTURA",
-    sys: "SYS.CORE",
-    desc: "La tua base nel codice e backend.",
-    specs: ["ARCH: NODE/PY", "DB: REL/NO-REL", "STATE: STABLE"],
+    name: "ANALISI STRATEGICA",
+    sys: "SYS.DISCOVERY",
+    desc: "Comprendere il vero problema e definire la direzione.",
+    specs: ["AUDIT: DEEP", "TARGET: ALIGNED", "STATE: CLARITY"],
   },
   {
     id: "LEVEL 01",
-    name: "INTERFACCIA",
-    sys: "SYS.UX",
-    desc: "La tua evoluzione nel design e UX 'Supreme'.",
-    specs: ["REN: WEBGL", "FPS: 60", "STATE: FLUID"],
+    name: "PROGETTAZIONE SISTEMA",
+    sys: "SYS.BLUEPRINT",
+    desc: "Design dell'esperienza utente e architettura tecnica.",
+    specs: ["UX: PREMIUM", "ARCH: SCALABLE", "STATE: DESIGNED"],
   },
   {
     id: "LEVEL 02",
-    name: "STRATEGIA",
-    sys: "SYS.MKTG",
-    desc: "Il marketing e il posizionamento aziendale.",
-    specs: ["GTM: SURGICAL", "CONV: MAX", "STATE: DOMINANT"],
+    name: "SVILUPPO & INTEGRAZIONE",
+    sys: "SYS.EXECUTION",
+    desc: "Costruzione del software e integrazione modelli IA.",
+    specs: ["CODE: CLEAN", "AI: NATIVE", "STATE: BUILT"],
   },
   {
     id: "LEVEL 03",
-    name: "ORCHESTRAZIONE",
-    sys: "SYS.HYBRID",
-    desc: "L'integrazione attuale con l'équipe e l'IA.",
-    specs: ["AI: GPT/OPUS", "HUMAN: EXPERT", "STATE: SYNERGY"],
+    name: "LANCIO E DOMINIO",
+    sys: "SYS.SCALE",
+    desc: "Go-to-market e perfezionamento delle conversioni.",
+    specs: ["LAUNCH: SURGICAL", "CONV: MAX", "STATE: LIVE"],
   },
 ];
 
@@ -60,10 +60,10 @@ export default function CareerArchitecture() {
           <div>
             <div className="font-mono text-primary-cyan text-sm mb-4 tracking-widest">[ SYSTEM DIAGRAM ]</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-white tracking-tight uppercase">
-              <ScrambleText text="Potenza Scalabile, Tocco Umano." duration={800} />
+              <ScrambleText text="Metodo, Non Improvvisazione." duration={800} />
             </h2>
             <p className="mt-6 text-foreground/50 font-sans max-w-2xl text-lg md:text-xl leading-relaxed bg-[#0a0a0a]/60 backdrop-blur-md p-6 border border-white/5 rounded-sm normal-case">
-              L'intelligenza artificiale accelera la produzione, ma è l'esperienza umana a garantirne l'anima e l'eccellenza. Mi avvalgo di un'équipe selezionata di specialisti che supervisiona e affina ogni output dell’Orchestratore. È così che otteniamo una qualità senza compromessi a una velocità che ridefinisce gli standard di mercato.
+              Non assemblo template e non procedo per tentativi. Costruire un ecosistema digitale premium richiede un framework operativo rigoroso: dall'analisi spietata del tuo modello di business fino all'implementazione ingegneristica. Un processo calibrato per garantire un risultato incontestabile.
             </p>
           </div>
           <div className="mt-8 md:mt-0 font-mono text-xs text-secondary-violet text-right uppercase opacity-70 relative z-20">

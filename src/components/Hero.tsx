@@ -74,12 +74,12 @@ export default function Hero() {
               <span className="block text-xl md:text-3xl font-mono text-primary-cyan tracking-[0.3em] uppercase mb-6 drop-shadow-[0_0_15px_rgba(0,219,233,0.5)]">
                 Ivano Sciretta
               </span>
-              <ScrambleText text="Non scrivo solo codice." duration={800} />
+              <ScrambleText text="Digital Product Builder." duration={800} />
               <br />
               <span className="relative inline-block mt-2">
                 <span className="absolute -inset-1 bg-gradient-to-r from-primary-cyan/20 to-primary-blue/20 blur-xl opacity-50 z-0" />
                 <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white via-primary-cyan/80 to-primary-blue">
-                  <ScrambleText text="Progetto ecosistemi." duration={1000} />
+                  <ScrambleText text="AI Systems Architect." duration={1000} />
                 </span>
               </span>
             </h1>
@@ -90,7 +90,7 @@ export default function Hero() {
             style={{ willChange: "transform, opacity" }}
             className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 font-sans font-light leading-relaxed drop-shadow-md p-4 bg-[#0a0a0a]/60 backdrop-blur-md border border-white/5 rounded-sm"
           >
-            Vent’anni di evoluzione digitale mi hanno portato qui. Dal design strategico all'infrastruttura backend, dal posizionamento marketing alla creazione di brand. Oggi, fondo questa esperienza totale con la potenza dei modelli AI di frontiera per costruire ecosistemi che prima erano impossibili.
+            Trasformo idee complesse in ecosistemi digitali premium e piattaforme AI-driven. Dall’analisi strategica al design dell’interfaccia, fino allo sviluppo dell'infrastruttura scalabile per garantirti un asset reale sul mercato.
           </motion.p>
 
           <motion.div
@@ -101,7 +101,7 @@ export default function Hero() {
             <Magnetic intensity={0.2}>
               <a href="#whatibuild" className="group relative px-8 py-4 bg-foreground text-background font-mono text-sm tracking-widest uppercase font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-3">
                 <span className="absolute inset-0 border border-transparent group-hover:border-primary-cyan/50 transition-colors duration-500"></span>
-                <span className="relative z-10">Esplora l'Ecosistema</span>
+                <span className="relative z-10">Costruiamo il tuo sistema</span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               </a>
             </Magnetic>
