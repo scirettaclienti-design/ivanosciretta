@@ -1,6 +1,8 @@
 "use client";
 
 import Hero from "@/components/Hero";
+import ChiSono from "@/components/ChiSono";
+import SystemScan from "@/components/SystemScan";
 import WhatIBuild from "@/components/WhatIBuild";
 import NeuralAuditor from "@/components/NeuralAuditor";
 import Projects from "@/components/Projects";
@@ -8,6 +10,7 @@ import Journey from "@/components/Journey";
 import Stack from "@/components/Stack";
 import Certifications from "@/components/Certifications";
 import Connect from "@/components/Connect";
+import SiteNavigator from "@/components/ui/SiteNavigator";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -32,8 +35,10 @@ export default function Home() {
       <div className="relative z-10 flex flex-col w-full">
         {/* Fase 1: La Genesi */}
         <Hero />
-        {/* Fase 2: Il Cervello (Master Orchestrator) */}
-        <Stack />
+        {/* Nuova Sezione: Chi Sono */}
+        <ChiSono />
+        {/* Fase 1.1: System Scan Interattivo */}
+        <SystemScan />
         {/* Fase 3: Il Corpo (Competenze) */}
         <WhatIBuild />
         {/* Fase 3.5: L'Impatto (Adozione Settoriale generativa) */}
@@ -42,8 +47,11 @@ export default function Home() {
         <Journey />
         {/* Fase 5: La Realtà (I Progetti) */}
         <Projects />
+        {/* Fase 2: Il Cervello (Master Orchestrator) (Moved to position 8) */}
+        <Stack />
         {/* Footer CTA */}
         <Connect />
+        <SiteNavigator />
       </div>
     </main>
   );

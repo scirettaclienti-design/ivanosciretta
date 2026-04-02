@@ -71,17 +71,7 @@ export default function Hero() {
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tight text-foreground text-balance drop-shadow-2xl leading-tight">
-              <span className="block text-xl md:text-3xl font-mono text-primary-cyan tracking-[0.3em] uppercase mb-6 drop-shadow-[0_0_15px_rgba(0,219,233,0.5)]">
-                Ivano Sciretta
-              </span>
-              <ScrambleText text="Digital Product Builder." duration={800} />
-              <br />
-              <span className="relative inline-block mt-2">
-                <span className="absolute -inset-1 bg-gradient-to-r from-primary-cyan/20 to-primary-blue/20 blur-xl opacity-50 z-0" />
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white via-primary-cyan/80 to-primary-blue">
-                  <ScrambleText text="AI Systems Architect." duration={1000} />
-                </span>
-              </span>
+              <ScrambleText text="Il tuo prossimo concorrente sta usando l'AI per batterti. Da quanto tempo lo sai?" duration={1000} />
             </h1>
           </motion.div>
 
@@ -90,7 +80,9 @@ export default function Hero() {
             style={{ willChange: "transform, opacity" }}
             className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto mb-14 font-sans font-light leading-relaxed drop-shadow-md p-4 bg-[#0a0a0a]/60 backdrop-blur-md border border-white/5 rounded-sm"
           >
-            Trasformo idee complesse in ecosistemi digitali premium e piattaforme AI-driven. Dall’analisi strategica al design dell’interfaccia, fino allo sviluppo dell'infrastruttura scalabile per garantirti un asset reale sul mercato.
+            Progetto sistemi digitali che combinano design da cinema, intelligenza artificiale 
+            e automazione su misura. Per aziende che vogliono smettere di inseguire — 
+            e iniziare a dominare.
           </motion.p>
 
           <motion.div
@@ -99,7 +91,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Magnetic intensity={0.2}>
-              <a href="#whatibuild" className="group relative px-8 py-4 bg-foreground text-background font-mono text-sm tracking-widest uppercase font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-3">
+              <a href="#pilastri" className="group relative px-8 py-4 bg-foreground text-background font-mono text-sm tracking-widest uppercase font-medium hover:bg-white transition-all duration-300 flex items-center justify-center gap-3">
                 <span className="absolute inset-0 border border-transparent group-hover:border-primary-cyan/50 transition-colors duration-500"></span>
                 <span className="relative z-10">Costruiamo il tuo sistema</span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />

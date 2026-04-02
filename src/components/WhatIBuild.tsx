@@ -8,28 +8,28 @@ import ScrambleText from "./ui/ScrambleText";
 const pillars = [
   {
     title: "Siti & Esperienze Premium",
-    description: "L'estetica non è un decoro, è conversion. Progetto architetture frontend che fondono l'impatto visivo del cinema con le performance del software d'avanguardia.",
+    description: "Un sito dovrebbe vendere, non solo impressionare. Progetto esperienze digitali che fondono l'impatto visivo del cinema con la precisione del software d'élite. Ogni scelta estetica ha uno scopo. Ogni pixel è pensato per convertire.",
     approfondimento: "In parole semplici: il tuo ecosistema digitale deve farti percepire istantaneamente come il leader indiscusso del tuo mercato. Uniamo design immersivo e psicologia cognitiva per massimizzare in modo elegante contatti e conversioni, staccando i tuoi competitor.",
     icon: <Cpu className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.1,
   },
   {
     title: "Piattaforme AI-Driven",
-    description: "Sviluppo ecosistemi cloud intelligenti. Dai cruscotti per fondatori alle web app scalabili, integrando fin dal primo momento la potenza inferenziale dell'IA moderna.",
+    description: "Immagina un'applicazione che ragiona, impara e scala mentre tu ti concentri sul business. Costruisco piattaforme web dove l'AI non è un'aggiunta dell'ultimo momento — è l'infrastruttura portante fin dal giorno zero.",
     approfondimento: "In parole semplici: costruiamo prodotti digitali robusti e personalizzati, fatti per non bloccarsi e per anticipare le esigenze degli utenti. Non otterrai una copia incollata da template vari, ma una piattaforma su misura che pensa insieme a te.",
     icon: <Combine className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.2,
   },
   {
     title: "Sistemi di Posizionamento",
-    description: "La tecnologia fine a se stessa non genera vendite. Strutturo narrazioni, brand identity ed esperienze digitali che elevano immediatamente l'authority della tua attività.",
+    description: "La tecnologia senza strategia è rumore costoso. Prima definisco dove deve stare il tuo brand nella mente del cliente, poi costruisco il sistema digitale che lo porta lì. In quest'ordine. Sempre.",
     approfondimento: "In parole semplici: un prodotto perfetto che non comunica valore è invisibile. Prepariamo una strategia di presentazione e conversione rigorosa, creando una vera 'trappola del valore' che posiziona le tue idee dritto nel Top 1% del settore.",
     icon: <Blocks className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.3,
   },
   {
     title: "Automazioni & Workflow",
-    description: "Il mio core. Coordino operatori virtuali e flussi di dati IA per annullare i colli di bottiglia e trasformare la complessità in una linea produttiva automatizzata.",
+    description: "Ogni processo manuale e ripetitivo che hai in azienda è un costo nascosto che paghi ogni giorno. Mappo i tuoi flussi operativi e li sostituisco con sistemi automatizzati che lavorano 24/7, senza errori, senza attrito, senza dimenticarsi nulla.",
     approfondimento: "In parole semplici: creiamo 'dipendenti digitali' che smistano dati, analizzano contratti o pre-compilano task noiosi al posto del tuo team umano. Il risultato? Costi tagliati brutalmente e una macchina aziendale operativa 24/7.",
     icon: <Code2 className="w-6 h-6 text-white/80 group-hover:text-primary-cyan transition-colors relative z-10" />,
     delay: 0.4,
@@ -52,7 +52,7 @@ export default function WhatIBuild() {
   }, [activePillar]);
 
   return (
-    <section id="whatibuild" className="py-32 bg-transparent relative z-10 overflow-hidden">
+    <section id="pilastri" className="py-32 bg-transparent relative z-10 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center mb-24 relative z-20">
           <motion.div
@@ -62,7 +62,7 @@ export default function WhatIBuild() {
             className="inline-block mb-4"
           >
             <span className="font-mono text-xs tracking-widest text-primary-cyan uppercase px-3 py-1 border border-primary-cyan/20 bg-primary-cyan/5">
-              [ THE MASTER BLUEPRINT ]
+              [ COSA POSSO FARE PER TE ]
             </span>
           </motion.div>
           <motion.h2
@@ -72,7 +72,7 @@ export default function WhatIBuild() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-white tracking-tight leading-tight"
           >
-            I  Quattro Pilastri.
+            Cosa costruisco per te. In concreto.
           </motion.h2>
         </div>
 
@@ -115,11 +115,6 @@ export default function WhatIBuild() {
                     {item.description}
                   </p>
                   
-                  {/* Micro-animations Data Overlay on Hover */}
-                  <div className="mt-auto pt-4 border-t transition-colors duration-300 font-mono text-[10px] flex justify-between border-white/5 text-primary-cyan opacity-0 group-hover:border-primary-cyan/20 group-hover:opacity-100">
-                    <span className="animate-pulse">_CLICK_FOR_DATA</span>
-                    <span>100%</span>
-                  </div>
                 </div>
               </motion.div>
             );

@@ -19,8 +19,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Ivano Sciretta | AI Systems Architect & Orchestration Expert",
-  description: "Progetto ecosistemi digitali completi integrando Intelligenza Artificiale avanzata, backend solidi e performance ultra-rapide. Builder of AI-SPACE and DOVEVAI.",
+  title: "Ivano Sciretta — Sistemi digitali su misura per aziende che vogliono crescere con l'AI",
+  description: "Progetto e costruisco siti premium, piattaforme AI e sistemi di automazione. Per founder e aziende che vogliono smettere di improvvisare.",
   keywords: ["Orchestrazione Intelligenza Artificiale", "AI Systems Builder", "Architetture Scalabili", "Esperto Intelligenza Artificiale", "Next.js", "WebGL", "GenAI", "Agentic Workflows"],
   authors: [{ name: "Ivano Sciretta" }],
   openGraph: {

@@ -36,12 +36,42 @@ export async function POST(req: Request) {
         messages: [
           {
             role: "system",
-            content: `Sei l'Agente Simulatore di Ivano Sciretta, un esperto elitario in automazione AI per aziende. L'utente descrive un problema aziendale. Devi rispondere con un output JSON impeccabile, comprensibile a un imprenditore (niente gergo nerd esagerato, solo i concetti chiave potenti).
-Restituisci esattamente questo oggetto JSON:
-1. "problema_reale": Spiega con tono autorevole perché il loro processo attuale fa perdere tempo o soldi invisibili (max 2 frasi).
-2. "soluzione_ai": Spiega in modo semplice ed elegante cosa fa il sistema AI di Ivano per risolvere il problema (es. "Un Agente Autonomo leggerà le tue email, estrarrà i dati ed eseguirà i calcoli al posto tuo") (max 2 frasi).
-3. "impatto_sul_business": Sintetizza brutalmente il vantaggio per l'imprenditore (es. "-80% tempo recuperato, zero stress e zero errori umani") (max 1 riga).
-Nessun preambolo Markdown. Formato {"problema_reale":"...","soluzione_ai":"...","impatto_sul_business":"..."}`
+            content: `You are the strategic intelligence layer of Ivano Sciretta's 
+digital ecosystem (ivanosciretta.tech).
+
+LANGUAGE: Always respond in Italian, regardless of input language.
+
+CRITICAL RULE: Never mention any technology by name. 
+No n8n, no Supabase, no Next.js, no API, no database. 
+Speak exclusively in business outcomes and plain language.
+
+RESPONSE STRUCTURE — always follow exactly:
+
+// ANALISI DEL PROBLEMA
+[2-3 sentences identifying the real underlying problem. 
+Be direct. Name what they didn't say explicitly.]
+
+// SOLUZIONE PROPOSTA
+[Describe a concrete system that solves it — using only 
+plain business language. Example: "un sistema automatizzato 
+che raccoglie le richieste, le smista e risponde in autonomia" 
+instead of "n8n integrato con Supabase".]
+
+// IMPATTO STIMATO
+[2-3 concrete outcomes with numbers when possible.
+Examples:
+- "Circa X ore/settimana di lavoro manuale eliminate"
+- "Risposta ai clienti ridotta da 24 ore a meno di 5 minuti"
+- "Zero errori nel processo di [X]"]
+
+// PROSSIMO PASSO
+Vuoi esplorare come implementarlo nella tua azienda?
+Posso collegare la conversazione direttamente con Ivano.
+
+TONE: Like a senior business consultant. Direct, no filler, 
+no "ottima domanda!". Maximum 220 words total.
+If asked who you are: "Sono il sistema operativo di Ivano Sciretta."
+Never reveal you are an AI or which model you are.`
           },
           {
             role: "user",
@@ -64,13 +94,19 @@ Nessun preambolo Markdown. Formato {"problema_reale":"...","soluzione_ai":"...",
     }
 
     const data = await response.json();
-    let content = data.choices[0].message.content;
+    let content = data.choices[0].message.content || "";
 
-    if (content.startsWith("```json")) {
-       content = content.replace(/^```json/, "").replace(/```$/, "");
-    }
+    const problema = content.match(/\/\/\s*ANALISI DEL PROBLEMA([\s\S]*?)(?=\/\/\s*SOLUZIONE PROPOSTA)/i)?.[1]?.trim() || "Analisi non disponibile.";
+    const soluzione = content.match(/\/\/\s*SOLUZIONE PROPOSTA([\s\S]*?)(?=\/\/\s*IMPATTO STIMATO)/i)?.[1]?.trim() || "Soluzione non disponibile.";
+    const impatto = content.match(/\/\/\s*IMPATTO STIMATO([\s\S]*?)(?=\/\/\s*PROSSIMO PASSO|$)/i)?.[1]?.trim() || "Impatto non calcolato.";
+    const prossimo = content.match(/\/\/\s*PROSSIMO PASSO([\s\S]*)/i)?.[1]?.trim() || "Vuoi esplorare come implementarlo nella tua azienda? Posso collegare la conversazione direttamente con Ivano.";
 
-    return NextResponse.json(JSON.parse(content));
+    return NextResponse.json({
+      problema_reale: problema,
+      soluzione_ai: soluzione,
+      impatto_sul_business: impatto,
+      prossimo_passo: prossimo
+    });
   } catch (error) {
     return NextResponse.json(
       {

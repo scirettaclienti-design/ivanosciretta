@@ -9,28 +9,28 @@ const levels = [
     id: "LEVEL 00",
     name: "ANALISI STRATEGICA",
     sys: "SYS.DISCOVERY",
-    desc: "Comprendere il vero problema e definire la direzione.",
+    desc: "Prima di scrivere una riga di codice, capisco davvero il tuo business. Dove sei, dove vuoi arrivare, e cosa ti blocca. Nessuna fretta. Nessuna scorciatoia.",
     specs: ["AUDIT: DEEP", "TARGET: ALIGNED", "STATE: CLARITY"],
   },
   {
     id: "LEVEL 01",
     name: "PROGETTAZIONE SISTEMA",
     sys: "SYS.BLUEPRINT",
-    desc: "Design dell'esperienza utente e architettura tecnica.",
+    desc: "Definisco l'architettura — visiva e tecnica. Come sarà l'esperienza del tuo cliente, quali tecnologie la renderanno possibile, come scalerà nel tempo. Tutto su carta prima di costruire qualsiasi cosa.",
     specs: ["UX: PREMIUM", "ARCH: SCALABLE", "STATE: DESIGNED"],
   },
   {
     id: "LEVEL 02",
     name: "SVILUPPO & INTEGRAZIONE",
     sys: "SYS.EXECUTION",
-    desc: "Costruzione del software e integrazione modelli IA.",
+    desc: "Si costruisce. Codice pulito, AI integrata nativamente, zero template, zero approssimazioni. Ogni componente è progettato per durare e scalare senza ricominciare da capo.",
     specs: ["CODE: CLEAN", "AI: NATIVE", "STATE: BUILT"],
   },
   {
     id: "LEVEL 03",
     name: "LANCIO E DOMINIO",
     sys: "SYS.SCALE",
-    desc: "Go-to-market e perfezionamento delle conversioni.",
+    desc: "Il lancio non è la fine — è l'inizio della fase più importante. Go-to-market, ottimizzazione delle conversioni, posizionamento nel mercato. Il progetto non si chiude finché i numeri non dicono quello che devono dire.",
     specs: ["LAUNCH: SURGICAL", "CONV: MAX", "STATE: LIVE"],
   },
 ];
@@ -45,7 +45,7 @@ export default function CareerArchitecture() {
   const lineHeight = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
 
   return (
-    <section ref={containerRef} className="relative py-32 border-t border-primary-cyan/10 overflow-hidden z-10">
+    <section id="diagram" ref={containerRef} className="relative py-32 border-t border-primary-cyan/10 overflow-hidden z-10">
       {/* Blueprint Grid Background */}
       <div 
         className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
@@ -58,12 +58,12 @@ export default function CareerArchitecture() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-primary-cyan/20 pb-8">
           <div>
-            <div className="font-mono text-primary-cyan text-sm mb-4 tracking-widest">[ SYSTEM DIAGRAM ]</div>
+            <div className="font-mono text-primary-cyan text-sm mb-4 tracking-widest">[ COME LAVORO ]</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-white tracking-tight uppercase">
-              <ScrambleText text="Metodo, Non Improvvisazione." duration={800} />
+              <ScrambleText text="Come funziona. Dal brief al risultato." duration={800} />
             </h2>
             <p className="mt-6 text-foreground/50 font-sans max-w-2xl text-lg md:text-xl leading-relaxed bg-[#0a0a0a]/60 backdrop-blur-md p-6 border border-white/5 rounded-sm normal-case">
-              Non assemblo template e non procedo per tentativi. Costruire un ecosistema digitale premium richiede un framework operativo rigoroso: dall'analisi spietata del tuo modello di business fino all'implementazione ingegneristica. Un processo calibrato per garantire un risultato incontestabile.
+              Non procedo per tentativi e non assemblo template. Ogni progetto segue un framework in quattro fasi, progettato per portare risultati misurabili in tempi definiti. Ecco cosa succede, dal primo messaggio in poi.
             </p>
           </div>
           <div className="mt-8 md:mt-0 font-mono text-xs text-secondary-violet text-right uppercase opacity-70 relative z-20">

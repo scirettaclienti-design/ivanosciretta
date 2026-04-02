@@ -4,12 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrambleText from "./ui/ScrambleText";
 import Particles from "./ui/Particles";
-import { Sparkles, BrainCircuit, TrendingUp, AlertCircle, RefreshCw } from "lucide-react";
+import { Sparkles, BrainCircuit, TrendingUp, AlertCircle, RefreshCw, MessageCircle } from "lucide-react";
 
 type AuditResult = {
   problema_reale: string;
   soluzione_ai: string;
   impatto_sul_business: string;
+  prossimo_passo?: string;
 } | null;
 
 const SIMULATED_LOGS = [
@@ -23,6 +24,7 @@ const SIMULATED_LOGS = [
 
 export default function NeuralAuditor() {
   const [inputVal, setInputVal] = useState("");
+  const [hasStartedTyping, setHasStartedTyping] = useState(false);
   const [status, setStatus] = useState<"IDLE" | "SCANNING" | "READY" | "ERROR">("IDLE");
   const [result, setResult] = useState<AuditResult>(null);
   const [logs, setLogs] = useState<string[]>([]);
@@ -64,9 +66,16 @@ export default function NeuralAuditor() {
       setResult({
         problema_reale: "Connessione al motore AI interrotta.",
         soluzione_ai: "Verificare lo stato della rete o le API keys.",
-        impatto_sul_business: "Impossibile calcolare il vantaggio."
+        impatto_sul_business: "Impossibile calcolare il vantaggio.",
+        prossimo_passo: "Vuoi esplorare come implementarlo nel tuo caso specifico? Posso collegare la conversazione direttamente con Ivano."
       });
     }
+  };
+
+  const getWhatsAppUrl = () => {
+    if (!result || !inputVal) return "#";
+    const text = `Inizializziamo la sequenza. Ho provato il Simulatore.\n\nContesto:\n- Problema: ${inputVal}\n- Diagnosi: ${result.soluzione_ai}\n\nVorrei approfondire.`;
+    return `https://wa.me/393476498357?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -93,9 +102,9 @@ export default function NeuralAuditor() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white tracking-tight drop-shadow-2xl mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white tracking-tight drop-shadow-2xl mb-8 border-none"
           >
-            <ScrambleText text="PROVA IL SIMULATORE" duration={1200} />
+            <ScrambleText text="Hai 2 minuti? Scopri dove stai perdendo soldi senza saperlo." duration={1200} />
           </motion.h2>
           <motion.p
              initial={{ opacity: 0 }}
@@ -104,7 +113,9 @@ export default function NeuralAuditor() {
              transition={{ delay: 0.2 }}
              className="text-foreground/60 font-sans max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
           >
-            L'efficienza estrema si progetta su misura. Descrivi un processo lento, manuale o frustrante della tua azienda. L'AI analizzerà il problema e progetterà istantaneamente il sistema per automatizzarlo.
+            Descrivi un processo lento, manuale o frustrante della tua azienda. 
+            L'AI analizzerà il problema e ti mostrerà — gratis, adesso — come potrebbe 
+            essere automatizzato. Nessuna email richiesta. Nessun venditore ti richiamerà.
           </motion.p>
         </div>
 
@@ -151,10 +162,19 @@ export default function NeuralAuditor() {
 
                     <textarea 
                       value={inputVal}
-                      onChange={(e) => setInputVal(e.target.value)}
+                      onChange={(e) => {
+                        setInputVal(e.target.value);
+                        if (!hasStartedTyping) setHasStartedTyping(true);
+                      }}
                       placeholder="👉 Es: Il mio team perde 3 ore al giorno a rispondere alle mail dei clienti copiando incollarndo vecchie risposte..."
                       className="w-full h-56 bg-black/40 border border-white/20 hover:border-primary-cyan/50 rounded-[2rem] p-6 md:p-8 text-white text-xl md:text-3xl font-sans focus:ring-4 focus:ring-primary-cyan/30 focus:border-primary-cyan outline-none resize-none placeholder:text-white/30 transition-all shadow-[inset_0_4px_30px_rgba(0,0,0,0.5)]"
                     />
+
+                    {!hasStartedTyping && inputVal.length === 0 && (
+                      <p className="mt-4 text-center font-mono text-[11px] opacity-50 text-white">
+                        Scrivi almeno una riga per attivare l'analisi
+                      </p>
+                    )}
                     
                     <button 
                       onClick={handleAudit}
@@ -162,7 +182,7 @@ export default function NeuralAuditor() {
                       className="mt-8 mx-auto w-full md:w-auto px-12 py-5 bg-gradient-to-r from-primary-cyan to-primary-blue text-black font-display font-bold text-xl md:text-2xl tracking-wide rounded-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-[0_10px_50px_rgba(0,219,233,0.4)] hover:shadow-[0_20px_60px_rgba(0,219,233,0.6)] flex items-center justify-center gap-4 group"
                     >
                       <Sparkles className="w-6 h-6 animate-pulse" />
-                      INIZIA SIMULAZIONE ORA
+                      → PROVA ORA — È GRATIS
                       <BrainCircuit className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                     </button>
                   </motion.div>
@@ -254,14 +274,32 @@ export default function NeuralAuditor() {
 
                     <motion.div 
                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-                       className="mt-12 flex justify-center"
+                       className="mt-12 flex flex-col items-center justify-center gap-6"
                     >
-                      <button 
-                        onClick={() => { setStatus("IDLE"); setInputVal(""); }}
-                        className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/70 font-sans text-sm hover:bg-white/10 hover:text-white transition-all shadow-sm"
-                      >
-                        <RefreshCw className="w-4 h-4" /> Esegui Nuova Simulazione
-                      </button>
+                      {result.prossimo_passo && (
+                        <p className="text-white/60 font-sans text-center max-w-lg mb-2">
+                          {result.prossimo_passo}
+                        </p>
+                      )}
+                      
+                      <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <a 
+                          href={getWhatsAppUrl()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 px-8 py-4 bg-[#25D366]/10 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366] hover:text-white font-mono text-xs tracking-widest uppercase transition-all rounded-md shadow-[0_0_15px_rgba(37,211,102,0.15)] group"
+                        >
+                          <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                          PARLA CON IVANO
+                        </a>
+                        
+                        <button 
+                          onClick={() => { setStatus("IDLE"); setInputVal(""); }}
+                          className="flex items-center gap-2 px-6 py-4 rounded-md border border-white/10 bg-transparent text-white/50 font-mono text-xs tracking-widest uppercase hover:bg-white/5 hover:text-white transition-all shadow-sm"
+                        >
+                          <RefreshCw className="w-4 h-4" /> NUOVA SIMULAZIONE
+                        </button>
+                      </div>
                     </motion.div>
                   </motion.div>
                 )}

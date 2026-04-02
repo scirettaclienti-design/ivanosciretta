@@ -6,7 +6,7 @@ import ScrambleText from "./ui/ScrambleText";
 import Magnetic from "./ui/Magnetic";
 
 export default function Connect() {
-  const whatsappUrl = "https://wa.me/393476498357?text=Inizializziamo%20la%20sequenza.%20Ho%20visto%20il%20tuo%20ecosistema%20e%20vorrei%20parlarti%20del%20mio%20progetto.";
+  const whatsappUrl = "https://wa.me/393476498357?text=Ciao+Ivano%2C+ho+visitato+il+tuo+sito+e+vorrei+capire+come+possiamo+lavorare+insieme.";
   const { scrollYProgress } = useScroll();
   
   // Power Down effect: geometric elements lose focus and light shrinks precisely on the CTA
@@ -29,7 +29,7 @@ export default function Connect() {
            maskImage: useTransform(maskSize, s => `radial-gradient(circle at center, transparent ${s}, black ${s})`)
         }}
       />
-      <section id="connect" className="relative py-32 overflow-hidden z-10 bg-transparent flex flex-col items-center justify-center min-h-[70vh]">
+      <section id="cta" className="relative py-32 overflow-hidden z-10 bg-transparent flex flex-col items-center justify-center min-h-[70vh]">
         <div className="container mx-auto px-6 relative z-10 flex-grow flex flex-col justify-center">
         <div className="max-w-4xl mx-auto text-center">
           
@@ -40,7 +40,7 @@ export default function Connect() {
             className="inline-block mb-6"
           >
             <span className="font-mono text-xs tracking-widest text-[#00DBE9] uppercase px-3 py-1 border border-[#00DBE9]/30 bg-[#00DBE9]/10">
-              [ PROJECT INITIATION ]
+              [ INIZIA IL TUO PROGETTO ]
             </span>
           </motion.div>
 
@@ -51,7 +51,7 @@ export default function Connect() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-foreground tracking-tight mb-8 drop-shadow-[0_0_15px_rgba(0,0,0,1)]"
           >
-             <ScrambleText text="Trasforma l'Idea in Asset Reale." duration={1000} />
+             <ScrambleText text="Pronto a smettere di improvvisare?" duration={1000} />
           </motion.h2>
 
           <motion.p
@@ -61,8 +61,7 @@ export default function Connect() {
             transition={{ delay: 0.2 }}
             className="text-foreground/60 text-lg md:text-2xl max-w-2xl mx-auto mb-16 font-sans leading-relaxed drop-shadow-lg"
           >
-            Sei pronto a costruire una piattaforma scalabile che posiziona il tuo brand al vertice del mercato?
-            Definiamo la rotta strategica.
+            Sei arrivato fin qui, hai già capito che il tuo business può funzionare in modo completamente diverso. Parliamo — senza impegno, senza pitch preconfezionati. Solo una conversazione tra persone che sanno cosa vogliono.
           </motion.p>
 
           <motion.div
@@ -88,13 +87,13 @@ export default function Connect() {
                 
                 <span className="relative z-10 flex items-center gap-3">
                   <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
-                  PARLIAMO DEL TUO PROGETTO
+                  INIZIA LA CONVERSAZIONE
                 </span>
                 <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
               </a>
             </Magnetic>
             <p className="mt-8 font-mono text-xs text-foreground/40 tracking-widest uppercase max-w-sm text-balance leading-loose">
-              Collegamento Diretto WhatsApp <br/> [ Parla direttamente con me ]
+              Collegamento diretto WhatsApp — rispondo io, non un bot.
             </p>
           </motion.div>
 

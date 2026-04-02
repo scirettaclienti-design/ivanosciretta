@@ -12,7 +12,7 @@ const projects = [
     metrics: ["Multi-Agentic Routing", "Opus + Gemini Core", "Zero Drift System"],
     gradient: "from-primary-cyan to-[#0a0a0a]",
     icon: <Cpu className="w-8 h-8 text-primary-cyan" />,
-    content: "Piattaforma proprietaria per l'orchestrazione di agenti IA. Automatizza la creazione di contenuti e interi flussi operativi, annullando l'attrito tra l'idea e la messa in produzione.",
+    content: "Un motore proprietario di orchestrazione multi-agente. Prende un'idea e la trasforma in contenuti, automazioni e workflow operativi — eliminando completamente l'attrito tra strategia ed esecuzione. Claude + Gemini in parallelo, architettura zero-drift, deploy immediato.",
     status: "ACTIVE_DEPLOYMENT"
   },
   {
@@ -22,14 +22,14 @@ const projects = [
     metrics: ["Mapbox 3D Custom", "GenAI POI Routing", "Sub-second Latency"],
     gradient: "from-emerald-400 to-[#0a0a0a]",
     icon: <Network className="w-8 h-8 text-emerald-400" />,
-    content: "Un ecosistema di mappe 3D intelligenti basate su elaborazione spaziale e IA generativa. Trasforma dati crudi in esperienze di esplorazione premium per l'utente finale.",
+    content: "Turismo intelligente, non turismo digitale. Mappe 3D con AI generativa, routing semantico, latenza sub-secondo. Trasforma dati grezzi di territorio in esperienze di esplorazione premium. Già live.",
     status: "BETA_SEQUENCE"
   }
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-32 z-10 bg-[#050505]/40 backdrop-blur-sm border-t border-white/5">
+    <section id="dossiers" className="relative py-32 z-10 bg-[#050505]/40 backdrop-blur-sm border-t border-white/5">
       <div className="container mx-auto px-6 relative z-10">
         
         <div className="max-w-3xl mb-24">
@@ -41,7 +41,7 @@ export default function Projects() {
           >
             <span className="font-mono text-xs tracking-widest text-primary-cyan uppercase px-3 py-1 border border-primary-cyan/20 bg-primary-cyan/10 flex items-center gap-2">
               <Lock className="w-3 h-3" />
-              [ CLASSIFIED DOSSIERS ]
+              [ PROGETTI REALI ]
             </span>
           </motion.div>
           <motion.h2
@@ -51,7 +51,7 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-white tracking-tight mb-6"
           >
-            <ScrambleText text="Sistemi in Produzione." duration={800} />
+            <ScrambleText text="Proof. Non mockup — sistemi live." duration={800} />
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function Projects() {
             transition={{ delay: 0.2 }}
             className="text-white/50 text-xl font-sans leading-relaxed bg-[#0a0a0a]/80 backdrop-blur-md p-6 border border-white/5 inline-block"
           >
-            Non parlo di concept. Qui trovi piattaforme reali, complesse e scalabili che proietto costantemente sul mercato.
+            Questi non sono concept. Sono piattaforme reali, in produzione, costruite da zero e usate ogni giorno. Guarda cosa è già possibile.
           </motion.p>
         </div>
 
@@ -92,13 +92,13 @@ export default function Projects() {
                          <span>STATUS</span> <span className="text-white">{project.status}</span>
                        </p>
                        <p className="text-white/70 flex justify-between border-b border-white/10 pb-2">
-                         <span>ENGINE</span> <span>ORCHESTRATOR_V3</span>
+                         <span>ENGINE</span> <span>AI NATIVA</span>
                        </p>
                        <p className="text-white/70 flex justify-between border-b border-white/10 pb-2">
-                         <span>ENCRYPTION</span> <span className="text-emerald-400">ACTIVE</span>
+                         <span>DATI</span> <span className="text-emerald-400">PROTETTI</span>
                        </p>
                        <p className="text-white/70 flex justify-between border-b border-white/10 pb-2">
-                         <span>LOAD_BALANCING</span> <span className="text-emerald-400">OPTIMIZED</span>
+                         <span>ALTA</span> <span className="text-emerald-400">DISPONIBILITÀ</span>
                        </p>
                        <p className="text-emerald-400 flex justify-between pt-6">
                          <span className="animate-pulse">_SYSTEM_READY</span> <span>100%</span>

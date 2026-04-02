@@ -53,7 +53,7 @@ export default function Stack() {
             className="text-foreground/60 font-sans max-w-3xl mx-auto text-lg md:text-xl leading-relaxed p-6 border border-white/10 rounded-none bg-black/40 backdrop-blur-xl shadow-2xl relative overflow-hidden"
           >
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-            <span className="relative z-10">Un’idea non ha valore senza un’esecuzione impeccabile. Il mio ruolo è tradurre il caos creativo in protocolli operativi. Governerai un'architettura dinamica dove i modelli più avanzati – Gemini 3.1, Claude Opus 4.6, GPT 5.4 – dialogano in tempo reale per dare vita a prodotti finiti.</span>
+            <span className="relative z-10">Non un singolo strumento. Un'orchestra. Tre modelli AI specializzati lavorano in parallelo su ogni progetto, coordinati da un framework proprietario. Il risultato: una capacità di output che nessun team tradizionale può replicare — a nessun budget.</span>
           </motion.div>
         </div>
 
@@ -141,9 +141,9 @@ export default function Stack() {
 
                 <div className="space-y-6 relative z-20">
                    {[
-                    { name: "Nodo: Gemini 3.1", desc: "[ACTIVE - Ragionamento]", color: "text-[#00DBE9]", bg: "bg-[#00DBE9]" },
-                    { name: "Nodo: Claude 4.6", desc: "[ACTIVE - Logica Pura]", color: "text-[#00DBE9]", bg: "bg-[#00DBE9]" },
-                    { name: "Nodo: GPT-5", desc: "[STANDBY - Esecuzione]", color: "text-foreground/40", bg: "bg-foreground/40" },
+                    { name: "Nodo: Gemini", desc: "[ACTIVE - Ragionamento Strategico]", color: "text-[#00DBE9]", bg: "bg-[#00DBE9]" },
+                    { name: "Nodo: Claude", desc: "[ACTIVE - Logica & Qualità]", color: "text-[#00DBE9]", bg: "bg-[#00DBE9]" },
+                    { name: "Nodo: GPT-4o", desc: "[STANDBY - Esecuzione Rapida]", color: "text-foreground/40", bg: "bg-foreground/40" },
                   ].map((item, i) => (
                     <div 
                       key={i} 
@@ -199,7 +199,7 @@ export default function Stack() {
                   <div className="p-5 border border-white/5 bg-black/60 rounded-xl relative z-20">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_currentColor]" />
-                      <p className="text-white text-lg font-medium">n8n + Supabase DB</p>
+                      <p className="text-white text-lg font-medium">Automazione & Dati</p>
                     </div>
                     <p className="text-xs ml-5 font-mono uppercase text-emerald-400">
                       [SYNC - AUTOMAZIONE TOTALE]
@@ -234,7 +234,7 @@ export default function Stack() {
                   <div className="p-5 border border-white/5 bg-black/60 rounded-xl relative z-20">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="w-2 h-2 rounded-full bg-[#A78BFA] animate-pulse shadow-[0_0_10px_currentColor]" />
-                      <p className="text-white text-lg font-medium">Next.js 15 + Tailwind</p>
+                      <p className="text-white text-lg font-medium">Frontend & Esperienza</p>
                     </div>
                     <p className="text-xs ml-5 font-mono uppercase text-[#A78BFA]">
                       [RENDER - ESPERIENZA ESECUTIVA]
