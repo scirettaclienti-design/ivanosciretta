@@ -25,7 +25,7 @@ export default function SiteNavigator() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-8 z-[9999] cursor-pointer"
+            className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] cursor-pointer"
             onClick={() => setIsOpen(true)}
           >
             <div className="relative group cursor-pointer">
@@ -37,8 +37,9 @@ export default function SiteNavigator() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="flex items-center gap-3 px-5 py-3 bg-[#0a0a0a]/90 backdrop-blur-md border border-primary-cyan/40 hover:border-primary-cyan transition-all font-mono text-xs text-primary-cyan tracking-widest rounded-sm"
               >
-                <span className="w-2 h-2 rounded-full bg-primary-cyan" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-                <span>[ MENU DI NAVIGAZIONE ]</span>
+                <span className="w-2 h-2 rounded-full bg-primary-cyan flex-shrink-0" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
+                <span className="hidden sm:inline-block whitespace-nowrap">[ MENU DI NAVIGAZIONE ]</span>
+                <span className="inline-block sm:hidden whitespace-nowrap">[ MENU ]</span>
               </motion.div>
             </div>
           </motion.div>
@@ -76,10 +77,13 @@ export default function SiteNavigator() {
 
               <div className="p-4 flex flex-col gap-2">
                 {[
-                  { num: "01", label: "COSA FACCIO", target: "pilastri" },
-                  { num: "02", label: "COME LAVORO", target: "diagram" },
-                  { num: "03", label: "COSA HO COSTRUITO", target: "dossiers" },
-                  { num: "04", label: "PARLIAMO", target: "cta" },
+                  { num: "01", label: "CHI SONO", target: "chi-sono" },
+                  { num: "02", label: "IL TUO PROFILO", target: "scan" },
+                  { num: "03", label: "COSA FACCIO", target: "pilastri" },
+                  { num: "04", label: "SIMULATORE AI", target: "simulatore" },
+                  { num: "05", label: "COME LAVORO", target: "diagram" },
+                  { num: "06", label: "PROGETTI REALI", target: "dossiers" },
+                  { num: "07", label: "PARLIAMO", target: "cta" },
                 ].map((step) => (
                   <button
                     key={step.num}

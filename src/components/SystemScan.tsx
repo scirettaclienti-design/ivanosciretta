@@ -59,7 +59,7 @@ export default function SystemScan() {
   const combinedProfile = answers[1] === 1 ? `${selectedProfile} con processi manuali` : `${selectedProfile} in fase critica`;
 
   return (
-    <section className="relative py-24 mb-10 z-10">
+    <section id="scan" className="relative py-24 mb-10 z-10">
       <div className="container mx-auto px-6 relative z-10">
         
         <div className="max-w-4xl mx-auto">

@@ -79,7 +79,7 @@ export default function NeuralAuditor() {
   };
 
   return (
-    <section className="relative py-32 md:py-48 z-10 overflow-hidden bg-black">
+    <section id="simulatore" className="relative py-32 md:py-48 z-10 overflow-hidden bg-black">
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary-cyan/5 blur-[150px] rounded-full pointer-events-none" />
