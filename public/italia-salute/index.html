@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Italia Salute — Sistema digitale</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap');
+
+:root{
+  --bg:#FBFBF9;
+  --card:#FFFFFF;
+  --ink:#0B0F0E;
+  --ink-2:#2E3A36;
+  --soft:#6B7A74;
+  --faint:#9DAAA4;
+  --line:#E4E7E2;
+  --line-2:#EFF1ED;
+  --dark:#0C1614;
+  --dark-2:#16241F;
+  --acc:#00A86B;
+  --acc-d:#00784D;
+  --acc-l:#E6F7F0;
+  --warn:#D97539;
+  --warn-l:#FDF1E8;
+  --disp:'Space Grotesk',-apple-system,sans-serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;}
+p{margin:0 0 1em;}
+.w{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:-.025em;margin:0 0 .5em;line-height:1.12;}
+h2{font-size:clamp(28px,4.6vw,42px);max-width:20ch;}
+h3{font-size:clamp(21px,3vw,27px);}
+.lede{font-size:18px;color:var(--soft);max-width:60ch;line-height:1.6;}
+
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);background:var(--acc-l);padding:6px 12px;border-radius:100px;margin-bottom:22px;}
+.tag.n{color:var(--soft);background:var(--line-2);}
+section{padding:80px 0;}
+.dark{background:var(--dark);color:#fff;}
+.dark h2,.dark h3,.dark h4{color:#fff;}
+.dark .lede{color:#9FB2AB;}
+.dark .tag{background:rgba(0,168,107,.14);color:#4FD9A4;}
+
+/* ═ HERO ═ */
+.hero{background:var(--dark);padding:76px 0 0;}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.09);}
+.hero .brand{font-family:var(--disp);font-size:14px;font-weight:600;color:#fff;letter-spacing:-.01em;}
+.hero .brand span{color:#5E736C;font-weight:400;}
+.hero .date{font-size:12.5px;color:#5E736C;}
+.hero-main{padding:56px 0 66px;display:grid;gap:44px;}
+@media(min-width:940px){.hero-main{grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;}}
+.hero h1{font-size:clamp(34px,5.6vw,58px);color:#fff;max-width:15ch;margin-bottom:22px;}
+.hero h1 span{color:var(--acc);}
+.hero .sub{color:#9FB2AB;font-size:17.5px;max-width:48ch;margin:0;}
+.hero-stat{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px;}
+.hs-n{font-family:var(--disp);font-size:66px;font-weight:700;color:var(--acc);line-height:.95;letter-spacing:-.04em;}
+.hs-u{font-family:var(--disp);font-size:15px;color:#9FB2AB;margin:8px 0 20px;font-weight:500;}
+.hs-d{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:grid;gap:12px;}
+.hs-r{display:flex;justify-content:space-between;font-size:13.5px;color:#9FB2AB;}
+.hs-r b{color:#fff;font-weight:500;font-family:var(--disp);}
+
+/* ═ CALC ═ */
+.calc{margin-top:38px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.cr{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 24px;border-bottom:1px solid var(--line-2);}
+.cr:last-child{border-bottom:none;}
+.cr .l{font-size:14.5px;color:var(--soft);max-width:40ch;}
+.cr .v{font-family:var(--disp);font-size:15px;font-weight:500;white-space:nowrap;color:var(--ink-2);}
+.cr.key{background:var(--acc-l);border-top:1px solid var(--line);}
+.cr.key .l{color:var(--ink);font-weight:500;font-size:15.5px;}
+.cr.key .v{font-size:28px;font-weight:700;color:var(--acc-d);letter-spacing:-.03em;}
+.note{font-size:13.5px;color:var(--faint);margin-top:16px;max-width:62ch;}
+
+/* ═ PERSONAS ═ */
+.pp{display:grid;gap:14px;margin-top:38px;}
+@media(min-width:820px){.pp{grid-template-columns:repeat(3,1fr);}}
+.p{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;}
+.p .pc{font-family:var(--disp);font-size:40px;font-weight:700;color:var(--acc);letter-spacing:-.04em;line-height:1;}
+.p h4{font-family:var(--disp);font-size:17px;margin:14px 0 3px;}
+.p .who{font-size:12.5px;color:var(--faint);margin-bottom:14px;}
+.p p{font-size:14.5px;color:var(--soft);margin-bottom:14px;}
+.p .q{font-size:15px;color:var(--ink-2);border-left:2px solid var(--acc);padding-left:13px;margin:0;font-style:italic;}
+
+/* ═ CHAT ═ */
+.chat-grid{display:grid;gap:40px;margin-top:38px;}
+@media(min-width:940px){.chat-grid{grid-template-columns:1fr 400px;gap:56px;align-items:start;}}
+.try{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:8px;}
+.try li{font-size:14px;color:#9FB2AB;background:var(--dark-2);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:11px 15px;font-style:italic;}
+.phone{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);}
+.pbar{background:#0F3B2C;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:11px;}
+.av{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#062;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:var(--disp);flex-shrink:0;}
+.pbar b{font-size:14.5px;font-weight:600;display:block;line-height:1.2;font-family:var(--disp);}
+.pbar span{font-size:11px;opacity:.75;}
+.stream{padding:16px 14px 10px;height:358px;overflow-y:auto;background:#F6F7F4;}
+.b{max-width:85%;padding:9px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;margin:0 0 9px;word-wrap:break-word;color:var(--ink);}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;}
+.b.me{background:#D6F5E6;margin-left:auto;border-bottom-right-radius:4px;}
+.b em{color:var(--faint);font-style:normal;font-size:12px;display:block;margin-top:6px;padding-top:6px;border-top:1px solid var(--line-2);}
+.typing{display:flex;gap:4px;padding:12px 14px;width:54px;background:#fff;border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px;margin-bottom:9px;}
+.typing i{width:6px;height:6px;background:#B4C0BA;border-radius:50%;display:block;}
+@media(prefers-reduced-motion:no-preference){
+ .typing i{animation:bob 1.1s infinite;}
+ .typing i:nth-child(2){animation-delay:.15s;}.typing i:nth-child(3){animation-delay:.3s;}
+ @keyframes bob{0%,60%,100%{transform:translateY(0);opacity:.45;}30%{transform:translateY(-4px);opacity:1;}}
+}
+.sugg{padding:10px 14px 0;background:#F6F7F4;display:flex;flex-wrap:wrap;gap:7px;}
+.sugg button{font-family:var(--sans);font-size:13px;color:var(--acc-d);background:#fff;border:1px solid #BCE5D3;border-radius:100px;padding:6px 13px;cursor:pointer;}
+.sugg button:hover{background:var(--acc-l);}
+.composer{display:flex;gap:8px;padding:12px 14px;background:#F6F7F4;border-top:1px solid var(--line-2);}
+.composer input{flex:1;font-family:var(--sans);font-size:15px;padding:10px 15px;border:1px solid var(--line);border-radius:100px;outline:none;background:#fff;min-width:0;color:var(--ink);}
+.composer input:focus{border-color:var(--acc);}
+.composer button{background:#0F3B2C;color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:16px;cursor:pointer;flex-shrink:0;}
+.dnote{font-size:12.5px;color:#6E837C;margin:14px 0 0;}
+
+/* ═ MODULES ═ */
+.mods{display:grid;gap:16px;margin-top:40px;}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.mod-h{display:flex;align-items:flex-start;gap:18px;padding:26px 28px 0;}
+.mod-n{font-family:var(--disp);font-size:13px;font-weight:700;color:var(--acc);background:var(--acc-l);width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mod-h h3{margin:2px 0 0;}
+.mod-h .lv{font-size:11.5px;color:var(--faint);font-family:var(--disp);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-top:5px;}
+.mod-b{padding:16px 28px 28px;}
+.mod-b>p{color:var(--soft);max-width:66ch;}
+.does{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:10px;overflow:hidden;}
+.does li{background:var(--card);padding:11px 16px;font-size:14.5px;color:var(--ink-2);}
+.gain{margin-top:18px;background:var(--acc-l);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--ink-2);}
+.gain b{color:var(--acc-d);font-weight:600;font-family:var(--disp);}
+.mod.off{opacity:1;}
+.mod.off .mod-n{color:var(--soft);background:var(--line-2);}
+.mod.off .gain{background:var(--line-2);}
+.mod.off .gain b{color:var(--ink-2);}
+.phase{display:inline-block;font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-left:auto;flex-shrink:0;}
+.phase.now{background:var(--acc);color:#fff;}
+.phase.later{background:var(--line-2);color:var(--soft);}
+
+/* ═ LAB ═ */
+.lab{margin:22px 0 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#FCFCFA;}
+.lab-h{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:13px 18px;border-bottom:1px solid var(--line);background:#F7F8F5;}
+.lab-t{font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+.lab-b{padding:20px 18px;}
+.run{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.02em;background:var(--ink);color:#fff;border:none;padding:9px 16px;border-radius:100px;cursor:pointer;transition:background .18s;}
+.run:hover{background:var(--acc-d);}
+.run:disabled{opacity:.35;cursor:default;}
+.run.wide{display:block;width:100%;margin-top:16px;}
+.seg{display:flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;background:#fff;}
+.seg button{font-family:var(--disp);font-size:11.5px;font-weight:500;background:transparent;color:var(--soft);border:none;padding:8px 15px;cursor:pointer;}
+.seg button.on{background:var(--ink);color:#fff;}
+.slog{font-size:13.5px;color:var(--soft);margin:16px 0 0;min-height:2.8em;}
+
+/* 02 */
+.slot{border:1px solid var(--line);border-radius:10px;padding:15px 17px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;transition:all .45s;background:#fff;}
+.slot-time{font-family:var(--disp);font-size:13px;font-weight:600;color:var(--ink);}
+.slot-who{font-size:14.5px;color:var(--soft);flex:1;min-width:170px;}
+.slot-badge{font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--acc-l);color:var(--acc-d);}
+.slot.free{border-color:var(--warn);background:var(--warn-l);}
+.slot.free .slot-badge{background:#F8DDCA;color:var(--warn);}
+.slot.filled{border-color:var(--acc);background:var(--acc-l);}
+.queue{margin-top:10px;display:grid;gap:6px;opacity:.3;transition:opacity .45s;}
+.queue.live{opacity:1;}
+.qi{display:flex;align-items:center;gap:14px;padding:11px 16px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:14px;transition:all .4s;}
+.qn{font-weight:500;min-width:118px;}
+.qs{color:var(--faint);font-size:12.5px;flex:1;}
+.qt{font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);}
+.qi.sent{border-color:#BCE5D3;}
+.qi.sent .qt{color:var(--acc-d);}
+.qi.won{background:var(--acc-l);border-color:var(--acc);}
+.qi.won .qt{color:var(--acc-d);}
+.qi.out{opacity:.35;}
+.ticker{display:flex;gap:36px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--line-2);}
+.tk{display:flex;flex-direction:column;}
+.tk-v{font-family:var(--disp);font-size:36px;font-weight:700;line-height:1;color:var(--acc-d);letter-spacing:-.03em;}
+.tk-l{font-size:12.5px;color:var(--faint);margin-top:5px;max-width:18ch;}
+
+/* 03 */
+.cards{display:grid;gap:8px;transition:opacity .4s;}
+@media(min-width:620px){.cards{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.cards{grid-template-columns:repeat(4,1fr);}}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:3px;background:#fff;}
+.c-name{font-family:var(--disp);font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.c-meta{font-size:12.5px;color:var(--faint);}
+.cards.gone{opacity:0;height:0;overflow:hidden;margin:0;pointer-events:none;}
+.merged{display:none;border:1px solid var(--acc);border-radius:12px;background:var(--acc-l);padding:24px;}
+.merged.show{display:block;}
+.m-name{font-family:var(--disp);font-size:25px;font-weight:600;color:var(--ink);display:block;letter-spacing:-.02em;}
+.m-sub{font-size:13px;color:var(--soft);display:block;margin:4px 0 20px;}
+.m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media(min-width:620px){.m-grid{grid-template-columns:repeat(4,1fr);}}
+.m-grid div{display:flex;flex-direction:column;}
+.m-grid b{font-family:var(--disp);font-size:30px;font-weight:700;color:var(--acc-d);line-height:1;letter-spacing:-.03em;}
+.m-grid span{font-size:12px;color:var(--soft);margin-top:5px;}
+.m-note{font-size:12.5px;color:var(--soft);margin:20px 0 0;}
+
+/* 04 */
+.bars{display:grid;gap:10px;}
+.bar{display:grid;grid-template-columns:120px 1fr 58px;align-items:center;gap:12px;font-size:13.5px;}
+.bar .bn{color:var(--ink-2);}
+.bar .bt{height:26px;background:var(--line-2);border-radius:100px;overflow:hidden;}
+.bar .bf{height:100%;width:0;background:var(--ink);border-radius:100px;transition:width .7s cubic-bezier(.2,.8,.3,1);}
+.bar .bd{font-family:var(--disp);font-size:12.5px;font-weight:500;color:var(--soft);text-align:right;}
+.bar.best .bf{background:var(--acc);}
+.bar.best .bn{font-weight:600;color:var(--ink);}
+.bar.best .bd{color:var(--acc-d);font-weight:600;}
+.bar.dim{opacity:.35;}
+
+/* 05 */
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr);}}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:11px;padding:17px 16px;display:flex;flex-direction:column;}
+.k-v{font-family:var(--disp);font-size:32px;font-weight:700;line-height:1;color:var(--ink);letter-spacing:-.03em;}
+.k-v i{font-style:normal;font-size:18px;}
+.kpi.warn .k-v{color:var(--warn);}
+.k-l{font-size:11.5px;color:var(--faint);margin-top:7px;line-height:1.4;}
+.k-cap{font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:24px 0 12px;}
+.sat{display:grid;gap:9px;}
+.srow{display:grid;grid-template-columns:120px 1fr 46px;align-items:center;gap:12px;font-size:13px;color:var(--ink-2);}
+.srow .st{height:22px;background:var(--line-2);border-radius:100px;overflow:hidden;}
+.srow .sf{height:100%;width:0;background:var(--acc);border-radius:100px;transition:width .8s cubic-bezier(.2,.8,.3,1);}
+.srow.low .sf{background:var(--warn);}
+.srow .sv{font-family:var(--disp);font-size:12px;font-weight:500;text-align:right;color:var(--soft);}
+.alert{margin:20px 0 0;padding:14px 16px;border-radius:10px;background:var(--warn-l);color:#8A4620;font-size:14px;}
+
+/* 06 */
+.sheet{border:1px solid var(--line);border-radius:11px;padding:18px;background:#fff;}
+.sh-t{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--faint);margin:0 0 14px;text-transform:uppercase;}
+.sh-r{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line-2);font-size:14.5px;color:var(--soft);}
+.sh-v{font-family:var(--disp);font-size:13.5px;font-weight:500;color:var(--line);transition:color .25s;}
+.sh-v.on{color:var(--ink);}
+.sh-n{font-size:12.5px;color:var(--faint);margin:14px 0 0;}
+.agg{display:none;margin-top:12px;border:1px solid var(--acc);border-radius:11px;background:var(--acc-l);padding:20px;}
+.agg.show{display:block;}
+.agg-t{font-family:var(--disp);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);margin:0 0 16px;}
+.agg-bars{display:grid;gap:10px;}
+.abar{display:grid;grid-template-columns:150px 1fr 50px;align-items:center;gap:12px;font-size:13.5px;}
+.abar .at{height:22px;background:#fff;border-radius:100px;overflow:hidden;}
+.abar .af{height:100%;width:0;background:var(--acc-d);border-radius:100px;transition:width .8s cubic-bezier(.2,.8,.3,1);}
+.abar .av{font-family:var(--disp);font-size:12.5px;font-weight:500;color:var(--soft);text-align:right;}
+.agg-note{font-size:12.5px;color:var(--soft);margin:18px 0 0;}
+
+/* ═ BASE / READY ═ */
+.ready{display:grid;gap:14px;margin-top:38px;}
+@media(min-width:860px){.ready{grid-template-columns:1.25fr .75fr;}}
+.rd{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;}
+.rd h4{font-family:var(--disp);font-size:18px;margin:0 0 4px;}
+.rd .rd-s{font-size:12.5px;color:var(--faint);margin:0 0 18px;}
+.rl{list-style:none;padding:0;margin:0;display:grid;gap:1px;background:var(--line-2);border-radius:10px;overflow:hidden;border:1px solid var(--line-2);}
+.rl li{background:#fff;padding:13px 16px;display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--ink-2);}
+.rl .st{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:100px;flex-shrink:0;margin-left:auto;}
+.st.ok{background:var(--acc-l);color:var(--acc-d);}
+.st.new{background:var(--warn-l);color:var(--warn);}
+.rd.pct{background:var(--dark);border-color:var(--dark);display:flex;flex-direction:column;justify-content:center;}
+.rd.pct .big{font-family:var(--disp);font-size:76px;font-weight:700;color:var(--acc);line-height:.92;letter-spacing:-.045em;}
+.rd.pct h4{color:#fff;margin-top:14px;}
+.rd.pct p{color:#9FB2AB;font-size:14.5px;margin:8px 0 0;}
+
+/* ═ SCENARIOS ═ */
+.scn{display:grid;gap:12px;margin-top:32px;}
+@media(min-width:800px){.scn{grid-template-columns:repeat(3,1fr);}}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:22px;display:flex;flex-direction:column;}
+.sc .sc-h{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;}
+.sc h4{font-family:var(--disp);font-size:16.5px;margin:0 0 8px;}
+.sc p{font-size:14px;color:var(--soft);margin:0 0 16px;flex:1;}
+.sc .imp{font-family:var(--disp);font-size:13px;font-weight:600;padding:9px 13px;border-radius:9px;background:var(--acc-l);color:var(--acc-d);}
+.sc.mid .imp{background:var(--line-2);color:var(--ink-2);}
+.sc.hard .imp{background:var(--warn-l);color:var(--warn);}
+
+/* ═ PLAN ═ */
+.plan{display:grid;gap:10px;margin-top:38px;}
+.pw{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:22px 24px;display:grid;gap:12px;}
+@media(min-width:800px){.pw{grid-template-columns:96px 1fr 200px;gap:26px;align-items:start;}}
+.pw-w{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);padding-top:2px;}
+.pw h4{font-family:var(--disp);font-size:17px;font-weight:600;margin:0 0 5px;color:#fff;}
+.pw p{font-size:14px;color:#9FB2AB;margin:0;}
+.pw-o{font-size:12.5px;color:#7B9089;line-height:1.5;}
+.pw.mile{border-color:var(--acc);background:rgba(0,168,107,.08);}
+.pw.mile .pw-o{color:#4FD9A4;}
+
+/* ═ COND ═ */
+.two{display:grid;gap:16px;margin-top:38px;}
+@media(min-width:860px){.two{grid-template-columns:1fr 1fr;}}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;}
+.blk h4{font-family:var(--disp);font-size:19px;margin:0 0 16px;}
+.blk ul{list-style:none;padding:0;margin:0;display:grid;gap:14px;}
+.blk li{font-size:14.5px;color:var(--soft);padding-left:16px;position:relative;}
+.blk li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--acc);}
+.blk li b{color:var(--ink);font-weight:600;}
+
+/* ═ CLOSE ═ */
+.close .sig{margin-top:30px;font-family:var(--disp);font-size:14.5px;color:#fff;line-height:1.7;}
+footer{padding:28px 0 46px;font-size:12px;color:var(--faint);line-height:1.7;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="w">
+    <div class="top">
+      <span class="brand">Italia Salute Srl SB <span>· analisi e sistema proposto</span></span>
+      <span class="date">Ivano Sciretta · con Radiosa Righi · settembre 2026</span>
+    </div>
+    <div class="hero-main">
+      <div>
+        <h1>Il vostro centralino risponde <span>96 volte al giorno</span>. Due terzi non servono a nessuno.</h1>
+        <p class="sub">È una stima costruita dall'esterno: potete smentirla in trenta secondi guardando il registro chiamate, e se il numero vero è la metà il ragionamento regge lo stesso. Qui sotto trovate il conto riga per riga, l'assistente già funzionante che potete provare adesso, e un piano a sei settimane che regge perché il sistema è in gran parte già costruito.</p>
+      </div>
+      <div class="hero-stat">
+        <p class="hs-n">3,3</p>
+        <p class="hs-u">ore di segreteria al giorno,<br>assorbite da domande ripetitive</p>
+        <div class="hs-d">
+          <div class="hs-r"><span>Persone seguite all'anno</span><b>1.600</b></div>
+          <div class="hs-r"><span>Appuntamenti gestiti</span><b>16.000</b></div>
+          <div class="hs-r"><span>Sedi da coordinare</span><b>4</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="w">
+  <span class="tag">01 — Il volume</span>
+  <h2>Il conto che nessuno vi ha fatto</h2>
+  <p class="lede">Partiamo dall'unico dato che avete dichiarato pubblicamente: oltre 1.600 persone seguite ogni anno su quattro sedi. Da lì si ricostruisce tutto il resto.</p>
+
+  <div class="calc">
+    <div class="cr"><span class="l">Persone seguite ogni anno</span><span class="v">1.600</span></div>
+    <div class="cr"><span class="l">Sedute per ciclo riabilitativo, media di settore</span><span class="v">× 10</span></div>
+    <div class="cr"><span class="l">Appuntamenti gestiti in un anno</span><span class="v">16.000</span></div>
+    <div class="cr"><span class="l">Distribuiti su 250 giorni lavorativi</span><span class="v">64 / giorno</span></div>
+    <div class="cr"><span class="l">Contatti telefonici per appuntamento — prenotazione, conferma, spostamento</span><span class="v">× 1,5</span></div>
+    <div class="cr"><span class="l">Chiamate in ingresso sulle quattro sedi</span><span class="v">≈ 96 / giorno</span></div>
+    <div class="cr"><span class="l">Quota ripetitiva: orari, conferme, documenti, indirizzi</span><span class="v">≈ 70%</span></div>
+    <div class="cr key"><span class="l">Tempo di segreteria assorbito da domande automatizzabili</span><span class="v">3,3 h / giorno</span></div>
+  </div>
+  <p class="note">Stima costruita su dati pubblici e medie di settore, non su vostre rilevazioni. Il primo lavoro insieme è sostituire ogni riga con il numero vero: se il moltiplicatore reale è 1,2 invece di 1,5 il quadro cambia, e vogliamo saperlo prima di costruire.</p>
+</section>
+
+<section class="w" style="padding-top:0;">
+  <span class="tag n">02 — Chi chiama</span>
+  <h2>Tre persone opposte, un solo numero</h2>
+  <p class="lede">Un centro convenzionato nella BAT non riceve chiamate da utenti digitali. Riceve chiamate da tre profili con bisogni inconciliabili, che oggi finiscono tutti nella stessa coda.</p>
+
+  <div class="pp">
+    <div class="p">
+      <p class="pc">45%</p>
+      <h4>Il paziente in ciclo</h4>
+      <p class="who">65-80 anni · già in cura</p>
+      <p>Chiama per confermare, spostare, ricordare l'orario. Le telefonate più numerose e le più brevi — quelle che una macchina risolve meglio di una persona.</p>
+      <p class="q">"Scusi, mi ricorda a che ora ho giovedì?"</p>
+    </div>
+    <div class="p">
+      <p class="pc">35%</p>
+      <h4>La figlia</h4>
+      <p class="who">40-55 anni · prenota per il genitore</p>
+      <p>Lavora. Chiama in pausa pranzo, quando la coda è più lunga. È l'unica dei tre che scriverebbe volentieri invece di telefonare — e lo farebbe alle 22.</p>
+      <p class="q">"Richiamo domani, adesso non ho tempo."</p>
+    </div>
+    <div class="p">
+      <p class="pc">20%</p>
+      <h4>Il primo accesso</h4>
+      <p class="who">con impegnativa · mai stato</p>
+      <p>Non sa se serve l'impegnativa, quale sede è più vicina, quanto si aspetta. Poche chiamate ma lunghe: è qui che la segreteria perde più minuti.</p>
+      <p class="q">"Ma devo portare qualcosa?"</p>
+    </div>
+  </div>
+  <p class="note">Ripartizione stimata sulla composizione tipica di un centro riabilitativo convenzionato, non sui vostri registri. Un'estrazione di due settimane di chiamate reali basta a confermarla o correggerla, ed è la prima cosa che chiediamo.</p>
+</section>
+
+<section class="dark">
+  <div class="w">
+    <span class="tag">03 — La risposta, funzionante</span>
+    <h2>Scrivetegli quello che volete</h2>
+    <div class="chat-grid">
+      <div>
+        <p class="lede">Non è un video né una schermata. È l'assistente, costruito per questa proposta e attivo in questa pagina. Scrivete come scriverebbe un vostro paziente: di corsa, con gli errori, anche una domanda a cui non dovrebbe saper rispondere.</p>
+        <ul class="try">
+          <li>vorrei spostare giovedì</li>
+          <li>quanto costa la fisioterapia</li>
+          <li>sono a barletta dove vengo</li>
+          <li>mi fa male la spalla cosa faccio</li>
+        </ul>
+      </div>
+      <div>
+        <div class="phone">
+          <div class="pbar">
+            <div class="av">IS</div>
+            <div><b>Italia Salute</b><span>online · risponde subito</span></div>
+          </div>
+          <div class="stream" id="stream" aria-live="polite"></div>
+          <div class="sugg" id="sugg"></div>
+          <div class="composer">
+            <input id="inp" type="text" placeholder="Scrivete un messaggio…" autocomplete="off" aria-label="Scrivi un messaggio">
+            <button id="send" aria-label="Invia">→</button>
+          </div>
+        </div>
+        <p class="dnote">Simulazione con dati di esempio. La versione reale si collega alle vostre agende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w" style="padding-top:0;">
+  <span class="tag">04 — Il punto di partenza</span>
+  <h2>Non partiamo da zero</h2>
+  <p class="lede">L'assistente che avete appena provato non è un prototipo costruito per convincervi: è un motore che già funziona. Vale per quasi tutti i pezzi di questo sistema. Quello che va costruito da capo è soltanto la parte che è vostra.</p>
+
+  <div class="ready">
+    <div class="rd">
+      <h4>Cosa esiste, cosa va costruito</h4>
+      <p class="rd-s">Stato reale dei componenti, senza arrotondamenti</p>
+      <ul class="rl">
+        <li>Motore conversazionale e riconoscimento delle richieste<span class="st ok">esiste</span></li>
+        <li>Logica di prenotazione su più sedi con disponibilità e conferme<span class="st ok">esiste</span></li>
+        <li>Promemoria automatici e riassegnazione dei posti liberati<span class="st ok">esiste</span></li>
+        <li>Unificazione anagrafiche e riconoscimento duplicati<span class="st ok">esiste</span></li>
+        <li>Cruscotti e reportistica su dati operativi<span class="st ok">esiste</span></li>
+        <li>Le vostre prestazioni, i vostri orari, le vostre risposte<span class="st new">da costruire</span></li>
+        <li>Il collegamento al gestionale che usate oggi<span class="st new">da costruire</span></li>
+        <li>Regole cliniche: cosa l'assistente non deve mai fare<span class="st new">da costruire</span></li>
+      </ul>
+    </div>
+    <div class="rd pct">
+      <p class="big">80%</p>
+      <h4>già costruito e collaudato</h4>
+      <p>Le sei settimane servono al venti per cento che è soltanto vostro. È questo che rende una scadenza a un mese e mezzo una previsione e non una promessa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="w" style="padding-top:0;">
+  <span class="tag n">05 — L'innesto</span>
+  <h2>Come si collega a quello che già usate</h2>
+  <p class="lede">Non sostituiamo il vostro gestionale. Il nuovo sistema gli si affianca e ne legge le disponibilità. Quanto è rapido dipende da come è fatto, e i casi possibili sono tre: lo verifichiamo il primo giorno, prima di impegnare qualsiasi cifra.</p>
+
+  <div class="scn">
+    <div class="sc">
+      <p class="sc-h">Caso A · il più frequente</p>
+      <h4>Il gestionale espone i dati</h4>
+      <p>Il sistema legge e scrive direttamente su agende e anagrafiche. Nessun doppio inserimento per nessuno, in nessun momento.</p>
+      <p class="imp">Nessun impatto sui tempi</p>
+    </div>
+    <div class="sc mid">
+      <p class="sc-h">Caso B</p>
+      <h4>Esporta solo file</h4>
+      <p>Si lavora con un allineamento periodico, più volte al giorno. Le prenotazioni entrano nel nostro sistema e confluiscono nel vostro a intervalli regolari.</p>
+      <p class="imp">Circa tre giorni in più</p>
+    </div>
+    <div class="sc hard">
+      <p class="sc-h">Caso C</p>
+      <h4>Sistema chiuso</h4>
+      <p>L'agenda condivisa parte autonoma e la segreteria allinea il gestionale come fa oggi. Il vantaggio sulle chiamate resta intero; l'integrazione si affronta in una fase successiva.</p>
+      <p class="imp">Circa una settimana in più</p>
+    </div>
+  </div>
+  <p class="note">In tutti e tre i casi l'assistente e il recupero dei posti liberati funzionano allo stesso modo. Cambia solo quanto lavoro manuale resta alla segreteria sull'allineamento, e lo sappiamo entro il primo giorno di lavoro insieme.</p>
+</section>
+
+<section class="w" style="padding-top:0;">
+  <span class="tag">06 — Il perimetro</span>
+  <h2>Quattro interventi in sei settimane, due nella fase successiva</h2>
+  <p class="lede">I primi quattro moduli costituiscono un sistema completo e autosufficiente, realizzabile in un mese e mezzo proprio perché i componenti esistono già. Gli ultimi due hanno senso solo quando i primi producono dati, e restano una scelta successiva.</p>
+
+  <div class="mods">
+
+    <div class="mod">
+      <div class="mod-h">
+        <span class="mod-n">01</span>
+        <div><h3>Assistente su WhatsApp</h3><p class="lv">Primo contatto</p></div>
+        <span class="phase now">Sei settimane</span>
+      </div>
+      <div class="mod-b">
+        <p>Un numero unico per le quattro sedi. Risponde a qualsiasi ora, riconosce chi scrive, passa a un operatore solo quando serve una persona — e quando non è sicuro non inventa. Convive con qualunque altro canale abbiate o stiate sviluppando.</p>
+        <ul class="does">
+          <li>Prenota, sposta e conferma appuntamenti su tutte le sedi</li>
+          <li>Risponde su impegnativa, documenti, orari, indirizzi</li>
+          <li>Registra ogni primo accesso: nessuna richiesta si perde</li>
+          <li>Consegna la conversazione alla segreteria quando la domanda è clinica</li>
+        </ul>
+        <p class="gain"><b>Il ritorno.</b> Le circa 67 chiamate ripetitive al giorno smettono di passare dal centralino. Le tre ore di segreteria tornano ai pazienti in sede.</p>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-h">
+        <span class="mod-n">02</span>
+        <div><h3>Recupero dei posti liberati</h3><p class="lv">Primo contatto</p></div>
+        <span class="phase now">Sei settimane</span>
+      </div>
+      <div class="mod-b">
+        <p>Ogni disdetta dell'ultimo minuto è una seduta persa e uno slot vuoto che nessuno riempie in tempo. Il sistema lo riempie da solo, mentre la segreteria è impegnata altrove.</p>
+
+        <div class="lab">
+          <div class="lab-h"><span class="lab-t">Dimostrazione — cosa succede a una disdetta</span><button class="run" id="run2">Simula una disdetta</button></div>
+          <div class="lab-b">
+            <div class="slot" id="slot2">
+              <span class="slot-time">Giovedì 11 · 10:30</span>
+              <span class="slot-who" id="who2">Sig.ra Caputo · fisioterapia</span>
+              <span class="slot-badge" id="badge2">confermato</span>
+            </div>
+            <div class="queue" id="queue2">
+              <div class="qi"><span class="qn">Sig. Dalena</span><span class="qs">in attesa dal 2 set</span><span class="qt"></span></div>
+              <div class="qi"><span class="qn">Sig.ra Lopez</span><span class="qs">in attesa dal 4 set</span><span class="qt"></span></div>
+              <div class="qi"><span class="qn">Sig. Rutigliano</span><span class="qs">in attesa dal 5 set</span><span class="qt"></span></div>
+            </div>
+            <p class="slog" id="log2">Slot occupato e confermato. Premete il pulsante per vedere cosa accade se il paziente disdice alle 8 del mattino.</p>
+            <div class="ticker">
+              <div class="tk"><span class="tk-v" id="tk2a">0</span><span class="tk-l">minuti per riassegnare</span></div>
+              <div class="tk"><span class="tk-v" id="tk2b">0</span><span class="tk-l">sedute recuperate al mese, stimate</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="gain"><b>Il ritorno.</b> È l'intervento con il ritorno economico più diretto: ogni seduta recuperata è una prestazione erogata invece che persa, e una persona in meno in lista d'attesa.</p>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-h">
+        <span class="mod-n">03</span>
+        <div><h3>Anagrafica unica dei pazienti</h3><p class="lv">Fondamenta</p></div>
+        <span class="phase now">Sei settimane</span>
+      </div>
+      <div class="mod-b">
+        <p>Con quattro sedi cresciute in momenti diversi, è probabile che la stessa persona esista più volte in archivi separati, con storie che non si parlano. È il lavoro meno visibile e quello che regge tutto il resto.</p>
+
+        <div class="lab">
+          <div class="lab-h"><span class="lab-t">Dimostrazione — quattro schede, una persona</span><button class="run" id="run3">Unifica</button></div>
+          <div class="lab-b">
+            <div class="cards" id="cards3">
+              <div class="card"><span class="c-name">ROSSI GIUSEPPE</span><span class="c-meta">Margherita di Savoia</span><span class="c-meta">nato 12/04/1954</span><span class="c-meta">ciclo 2019 · 10 sedute</span></div>
+              <div class="card"><span class="c-name">Rossi Giuseppe</span><span class="c-meta">San Ferdinando</span><span class="c-meta">nato 12/04/54</span><span class="c-meta">ciclo 2022 · 8 sedute</span></div>
+              <div class="card"><span class="c-name">G. Rossi</span><span class="c-meta">Trinitapoli</span><span class="c-meta">data non presente</span><span class="c-meta">ciclo 2024 · 10 sedute</span></div>
+              <div class="card"><span class="c-name">Rossi Giusep.</span><span class="c-meta">Barletta</span><span class="c-meta">nato 12/04/1954</span><span class="c-meta">in corso · 4 di 10</span></div>
+            </div>
+            <div class="merged" id="merged3">
+              <span class="m-name">Rossi Giuseppe</span>
+              <span class="m-sub">nato il 12/04/1954 · assistito dal 2019</span>
+              <div class="m-grid">
+                <div><b>4</b><span>cicli riabilitativi</span></div>
+                <div><b>32</b><span>sedute complessive</span></div>
+                <div><b>4</b><span>sedi frequentate</span></div>
+                <div><b>1</b><span>scheda, visibile ovunque</span></div>
+              </div>
+              <p class="m-note">Prima della fusione il sistema mostra le differenze e chiede conferma: nessun record viene unito automaticamente.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="gain"><b>Il ritorno.</b> Chi accoglie un paziente vede tutto il suo percorso, anche se iniziato altrove. E ogni analisi successiva parte da dati affidabili invece che da quattro elenchi che non si parlano.</p>
+      </div>
+    </div>
+
+    <div class="mod">
+      <div class="mod-h">
+        <span class="mod-n">04</span>
+        <div><h3>Agenda condivisa tra le sedi</h3><p class="lv">Fondamenta</p></div>
+        <span class="phase now">Sei settimane</span>
+      </div>
+      <div class="mod-b">
+        <p>L'assistente può prenotare solo se sa dove c'è posto. Oggi le disponibilità delle quattro sedi vivono separate, e nessuno vede il quadro d'insieme — nemmeno voi.</p>
+
+        <div class="lab">
+          <div class="lab-h"><span class="lab-t">Dimostrazione — dove c'è posto prima</span>
+            <div class="seg" id="seg4"><button class="on" data-p="fisio">Fisioterapia</button><button data-p="logo">Logopedia</button></div>
+          </div>
+          <div class="lab-b">
+            <div class="bars" id="bars4"></div>
+            <button class="run wide" id="run4">Trova il prima possibile</button>
+            <p class="slog" id="log4">Selezionate una prestazione: il sistema confronta le agende delle quattro sedi.</p>
+          </div>
+        </div>
+
+        <p class="gain"><b>Il ritorno.</b> Un paziente che aspetterebbe tre settimane a San Ferdinando può essere preso in cinque giorni a Trinitapoli. Oggi quel confronto non lo fa nessuno perché nessuno può farlo.</p>
+      </div>
+    </div>
+
+    <div class="mod off">
+      <div class="mod-h">
+        <span class="mod-n">05</span>
+        <div><h3>Cruscotto per la direzione</h3><p class="lv">Direzione</p></div>
+        <span class="phase later">Fase successiva</span>
+      </div>
+      <div class="mod-b">
+        <p>Una pagina sola, aggiornata ogni giorno, che risponde alle domande che oggi richiedono di chiamare quattro segreterie e mettere insieme quattro fogli. Ha senso quando agenda e anagrafica producono già dati puliti.</p>
+
+        <div class="lab">
+          <div class="lab-h"><span class="lab-t">Dimostrazione — la vista del lunedì mattina</span>
+            <div class="seg" id="seg5"><button class="on" data-v="w">Settimana</button><button data-v="m">Mese</button></div>
+          </div>
+          <div class="lab-b">
+            <div class="kpis" id="kpis5">
+              <div class="kpi"><span class="k-v" data-k="a">0</span><span class="k-l">prestazioni erogate</span></div>
+              <div class="kpi"><span class="k-v" data-k="b">0<i>%</i></span><span class="k-l">saturazione media slot</span></div>
+              <div class="kpi"><span class="k-v" data-k="c">0</span><span class="k-l">mancate presenze</span></div>
+              <div class="kpi warn"><span class="k-v" data-k="d">0<i>%</i></span><span class="k-l">scostamento dal volume atteso</span></div>
+            </div>
+            <p class="k-cap">Saturazione per sede</p>
+            <div class="sat" id="sat5"></div>
+            <p class="alert" id="alert5">Trinitapoli è sotto il volume atteso da tre settimane. A metà mese si può ancora recuperare.</p>
+          </div>
+        </div>
+
+        <p class="gain"><b>Il ritorno.</b> Vedere a metà mese che una sede è sotto il volume atteso permette di intervenire mentre si recupera ancora, non a consuntivo quando è tardi.</p>
+      </div>
+    </div>
+
+    <div class="mod off">
+      <div class="mod-h">
+        <span class="mod-n">06</span>
+        <div><h3>Esiti e relazione d'impatto</h3><p class="lv">Direzione</p></div>
+        <span class="phase later">Fase successiva</span>
+      </div>
+      <div class="mod-b">
+        <p>Come Società Benefit depositate ogni anno una relazione d'impatto. Se i dati sui percorsi non sono raccolti in modo strutturato, quella relazione va ricostruita a mano, e la riduzione delle liste d'attesa resta un'affermazione invece che un numero.</p>
+
+        <div class="lab">
+          <div class="lab-h"><span class="lab-t">Dimostrazione — dalla scheda al dato</span><button class="run" id="run6">Compila e chiudi il ciclo</button></div>
+          <div class="lab-b">
+            <div class="sheet" id="sheet6">
+              <p class="sh-t">Scheda di fine ciclo · Rossi Giuseppe</p>
+              <div class="sh-r"><span>Condizione iniziale</span><span class="sh-v" data-f="a">—</span></div>
+              <div class="sh-r"><span>Condizione finale</span><span class="sh-v" data-f="b">—</span></div>
+              <div class="sh-r"><span>Sedute effettive</span><span class="sh-v" data-f="c">—</span></div>
+              <div class="sh-r"><span>Giorni di attesa iniziale</span><span class="sh-v" data-f="d">—</span></div>
+              <p class="sh-n">Quaranta secondi del fisioterapista, una volta per ciclo.</p>
+            </div>
+            <div class="agg" id="agg6">
+              <p class="agg-t">Aggregato annuale, generato automaticamente</p>
+              <div class="agg-bars" id="aggbars6"></div>
+              <p class="agg-note">Lo stesso dato alimenta la relazione d'impatto e l'anagrafe ricerca, senza doppio inserimento.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="gain"><b>Il ritorno.</b> L'impegno preso come Società Benefit diventa dimostrabile con un grafico, ogni anno, senza lavoro aggiuntivo per nessuno.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="dark">
+  <div class="w">
+    <span class="tag">07 — Tempi</span>
+    <h2>Sei settimane, con il sistema in funzione alla quinta</h2>
+    <p class="lede">Un mese e mezzo dall'avvio alla consegna dei primi quattro moduli. Ogni settimana produce qualcosa di verificabile: non c'è un momento in cui state pagando senza vedere niente. Partendo in ottobre, il sistema è in esercizio prima della fine dell'anno e l'intero piano resta dentro le finestre di spesa dei bandi in valutazione.</p>
+
+    <div class="plan">
+      <div class="pw">
+        <span class="pw-w">Settimana 1</span>
+        <div><h4>Verifica dei numeri e del gestionale</h4><p>Mezza giornata con chi gestisce centralino e agende. Estrazione di due settimane di chiamate e di un mese di agenda per sede, e verifica di quale dei tre casi di integrazione è il vostro. Lo stesso giorno parte la registrazione del numero WhatsApp Business: è la dipendenza esterna più lenta e va avviata subito.</p></div>
+        <p class="pw-o">Stime sostituite dai dati reali · pratica Meta aperta</p>
+      </div>
+      <div class="pw">
+        <span class="pw-w">Settimana 2</span>
+        <div><h4>Anagrafica unificata</h4><p>Estrazione degli archivi delle quattro sedi, riconoscimento dei duplicati, revisione con voi dei casi dubbi. Nessun record viene unito senza conferma.</p></div>
+        <p class="pw-o">Archivio unico dei pazienti</p>
+      </div>
+      <div class="pw">
+        <span class="pw-w">Settimana 3</span>
+        <div><h4>Agenda condivisa e collegamento al gestionale</h4><p>Le quattro agende in una vista sola, con la lettura delle disponibilità reali. È qui che si scopre quanto è aperto il sistema che usate oggi, e si adatta il collegamento di conseguenza.</p></div>
+        <p class="pw-o">Agenda unica funzionante</p>
+      </div>
+      <div class="pw">
+        <span class="pw-w">Settimana 4</span>
+        <div><h4>Assistente adattato ai vostri contenuti</h4><p>Il motore esiste già: qui si caricano le vostre prestazioni, si scrivono i flussi sulle vostre risposte, si definiscono con voi le regole su cosa non deve mai dire. Revisione con la segreteria e test su conversazioni reali del passato. In parallelo arriva l'approvazione Meta dei modelli.</p></div>
+        <p class="pw-o">Assistente completo in prova</p>
+      </div>
+      <div class="pw mile">
+        <span class="pw-w">Settimana 5</span>
+        <div><h4>In funzione su una sede</h4><p>L'assistente risponde davvero, su un centro solo, con la segreteria che sorveglia e può intervenire in qualunque momento. Cinque giorni di rodaggio con correzioni quotidiane.</p></div>
+        <p class="pw-o">Primo traguardo verificabile: chiamate misurate prima e dopo</p>
+      </div>
+      <div class="pw mile">
+        <span class="pw-w">Settimana 6</span>
+        <div><h4>Quattro sedi e recupero slot attivo</h4><p>Estensione a tutti i centri, promemoria automatici, riassegnazione dei posti liberati a chi è in lista d'attesa. Consegna, documentazione e formazione della segreteria.</p></div>
+        <p class="pw-o">Sistema consegnato e in esercizio</p>
+      </div>
+    </div>
+    <p class="note" style="color:#7B9089;">I tempi valgono dalla data di avvio e dipendono da due fattori esterni dichiarati: l'approvazione Meta dei modelli di messaggio, che richiede da cinque a quindici giorni lavorativi e viene avviata il primo giorno, e la disponibilità di una persona vostra un'ora a settimana. Se una delle due slitta, ve lo comunichiamo il giorno stesso.</p>
+  </div>
+</section>
+
+<section class="w">
+  <span class="tag n">08 — Condizioni</span>
+  <h2>Cosa serve perché funzioni</h2>
+  <p class="lede">Un progetto sanitario che ignora queste due colonne si blocca al secondo mese. Le mettiamo in chiaro adesso, non a lavori iniziati.</p>
+
+  <div class="two">
+    <div class="blk">
+      <h4>Trattamento dei dati sanitari</h4>
+      <ul>
+        <li><b>Categoria particolare.</b> I dati che passano nel sistema sono dati relativi alla salute ai sensi dell'art. 9 GDPR: servono base giuridica documentata e informativa dedicata.</li>
+        <li><b>Nomina formale.</b> Chi costruisce e mantiene il sistema opera come responsabile del trattamento, con atto di nomina firmato ai sensi dell'art. 28.</li>
+        <li><b>Dove risiedono i dati.</b> Archivi su infrastruttura in Unione Europea, cifrati, con accessi tracciati e differenziati per ruolo.</li>
+        <li><b>Cosa non passa da WhatsApp.</b> Il canale gestisce prenotazioni, orari e informazioni logistiche. Referti, diagnosi e valutazioni cliniche restano fuori dalla conversazione automatica.</li>
+        <li><b>Il vostro DPO.</b> Se ne avete uno, va coinvolto dalla settimana uno, non alla consegna.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <h4>Dipendenze e vincoli</h4>
+      <ul>
+        <li><b>Canale WhatsApp ufficiale.</b> Serve un account WhatsApp Business API con numero verificato: comporta l'approvazione Meta dei modelli di messaggio e un costo per conversazione a carico dell'azienda, indipendente dal nostro lavoro.</li>
+        <li><b>Il gestionale che già usate.</b> Non lo sostituiamo. L'agenda condivisa va collegata a quello che usate per cartelle e fatturazione: se espone i dati verso l'esterno il lavoro è più breve, altrimenti serve un passaggio in più, da valutare in settimana uno.</li>
+        <li><b>Una persona di riferimento vostra.</b> Un'ora a settimana, qualcuno che sa davvero come si prenota oggi. È la condizione che pesa di più sui tempi.</li>
+        <li><b>Autorizzazione a estrarre i dati storici.</b> Necessaria per unificare le anagrafiche e per misurare il prima e il dopo.</li>
+        <li><b>Cosa resta vostro.</b> Dati, contenuti e configurazioni restano di proprietà di Italia Salute ed esportabili in qualsiasi momento, anche interrompendo il rapporto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="dark close">
+  <div class="w">
+    <span class="tag">09 — Il prossimo passo</span>
+    <h2>Mezza giornata per sostituire le stime con i vostri numeri</h2>
+    <p class="lede">Ogni cifra di questo documento è ricostruita dall'esterno e va verificata prima di impegnare un euro. La settimana uno serve esattamente a questo: guardare insieme il registro chiamate e un mese di agenda, e vedere se il conto regge. Se regge, il piano parte con le date che avete letto. Se non regge, lo scoprite prima di firmare qualsiasi cosa.</p>
+    <p class="sig">Ivano Sciretta<br>In collaborazione con Radiosa Righi</p>
+  </div>
+</section>
+
+<footer class="w">
+  <p>Documento preparato per Italia Salute Srl SB · Le stime derivano da dati pubblici e medie di settore · La simulazione dell'assistente usa esclusivamente dati di esempio</p>
+</footer>
+
+<script>
+(function(){
+  var stream=document.getElementById('stream'),sugg=document.getElementById('sugg'),
+      inp=document.getElementById('inp'),send=document.getElementById('send'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,started=false;
+  function bubble(html,who,note){var el=document.createElement('p');el.className='b '+who;
+    el.innerHTML=html+(note?'<em>'+note+'</em>':'');stream.appendChild(el);stream.scrollTop=stream.scrollHeight;}
+  function bot(html,note,then){
+    if(reduce){bubble(html,'bot',note);if(then)then();return;}
+    var t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';
+    stream.appendChild(t);stream.scrollTop=stream.scrollHeight;
+    setTimeout(function(){t.remove();bubble(html,'bot',note);if(then)then();},Math.min(320+html.length*9,1400));}
+  function chips(list){sugg.innerHTML='';list.forEach(function(txt){var b=document.createElement('button');
+    b.textContent=txt;b.addEventListener('click',function(){handle(txt);});sugg.appendChild(b);});}
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();}
+  function has(t,w){return w.some(function(x){return t.indexOf(x)>-1;});}
+
+var intents=[
+    {k:['male','dolore','fa male','spalla','ginocchio','schiena','sintomo','cosa faccio','cosa ho'],
+     r:function(){bot('Su una valutazione clinica non posso e non devo rispondere io. Le faccio richiamare dal fisioterapista di riferimento, che le dirà se serve una visita e quale percorso è indicato.','Il confine più importante: mai valutazioni cliniche, sempre passaggio a un professionista',
+       function(){chips(['Va bene grazie','Vorrei prenotare']);});}},
+
+    {k:['prenot','appuntament','fissare','vorrei venire','posso venire','fisioterapia','seduta','visita'],
+     r:function(){bot('Certamente. Le nostre sedi sono Margherita di Savoia, San Ferdinando di Puglia, Trinitapoli e il centro di Barletta. Quale preferisce, o le indico quella con l\'attesa più breve?','Riconosce l\'intenzione di prenotare',
+       function(){chips(['Quella con meno attesa','San Ferdinando','Trinitapoli']);});}},
+
+    {k:['meno attesa','piu vicin','prima possibile','quando prima','attesa breve','meno tempo','piu presto'],
+     r:function(){bot('Controllo le agende delle quattro sedi.',null,function(){
+       bot('L\'attesa più breve in questo momento è a <b>Trinitapoli</b>: primo posto libero <b>giovedì 11 alle 10:30</b>. A San Ferdinando di Puglia il primo disponibile è il 29 settembre.','Confronta in tempo reale le disponibilità delle sedi',
+       function(){chips(['Va bene giovedì','Preferisco un\'altra sede']);});});}},
+
+    {k:['giovedi','va bene','confermo','ok va','si perfetto','prendo','accetto','d accordo','1030','10 30'],
+     r:function(){bot('Perfetto, ho fissato <b>giovedì 11 alle 10:30</b> a Trinitapoli. Le arriverà un promemoria domani sera. Porti impegnativa e tessera sanitaria.','Appuntamento inserito · promemoria programmato',
+       function(){chips(['Grazie','Vorrei spostarlo']);});}},
+
+    {k:['che ora','a che ora','quando ho','mio appuntament','ho giovedi','ricorda l ora','quando devo venire'],
+     r:function(){bot('Ha una seduta di fisioterapia <b>giovedì 11 alle 9:00</b> a Margherita di Savoia. È la quarta delle dieci sedute del suo ciclo.','Riconosce i pazienti in cura dal numero di telefono',
+       function(){chips(['Vorrei spostarla','Grazie']);});}},
+
+    {k:['spost','cambiare','disdire','annull','rimandare','altro giorno','non posso venire'],
+     r:function(){bot('Nessun problema. Posso proporle <b>venerdì 12 alle 11:00</b> nella stessa sede, oppure lunedì 15 alle 15:30.','Lo slot che lascia libero viene offerto a chi è in lista d\'attesa',
+       function(){chips(['Venerdì alle 11','Lunedì alle 15:30']);});}},
+
+    {k:['venerdi','lunedi','1100','11 00','1530','15 30'],
+     r:function(){bot('Fatto, appuntamento spostato. Le confermo tutto per messaggio e le mando il promemoria il giorno prima.','Agenda aggiornata su tutte le sedi',
+       function(){chips(['Grazie','Vorrei prenotare altro']);});}},
+
+    {k:['document','impegnativ','ricetta','portare','serve qualcosa','cosa devo','prima volta','mai stato','tessera'],
+     r:function(){bot('Per la prima visita in convenzione servono l\'<b>impegnativa del medico curante</b> con la prestazione richiesta, la <b>tessera sanitaria</b> e un documento d\'identità. Se ha referti o esami precedenti, li porti con sé.','Copre la domanda che oggi occupa più minuti al centralino',
+       function(){chips(['Dove siete?','Vorrei prenotare']);});}},
+
+    {k:['dove','indirizz','sede','come arrivo','vicino','barletta','margherita','trinitapoli','san ferdinando'],
+     r:function(){bot('Siamo a <b>Margherita di Savoia</b>, <b>San Ferdinando di Puglia</b> e <b>Trinitapoli</b>, più il Centro Medico Fisioterapico di <b>Barletta</b>. Mi dice da dove arriva e le indico la sede più comoda.',null,
+       function(){chips(['Sono a Barletta','Vorrei prenotare']);});}},
+
+    {k:['sono a barletta','abito','vengo da'],
+     r:function(){bot('Allora il più comodo è il <b>Centro Medico Fisioterapico di Barletta</b>. Verifico le disponibilità?',null,
+       function(){chips(['Sì, verifica','Quella con meno attesa']);});}},
+
+    {k:['costo','costa','prezzo','ticket','pagare','quanto','tariff','privat'],
+     r:function(){bot('Le prestazioni in convenzione prevedono il ticket secondo la fascia di esenzione indicata sull\'impegnativa. Per il regime privato le faccio avere il dettaglio dalla segreteria negli orari di apertura.','Sui temi economici passa sempre a una persona',
+       function(){chips(['Va bene','Vorrei prenotare']);});}},
+
+    {k:['telemedicina','a distanza','da casa','video','online','teleriab'],
+     r:function(){bot('Per alcuni percorsi è possibile proseguire parte della riabilitazione a domicilio con monitoraggio a distanza. Le faccio richiamare dal fisioterapista per valutare se è indicato nel suo caso.',null,
+       function(){chips(['Grazie','Vorrei prenotare']);});}},
+
+    {k:['operator','persona','parlare con','segreteria','umano','chiamare','telefon'],
+     r:function(){bot('La metto in contatto con la segreteria, disponibile dal lunedì al venerdì dalle 8:00 alle 19:00. Le passo anche il messaggio che ha scritto, così non deve ripetere nulla.','Passaggio a operatore con lo storico della conversazione',
+       function(){chips(['Grazie']);});}},
+
+    {k:['grazie','perfetto','ottimo','gentile','arrivederci','buona giornata'],
+     r:function(){bot('È stato un piacere. Resto qui a qualsiasi ora, anche la sera e nel fine settimana.',null,
+       function(){chips(['Vorrei prenotare','A che ora ho giovedì?']);});}},
+
+    {k:['ciao','buongiorno','buonasera','salve','pronto'],
+     r:function(){bot('Buongiorno! Sono l\'assistente di Italia Salute. Posso aiutarla con prenotazioni, orari, documenti e informazioni sulle nostre sedi.',null,
+       function(){chips(['Vorrei prenotare','Cosa devo portare?']);});}}
+  ];
+
+  
+  function handle(text){
+    if(!text||!text.trim())return;
+    bubble(text.replace(/</g,'&lt;'),'me');sugg.innerHTML='';inp.value='';
+    var t=norm(text);
+    for(var i=0;i<intents.length;i++){if(has(t,intents[i].k)){setTimeout(intents[i].r,180);return;}}
+    setTimeout(function(){
+      bot('Su questo preferisco non rispondere a caso: la faccio richiamare dalla segreteria, che le d\u00e0 l\u2019informazione esatta. Intanto posso aiutarla con prenotazioni, orari, documenti o sedi.','Quando non \u00e8 sicuro non inventa: passa a una persona',
+      function(){chips(['Vorrei prenotare','Cosa devo portare?','Dove siete?']);});},180);
+  }
+  send.addEventListener('click',function(){handle(inp.value);});
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){handle(inp.value);}});
+  function boot(){if(started)return;started=true;
+    bot('Buongiorno, sono l\u2019assistente di Italia Salute. Posso aiutarla con prenotazioni, orari, documenti e informazioni sulle nostre sedi. Come posso esserle utile?',null,
+    function(){chips(['Vorrei prenotare','A che ora ho gioved\u00ec?','Cosa devo portare?']);});}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){boot();io.disconnect();}});},{threshold:.2});
+    io.observe(document.querySelector('.phone'));
+  } else boot();
+})();
+
+/* ══ DEMOS ══ */
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function wait(ms,fn){ setTimeout(fn, RM ? Math.min(ms,120) : ms); }
+  function countTo(el,target,suffix,dur){
+    suffix = suffix||''; dur = dur||900;
+    if(RM){ el.innerHTML = target + suffix; return; }
+    var start=null;
+    function step(ts){
+      if(!start) start=ts;
+      var p=Math.min((ts-start)/dur,1), e=1-Math.pow(1-p,3);
+      el.innerHTML = Math.round(e*target) + suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ── 02 recupero slot ── */
+  var run2=document.getElementById('run2');
+  if(run2){
+    var slot2=document.getElementById('slot2'), who2=document.getElementById('who2'),
+        badge2=document.getElementById('badge2'), queue2=document.getElementById('queue2'),
+        log2=document.getElementById('log2'), items=queue2.querySelectorAll('.qi');
+    run2.addEventListener('click',function(){
+      run2.disabled=true;
+      slot2.className='slot'; queue2.className='queue';
+      items.forEach(function(i){ i.className='qi'; i.querySelector('.qt').textContent=''; });
+      who2.textContent='Sig.ra Caputo · fisioterapia';
+      badge2.textContent='confermato';
+      document.getElementById('tk2a').textContent='0';
+      document.getElementById('tk2b').textContent='0';
+      log2.textContent='Ore 8:04 — arriva la disdetta.';
+
+      wait(700,function(){
+        slot2.className='slot free';
+        who2.textContent='slot libero';
+        badge2.textContent='disdetto';
+        log2.textContent='Lo slot resta vuoto. Con il metodo attuale, alle 10:30 nessuno lo occupa.';
+      });
+      wait(1900,function(){
+        queue2.className='queue live';
+        log2.textContent='Il sistema individua chi è in lista d\u2019attesa per fisioterapia in quella sede.';
+      });
+      wait(2900,function(){
+        items.forEach(function(i,n){
+          wait(n*230,function(){ i.className='qi sent'; i.querySelector('.qt').textContent='proposta inviata'; });
+        });
+        log2.textContent='Proposta inviata su WhatsApp ai primi tre in lista, in ordine di attesa.';
+      });
+      wait(4400,function(){
+        items[1].className='qi won'; items[1].querySelector('.qt').textContent='ha accettato';
+        items[0].className='qi out'; items[0].querySelector('.qt').textContent='nessuna risposta';
+        items[2].className='qi out'; items[2].querySelector('.qt').textContent='slot già assegnato';
+        log2.textContent='La signora Lopez accetta per prima. Gli altri ricevono l\u2019avviso che lo slot non è più disponibile.';
+      });
+      wait(5400,function(){
+        slot2.className='slot filled';
+        who2.textContent='Sig.ra Lopez · fisioterapia';
+        badge2.textContent='riassegnato';
+        log2.textContent='Ore 8:16 — slot riempito. La segreteria non ha fatto nulla: riceve solo la notifica ad agenda aggiornata.';
+        countTo(document.getElementById('tk2a'),12,'',700);
+        countTo(document.getElementById('tk2b'),23,'',1100);
+        run2.disabled=false;
+      });
+    });
+  }
+
+  /* ── 03 anagrafica ── */
+  var run3=document.getElementById('run3');
+  if(run3){
+    var cards3=document.getElementById('cards3'), merged3=document.getElementById('merged3');
+    run3.addEventListener('click',function(){
+      if(merged3.classList.contains('show')){
+        merged3.className='merged'; cards3.className='cards'; run3.textContent='Unifica';
+      } else {
+        cards3.className='cards gone';
+        wait(420,function(){ merged3.className='merged show'; run3.textContent='Mostra di nuovo i duplicati'; });
+      }
+    });
+  }
+
+  /* ── 04 agenda ── */
+  var bars4=document.getElementById('bars4');
+  if(bars4){
+    var DATA={
+      fisio:[['Margherita di Savoia',11],['San Ferdinando',21],['Trinitapoli',5],['Barletta',14]],
+      logo:[['Margherita di Savoia',26],['San Ferdinando',9],['Trinitapoli',31],['Barletta',12]]
+    };
+    var cur='fisio', log4=document.getElementById('log4'), run4=document.getElementById('run4');
+    function render(key,highlight){
+      var rows=DATA[key], max=Math.max.apply(null,rows.map(function(r){return r[1];}));
+      var best=rows.reduce(function(a,b){ return b[1]<a[1]?b:a; });
+      bars4.innerHTML='';
+      rows.forEach(function(r){
+        var isBest=highlight && r[0]===best[0];
+        var d=document.createElement('div');
+        d.className='bar'+(isBest?' best':(highlight?' dim':''));
+        d.innerHTML='<span class="bn">'+r[0]+'</span><span class="bt"><span class="bf"></span></span><span class="bd">'+r[1]+' gg</span>';
+        bars4.appendChild(d);
+        var f=d.querySelector('.bf');
+        wait(60,function(){ f.style.width=Math.round(r[1]/max*100)+'%'; });
+      });
+      return best;
+    }
+    document.getElementById('seg4').addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      this.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); cur=b.dataset.p;
+      render(cur,false);
+      log4.textContent='Quattro agende separate, quattro attese diverse. Oggi questo confronto non lo vede nessuno.';
+    });
+    run4.addEventListener('click',function(){
+      var best=render(cur,true);
+      var rows=DATA[cur], worst=rows.reduce(function(a,b){return b[1]>a[1]?b:a;});
+      log4.textContent='Prima disponibilità a '+best[0]+', tra '+best[1]+' giorni. Chi avrebbe chiamato '+worst[0]+' aspetterebbe '+(worst[1]-best[1])+' giorni in più per la stessa prestazione.';
+    });
+    render('fisio',false);
+  }
+
+  /* ── 05 cruscotto ── */
+  var seg5=document.getElementById('seg5');
+  if(seg5){
+    var VALS={
+      w:{a:412,b:78,c:19,d:-6,sat:[['Margherita di Savoia',86],['San Ferdinando',91],['Trinitapoli',58],['Barletta',77]],
+         msg:'Trinitapoli è sotto il volume atteso da tre settimane. A metà mese si può ancora recuperare.'},
+      m:{a:1684,b:81,c:74,d:-3,sat:[['Margherita di Savoia',88],['San Ferdinando',93],['Trinitapoli',64],['Barletta',80]],
+         msg:'Sul mese lo scostamento si riduce, ma Trinitapoli resta la sede con capacità inutilizzata.'}
+    };
+    var kpis5=document.getElementById('kpis5'), sat5=document.getElementById('sat5'), alert5=document.getElementById('alert5'), shown=false;
+    function paint(k){
+      var v=VALS[k];
+      countTo(kpis5.querySelector('[data-k="a"]'),v.a);
+      countTo(kpis5.querySelector('[data-k="b"]'),v.b,'<i>%</i>');
+      countTo(kpis5.querySelector('[data-k="c"]'),v.c);
+      var d=kpis5.querySelector('[data-k="d"]');
+      if(RM){ d.innerHTML=v.d+'<i>%</i>'; } else {
+        var s=null, t=v.d;
+        (function anim(){
+          requestAnimationFrame(function st(ts){
+            if(!s)s=ts; var p=Math.min((ts-s)/900,1), e=1-Math.pow(1-p,3);
+            d.innerHTML=(t<0?'−':'')+Math.abs(Math.round(e*t))+'<i>%</i>';
+            if(p<1) requestAnimationFrame(st);
+          });
+        })();
+      }
+      sat5.innerHTML='';
+      v.sat.forEach(function(r){
+        var el=document.createElement('div');
+        el.className='srow'+(r[1]<70?' low':'');
+        el.innerHTML='<span>'+r[0]+'</span><span class="st"><span class="sf"></span></span><span class="sv">'+r[1]+'%</span>';
+        sat5.appendChild(el);
+        var f=el.querySelector('.sf');
+        wait(80,function(){ f.style.width=r[1]+'%'; });
+      });
+      alert5.textContent=v.msg;
+    }
+    seg5.addEventListener('click',function(e){
+      var b=e.target.closest('button'); if(!b) return;
+      this.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); paint(b.dataset.v);
+    });
+    if('IntersectionObserver' in window){
+      var io5=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting && !shown){ shown=true; paint('w'); io5.disconnect(); } });
+      },{threshold:.3});
+      io5.observe(kpis5);
+    } else paint('w');
+  }
+
+  /* ── 06 esiti ── */
+  var run6=document.getElementById('run6');
+  if(run6){
+    var sheet6=document.getElementById('sheet6'), agg6=document.getElementById('agg6'), aggbars=document.getElementById('aggbars6');
+    var FIELDS=[['a','Barthel 45 — autonomia ridotta'],['b','Barthel 78 — autonomia parziale'],['c','10 su 10 previste'],['d','19 giorni']];
+    var AGG=[['Miglioramento marcato',48],['Miglioramento moderato',34],['Stabile',14],['Non valutabile',4]];
+    run6.addEventListener('click',function(){
+      run6.disabled=true;
+      agg6.className='agg';
+      sheet6.querySelectorAll('.sh-v').forEach(function(v){ v.textContent='—'; v.className='sh-v'; });
+      FIELDS.forEach(function(f,n){
+        wait(300+n*380,function(){
+          var el=sheet6.querySelector('[data-f="'+f[0]+'"]');
+          el.textContent=f[1]; el.className='sh-v on';
+        });
+      });
+      wait(2100,function(){
+        agg6.className='agg show';
+        aggbars.innerHTML='';
+        AGG.forEach(function(r){
+          var d=document.createElement('div');
+          d.className='abar';
+          d.innerHTML='<span>'+r[0]+'</span><span class="at"><span class="af"></span></span><span class="av">'+r[1]+'%</span>';
+          aggbars.appendChild(d);
+          var f=d.querySelector('.af');
+          wait(120,function(){ f.style.width=r[1]+'%'; });
+        });
+        run6.disabled=false;
+      });
+    });
+  }
+
+  })();
+
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
