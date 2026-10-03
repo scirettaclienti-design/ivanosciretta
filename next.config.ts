@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
       { source: "/servizi/:caso", destination: `${SCATOLE}/servizi/:caso` },
       { source: "/privacy", destination: `${SCATOLE}/privacy` },
       { source: "/s/:path*", destination: `${SCATOLE}/s/:path*` },
+      { source: "/grazie-check", destination: `${SCATOLE}/grazie-check` },
+    ];
+  },
+  async headers() {
+    // Scatole personali e pagina dopo il pagamento: private, mai nei motori di ricerca.
+    return [
+      { source: "/s/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
+      { source: "/grazie-check", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },
   async redirects() {
