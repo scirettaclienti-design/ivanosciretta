@@ -19,6 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ivanosciretta.tech"),
   title: "Ivano Sciretta — Sistemi digitali su misura per aziende che vogliono crescere con l'AI",
   description: "Progetto e costruisco siti premium, piattaforme AI e sistemi di automazione. Per founder e aziende che vogliono smettere di improvvisare.",
   keywords: ["Orchestrazione Intelligenza Artificiale", "AI Systems Builder", "Architetture Scalabili", "Esperto Intelligenza Artificiale", "Next.js", "WebGL", "GenAI", "Agentic Workflows"],
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://ivanosciretta.com",
+    url: "https://www.ivanosciretta.tech",
     siteName: "Ivano Sciretta Portfolio",
     title: "Ivano Sciretta | AI Systems Architect",
     description: "Progetto ecosistemi digitali completi integrando Intelligenza Artificiale avanzata e performance ultra-rapide.",
@@ -50,7 +51,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ivano Sciretta",
-    "url": "https://ivanosciretta.com",
+    "url": "https://www.ivanosciretta.tech",
     "jobTitle": "AI Systems Architect",
     "description": "Esperto in Orchestrazione Intelligenza Artificiale, agentic workflows e ingegneria di ecosistemi digitali performanti.",
     "knowsAbout": ["Intelligenza Artificiale", "Web Development", "Agentic Workflows", "System Orchestration", "Next.js", "React", "WebGL"],
