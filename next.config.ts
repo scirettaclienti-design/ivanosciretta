@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       { source: "/s/:path*", destination: `${SCATOLE}/s/:path*` },
       { source: "/grazie-check", destination: `${SCATOLE}/grazie-check` },
       { source: "/check", destination: `${SCATOLE}/check` },
+      { source: "/check/grazie", destination: `${SCATOLE}/check/grazie` },
     ];
   },
   async headers() {
@@ -26,6 +27,8 @@ const nextConfig: NextConfig = {
       { source: "/grazie-check", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       // /check è indicizzabile, ma ?mappa= contiene la chiave della mappa: niente referrer verso Stripe o WhatsApp.
       { source: "/check", headers: [{ key: "Referrer-Policy", value: "no-referrer" }] },
+      // Il ritorno dal Payment Link: ?session_id= non va indicizzato né passato ad altri siti.
+      { source: "/check/grazie", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },
   async redirects() {
