@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
       { source: "/privacy", destination: `${SCATOLE}/privacy` },
       { source: "/s/:path*", destination: `${SCATOLE}/s/:path*` },
       { source: "/grazie-check", destination: `${SCATOLE}/grazie-check` },
+      { source: "/check", destination: `${SCATOLE}/check` },
     ];
   },
   async headers() {
@@ -23,6 +24,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/s/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       { source: "/grazie-check", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
+      // /check è indicizzabile, ma ?mappa= contiene la chiave della mappa: niente referrer verso Stripe o WhatsApp.
+      { source: "/check", headers: [{ key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },
   async redirects() {
