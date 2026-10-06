@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
       { source: "/check", destination: `${SCATOLE}/check` },
       { source: "/check/grazie", destination: `${SCATOLE}/check/grazie` },
       { source: "/invii/:percorso*", destination: `${SCATOLE}/invii/:percorso*` },
+      { source: "/cruscotto", destination: `${SCATOLE}/cruscotto` },
       { source: "/c/:percorso*", destination: `${SCATOLE}/c/:percorso*` },
     ];
   },
@@ -35,6 +36,7 @@ const nextConfig: NextConfig = {
       // Il Check 4D consegnato: link privato, mai indicizzato.
       { source: "/c/:percorso*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       { source: "/invii/:percorso*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
+      { source: "/cruscotto", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
     ];
   },
   async redirects() {
