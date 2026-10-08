@@ -1,0 +1,121 @@
+{
+  "_nota": "Solo fatti verificati (fonti nei file dei progetti, controllo dell'8/10/2026). «acceso: false» = non pubblicato. «risultato» solo se misurato. «permesso» = chi ha detto sì alla pubblicazione e quando.",
+  "lavori": [
+    {
+      "slug": "mykonos-made-in-italy",
+      "acceso": true,
+      "permesso": "lista dei lavori indicata da Ivano l'8/10/2026",
+      "cliente": "Mykonos Made in Italy",
+      "settore": "Turismo di lusso · concierge a Mykonos",
+      "problema": "Chi va a Mykonos cerca un riferimento premium di cui fidarsi, per non cadere in errori, fregature e posti per turisti.",
+      "costruito": [
+        "Un'isola 3D navigabile con i locali segnati: tocchi un punto e la vista ti porta lì, più guide con 4 itinerari.",
+        "«Elena», concierge con avatar video, che apre quattro percorsi: card VIP, news, guide e partner.",
+        "Il motore dietro: pagamenti con Stripe, email automatiche, magazine con pannello di gestione, link tracciati per i PR con clic e vendite attribuite."
+      ],
+      "link": "https://www.mykonosmadeinitaly.com",
+      "immagine": "/lavori/mykonos-made-in-italy.jpg",
+      "alt": "La home di Mykonos Made in Italy: l'isola in 3D con i locali segnati e il bottone Chiama concierge",
+      "risultato": null
+    },
+    {
+      "slug": "ai-space",
+      "acceso": true,
+      "permesso": "progetto di Ivano",
+      "cliente": "AI-SPACE (progetto mio)",
+      "settore": "Software AI per marketing e contenuti",
+      "problema": "Un brand ha bisogno di testi e immagini coerenti con la sua identità, senza dover rispiegare tutto da capo a ogni progetto.",
+      "costruito": [
+        "SPACE MARKETING: genera testi e immagini per il brand, con un controllo automatico della scena e il logo inserito, account, progetti salvati e crediti.",
+        "CIE: un flusso automatico da 40 passaggi che ogni lunedì cerca le tendenze per 5 brand e manda il riepilogo su Telegram.",
+        "Un orchestratore che scompone un obiettivo in missioni, registra ogni passaggio con le approvazioni e consegna un report."
+      ],
+      "link": "https://www.aispace.works",
+      "immagine": "/lavori/ai-space.jpg",
+      "alt": "La home di AI-SPACE: «La tua evoluzione inizia qui» su sfondo stellato",
+      "risultato": null
+    },
+    {
+      "slug": "smasha-il-bullismo",
+      "acceso": true,
+      "permesso": "lista dei lavori indicata da Ivano l'8/10/2026",
+      "cliente": "Smasha il Bullismo × Smashtag",
+      "settore": "Progetto sociale contro il bullismo · ristorazione",
+      "problema": "Far raccontare ai ragazzi, in modo anonimo, cosa vivono con il bullismo e ringraziarli con qualcosa di concreto nei locali Smashtag.",
+      "costruito": [
+        "Un questionario anonimo in 7 passi che alla fine genera un coupon 2x1 con un codice unico e facile da leggere.",
+        "L'archivio dei coupon: ogni codice si crea, si verifica e si «brucia» una volta sola, con il nome del locale.",
+        "La pagina per la cassa (verde, rosso, grigio) con QR da stampare e un cruscotto con coupon generati, usati e tasso d'uso."
+      ],
+      "link": "https://smashailbullismo.org",
+      "immagine": "/lavori/smasha-il-bullismo.jpg",
+      "alt": "La home di Smasha il Bullismo con il QR «Inquadra per parlare» e le due strade: ragazzi e istituzioni",
+      "risultato": null
+    },
+    {
+      "slug": "lumina-xp",
+      "acceso": true,
+      "permesso": "lista dei lavori indicata da Ivano l'8/10/2026",
+      "cliente": "Lumina XP",
+      "settore": "Esperienze aziendali · team building e formazione",
+      "problema": "Un'azienda che cerca un'esperienza per il suo team non sa quale formato fa per lei né a quale esperto rivolgersi.",
+      "costruito": [
+        "«Lumina AI»: legge la sfida del team, la colloca in uno di quattro ambiti (PLAY, SENSE, LEARN, IMMERSIVE) e propone gli esperti adatti.",
+        "Un report PDF di 3 pagine generato nel browser e un modulo di contatto già compilato con i risultati.",
+        "Il sito: particelle, audio d'ambiente e schede degli esperti con narrazione."
+      ],
+      "link": "https://www.lumina-xp.com",
+      "immagine": "/lavori/lumina-xp.jpg",
+      "alt": "La home di Lumina XP: «Esperienze che si adattano»",
+      "risultato": null
+    },
+    {
+      "slug": "pescheria-micalusi",
+      "acceso": false,
+      "permesso": null,
+      "cliente": "Pescheria Micalusi",
+      "settore": "Ristorazione · pesce",
+      "problema": "DA CHIEDERE A IVANO",
+      "costruito": ["Video di lancio: DA CHIEDERE (file non trovato)"],
+      "link": null,
+      "immagine": null,
+      "alt": null,
+      "risultato": null
+    },
+    {
+      "slug": "casa-incontro-valutazione",
+      "acceso": true,
+      "permesso": "lista dei lavori indicata da Ivano l'8/10/2026 (solo il motore di valutazione)",
+      "cliente": "Casa Incontro",
+      "settore": "Agenzia immobiliare a Roma · motore di valutazione AI",
+      "problema": "Con le sole quotazioni ufficiali di zona la stima di una casa era troppo larga: a Trieste-Salario la forchetta arrivava a 195.000 € su una casa da mezzo milione.",
+      "costruito": [
+        "Un motore di calcolo che parte dalle 166 quotazioni OMI dell'Agenzia delle Entrate e stringe la forchetta da ±14% a ±9% man mano che il venditore risponde.",
+        "L'AI capisce le risposte scritte a parole («novantacinque metri», «la mansarda») e chiede solo quello che manca.",
+        "Il confronto con gli immobili veri dell'agenzia, senza mai mostrare indirizzi, e la scritta chiara: stima indicativa, non perizia."
+      ],
+      "link": null,
+      "immagine": "/lavori/casa-incontro-valutazione.jpg",
+      "alt": "Una stima di prova: 470.000–560.000 € per 95 mq a Trieste-Salario, con forchetta di ±9%",
+      "risultato": "Collaudo tecnico del 22/9/2026: 97 casi di prova su 97 superati; risposta del motore in meno di mezzo secondo (mediana)."
+    },
+    {
+      "slug": "frantoio-dimostrativo",
+      "acceso": true,
+      "permesso": "caso dimostrativo: azienda e dati inventati",
+      "cliente": "Frantoio Dimostrativo (caso dimostrativo)",
+      "settore": "Olio extravergine · frantoi",
+      "problema": "Un frantoio non sa come lo vedono online un buyer, un cliente e un assistente AI prima di comprare.",
+      "costruito": [
+        "Una mappa gratuita: legge sito e scheda Google e mostra cosa trova chi vi cerca, con le fonti.",
+        "«Cosa risponde l'AI»: la stessa domanda di un buyer fatta a più modelli, contando solo le risposte certe.",
+        "Il Check: le mosse in ordine, con il ritorno calcolato sui numeri del titolare e la pagina «dopo» già pronta da sfogliare."
+      ],
+      "link": "https://www.ivanosciretta.tech/c/DM-FRAN-rby7peeuzvhw4ugf",
+      "link_mappa": "https://www.ivanosciretta.tech/s/DM-FRAN-z8hvfmrk",
+      "immagine": "/lavori/frantoio-dimostrativo.jpg",
+      "alt": "La mappa del Frantoio Dimostrativo, con la scritta «Caso dimostrativo: azienda e dati inventati»",
+      "risultato": null
+    }
+  ]
+}

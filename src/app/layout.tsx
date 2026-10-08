@@ -50,14 +50,15 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.ivanosciretta.tech/chi-sono#ivano",
     "name": "Ivano Sciretta",
     "url": "https://www.ivanosciretta.tech",
     "jobTitle": "AI Systems Architect",
     "description": "Esperto in Orchestrazione Intelligenza Artificiale, agentic workflows e ingegneria di ecosistemi digitali performanti.",
     "knowsAbout": ["Intelligenza Artificiale", "Web Development", "Agentic Workflows", "System Orchestration", "Next.js", "React", "WebGL"],
     "sameAs": [
-      "https://linkedin.com/in/ivano-sciretta",
-      "https://github.com/ivanosciretta",
+      "https://www.linkedin.com/in/ivano-sciretta",
+      "https://www.credly.com/users/ivano-sciretta/badges",
       "https://t.me/ivanosci"
     ]
   };

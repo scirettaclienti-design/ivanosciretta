@@ -12,6 +12,7 @@ import Certifications from "@/components/Certifications";
 import Connect from "@/components/Connect";
 import SiteNavigator from "@/components/ui/SiteNavigator";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Experience = dynamic(() => import("@/components/webgl/Experience"), {
@@ -51,6 +52,12 @@ export default function Home() {
         <Stack />
         {/* Footer CTA */}
         <Connect />
+        {/* Le pagine leggibili da motori e AI: link interni dalla home. */}
+        <nav aria-label="Approfondisci" className="mx-auto flex w-full max-w-4xl flex-wrap justify-center gap-x-8 gap-y-3 px-6 pb-16 font-mono text-sm tracking-widest uppercase">
+          <Link href="/chi-sono" className="text-foreground/70 hover:text-primary-cyan">Chi sono</Link>
+          <Link href="/lavori" className="text-foreground/70 hover:text-primary-cyan">Lavori</Link>
+          <Link href="/osservatorio/olio" className="text-foreground/70 hover:text-primary-cyan">Osservatorio frantoi</Link>
+        </nav>
         <SiteNavigator />
       </div>
     </main>
