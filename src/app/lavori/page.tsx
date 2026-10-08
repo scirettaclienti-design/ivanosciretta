@@ -26,10 +26,10 @@ export default function Lavori() {
         {lavori.length} strumenti che ho costruito da me per aziende vere — {lavori.map((l) => l.cliente.replace(/ \(.*\)$/, "")).join(", ")}. Per ognuno: il problema, cosa ho costruito e una schermata reale.
       </InBreve>
       <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-        {lavori.map((l) => (
+        {lavori.map((l, i) => (
           <li key={l.slug} className="overflow-hidden rounded-lg border border-white/10 bg-surface-base">
             <Link href={`/lavori/${l.slug}`} className="block">
-              {l.immagine && <Image src={l.immagine} alt={l.alt ?? ""} width={640} height={400} className="aspect-[16/10] w-full object-cover object-top" />}
+              {l.immagine && <Image src={l.immagine} alt={l.alt ?? ""} width={640} height={400} priority={i === 0} sizes="(min-width: 640px) 360px, 100vw" className="aspect-[16/10] w-full object-cover object-top" />}
               <div className="p-4">
                 <h2 className="font-display text-xl font-semibold text-white">{l.cliente}</h2>
                 <p className="text-sm text-foreground/60">{l.settore}</p>
