@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const m = Object.fromEntries(d.misure.map((x) => [x.id, x]));
   return {
     title: `${titoloOsservatorio(d.mese)} · Osservatorio`,
-    description: `${d.campione.aziende} frantoi in ${d.campione.regioni} regioni: ${m.buyer.perc}% senza pagina per buyer, ${m.annata.perc}% senza annata, l'AI ne nomina il ${d.ai.perc}%. Metodo e limiti.`,
+    description: `${d.campione.aziende} frantoi in ${d.campione.regioni} regioni. Pagina per buyer non trovata nelle pagine lette: ${m.buyer.perc}%; annata non trovata: ${m.annata.perc}%; l'AI ne nomina il ${d.ai.perc}%. Metodo e limiti.`,
     alternates: { canonical: "/osservatorio/olio" },
     openGraph: { type: "article", url: `${SITO}/osservatorio/olio`, title: titoloOsservatorio(d.mese), locale: "it_IT", publishedTime: o.pubblicato_il ?? undefined, authors: [`${SITO}/chi-sono`] },
   };

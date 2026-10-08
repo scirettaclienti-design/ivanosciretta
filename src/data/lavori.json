@@ -47,7 +47,7 @@
         "L'archivio dei coupon: ogni codice si crea, si verifica e si «brucia» una volta sola, con il nome del locale.",
         "La pagina per la cassa (verde, rosso, grigio) con QR da stampare e un cruscotto con coupon generati, usati e tasso d'uso."
       ],
-      "link": "https://smashailbullismo.org",
+      "link": null,
       "immagine": "/lavori/smasha-il-bullismo.jpg",
       "alt": "La home di Smasha il Bullismo con il QR «Inquadra per parlare» e le due strade: ragazzi e istituzioni",
       "risultato": null
@@ -76,7 +76,9 @@
       "cliente": "Pescheria Micalusi",
       "settore": "Ristorazione · pesce",
       "problema": "DA CHIEDERE A IVANO",
-      "costruito": ["Video di lancio: DA CHIEDERE (file non trovato)"],
+      "costruito": [
+        "Video di lancio: DA CHIEDERE (file non trovato)"
+      ],
       "link": null,
       "immagine": null,
       "alt": null,
@@ -97,7 +99,7 @@
       "link": null,
       "immagine": "/lavori/casa-incontro-valutazione.jpg",
       "alt": "Una stima di prova: 470.000–560.000 € per 95 mq a Trieste-Salario, con forchetta di ±9%",
-      "risultato": "Collaudo tecnico del 22/9/2026: 97 casi di prova su 97 superati; risposta del motore in meno di mezzo secondo (mediana)."
+      "risultato": null
     },
     {
       "slug": "frantoio-dimostrativo",
