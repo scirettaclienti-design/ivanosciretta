@@ -14,6 +14,11 @@ export function generateStaticParams() {
   return SETTORI.map((s) => ({ settore: s.slug }));
 }
 
+/** L'etichetta del caso dimostrativo: uguale in ogni punto della pagina. */
+function Dimostrativo() {
+  return <span className="inline-block rounded border border-amber-400/70 bg-amber-400/10 px-1.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-amber-300">caso dimostrativo</span>;
+}
+
 async function carica(settore: string) {
   const s = SETTORI.find((x) => x.slug === settore);
   const o = s ? await osservatorio(s.slug) : null;
@@ -46,7 +51,7 @@ export default async function Soluzione({ params }: { params: Promise<{ settore:
     { d: `Cosa manca di solito online ai ${s.chi}?`, r: `Su ${m.buyer.base} siti letti per intero (${d.mese}): pagina per buyer non trovata nel ${m.buyer.perc}%, annata o data di raccolta non trovata nel ${m.annata.perc}%, prezzi per formato non trovati nel ${m.prezzi_formato.perc}%.` },
     { d: "Gli assistenti AI consigliano questi produttori?", r: `A una domanda da buyer straniero, Claude e ChatGPT hanno nominato ${d.ai.nominate} aziende su ${d.ai.certe} con risultato certo (il ${d.ai.perc}%), il ${dataIt(d.ai.dal)}.` },
     { d: "Cos'è la mappa gratuita?", r: "Scrivi il nome della tua azienda: in pochi secondi vedi cosa trova online chi ti cerca prima di comprare, con le fonti. Gratis, senza registrazione." },
-    { d: "Cos'è il Check 4D?", r: "L'analisi completa: le mosse in ordine, con il ritorno calcolato sui tuoi numeri e la pagina «dopo» già pronta da sfogliare. Il Check di esempio mostra com'è fatto." },
+    { d: "Cos'è il Check 4D?", r: "L'analisi completa: le mosse in ordine, con il ritorno calcolato sui tuoi numeri e la pagina «dopo» già pronta da sfogliare. Il Check di esempio (caso dimostrativo, azienda e dati inventati) mostra com'è fatto." },
     { d: "I dati delle aziende sono pubblici?", r: "No: qui ci sono solo numeri aggregati e un caso dimostrativo con azienda e dati inventati. Nessun nome accanto a una mancanza." },
   ];
   const servizio = {
@@ -73,7 +78,7 @@ export default async function Soluzione({ params }: { params: Promise<{ settore:
       <span hidden data-calcolato={d.calcolato_il}>{d.calcolato_il}</span>
       <div className="mt-2"><H1>{s.titolo}</H1></div>
       <InBreve>
-        Ho analizzato {d.campione.aziende} {s.chi} in {d.campione.regioni} regioni: pagina per buyer non trovata nel {m.buyer.perc}% dei siti e l&apos;AI ne nomina il {d.ai.perc}%. Qui trovi una mappa e un Check di esempio, e come si parte.
+        Ho analizzato {d.campione.aziende} {s.chi} in {d.campione.regioni} regioni: pagina per buyer non trovata nel {m.buyer.perc}% dei siti e l&apos;AI ne nomina il {d.ai.perc}%. Qui trovi una mappa e un Check di esempio (caso dimostrativo: azienda e dati inventati), e come si parte.
       </InBreve>
 
       <H2>Il problema, in numeri</H2>
@@ -96,8 +101,8 @@ export default async function Soluzione({ params }: { params: Promise<{ settore:
 
       <H2>Come funziona</H2>
       <ol className="mt-4 list-decimal space-y-3 pl-6 text-lg leading-relaxed text-foreground/85">
-        <li><strong className="text-white">La mappa gratuita:</strong> scrivi il nome, vedi cosa trova online chi ti cerca, con le fonti. <a href={s.mappa} className="text-primary-cyan underline underline-offset-4">Guarda la mappa di esempio</a>.</li>
-        <li><strong className="text-white">Il Check 4D:</strong> le mosse in ordine, con il ritorno calcolato sui tuoi numeri. <a href={s.check} className="text-primary-cyan underline underline-offset-4">Guarda il Check di esempio</a>.</li>
+        <li><strong className="text-white">La mappa gratuita:</strong> scrivi il nome, vedi cosa trova online chi ti cerca, con le fonti. <a href={s.mappa} className="text-primary-cyan underline underline-offset-4">Guarda la mappa di esempio</a> <Dimostrativo />.</li>
+        <li><strong className="text-white">Il Check 4D:</strong> le mosse in ordine, con il ritorno calcolato sui tuoi numeri. <a href={s.check} className="text-primary-cyan underline underline-offset-4">Guarda il Check di esempio</a> <Dimostrativo />.</li>
         <li><strong className="text-white">Le mosse, costruite:</strong> pagina per i buyer, scheda del prodotto in più lingue, materiali per chi rivende.</li>
       </ol>
       <p className="mt-3 text-sm text-foreground/60">Mappa e Check di esempio sono un caso dimostrativo: azienda e dati inventati.</p>
@@ -111,6 +116,7 @@ export default async function Soluzione({ params }: { params: Promise<{ settore:
                 <Link href={`/lavori/${l.slug}`} className="block">
                   {l.immagine && <Image src={l.immagine} alt={l.alt ?? ""} width={640} height={400} className="aspect-[16/10] w-full object-cover object-top" />}
                   <div className="p-4">
+                    {l.permesso?.startsWith("caso dimostrativo") && <p className="mb-1"><Dimostrativo /></p>}
                     <h3 className="font-display text-lg font-semibold text-white">{l.cliente}</h3>
                     <p className="mt-1 text-foreground/80">{l.problema}</p>
                   </div>
