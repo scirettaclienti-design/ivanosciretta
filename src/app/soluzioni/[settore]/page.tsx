@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ settore: 
   const m = Object.fromEntries(x.o.dati.misure.map((y) => [y.id, y]));
   return {
     title: `${x.s.titolo} · Ivano Sciretta`,
-    description: `${x.o.dati.campione.aziende} ${x.s.chi} analizzati: pagina per buyer non trovata nel ${m.buyer.perc}%, annata non trovata nel ${m.annata.perc}%. Mappa e Check di esempio, casi, domande frequenti.`,
+    description: `${x.o.dati.campione.aziende} ${x.s.chi} analizzati: pagina per buyer non trovata nel ${m.buyer.perc}%, annata non trovata nel ${m.annata.perc}%. Mappa e Check di esempio (caso dimostrativo), casi, domande frequenti.`,
     alternates: { canonical: `/soluzioni/${x.s.slug}` },
     openGraph: { url: `${SITO}/soluzioni/${x.s.slug}`, title: x.s.titolo, locale: "it_IT", ...(x.s.spot ? { images: [{ url: x.s.spot.poster }] } : {}) },
   };
