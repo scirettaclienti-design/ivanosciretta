@@ -1,5 +1,5 @@
 {
-  "_nota": "Solo fatti verificati (fonti nei file dei progetti, controllo dell'8/10/2026). «acceso: false» = non pubblicato. «risultato» solo se misurato. «permesso» = chi ha detto sì alla pubblicazione e quando.",
+  "_nota": "Solo fatti verificati (fonti nei file dei progetti, controllo dell'8/10/2026). «acceso: false» = non pubblicato. «risultato» solo se misurato. «permesso» = chi ha detto sì alla pubblicazione e quando. «settori»: in quali pagine /soluzioni/<settore> compare il caso.",
   "lavori": [
     {
       "slug": "mykonos-made-in-italy",
@@ -16,7 +16,8 @@
       "link": "https://www.mykonosmadeinitaly.com",
       "immagine": "/lavori/mykonos-made-in-italy.jpg",
       "alt": "La home di Mykonos Made in Italy: l'isola in 3D con i locali segnati e il bottone Chiama concierge",
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "ai-space",
@@ -33,7 +34,8 @@
       "link": "https://www.aispace.works",
       "immagine": "/lavori/ai-space.jpg",
       "alt": "La home di AI-SPACE: «La tua evoluzione inizia qui» su sfondo stellato",
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "smasha-il-bullismo",
@@ -50,7 +52,8 @@
       "link": null,
       "immagine": "/lavori/smasha-il-bullismo.jpg",
       "alt": "La home di Smasha il Bullismo con il QR «Inquadra per parlare» e le due strade: ragazzi e istituzioni",
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "lumina-xp",
@@ -67,7 +70,8 @@
       "link": "https://www.lumina-xp.com",
       "immagine": "/lavori/lumina-xp.jpg",
       "alt": "La home di Lumina XP: «Esperienze che si adattano»",
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "pescheria-micalusi",
@@ -82,7 +86,8 @@
       "link": null,
       "immagine": null,
       "alt": null,
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "casa-incontro-valutazione",
@@ -99,7 +104,8 @@
       "link": null,
       "immagine": "/lavori/casa-incontro-valutazione.jpg",
       "alt": "Una stima di prova: 470.000–560.000 € per 95 mq a Trieste-Salario, con forchetta di ±9%",
-      "risultato": null
+      "risultato": null,
+      "settori": []
     },
     {
       "slug": "frantoio-dimostrativo",
@@ -117,7 +123,10 @@
       "link_mappa": "https://www.ivanosciretta.tech/s/DM-FRAN-z8hvfmrk",
       "immagine": "/lavori/frantoio-dimostrativo.jpg",
       "alt": "La mappa del Frantoio Dimostrativo, con la scritta «Caso dimostrativo: azienda e dati inventati»",
-      "risultato": null
+      "risultato": null,
+      "settori": [
+        "olio"
+      ]
     }
   ]
 }

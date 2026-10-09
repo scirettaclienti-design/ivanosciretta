@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 const VOCI = [
   { href: "/chi-sono", testo: "Chi sono" },
   { href: "/lavori", testo: "Lavori" },
+  { href: "/soluzioni", testo: "Soluzioni" },
   { href: "/osservatorio/olio", testo: "Osservatorio" },
 ];
 

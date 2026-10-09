@@ -56,6 +56,7 @@ export default function Home() {
         <nav aria-label="Approfondisci" className="mx-auto flex w-full max-w-4xl flex-wrap justify-center gap-x-8 gap-y-3 px-6 pb-16 font-mono text-sm tracking-widest uppercase">
           <Link href="/chi-sono" className="text-foreground/70 hover:text-primary-cyan">Chi sono</Link>
           <Link href="/lavori" className="text-foreground/70 hover:text-primary-cyan">Lavori</Link>
+          <Link href="/soluzioni" className="text-foreground/70 hover:text-primary-cyan">Soluzioni</Link>
           <Link href="/osservatorio/olio" className="text-foreground/70 hover:text-primary-cyan">Osservatorio frantoi</Link>
         </nav>
         <SiteNavigator />

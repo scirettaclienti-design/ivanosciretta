@@ -1,10 +1,11 @@
-import { SITO, lavori, osservatorio } from "@/lib/sito";
+import { SITO, lavori, osservatorio, settoriPubblicati } from "@/lib/sito";
 
 export const revalidate = 600;
 
 // llms.txt: chi è Ivano, cosa fa, le pagine con una riga ciascuna (https://llmstxt.org).
 export async function GET() {
   const o = await osservatorio("olio");
+  const settori = await settoriPubblicati();
   const righe = [
     "# Ivano Sciretta",
     "",
@@ -17,6 +18,8 @@ export async function GET() {
     o
       ? `- [Osservatorio frantoi · ${o.dati.mese}](${SITO}/osservatorio/olio): come si presentano online ${o.dati.campione.aziende} frantoi italiani in ${o.dati.campione.regioni} regioni, solo numeri aggregati, con metodo e limiti.`
       : `- [Osservatorio](${SITO}/osservatorio): letture pubbliche con numeri aggregati, settore per settore.`,
+    `- [Soluzioni per settore](${SITO}/soluzioni): il problema in numeri, mappa e Check di esempio, casi e domande frequenti.`,
+    ...settori.map(({ s }) => `- [${s.titolo}](${SITO}/soluzioni/${s.slug}): per ${s.chi}.`),
     `- [Mappa gratuita per frantoi](${SITO}/produttori/olio): scrivi il nome del frantoio e vedi cosa trova online chi ti cerca.`,
     `- [Check](${SITO}/check): l'analisi completa con le mosse in ordine e il ritorno calcolato.`,
     "",

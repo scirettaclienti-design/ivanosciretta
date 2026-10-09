@@ -19,6 +19,7 @@ export type Lavoro = {
   immagine: string | null;
   alt: string | null;
   risultato: string | null;
+  settori?: string[];
 };
 export const lavori = (datiLavori.lavori as Lavoro[]).filter((l) => l.acceso);
 
@@ -56,3 +57,22 @@ export async function osservatorio(settore: string, k?: string): Promise<Osserva
 export const dataIt = (iso: string | null) =>
   iso ? new Date(iso).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Rome" }) : "";
 export const virgola = (n: number | null) => (n === null ? "—" : n.toLocaleString("it-IT"));
+
+// /soluzioni: un settore compare solo quando il suo osservatorio è pubblicato (i numeri vengono da lì).
+export type Settore = { slug: string; nome: string; chi: string; titolo: string; spot?: { mp4: string; poster: string }; mappa: string; check: string; ponte: string }
+export const SETTORI: Settore[] = [
+  {
+    slug: "olio",
+    nome: "Frantoi",
+    chi: "frantoi e produttori di olio extravergine",
+    titolo: "Soluzioni per frantoi: farsi trovare e scegliere da chi compra",
+    spot: { mp4: "/_scatole/media/olio/video.mp4", poster: "/_scatole/media/olio/poster.jpg" },
+    mappa: "/s/DM-FRAN-z8hvfmrk",
+    check: "/c/DM-FRAN-rby7peeuzvhw4ugf",
+    ponte: "/olio",
+  },
+];
+export async function settoriPubblicati() {
+  const tutti = await Promise.all(SETTORI.map(async (s) => ({ s, o: await osservatorio(s.slug) })));
+  return tutti.filter((x) => x.o);
+}
