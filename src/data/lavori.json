@@ -1,5 +1,5 @@
 {
-  "_nota": "Solo fatti verificati (fonti nei file dei progetti, controllo dell'8/10/2026). «acceso: false» = non pubblicato. «risultato» solo se misurato. «permesso» = chi ha detto sì alla pubblicazione e quando. «settori»: in quali pagine /soluzioni/<settore> compare il caso.",
+  "_nota": "Solo fatti verificati (fonti nei file dei progetti, controllo dell'8/10/2026). «acceso: false» = non pubblicato. «risultato» solo se misurato. «permesso» = chi ha detto sì alla pubblicazione e quando. «settori»: in quali pagine /soluzioni/<settore> compare il caso. «permesso_cliente»: il cliente ha dato il permesso di pubblicare il nome (dichiarato da Ivano il 13/10/2026). «cambiato»: solo fatti verificabili sul prodotto; se manca un dato resta null e la sezione non compare.",
   "lavori": [
     {
       "slug": "mykonos-made-in-italy",
@@ -17,7 +17,9 @@
       "immagine": "/lavori/mykonos-made-in-italy.jpg",
       "alt": "La home di Mykonos Made in Italy: l'isola in 3D con i locali segnati e il bottone Chiama concierge",
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": false,
+      "cambiato": null
     },
     {
       "slug": "ai-space",
@@ -35,7 +37,9 @@
       "immagine": "/lavori/ai-space.jpg",
       "alt": "La home di AI-SPACE: «La tua evoluzione inizia qui» su sfondo stellato",
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": false,
+      "cambiato": null
     },
     {
       "slug": "smasha-il-bullismo",
@@ -53,7 +57,9 @@
       "immagine": "/lavori/smasha-il-bullismo.jpg",
       "alt": "La home di Smasha il Bullismo con il QR «Inquadra per parlare» e le due strade: ragazzi e istituzioni",
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": true,
+      "cambiato": null
     },
     {
       "slug": "lumina-xp",
@@ -71,7 +77,9 @@
       "immagine": "/lavori/lumina-xp.jpg",
       "alt": "La home di Lumina XP: «Esperienze che si adattano»",
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": true,
+      "cambiato": null
     },
     {
       "slug": "pescheria-micalusi",
@@ -87,7 +95,9 @@
       "immagine": null,
       "alt": null,
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": false,
+      "cambiato": null
     },
     {
       "slug": "casa-incontro-valutazione",
@@ -105,7 +115,12 @@
       "immagine": "/lavori/casa-incontro-valutazione.jpg",
       "alt": "Una stima di prova: 470.000–560.000 € per 95 mq a Trieste-Salario, con forchetta di ±9%",
       "risultato": null,
-      "settori": []
+      "settori": [],
+      "permesso_cliente": true,
+      "cambiato": [
+        "La forchetta di stima, con le sole quotazioni ufficiali di zona, arrivava a 195.000 € su una casa da mezzo milione a Trieste-Salario; con le risposte del venditore passa da ±14% a ±9%.",
+        "La stima dice chiaramente che è indicativa e non una perizia, e non mostra mai gli indirizzi degli immobili dell'agenzia."
+      ]
     },
     {
       "slug": "frantoio-dimostrativo",
@@ -126,7 +141,9 @@
       "risultato": null,
       "settori": [
         "olio"
-      ]
+      ],
+      "permesso_cliente": false,
+      "cambiato": null
     }
   ]
 }

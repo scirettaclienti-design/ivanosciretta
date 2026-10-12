@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Space_Grotesk } from "next/font/google";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { PERSONA_LD, SERVIZIO_LD } from "@/lib/sito";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,32 +48,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.ivanosciretta.tech/chi-sono#ivano",
-    "name": "Ivano Sciretta",
-    "url": "https://www.ivanosciretta.tech",
-    "jobTitle": "AI Systems Architect",
-    "description": "Esperto in Orchestrazione Intelligenza Artificiale, agentic workflows e ingegneria di ecosistemi digitali performanti.",
-    "knowsAbout": ["Intelligenza Artificiale", "Web Development", "Agentic Workflows", "System Orchestration", "Next.js", "React", "WebGL"],
-    "sameAs": [
-      "https://www.linkedin.com/in/ivano-sciretta",
-      "https://www.credly.com/users/ivano-sciretta/badges",
-      "https://t.me/ivanosci"
-    ]
-  };
-
   return (
     <html
       lang="it"
       className={`${inter.variable} ${manrope.variable} ${spaceGrotesk.variable} dark`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* Persona e servizio: scritti una volta sola in lib/sito (le pagine non ne ripetono altri, per non contraddirsi). */}
+        {[PERSONA_LD, SERVIZIO_LD].map((j) => (
+          <script key={j["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(j).replace(/</g, "\\u003c") }} />
+        ))}
       </head>
       <body className="relative min-h-screen flex flex-col antialiased bg-transparent text-foreground scroll-smooth">
         <SmoothScrolling>

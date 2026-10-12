@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Cornice, H1, H2, InBreve } from "@/components/pagine/Cornice";
-import { ID_IVANO, SITO, lavori } from "@/lib/sito";
+import { Azione, Briciole, Continua, Cornice, H1, H2, InBreve } from "@/components/pagine/Cornice";
+import { ID_IVANO, SITO, briciole, lavori } from "@/lib/sito";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -39,18 +39,26 @@ export default async function Lavoro({ params }: { params: Promise<{ slug: strin
     ...(l.link ? { sameAs: l.link } : {}),
   };
   return (
-    <Cornice jsonLd={[opera]}>
-      <p className="text-sm"><Link href="/lavori" className="text-foreground/60 underline underline-offset-4">← Tutti i lavori</Link></p>
-      <H1>{l.cliente}</H1>
-      <p className="mt-2 text-foreground/60">{l.settore}</p>
-      <InBreve>{l.problema}</InBreve>
+    <Cornice jsonLd={[opera, briciole([["Lavori", "/lavori"], [l.cliente.replace(/ \(.*\)$/, ""), `/lavori/${l.slug}`]])]}>
+      <Briciole voci={[["Lavori", "/lavori"], [l.cliente.replace(/ \(.*\)$/, ""), `/lavori/${l.slug}`]]} />
+      <div className="mt-6"><H1>{l.cliente}</H1></div>
+      <p className="mt-2 text-foreground/70">{l.settore}{l.permesso_cliente ? " · con il permesso del cliente" : ""}</p>
+      <InBreve><strong className="text-white">Il problema.</strong> {l.problema}</InBreve>
       {l.immagine && (
         <Image src={l.immagine} alt={l.alt ?? ""} width={1280} height={800} priority className="mt-8 max-h-[70vh] w-full rounded-lg border border-white/10 object-contain object-top" />
       )}
-      <H2>Cosa ho costruito</H2>
+      <H2>Cosa ho fatto</H2>
       <ol className="mt-4 list-decimal space-y-3 pl-6 text-lg leading-relaxed text-foreground/85">
         {l.costruito.map((c) => <li key={c}>{c}</li>)}
       </ol>
+      {l.cambiato && (
+        <>
+          <H2>Cosa è cambiato</H2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 text-lg leading-relaxed text-foreground/85">
+            {l.cambiato.map((c) => <li key={c}>{c}</li>)}
+          </ul>
+        </>
+      )}
       {l.risultato && (
         <>
           <H2>Risultato misurato</H2>
@@ -66,7 +74,9 @@ export default async function Lavoro({ params }: { params: Promise<{ slug: strin
           </ul>
         </>
       )}
-      <p className="mt-12 text-foreground/70">Costruito da <Link href="/chi-sono" className="underline underline-offset-4">Ivano Sciretta</Link>.</p>
+      <p className="mt-12 text-foreground/80">Costruito da <Link href="/chi-sono" className="underline underline-offset-4">Ivano Sciretta</Link>.</p>
+      <Continua voci={[["Tutti i lavori", "/lavori", "Gli altri casi."], ["Metodo", "/metodo", "Come lavoro, passo per passo."], ["Soluzioni", "/soluzioni", "Frantoi, botteghe ed empori."]]} />
+      <Azione titolo="Vuoi vedere dove si trova la tua azienda?" sotto="Scrivi il nome: 10 secondi, gratis, senza registrazione." href="/scatole" testo="Richiedi la mappa gratuita" />
     </Cornice>
   );
 }

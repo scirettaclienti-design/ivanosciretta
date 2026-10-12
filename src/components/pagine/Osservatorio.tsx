@@ -1,8 +1,8 @@
 // L'osservatorio di un settore: numeri SOLO aggregati (nessun nome accanto a una mancanza) + il caso dimostrativo.
 import Link from "next/link";
-import { Cornice, Faq, H1, H2, InBreve } from "@/components/pagine/Cornice";
+import { Azione, Briciole, Continua, Cornice, Faq, H1, H2, InBreve } from "@/components/pagine/Cornice";
 import { Barre } from "@/components/pagine/Grafici";
-import { ID_IVANO, SITO, dataIt, virgola, type Osservatorio as O } from "@/lib/sito";
+import { ID_IVANO, SITO, briciole, dataIt, virgola, type Osservatorio as O } from "@/lib/sito";
 
 const MAPPA_ESEMPIO = "/s/DM-FRAN-z8hvfmrk";
 const CHECK_ESEMPIO = "/c/DM-FRAN-rby7peeuzvhw4ugf";
@@ -57,8 +57,9 @@ export function Osservatorio({ o }: { o: O }) {
     ],
   };
   return (
-    <Cornice jsonLd={[articolo, dataset]}>
-      <p className="text-sm text-foreground/60">Osservatorio · pubblicato il <time dateTime={data}>{dataIt(data)}</time> · di <Link href="/chi-sono" className="underline underline-offset-4">Ivano Sciretta</Link></p>
+    <Cornice jsonLd={[articolo, dataset, briciole([["Osservatorio", "/osservatorio"], ["Frantoi", "/osservatorio/olio"]])]}>
+      <Briciole voci={[["Osservatorio", "/osservatorio"], ["Frantoi", "/osservatorio/olio"]]} />
+      <p className="mt-6 text-sm text-foreground/70">Osservatorio · pubblicato il <time dateTime={data}>{dataIt(data)}</time> · di <Link href="/chi-sono" className="underline underline-offset-4">Ivano Sciretta</Link></p>
       <span hidden data-calcolato={d.calcolato_il}>{d.calcolato_il}</span>
       <div className="mt-3"><H1>{titolo}</H1></div>
       <InBreve>{breve}</InBreve>
@@ -136,11 +137,8 @@ export function Osservatorio({ o }: { o: O }) {
         ]}
       />
 
-      <section className="mt-14 rounded-lg border border-primary-cyan/40 bg-surface-low p-6 text-center">
-        <p className="font-display text-2xl font-semibold text-white">Vuoi vedere dove si trova il tuo frantoio?</p>
-        <p className="mt-2 text-foreground/80">Scrivi il nome: 10 secondi, gratis.</p>
-        <a href="/olio" className="mt-4 inline-flex min-h-12 items-center rounded-lg bg-primary-cyan px-6 font-semibold text-black">Scrivi il nome del frantoio</a>
-      </section>
+      <Continua voci={[["Soluzioni per frantoi", "/soluzioni/olio", "Il mercato, la struttura, le mosse."], ["Metodo", "/metodo", "Mappa, Check, mosse, canone."], ["Chi sono", "/chi-sono", "Chi ha fatto questa lettura."]]} />
+      <Azione titolo="Vuoi vedere dove si trova il tuo frantoio?" sotto="Scrivi il nome: 10 secondi, gratis, senza registrazione." href="/olio" testo="Richiedi la mappa del tuo frantoio" colore="#5B6B2F" />
     </Cornice>
   );
 }
