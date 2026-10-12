@@ -50,6 +50,7 @@ export function Direzione({ slug, variante }: { slug: Tema["slug"]; variante: "a
   const [gl, setGl] = useState(false);
   const [fermo, setFermo] = useState(false);
   const [pronto, setPronto] = useState(false);
+  const [mappaVicina, setMappaVicina] = useState(false);
   const [menu, setMenu] = useState(false);
   const [passo, setPasso] = useState(0);
   const mouse = useRef({ x: 0, y: 0 });
@@ -60,12 +61,21 @@ export function Direzione({ slug, variante }: { slug: Tema["slug"]; variante: "a
 
   useEffect(() => {
     // le scene si montano a pagina disegnata: il titolo si legge subito
-    const id = window.setTimeout(() => {
-      setGl(webglOk());
-      setFermo(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-      setPronto(true);
-    }, 350);
-    return () => window.clearTimeout(id);
+    // (dopo il caricamento e a browser libero: il 3D non ruba tempo al primo disegno)
+    let id = 0;
+    const parti = () => {
+      id = window.setTimeout(() => {
+        setGl(webglOk());
+        setFermo(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+        setPronto(true);
+      }, 900);
+    };
+    if (document.readyState === "complete") parti();
+    else window.addEventListener("load", parti, { once: true });
+    return () => {
+      window.clearTimeout(id);
+      window.removeEventListener("load", parti);
+    };
   }, []);
 
   useEffect(() => {
@@ -80,6 +90,7 @@ export function Direzione({ slug, variante }: { slug: Tema["slug"]; variante: "a
       const n = p < 0.34 ? 0 : p < 0.67 ? 1 : 2;
       setPasso((v) => (v === n ? v : n));
       setMapVivo(r.top < window.innerHeight * 1.2 && r.bottom > -window.innerHeight * 0.2);
+      if (r.top < window.innerHeight * 1.8) setMappaVicina(true);
     };
     const su = () => {
       cancelAnimationFrame(raf);
@@ -201,7 +212,7 @@ export function Direzione({ slug, variante }: { slug: Tema["slug"]; variante: "a
         {/* ——— La mappa che si compone allo scroll ——— */}
         <section id="mappa" ref={mapRef} className="relative" style={{ height: fermo ? "100svh" : "340svh" }} aria-labelledby="mappa-t">
           <div className="sticky top-0 h-[100svh] overflow-hidden">
-            <div className="absolute inset-0">{pronto && gl && <SceneMappa tema={t} serif={serif} sans={sans} prog={prog} fermo={fermo} vivo={mapVivo} />}</div>
+            <div className="absolute inset-0">{pronto && gl && mappaVicina && <SceneMappa tema={t} serif={serif} sans={sans} prog={prog} fermo={fermo} vivo={mapVivo} />}</div>
             <div className="absolute inset-x-4 bottom-5 rounded-2xl border p-5 backdrop-blur-md md:inset-x-auto md:bottom-auto md:left-10 md:top-1/2 md:max-w-sm md:-translate-y-1/2 md:p-7" style={{ background: `color-mix(in srgb, ${t.bg} 88%, transparent)`, borderColor: t.linea }}>
               <h2 id="mappa-t" className="text-[12px] font-semibold uppercase tracking-[0.16em]" style={{ color: t.accentoTesto }}>
                 La mappa, in tre passi

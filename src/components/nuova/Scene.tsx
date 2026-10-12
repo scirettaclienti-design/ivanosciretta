@@ -14,18 +14,18 @@ const sm = (a: number, b: number, x: number) => {
 };
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-function Studio({ tema }: { tema: Tema }) {
+function Studio({ tema, ombraFissa = false }: { tema: Tema; ombraFissa?: boolean }) {
   const s = tema.scena;
   return (
     <>
-      <Environment resolution={256} environmentIntensity={s.env}>
+      <Environment resolution={128} environmentIntensity={s.env}>
         <Lightformer form="rect" intensity={5} color={s.luce} position={[-4, 4, 4]} scale={[5, 4, 1]} />
         <Lightformer form="rect" intensity={2} color={s.luceFill} position={[5, 2, 3]} scale={[3, 4, 1]} />
         <Lightformer form="rect" intensity={1.4} color="#ffffff" position={[0, 5, -2]} scale={[8, 2, 1]} />
         <Lightformer form="rect" intensity={0.8} color="#ffffff" position={[0, -3, 3]} scale={[8, 1, 1]} />
       </Environment>
       <directionalLight position={[-3, 6, 4]} intensity={1.1} color={s.luce} />
-      <ContactShadows position={[0, 0.001, 0]} opacity={Math.min(0.9, s.ombra * 1.5)} scale={12} blur={2.1} far={4.5} resolution={512} color="#2a1a0e" />
+      <ContactShadows position={[0, 0.001, 0]} opacity={Math.min(0.9, s.ombra * 1.5)} scale={12} blur={2.1} far={4.5} resolution={256} frames={ombraFissa ? 2 : Infinity} color="#2a1a0e" />
     </>
   );
 }
@@ -58,8 +58,8 @@ function Natura({ tema, serif, mouse, fermo }: { tema: Tema; serif: string; mous
 
 export function SceneHero({ tema, serif, mouse, fermo, vivo }: { tema: Tema; serif: string; mouse: MutableRefObject<{ x: number; y: number }>; fermo: boolean; vivo: boolean }) {
   return (
-    <Canvas dpr={[1, 1.6]} camera={{ position: [0, 1.6, 6.6], fov: 30 }} gl={{ alpha: true, antialias: true }} frameloop={vivo ? "always" : "never"} style={{ pointerEvents: "none" }} aria-hidden="true">
-      <Studio tema={tema} />
+    <Canvas dpr={[1, 1.4]} camera={{ position: [0, 1.6, 6.6], fov: 30 }} gl={{ alpha: true, antialias: true }} frameloop={vivo ? "always" : "never"} style={{ pointerEvents: "none" }} aria-hidden="true">
+      <Studio tema={tema} ombraFissa />
       <Natura tema={tema} serif={serif} mouse={mouse} fermo={fermo} />
     </Canvas>
   );
@@ -243,7 +243,7 @@ function Mappa({ tema, serif, sans, prog, fermo }: { tema: Tema; serif: string; 
 
 export function SceneMappa({ tema, serif, sans, prog, fermo, vivo }: { tema: Tema; serif: string; sans: string; prog: MutableRefObject<number>; fermo: boolean; vivo: boolean }) {
   return (
-    <Canvas dpr={[1, 1.6]} camera={{ position: [0, 1.7, 7.6], fov: 32 }} gl={{ alpha: true, antialias: true }} frameloop={vivo ? "always" : "never"} style={{ pointerEvents: "none" }} aria-hidden="true">
+    <Canvas dpr={[1, 1.4]} camera={{ position: [0, 1.7, 7.6], fov: 32 }} gl={{ alpha: true, antialias: true }} frameloop={vivo ? "always" : "never"} style={{ pointerEvents: "none" }} aria-hidden="true">
       <Studio tema={tema} />
       <Mappa tema={tema} serif={serif} sans={sans} prog={prog} fermo={fermo} />
     </Canvas>
