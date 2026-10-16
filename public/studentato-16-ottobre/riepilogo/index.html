@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Receptionist digitale dello studentato: demo, piano di lavoro, livelli e condizioni.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Studentato · riepilogo completo">
+<meta property="og:description" content="Receptionist digitale dello studentato: demo, piano di lavoro, livelli e condizioni.">
+<meta property="og:url" content="https://www.ivanosciretta.tech/studentato-16-ottobre/riepilogo">
+<meta property="og:image" content="https://www.ivanosciretta.tech/studentato-16-ottobre/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Receptionist digitale studentato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: hero scuro, poi sezioni chiare alternate; demo del receptionist a telefono accanto alla spiegazione; prezzi come tre scaglioni selezionabili con pannello di dettaglio. Stessa famiglia visiva del sistema Italia Salute. */
+:root{
+  --bg:#FBFBF9; --card:#FFFFFF; --ink:#0B0F0E; --ink2:#2E3A36; --soft:#5E6D67; --faint:#7A8882;
+  --line:#E4E7E2; --line2:#EFF1ED;
+  --dark:#0C1614; --dark2:#16241F; --on-dark:#9FB2AB;
+  --acc:#00A86B; --acc-d:#00784D; --acc-l:#E6F7F0;
+  --warn:#B85A1E; --warn-l:#FDF1E8;
+  --ph-bg:#F6F7F4; --ph-card:#FFFFFF; --ph-ink:#15201C; --ph-soft:#5D6B65; --ph-bar:#0F3B2C; --ph-line:#DDE2DC;
+  --disp:'Space Grotesk',-apple-system,'Segoe UI',sans-serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A100E; --card:#111C19; --ink:#EEF4F1; --ink2:#C9D6D0; --soft:#9FB2AB; --faint:#74857E;
+    --line:#22322D; --line2:#1A2824; --dark:#060B09; --dark2:#101C18;
+    --acc-d:#3FD9A0; --acc-l:#0F2A21; --warn:#F0A06A; --warn-l:#2A1C12; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A100E; --card:#111C19; --ink:#EEF4F1; --ink2:#C9D6D0; --soft:#9FB2AB; --faint:#74857E;
+  --line:#22322D; --line2:#1A2824; --dark:#060B09; --dark2:#101C18;
+  --acc-d:#3FD9A0; --acc-l:#0F2A21; --warn:#F0A06A; --warn-l:#2A1C12; color-scheme:dark;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+p{margin:0 0 1em;}
+.w{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:-.025em;margin:0 0 .5em;line-height:1.12;text-wrap:balance;}
+h2{font-size:clamp(28px,4.6vw,42px);max-width:22ch;}
+h3{font-size:clamp(20px,3vw,25px);}
+.lede{font-size:18px;color:var(--soft);max-width:62ch;}
+.tag{display:inline-flex;align-items:center;font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);background:var(--acc-l);padding:6px 12px;border-radius:100px;margin-bottom:22px;}
+.tag.n{color:var(--soft);background:var(--line2);}
+section{padding-block:76px;}
+.sec-dark{background:var(--dark);color:#fff;}
+.sec-dark h2,.sec-dark h3{color:#fff;}
+.sec-dark .lede{color:var(--on-dark);}
+.sec-dark .tag{background:rgba(0,168,107,.16);color:#4FD9A4;}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;}
+
+/* HERO */
+.hero{background:var(--dark);padding-top:64px;padding-bottom:0;color:#fff;}
+.hero .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.09);}
+.brand{font-family:var(--disp);font-size:14px;font-weight:600;}
+.brand span{color:#6F857D;font-weight:400;}
+.hero .date{font-size:13px;color:#6F857D;}
+.hero-main{padding:52px 0 64px;display:grid;gap:40px;}
+@media(min-width:940px){.hero-main{grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;}}
+.hero h1{font-size:clamp(34px,5.6vw,58px);color:#fff;max-width:14ch;margin-bottom:22px;}
+.hero h1 span{color:var(--acc);}
+.hero .sub{color:var(--on-dark);font-size:17.5px;max-width:50ch;margin:0;}
+.hs{background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px;min-width:0;}
+.hs-n{font-family:var(--disp);font-size:60px;font-weight:700;color:var(--acc);line-height:.95;letter-spacing:-.04em;}
+.hs-u{font-family:var(--disp);font-size:15px;color:var(--on-dark);margin:8px 0 20px;font-weight:500;}
+.hs-d{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;display:grid;gap:11px;}
+.hs-r{display:flex;justify-content:space-between;gap:14px;font-size:14px;color:var(--on-dark);}
+.hs-r b{color:#fff;font-weight:500;font-family:var(--disp);text-align:right;}
+
+/* COSE CONCORDATE */
+.grid4{display:grid;gap:14px;margin-top:36px;}
+@media(min-width:760px){.grid4{grid-template-columns:repeat(2,1fr);}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0;}
+.card h4{font-family:var(--disp);font-size:18px;margin:0 0 6px;}
+.card p{font-size:15px;color:var(--soft);margin:0;}
+.card .k{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);margin-bottom:10px;display:block;}
+
+/* DEMO */
+.demo{display:grid;gap:40px;margin-top:36px;}
+@media(min-width:940px){.demo{grid-template-columns:1fr 390px;gap:56px;align-items:start;}}
+.try{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:8px;}
+.try li button{width:100%;text-align:left;font:inherit;font-size:14px;color:var(--on-dark);background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:11px 15px;cursor:pointer;font-style:italic;}
+.try li button:hover{border-color:var(--acc);color:#fff;}
+.demo-note{font-size:13.5px;color:var(--on-dark);margin-top:18px;max-width:52ch;}
+.phone{background:var(--ph-card);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);color:var(--ph-ink);min-width:0;}
+.pbar{background:var(--ph-bar);color:#fff;padding:13px 14px;display:flex;align-items:center;gap:10px;}
+.av{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#05261A;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:var(--disp);flex-shrink:0;}
+.pbar .t{flex:1;min-width:0;}
+.pbar b{font-size:14.5px;font-weight:600;display:block;line-height:1.2;font-family:var(--disp);}
+.pbar small{font-size:11px;opacity:.8;}
+.langs{display:flex;gap:4px;}
+.langs button{font:inherit;font-size:11px;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid transparent;border-radius:6px;padding:4px 7px;cursor:pointer;}
+.langs button[aria-pressed="true"]{background:#fff;color:var(--ph-bar);}
+.stream{padding:14px 12px 8px;height:370px;overflow-y:auto;background:var(--ph-bg);display:flex;flex-direction:column;gap:8px;}
+.m{max-width:86%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.45;word-wrap:break-word;}
+.m.bot{background:var(--ph-card);align-self:flex-start;border:1px solid var(--ph-line);border-top-left-radius:3px;color:var(--ph-ink);}
+.m.me{background:#0F3B2C;color:#fff;align-self:flex-end;border-top-right-radius:3px;}
+.m.sys{align-self:center;background:transparent;color:var(--ph-soft);font-size:12px;padding:2px 6px;text-align:center;max-width:100%;}
+.m.warn{background:#FDF1E8;border-color:#F0CFB6;color:#6B3410;}
+.m .ex{display:block;font-size:11px;color:var(--ph-soft);margin-top:5px;}
+.opts{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0;align-self:flex-start;max-width:100%;}
+.opts button{font:inherit;font-size:13.5px;color:#0F3B2C;background:var(--ph-card);border:1.5px solid #0F3B2C;border-radius:100px;padding:7px 13px;cursor:pointer;}
+.opts button:hover{background:#0F3B2C;color:#fff;}
+.inp{display:flex;gap:6px;padding:10px;background:var(--ph-card);border-top:1px solid var(--ph-line);}
+.inp input{flex:1;min-width:0;font:inherit;font-size:14px;border:1px solid var(--ph-line);border-radius:100px;padding:9px 14px;background:var(--ph-bg);color:var(--ph-ink);}
+.inp button{font:inherit;font-size:13.5px;font-weight:600;background:var(--acc);color:#05261A;border:0;border-radius:100px;padding:9px 15px;cursor:pointer;}
+.logbox{margin-top:14px;font-size:12.5px;color:var(--on-dark);background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;}
+.logbox b{color:#fff;font-family:var(--disp);}
+
+/* COME FUNZIONA */
+.steps{display:grid;gap:14px;margin-top:36px;}
+@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr);}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0;}
+.step .who{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);}
+.step h4{font-family:var(--disp);font-size:18px;margin:8px 0 8px;}
+.step p{font-size:15px;color:var(--soft);margin:0;}
+.limits{margin-top:14px;display:grid;gap:14px;}
+@media(min-width:860px){.limits{grid-template-columns:1fr 1fr;}}
+.box-yes,.box-no{border-radius:14px;padding:22px 24px;min-width:0;}
+.box-yes{background:var(--acc-l);border:1px solid var(--line);}
+.box-no{background:var(--warn-l);border:1px solid var(--line);}
+.box-yes h4,.box-no h4{font-family:var(--disp);font-size:16px;margin:0 0 10px;}
+.box-yes h4{color:var(--acc-d);} .box-no h4{color:var(--warn);}
+.box-yes ul,.box-no ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink2);}
+.box-yes li,.box-no li{margin-bottom:6px;}
+
+/* TICKET FLOW */
+.flow{display:grid;gap:10px;margin-top:36px;}
+@media(min-width:860px){.flow{grid-template-columns:repeat(5,1fr);gap:8px;}}
+.fl{background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;color:var(--on-dark);font-size:14px;min-width:0;}
+.fl b{display:block;color:#fff;font-family:var(--disp);font-size:15px;margin-bottom:6px;}
+.fl .st{font-family:var(--disp);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4FD9A4;font-weight:600;display:block;margin-bottom:8px;}
+
+/* PIANO */
+.tl{margin-top:36px;display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px;}
+.ti{position:relative;padding:0 0 28px 28px;}
+.ti::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--acc);}
+.ti.mile::before{background:var(--acc);}
+.ti .d{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);}
+.ti h4{font-family:var(--disp);font-size:18px;margin:4px 0 4px;}
+.ti p{font-size:15px;color:var(--soft);margin:0;max-width:62ch;}
+.ppl{display:grid;gap:14px;margin-top:8px;}
+@media(min-width:760px){.ppl{grid-template-columns:repeat(3,1fr);}}
+
+/* DOPO */
+.later{display:grid;gap:12px;margin-top:36px;}
+@media(min-width:760px){.later{grid-template-columns:repeat(2,1fr);}}
+.later .card{background:var(--card);}
+.later .card h4{margin-bottom:4px;}
+.pill{display:inline-block;font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);background:var(--line2);padding:4px 10px;border-radius:100px;margin-top:12px;}
+
+/* PREZZI */
+.tiers{display:grid;gap:14px;margin-top:36px;}
+@media(min-width:860px){.tiers{grid-template-columns:repeat(3,1fr);}}
+.tier{font:inherit;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:24px;cursor:pointer;min-width:0;display:block;width:100%;}
+.tier:hover{border-color:var(--acc);}
+.tier[aria-pressed="true"]{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-l);}
+.tier .nm{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-d);}
+.tier .pr{font-family:var(--disp);font-size:40px;font-weight:700;letter-spacing:-.03em;margin:8px 0 6px;font-variant-numeric:tabular-nums;}
+.tier .ds{font-size:14.5px;color:var(--soft);}
+.detail{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.detail .hd{padding:22px 24px;border-bottom:1px solid var(--line2);}
+.detail .hd h3{margin:0;}
+.detail .bd{display:grid;gap:0;}
+@media(min-width:860px){.detail .bd{grid-template-columns:1.2fr .8fr;}}
+.detail .inc{padding:22px 24px;min-width:0;}
+.detail .inc ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+.detail .inc li{font-size:15px;color:var(--ink2);padding-left:24px;position:relative;}
+.detail .inc li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:6px;border-left:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(-45deg) translateY(-30%);}
+.detail .inc li.no{color:var(--faint);}
+.detail .inc li.no::before{border-color:var(--faint);width:10px;height:0;border-left:0;transform:none;top:.8em;}
+.detail .calc{padding:22px 24px;background:var(--line2);min-width:0;}
+.cr{display:flex;justify-content:space-between;gap:14px;padding:8px 0;font-size:14.5px;color:var(--soft);border-bottom:1px solid var(--line);}
+.cr:last-child{border-bottom:0;}
+.cr b{font-family:var(--disp);font-weight:600;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.cr.key{color:var(--ink);font-weight:500;}
+.cr.key b{font-size:22px;color:var(--acc-d);}
+.note{font-size:13.5px;color:var(--faint);margin-top:16px;max-width:70ch;}
+.monthly{display:grid;gap:14px;margin-top:14px;}
+@media(min-width:760px){.monthly{grid-template-columns:1fr 1fr;}}
+
+/* CONDIZIONI */
+dl.cond{display:grid;gap:0;margin:36px 0 0;}
+dl.cond div{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line);}
+@media(min-width:760px){dl.cond div{grid-template-columns:200px 1fr;gap:24px;}}
+dl.cond dt{font-family:var(--disp);font-weight:600;font-size:15px;}
+dl.cond dd{margin:0;font-size:15px;color:var(--soft);max-width:70ch;}
+
+/* PROSSIMI PASSI */
+.nx{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:10px;}
+.nx li{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+.nx input{margin-top:5px;accent-color:var(--acc);width:18px;height:18px;flex-shrink:0;}
+.nx label{font-size:15.5px;cursor:pointer;min-width:0;}
+.nx label span{display:block;font-size:13px;color:var(--faint);}
+.contact{margin-top:36px;font-size:15px;color:var(--soft);}
+.contact b{color:var(--ink);font-family:var(--disp);}
+footer{padding-block:32px 48px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);}
+.np .price-only{display:none!important;} .np-only{display:none;} .np p.np-only{display:block;} .np span.np-only{display:inline-flex;}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="w">
+    <div class="top">
+      <div class="brand">Ivano Sciretta <span>· Sistemi di intelligenza artificiale applicata</span></div>
+      <div class="date"><a href="/studentato-16-ottobre" style="color:#9FB2AB;text-decoration:none">← Torna alla presentazione</a> · Riepilogo della call del 16 ottobre 2026</div>
+    </div>
+    <div class="hero-main">
+      <div>
+        <h1>Un receptionist digitale che <span>risponde, orienta, passa la mano</span></h1>
+        <p class="sub">Lo studentato ottiene un punto di contatto che capisce la lingua dello studente, risponde con testi approvati e trasferisce a un operatore quando la richiesta non è convalidata.</p>
+      </div>
+      <div class="hs">
+        <div class="hs-n">5</div>
+        <div class="hs-u">giorni lavorativi alla prima versione di prova</div>
+        <div class="hs-d">
+          <div class="hs-r"><span>Versione completa, Essenziale e Plus</span><b>10 giorni lavorativi</b></div>
+          <div class="hs-r"><span>Versione completa, livello Completo</span><b>15 giorni lavorativi</b></div>
+          <div class="hs-r"><span>Si parte con</span><b>acconto e contenuti</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="w">
+    <span class="tag">Cosa mi avete chiesto</span>
+    <h2>Un solo punto di accesso per tutto lo studentato</h2>
+    <p class="lede">Queste sono le esigenze emerse nella call. Candidature, regolamento e lingue sono il cuore del lavoro; segnalazioni e stime si aggiungono secondo il livello scelto.</p>
+    <div class="grid4">
+      <div class="card"><span class="k">Candidature</span><h4>Procedura e documenti sempre disponibili</h4><p>Documenti richiesti, scadenze e passaggi della domanda arrivano direttamente nella chat. Le richieste ripetitive non passano più dalle caselle email dell'amministrazione: il receptionist fa da filtro.</p></div>
+      <div class="card"><span class="k">Regolamento e servizi</span><h4>Come si vive nello studentato</h4><p>Regole di convivenza, servizi disponibili e convenzioni, aggiornabili man mano che i servizi si estendono.</p></div>
+      <div class="card"><span class="k">Multilingua</span><h4>Lo studente scrive nella sua lingua</h4><p>Il sistema riconosce la lingua in ingresso e risponde nella stessa, con testi approvati da voi e tradotti fedelmente.</p></div>
+      <div class="card"><span class="k">Segnalazioni</span><h4>Reclami e guasti restano gestiti dentro la struttura</h4><p>Una prima risposta ai casi semplici, poi una segnalazione registrata e inoltrata al referente o al tecnico, senza arrivare all'università.</p></div>
+      <div class="card"><span class="k">Accesso</span><h4>Link, QR code o ingresso con matricola</h4><p>Parte su una chat web esterna, raggiungibile da un link o da un QR in struttura. L'ingresso con matricola e il collegamento all'app esistente si valutano dopo una verifica tecnica.</p></div>
+      <div class="card"><span class="k">Costi ordinari</span><h4>Bassi e prevedibili</h4><p>Una chat web propria non paga costi per messaggio a terzi. Le chiamate al modello di intelligenza artificiale sono limitate ai passaggi in cui servono davvero.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="w">
+    <span class="tag">Provatelo</span>
+    <h2>Il receptionist digitale, in piccolo</h2>
+    <p class="lede">Scegliete le opzioni oppure scrivete una frase libera, anche in inglese o spagnolo. Guardate cosa succede con una frase fuori tema.</p>
+    <div class="demo">
+      <div>
+        <ul class="try" id="try"></ul>
+        <p class="demo-note">Dimostrazione con contenuti di esempio. Nella versione reale le risposte sono quelle che approvate voi, in base ai vostri documenti.</p>
+        <div class="logbox" id="logbox"><b>Registro domande non capite:</b> <span id="logcount">0</span>. Ogni richiesta fuori dai percorsi viene trasferita a un operatore e registrata. È dal registro che si migliorano i percorsi.</div>
+      </div>
+      <div class="phone" aria-label="Simulazione del receptionist digitale">
+        <div class="pbar">
+          <div class="av">R</div>
+          <div class="t"><b>Receptionist</b><small id="langstat">Lingua: Italiano</small></div>
+          <div class="langs" id="langs">
+            <button type="button" data-l="it" aria-pressed="true">IT</button>
+            <button type="button" data-l="en" aria-pressed="false">EN</button>
+            <button type="button" data-l="es" aria-pressed="false">ES</button>
+          </div>
+        </div>
+        <div class="stream" id="stream" aria-live="polite"></div>
+        <form class="inp" id="form">
+          <input id="msg" type="text" autocomplete="off" aria-label="Scrivi un messaggio" placeholder="Scrivi qui…">
+          <button type="submit" id="send">Invia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <span class="tag">Come funziona sotto</span>
+    <h2>L'intelligenza artificiale orienta. Le risposte sono vostre.</h2>
+    <p class="lede">Un sistema libero potrebbe inventare. Questo no: ogni risposta viene da un testo che avete approvato.</p>
+    <div class="steps">
+      <div class="step"><span class="who">Passo 1 · Intelligenza artificiale</span><h4>Capisce lingua e intenzione</h4><p>Riconosce in che lingua scrive lo studente e a quale percorso si riferisce, anche se usa parole diverse da quelle del menu.</p></div>
+      <div class="step"><span class="who">Passo 2 · Risposta convalidata</span><h4>Risponde con il testo approvato</h4><p>Il testo viene tradotto nella lingua dello studente con l'istruzione di non aggiungere né togliere nulla.</p></div>
+      <div class="step"><span class="who">Passo 3 · Operatore</span><h4>Se non è convalidato, passa la mano</h4><p>Quando la richiesta è fuori dai percorsi, la persona viene indirizzata a un operatore e la richiesta resta registrata.</p></div>
+    </div>
+    <div class="limits">
+      <div class="box-yes"><h4>Cosa garantisce</h4><ul><li>Risposte solo da testi approvati dalla struttura</li><li>Passaggio a un operatore quando non è sicuro</li><li>Registro delle richieste non capite</li><li>Miglioramento continuo: ogni mese le richieste non capite diventano nuove risposte approvate</li><li>Costi di utilizzo tenuti sotto controllo</li></ul></div>
+      <div class="box-no"><h4>Cosa non fa</h4><ul><li>Non inventa regole, scadenze o importi</li><li>Non decide al posto della direzione</li><li>Non cambia da solo le risposte: ogni miglioramento passa dalla vostra approvazione</li><li>Nella prima versione non tratta dati personali sensibili</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="w">
+    <span class="tag">Segnalazioni e manutenzione</span>
+    <h2>Dal guasto alla segnalazione, senza uscire dalla chat</h2>
+    <p class="lede">Per idraulica, elettricità e pompe di calore il sistema offre una prima risposta ai casi semplici e poi apre una segnalazione ordinata. Fa parte dei livelli Plus e Completo.</p>
+    <div class="flow">
+      <div class="fl"><span class="st">1</span><b>Lo studente segnala</b>Sceglie la categoria o descrive il problema a parole sue.</div>
+      <div class="fl"><span class="st">2</span><b>Prima risposta</b>Se è un caso banale, il sistema indica cosa controllare.</div>
+      <div class="fl"><span class="st">3</span><b>Segnalazione registrata</b>Si apre una scheda con categoria, data e stanza.</div>
+      <div class="fl"><span class="st">4</span><b>Avviso al referente</b>Il referente o il tecnico ricevono la notifica.</div>
+      <div class="fl"><span class="st">5</span><b>Stima e controllo</b>Nel livello Completo, una stima indicativa dell'intervento sul vostro listino.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <span class="tag">Piano di lavoro</span>
+    <h2>Prova in 5 giorni, versione completa in 10–15</h2>
+    <p class="lede">I tempi decorrono da quando ricevo l'acconto e i materiali. Se i contenuti arrivano a pezzi, la consegna si sposta di pari passo.</p>
+    <div class="tl">
+      <div class="ti mile"><div class="d">Giorno 0</div><h4>Avvio</h4><p>Gruppo di lavoro operativo, conferma del livello scelto, versamento dell'acconto.</p></div>
+      <div class="ti"><div class="d">Giorni 1–3</div><h4>Raccolta contenuti e costruzione dei percorsi</h4><p>Ricevo documentazione e linee guida, definisco insieme a voi i percorsi e le risposte da convalidare.</p></div>
+      <div class="ti mile"><div class="d">Giorno 5</div><h4>Versione di prova funzionante</h4><p>Il receptionist è online su un link di prova, con le domande principali.</p></div>
+      <div class="ti"><div class="d">Giorni 5–8</div><h4>Test con il vostro team</h4><p>Alcuni giorni di prova: raccogliamo le richieste non capite e correggiamo.</p></div>
+      <div class="ti mile"><div class="d">Giorno 10 · 15 per il Completo</div><h4>Versione completa</h4><p>Rilascio su link e QR code, con saldo alla consegna. Il livello Completo richiede cinque giorni in più per stime, report e lingue aggiuntive.</p></div>
+    </div>
+    <div class="ppl">
+      <div class="card"><span class="k">Responsabile amministrativo</span><h4>Roberto Falò</h4><p>Documentazione sulle procedure di candidatura e ammissione.</p></div>
+      <div class="card"><span class="k">Direzione</span><h4>Direzione dello studentato</h4><p>Materiale organizzativo, linee guida su servizi e condotta nello studentato.</p></div>
+      <div class="card"><span class="k">Sviluppo</span><h4>Ivano Sciretta</h4><p>Costruzione, test, rilascio e controllo dei costi di utilizzo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="w">
+    <span class="tag">Dopo, se ha senso</span>
+    <h2>Aree emerse nella call, non incluse in questo preventivo</h2>
+    <p class="lede">Sono idee interessanti. Nessuna è compresa nei prezzi sotto, e nessuna è un impegno finché non è scritta in un preventivo dedicato.</p>
+    <div class="later">
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">Lavagna digitale per gli studenti</h4><p style="color:var(--on-dark)">Uno spazio per appunti e organizzazione tra studenti. Da definire cosa serve e chi lo modera.</p><span class="pill">Da valutare</span></div>
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">Collegamento con l'app studenti</h4><p style="color:var(--on-dark)">Possibile solo dopo aver visto cosa permette l'app esistente.</p><span class="pill">Verifica tecnica</span></div>
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">WhatsApp</h4><p style="color:var(--on-dark)">Si parte dalla chat web, che non dipende dall'approvazione di Meta né dalla configurazione del vostro numero. Il problema di collegamento con WhatsApp Business e i costi per messaggio si analizzano a parte, sul listino ufficiale.</p><span class="pill">Verifica tecnica</span></div>
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">Archivio, banca dati storica e centrale operativa di telereabilitazione</h4><p style="color:var(--on-dark)">Progetti più ampi del gruppo, con dati sanitari: screening, liste d'attesa, simulazioni per la formazione, logopedia. Richiedono un'analisi dedicata, con le garanzie sulla protezione dei dati.</p><span class="pill">Documento separato</span></div>
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">Replica su altre strutture</h4><p style="color:var(--on-dark)">Il receptionist è costruito per essere replicato: il dato cambia, il processo resta. Codice sorgente e diritto di replica si definiscono con un accordo dedicato, prima di qualsiasi replica.</p><span class="pill">Accordo dedicato</span></div>
+      <div class="card" style="background:var(--dark2);border-color:rgba(255,255,255,.08)"><h4 style="color:#fff">Stazione centrale del gruppo</h4><p style="color:var(--on-dark)">L'idea di un unico punto da cui si diramano gli altri progetti. Il receptionist dello studentato è il primo tassello concreto e misurabile.</p><span class="pill">Visione</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <span class="tag price-only">Livelli e prezzi</span><span class="tag np-only">Livelli</span>
+    <h2>Tre livelli, scegliete quello che serve</h2>
+    <p class="lede price-only">Il prezzo dipende da quanti contenuti e funzioni entrano nella prima versione. Selezionate un livello per vedere cosa comprende e come si paga.</p>
+    <p class="lede np-only">Ogni livello aggiunge contenuti e funzioni al precedente. Selezionate un livello per vedere cosa comprende; gli importi li definiamo insieme sul livello scelto.</p>
+    <div class="tiers" id="tiers" role="group" aria-label="Livelli"></div>
+    <div class="detail" id="detail"></div>
+    <div class="monthly">
+      <div class="card"><span class="k">Costi ordinari a carico vostro (stime)</span><h4>Circa 25–55 € al mese</h4><p>Modello di intelligenza artificiale 5–25 € e hosting 20–30 € al mese. Sono stime: il consumo reale dipende dall'uso. La chat web e il controllo delle chiamate li tengono bassi.</p></div>
+      <div class="card price-only"><span class="k">Assistenza facoltativa</span><h4>140 € o 260 € al mese</h4><p><b>Essenziale 140 €</b>: correzioni e piccoli aggiornamenti dei testi. <b>Evolutivo 260 €</b>: revisione mensile del registro delle richieste non capite e aggiornamento dei percorsi.</p></div>
+    </div>
+    <p class="note price-only">Importi in euro, senza IVA (regime forfettario). I livelli sono una proposta da discutere. Le lingue sono riconosciute automaticamente in ogni livello; cambia quante vengono testate una per una.</p>
+  </div>
+</section>
+
+<section class="sec-dark">
+  <div class="w">
+    <span class="tag">Condizioni</span>
+    <h2>Scritto così, perché sia chiaro da subito</h2>
+    <dl class="cond" style="color:#fff">
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Pagamento</dt><dd style="color:var(--on-dark)">50% all'avvio, 50% alla consegna della versione completa. Il lavoro inizia dopo l'acconto.</dd></div>
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Tempi</dt><dd style="color:var(--on-dark)">Versione di prova in 5 giorni lavorativi; versione completa in 10 (Essenziale e Plus) o 15 (Completo), dalla ricezione di acconto e contenuti.</dd></div>
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Titolarità</dt><dd style="color:var(--on-dark)">Contenuti, testi e configurazioni dello studentato sono vostri. Il software di base resta dell'autore e viene concesso in licenza d'uso per lo studentato. Codice sorgente e diritto di replicarlo o rivenderlo ad altre strutture non sono compresi in questa proposta: si possono concordare con un accordo dedicato, da firmare prima di qualsiasi replica.</dd></div>
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Dati personali</dt><dd style="color:var(--on-dark)">La prima versione non tratta dati personali sensibili. L'ingresso con matricola si valuta a parte, con le garanzie necessarie.</dd></div>
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Modifiche</dt><dd style="color:var(--on-dark)">Quanto non è descritto qui non è compreso. Ogni aggiunta viene quotata prima di iniziare.</dd></div>
+      <div style="border-color:rgba(255,255,255,.1)"><dt style="color:#fff">Validità</dt><dd style="color:var(--on-dark)">Questa proposta è valida fino al 15 novembre 2026.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <span class="tag">Prossimi passi</span>
+    <h2>Per partire servono sei cose</h2>
+    <ul class="nx">
+      <li><input type="checkbox" id="c1"><label for="c1">Gruppo di lavoro operativo con responsabile amministrativo e direttrice<span>A cura di Giampiero</span></label></li>
+      <li><input type="checkbox" id="c2"><label for="c2">Scelta del livello e conferma scritta<span>Giampiero e Ivano</span></label></li>
+      <li><input type="checkbox" id="c6"><label for="c6">Dati del committente che firma e riceve la fattura<span>Ragione sociale, partita IVA, legale rappresentante</span></label></li>
+      <li><input type="checkbox" id="c3"><label for="c3">Acconto del 50%<span>Dà il via ai lavori</span></label></li>
+      <li><input type="checkbox" id="c4"><label for="c4">Documentazione su candidature e ammissione<span>Roberto Falò</span></label></li>
+      <li><input type="checkbox" id="c5"><label for="c5">Linee guida su servizi e condotta<span>Direzione dello studentato</span></label></li>
+    </ul>
+    <p class="contact"><b>Ivano Sciretta</b><br>sciretta.clienti@gmail.com · +39 347 6498357</p>
+  </div>
+</section>
+
+<footer>
+  <div class="w">Documento di sintesi della call del 16 ottobre 2026. Le risposte nella dimostrazione sono contenuti di esempio. Ciò che non è scritto qui non è vincolante.</div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- DEMO ---------- */
+  var UI={
+    it:{name:'Italiano',hi:'Ciao! Sono il receptionist digitale. Come posso aiutarti?',back:'Torna al menu',ph:'Scrivi qui…',send:'Invia',
+        det:'Lingua riconosciuta: ',ex:'Risposta di esempio',
+        fb:'Non ho una risposta approvata per questa richiesta. La passo a un operatore e la registro.',fbx:'Richiesta registrata (esempio)'},
+    en:{name:'English',hi:'Hi! I am the digital receptionist. How can I help?',back:'Back to menu',ph:'Type here…',send:'Send',
+        det:'Language detected: ',ex:'Sample answer',
+        fb:'I do not have an approved answer for this request. I am passing it to a staff member and logging it.',fbx:'Request logged (sample)'},
+    es:{name:'Español',hi:'¡Hola! Soy el recepcionista digital. ¿En qué puedo ayudarte?',back:'Volver al menú',ph:'Escribe aquí…',send:'Enviar',
+        det:'Idioma detectado: ',ex:'Respuesta de ejemplo',
+        fb:'No tengo una respuesta aprobada para esta solicitud. La paso a una persona del equipo y la registro.',fbx:'Solicitud registrada (ejemplo)'}
+  };
+  var TREE={
+    root:{kids:['apply','rules','report'],l:{it:'Cosa ti serve?',en:'What do you need?',es:'¿Qué necesitas?'}},
+    apply:{label:{it:'Candidatura',en:'Application',es:'Solicitud'},kids:['docs','deadline']},
+    rules:{label:{it:'Regolamento',en:'House rules',es:'Reglamento'},kids:['quiet','guests']},
+    report:{label:{it:'Segnala un problema',en:'Report a problem',es:'Informar de un problema'},kids:['water','electric','heat']},
+    docs:{label:{it:'Documenti richiesti',en:'Required documents',es:'Documentos necesarios'},
+      a:{it:'Qui compare l\'elenco dei documenti approvato dall\'amministrazione, ad esempio documento di identità e codice fiscale.',
+         en:'Here you will see the list of documents approved by the administrative office, for example ID document and tax code.',
+         es:'Aquí aparece la lista de documentos aprobada por la administración, por ejemplo documento de identidad y código fiscal.'},
+      kw:['document','documenti','documentos','documents','passport','passaporto','identity','carta d']},
+    deadline:{label:{it:'Scadenze',en:'Deadlines',es:'Plazos'},
+      a:{it:'Le domande si presentano entro la data indicata nel bando della struttura. La data esatta compare qui, approvata da voi.',
+         en:'Applications must be submitted by the date set in the call. The exact date appears here, approved by you.',
+         es:'Las solicitudes se presentan antes de la fecha indicada en la convocatoria. La fecha exacta aparece aquí, aprobada por ustedes.'},
+      kw:['scadenz','deadline','plazo','apply by','fecha l','termine']},
+    quiet:{label:{it:'Orari del silenzio',en:'Quiet hours',es:'Horario de silencio'},
+      a:{it:'Gli orari del silenzio sono fissati dal regolamento interno. Qui compare l\'orario approvato.',
+         en:'Quiet hours are set by the house rules. The approved schedule appears here.',
+         es:'El horario de silencio lo fija el reglamento interno. Aquí aparece el horario aprobado.'},
+      kw:['silenzio','rumore','noise','quiet','ruido','silencio','musica','music','loud']},
+    guests:{label:{it:'Ospiti',en:'Guests',es:'Invitados'},
+      a:{it:'Le regole sugli ospiti sono nel regolamento. Qui compare il testo approvato dalla direzione.',
+         en:'Guest rules are in the house rules. The text approved by management appears here.',
+         es:'Las normas sobre invitados están en el reglamento. Aquí aparece el texto aprobado por la dirección.'},
+      kw:['ospit','guest','visitor','invit','amic','friend','amig','visita']},
+    water:{label:{it:'Acqua / idraulica',en:'Water / plumbing',es:'Agua / fontanería'},ticket:true,
+      a:{it:'Prova a chiudere il rubinetto di arresto sotto il lavandino. Ho aperto la segnalazione n. 0001 e avvisato il referente.',
+         en:'Try closing the shut-off valve under the sink. I have opened report no. 0001 and notified the person in charge.',
+         es:'Prueba a cerrar la llave de paso bajo el lavabo. He abierto la incidencia n.º 0001 y avisado al responsable.'},
+      kw:['acqua','perdita','rubinetto','water','leak','tap','agua','fuga','grifo','bagno','toilet','shower','doccia','ducha']},
+    electric:{label:{it:'Luce / elettricità',en:'Light / electricity',es:'Luz / electricidad'},ticket:true,
+      a:{it:'Controlla se è scattato il salvavita nel quadro del piano. Ho aperto la segnalazione n. 0002 e avvisato il referente.',
+         en:'Check whether the circuit breaker on your floor has tripped. I have opened report no. 0002 and notified the person in charge.',
+         es:'Comprueba si ha saltado el diferencial del cuadro de tu planta. He abierto la incidencia n.º 0002 y avisado al responsable.'},
+      kw:['luce','elettric','light','power','electric','luz','corriente','presa','socket','outlet','enchufe','lampad']},
+    heat:{label:{it:'Riscaldamento',en:'Heating',es:'Calefacción'},ticket:true,
+      a:{it:'Verifica che il termostato sia su riscaldamento e alla temperatura giusta. Ho aperto la segnalazione n. 0003 e avvisato il referente.',
+         en:'Check that the thermostat is set to heating and at the right temperature. I have opened report no. 0003 and notified the person in charge.',
+         es:'Comprueba que el termostato esté en calefacción y a la temperatura adecuada. He abierto la incidencia n.º 0003 y avisado al responsable.'},
+      kw:['caldo','freddo','riscald','pompa','heating','cold','heat','calefac','frío','frio','radiator','calorifero','termosifone']}
+  };
+  var EN_W=['hello','hi','where','how','can','my','the','is','please','what','there','need','room','has','and','it','cold','leak','not','working','are','do','you','i','have','when','which','documents','heating','water'];
+  var ES_W=['hola','necesito','dónde','donde','tengo','puedo','gracias','cuándo','cuando','está','estoy','qué','que','fuga','funciona','los','las','el','cuáles','para','mi','habitación','calefacción','agua','documentos','y'];
+  var IT_W=['ciao','dove','come','posso','grazie','quando','ho','non','il','che','perdita','serve','organizzate','festa','sera','venerdì','venerdi','per','sono','nel','della','dei','le','lo','si','è','e','del','bagno','rubinetto','acqua','camera','documenti','quali','vorrei'];
+
+  var lang='it', logN=0;
+  var stream=document.getElementById('stream');
+  var form=document.getElementById('form'), msg=document.getElementById('msg');
+  var sendBtn=document.getElementById('send'), langstat=document.getElementById('langstat');
+  var logcount=document.getElementById('logcount');
+
+  function scroll(){stream.scrollTop=stream.scrollHeight;}
+  function add(cls,text,extra){
+    var d=document.createElement('div'); d.className='m '+cls; d.textContent=text;
+    if(extra){var s=document.createElement('span'); s.className='ex'; s.textContent=extra; d.appendChild(s);}
+    stream.appendChild(d); scroll(); return d;
+  }
+  function opts(ids,withBack){
+    var w=document.createElement('div'); w.className='opts';
+    ids.forEach(function(id){
+      var b=document.createElement('button'); b.type='button'; b.textContent=TREE[id].label[lang];
+      b.addEventListener('click',function(){choose(id,true);});
+      w.appendChild(b);
+    });
+    if(withBack){
+      var bb=document.createElement('button'); bb.type='button'; bb.textContent=UI[lang].back;
+      bb.addEventListener('click',function(){add('me',UI[lang].back); menu();});
+      w.appendChild(bb);
+    }
+    stream.appendChild(w); scroll();
+  }
+  function menu(){ add('bot',TREE.root.l[lang]); opts(TREE.root.kids,false); }
+  function choose(id,fromClick){
+    var n=TREE[id];
+    if(fromClick) add('me',n.label[lang]);
+    if(n.kids){ add('bot',n.label[lang]+':'); opts(n.kids,true); }
+    else { add('bot',n.a[lang],UI[lang].ex+(n.ticket?' · ticket':'')); opts([],true); }
+  }
+  function setLang(l,announce){
+    lang=l;
+    langstat.textContent=(announce?UI[l].det:'Lingua: ')+UI[l].name;
+    if(!announce) langstat.textContent='Lingua: '+UI[l].name;
+    document.querySelectorAll('#langs button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false');});
+    msg.placeholder=UI[l].ph; sendBtn.textContent=UI[l].send;
+  }
+  function detect(t){
+    var s=t.toLowerCase(), sc={it:0,en:0,es:0};
+    var words=s.match(/[\p{L}]+/gu)||[];
+    words.forEach(function(w){
+      if(EN_W.indexOf(w)>-1) sc.en++;
+      if(ES_W.indexOf(w)>-1) sc.es++;
+      if(IT_W.indexOf(w)>-1) sc.it++;
+    });
+    if(/[¿¡ñ]/.test(s)) sc.es+=2;
+    var best='it',mx=sc.it;
+    if(sc.en>mx){best='en';mx=sc.en;}
+    if(sc.es>mx){best='es';mx=sc.es;}
+    return mx>0?best:lang;
+  }
+  function match(t){
+    var s=t.toLowerCase(), found=null;
+    Object.keys(TREE).forEach(function(id){
+      var n=TREE[id]; if(!n.kw||found) return;
+      n.kw.forEach(function(k){ if(!found && s.indexOf(k)>-1) found=id; });
+    });
+    return found;
+  }
+  function handle(text){
+    text=text.trim(); if(!text) return;
+    add('me',text);
+    var l=detect(text);
+    if(l!==lang){ setLang(l,true); add('sys',UI[l].det+UI[l].name); } else { langstat.textContent=UI[lang].det+UI[lang].name; }
+    var id=match(text);
+    if(id){ choose(id,false); }
+    else {
+      logN++; logcount.textContent=String(logN);
+      add('bot warn',UI[lang].fb,UI[lang].fbx);
+      opts([],true);
+    }
+  }
+  document.querySelectorAll('#langs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      setLang(b.dataset.l,false);
+      stream.innerHTML=''; add('bot',UI[lang].hi); menu();
+    });
+  });
+  form.addEventListener('submit',function(e){e.preventDefault(); var v=msg.value; msg.value=''; handle(v);});
+
+  var samples=[
+    'Il rubinetto del bagno perde acqua',
+    'Hi, my room has no heating and it is cold',
+    'Hola, ¿cuáles son los documentos que necesito?',
+    'Organizzate una festa venerdì sera?'
+  ];
+  var tryUl=document.getElementById('try');
+  samples.forEach(function(s){
+    var li=document.createElement('li'), b=document.createElement('button'); b.type='button'; b.textContent='“'+s+'”';
+    b.addEventListener('click',function(){handle(s);}); li.appendChild(b); tryUl.appendChild(li);
+  });
+  setLang('it',false); add('bot',UI.it.hi); menu();
+
+  /* ---------- PREZZI ---------- */
+  var TIERS=[
+    {id:'ess',nm:'Essenziale',pr:3000,ds:'Il receptionist multilingue sui contenuti principali.',
+     inc:[['Receptionist digitale multilingue a scelta guidata',1],['Fino a 30 risposte approvate',1],['Candidatura, regolamento e servizi',1],['Passaggio a un operatore e registro delle richieste non capite',1],['Chat web, link e QR code',1],['Test di qualità su 3 lingue',1],['Segnalazioni e manutenzione',0],['Stima costi degli interventi',0]],
+     gg:'5 giorni la prova, 10 la versione completa'},
+    {id:'plus',nm:'Plus',pr:4200,ds:'Copre tutto ciò che avete chiesto per partire, manutenzione compresa.',
+     inc:[['Tutto quello che comprende Essenziale',1],['Fino a 60 risposte approvate',1],['Segnalazioni: idraulica, elettricità, pompe di calore',1],['Scheda segnalazione e avviso al referente o al tecnico',1],['Riconoscimento più ampio di frasi libere',1],['Test di qualità su 6 lingue',1],['Stima costi degli interventi',0]],
+     gg:'5 giorni la prova, 10 la versione completa'},
+    {id:'full',nm:'Completo',pr:5500,ds:'Aggiunge stima dei costi, report e più lingue testate.',
+     inc:[['Tutto quello che comprende Plus',1],['Fino a 100 risposte approvate',1],['Stima indicativa dei costi degli interventi sul vostro listino',1],['Report mensile di richieste e segnalazioni',1],['Test di qualità su 10 lingue con glossario',1],['Ingresso con matricola: valutazione tecnica inclusa',1]],
+     gg:'5 giorni la prova, 15 la versione completa'}
+  ];
+  function eur(n){return n.toLocaleString('it-IT',{minimumFractionDigits:0})+' €';}
+  var tiersEl=document.getElementById('tiers'), detailEl=document.getElementById('detail');
+  var SHOW_PRICES=true;
+  if(!SHOW_PRICES) document.documentElement.classList.add('np');
+  var cur='plus';
+  function renderTiers(){
+    tiersEl.innerHTML='';
+    TIERS.forEach(function(t){
+      var b=document.createElement('button'); b.type='button'; b.className='tier'; b.setAttribute('aria-pressed',t.id===cur?'true':'false');
+      var a=document.createElement('div'); a.className='nm'; a.textContent=t.nm;
+      var p=document.createElement('div'); p.className='pr'; p.textContent=eur(t.pr);
+      var d=document.createElement('div'); d.className='ds'; d.textContent=t.ds;
+      b.appendChild(a); if(SHOW_PRICES) b.appendChild(p); b.appendChild(d);
+      b.addEventListener('click',function(){cur=t.id; renderTiers(); renderDetail();});
+      tiersEl.appendChild(b);
+    });
+  }
+  function renderDetail(){
+    var t=TIERS.filter(function(x){return x.id===cur;})[0];
+    detailEl.innerHTML='';
+    var hd=document.createElement('div'); hd.className='hd';
+    var h=document.createElement('h3'); h.textContent='Livello '+t.nm+': cosa comprende'; hd.appendChild(h);
+    var bd=document.createElement('div'); bd.className='bd';
+    var inc=document.createElement('div'); inc.className='inc';
+    var ul=document.createElement('ul');
+    t.inc.forEach(function(r){var li=document.createElement('li'); li.textContent=r[0]+(r[1]?'':' (non compreso)'); if(!r[1]) li.className='no'; ul.appendChild(li);});
+    inc.appendChild(ul);
+    var calc=document.createElement('div'); calc.className='calc';
+    function row(l,v,k){var r=document.createElement('div'); r.className='cr'+(k?' key':''); var s=document.createElement('span'); s.textContent=l; var b=document.createElement('b'); b.textContent=v; r.appendChild(s); r.appendChild(b); calc.appendChild(r);}
+    if(SHOW_PRICES){ row('Acconto all\'avvio (50%)',eur(t.pr/2)); row('Saldo alla consegna (50%)',eur(t.pr/2)); }
+    else { row('Pagamento','50% all\'avvio, 50% alla consegna'); }
+    row('Tempi',t.gg);
+    if(SHOW_PRICES) row('Totale',eur(t.pr),true);
+    bd.appendChild(inc); bd.appendChild(calc);
+    detailEl.appendChild(hd); detailEl.appendChild(bd);
+  }
+  renderTiers(); renderDetail();
+})();
+</script>
+
+</body>
+</html>
