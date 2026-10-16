@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Tutto quello che ci siamo detti, su una sola linea: studentato subito, sanità e gruppo da progettare insieme.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Studentato · la call del 16 ottobre">
+<meta property="og:description" content="Tutto quello che ci siamo detti, su una sola linea: studentato subito, sanità e gruppo da progettare insieme.">
+<meta property="og:url" content="https://www.ivanosciretta.tech/studentato-16-ottobre">
+<meta property="og:image" content="https://www.ivanosciretta.tech/studentato-16-ottobre/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>La stazione AI del gruppo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: presentazione a schermo intero, una tappa per schermata. In alto una linea di metropolitana (linea verde = studentato, ora; linea blu = gruppo e sanità, dopo) che mostra dove siamo nel percorso. Stessa famiglia visiva delle pagine Italia Salute. */
+:root{
+  --bg:#0C1614; --bg2:#13211D; --card:#16241F; --ink:#FFFFFF; --ink2:#DCE6E2; --soft:#9FB2AB; --faint:#6F857D;
+  --line:rgba(255,255,255,.1);
+  --a:#00C27B; --a-d:#4FD9A4; --a-l:rgba(0,194,123,.14);
+  --b:#5B8DEF; --b-d:#9DBBF5; --b-l:rgba(91,141,239,.16);
+  --hub:#F2C14E;
+  --disp:'Space Grotesk',-apple-system,'Segoe UI',sans-serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;overflow:hidden}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.025em;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+
+/* barra in alto: linea della metro */
+.rail{flex-shrink:0;border-bottom:1px solid var(--line);background:var(--bg)}
+.rail-in{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;display:flex;align-items:center;gap:16px}
+.brand{font-family:var(--disp);font-size:13px;font-weight:600;white-space:nowrap;color:var(--soft)}
+.brand b{color:#fff}
+.track{display:flex;align-items:center;position:relative;height:22px}
+.track::before{content:"";position:absolute;left:6px;right:6px;top:50%;height:3px;transform:translateY(-50%);background:linear-gradient(90deg,var(--a) 0 var(--split),var(--b) var(--split) 100%);opacity:.35;border-radius:3px}
+.dots{position:relative;display:flex;justify-content:space-between;width:100%}
+.dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--a);background:var(--bg);padding:0;cursor:pointer;flex-shrink:0;transition:transform .15s}
+.dot.lb{border-color:var(--b)}
+.dot.hub{border-color:var(--hub);width:16px;height:16px;margin-top:-2px}
+.dot.n{border-color:var(--faint)}
+.dot.past{background:currentColor}
+.dot.a.past{background:var(--a)} .dot.lb.past{background:var(--b)} .dot.hub.past{background:var(--hub)} .dot.n.past{background:var(--faint)}
+.dot[aria-current="step"]{transform:scale(1.45);box-shadow:0 0 0 4px rgba(255,255,255,.08)}
+.tlab{display:grid;grid-template-columns:var(--split) 1fr;font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+.tlab span:first-child{color:var(--a-d)} .tlab span:last-child{color:var(--b-d);padding-left:4px}
+.trackwrap{flex:1;min-width:0;--split:50%}
+.count{font-family:var(--disp);font-size:13px;color:var(--soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+.count b{color:#fff}
+@media(max-width:640px){.brand{display:none}.dot{width:8px;height:8px;border-width:2px}.dot.hub{width:11px;height:11px;margin-top:-1.5px}}
+
+/* palco */
+.stage{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slide{max-width:1180px;margin:0 auto;min-height:100%;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(28px,6vh,72px);display:flex;flex-direction:column;justify-content:center;animation:in .35s ease both}
+@keyframes in{from{opacity:.0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:22px}
+.lbadge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 7px;font-size:13px;letter-spacing:.14em;border-radius:100px;background:var(--a-l);color:var(--a-d)}
+.lbadge i{width:20px;height:20px;border-radius:50%;background:var(--a);color:#062418;font-style:normal;display:inline-flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:0}
+.lbadge.b{background:var(--b-l);color:var(--b-d)} .lbadge.b i{background:var(--b);color:#0A1A3A}
+.lbadge.h{background:rgba(242,193,78,.14);color:var(--hub)} .lbadge.h i{background:var(--hub);color:#2A1E00}
+.chip{padding:5px 11px;border-radius:100px;border:1px solid var(--line);color:var(--ink2);letter-spacing:.08em}
+h1.big{font-size:clamp(36px,6.4vw,74px);max-width:16ch}
+h1.big span{color:var(--a)}
+h2.ttl{font-size:clamp(30px,5vw,56px);max-width:18ch}
+.lead{font-size:clamp(17px,2vw,21px);color:var(--soft);max-width:58ch;margin-top:20px;line-height:1.5}
+
+/* tappa */
+.stop{display:grid;gap:22px;margin-top:34px}
+@media(min-width:900px){.stop{grid-template-columns:1fr 1fr;gap:28px}}
+.said,.do{border-radius:16px;padding:24px 26px;min-width:0}
+.said{background:var(--bg2);border:1px solid var(--line)}
+.said .k,.do .k{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:12px}
+.said .k{color:var(--faint)}
+.said q{display:block;font-family:var(--disp);font-size:clamp(19px,2.3vw,25px);line-height:1.35;color:#fff;quotes:"«" "»";font-weight:500;letter-spacing:-.01em}
+.do{background:var(--a-l);border:1px solid rgba(0,194,123,.35)}
+.do .k{color:var(--a-d)}
+.do p{font-size:clamp(16px,1.7vw,18.5px);line-height:1.55;color:var(--ink2)}
+.do ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.do li{font-size:15.5px;color:var(--ink2);padding-left:20px;position:relative;line-height:1.45}
+.do li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--a)}
+.slide.lineB .do{background:var(--b-l);border-color:rgba(91,141,239,.4)} .slide.lineB .do .k{color:var(--b-d)} .slide.lineB .do li::before{background:var(--b)}
+.next{margin-top:26px;font-size:14.5px;color:var(--soft);display:flex;gap:10px;align-items:baseline;max-width:70ch}
+.next b{font-family:var(--disp);color:#fff;font-weight:600;white-space:nowrap}
+
+/* mappa */
+.map{margin-top:22px;display:grid;gap:12px}
+.mline{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.mline.a{border-color:rgba(0,194,123,.35)} .mline.b{border-color:rgba(91,141,239,.4)}
+.mline h3{font-size:17px;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.mline h3 small{font-family:var(--sans);font-weight:500;font-size:13px;color:var(--soft);letter-spacing:0}
+.sw{width:28px;height:6px;border-radius:3px;background:var(--a)}
+.mline.b .sw{background:var(--b)}
+.stations{display:grid;gap:6px;grid-template-columns:repeat(auto-fit,minmax(118px,1fr))}
+.st{flex-direction:column;gap:6px!important;hyphens:auto;overflow-wrap:break-word;font:inherit;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;color:var(--ink2);cursor:pointer;display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.3}
+.st:hover{border-color:var(--a)}
+.mline.b .st:hover{border-color:var(--b)}
+.st i{font-style:normal;font-family:var(--disp);font-weight:700;font-size:12px;width:22px;height:22px;border-radius:50%;background:var(--a);color:#062418;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.mline.b .st i{background:var(--b);color:#0A1A3A}
+.hubrow{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px dashed rgba(242,193,78,.5);border-radius:12px;color:var(--ink2);font-size:14.5px;cursor:pointer;background:transparent;font:inherit;text-align:left}
+.hubrow i{width:24px;height:24px;border-radius:50%;background:var(--hub);flex-shrink:0}
+
+/* stazione: come funziona */
+.flow{margin-top:34px;display:grid;gap:12px}
+@media(min-width:900px){.flow{grid-template-columns:repeat(4,1fr)}}
+.fs{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0;position:relative}
+.fs .n{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--hub)}
+.fs h3{font-size:19px;margin:8px 0 8px}
+.fs p{font-size:14.5px;color:var(--soft);line-height:1.5}
+.fs.op{border-color:rgba(242,193,78,.45)}
+
+/* due livelli */
+.two{margin-top:34px;display:grid;gap:14px}
+@media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+.lv{border-radius:16px;padding:24px;min-width:0;border:1px solid var(--line);background:var(--bg2)}
+.lv.a{border-color:rgba(0,194,123,.4)} .lv.b{border-color:rgba(91,141,239,.4)}
+.lv .k{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.lv.a .k{color:var(--a-d)} .lv.b .k{color:var(--b-d)}
+.lv q{display:block;font-family:var(--disp);font-size:20px;line-height:1.35;margin:10px 0 12px;quotes:"«" "»"}
+.lv p{font-size:15px;color:var(--soft);line-height:1.5}
+.rules{margin-top:14px;display:grid;gap:10px}
+@media(min-width:900px){.rules{grid-template-columns:repeat(3,1fr)}}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:14.5px;color:var(--ink2);line-height:1.45;min-width:0}
+.rule b{display:block;font-family:var(--disp);color:#fff;margin-bottom:4px}
+
+/* primo passo */
+.tiers{margin-top:30px;display:grid;gap:12px}
+@media(min-width:900px){.tiers{grid-template-columns:repeat(3,1fr)}}
+.tier{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
+.tier.rec{border-color:var(--a);box-shadow:0 0 0 3px var(--a-l)}
+.tier .nm{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a-d);display:flex;justify-content:space-between;gap:8px}
+.tier .pr{font-family:var(--disp);font-size:38px;font-weight:700;letter-spacing:-.03em;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.tier .tm{font-size:13px;color:var(--soft);margin-bottom:10px}
+.tier ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink2);line-height:1.5}
+.tier ul.tl2{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.tier ul.tl2 li{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--ink2);line-height:1.4}
+.tier ul.tl2 li i{font-style:normal;font-family:var(--disp);font-weight:700;font-size:11px;width:20px;height:20px;border-radius:50%;background:var(--a);color:#062418;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:-1px}
+.tier ul.tl2 li i.jump{cursor:pointer;outline-offset:2px} .tier ul.tl2 li i.jump:hover{box-shadow:0 0 0 3px var(--a-l)}
+.mline.p{border-color:rgba(242,193,78,.45)} .mline.p .sw{background:var(--hub)} .mline.p .st i{background:var(--hub);color:#2A1E00} .mline.p .st.strong{border-color:var(--hub);color:#fff;font-weight:600}
+.tier ul.tl2 li.plain{color:var(--soft);font-size:13.5px}
+.start{margin-top:16px;display:grid;gap:10px}
+@media(min-width:900px){.start{grid-template-columns:repeat(4,1fr)}}
+.sx{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink2);min-width:0}
+.sx b{display:block;font-family:var(--disp);color:#fff;font-size:15px;margin-bottom:2px}
+.when{margin-top:16px;border:1px solid rgba(0,194,123,.35);border-radius:14px;padding:16px 18px;background:var(--a-l)}
+.when .k{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a-d)}
+.wg{display:grid;gap:8px;margin-top:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.wi{font-size:14px;color:var(--ink2)} .wi b{display:block;font-family:var(--disp);color:#fff;font-size:17px}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.qbtn{font:inherit;font-size:15px;font-weight:600;border-radius:100px;padding:12px 20px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:#fff}
+.qbtn.go{background:var(--a);border-color:var(--a);color:#062418}
+.fine{margin-top:18px;font-size:13px;color:var(--faint);max-width:90ch;line-height:1.5}
+.fine a{color:var(--a-d)}
+
+/* comandi */
+.ctrl{flex-shrink:0;border-top:1px solid var(--line);background:var(--bg)}
+.ctrl-in{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ctrl button{font:inherit;font-size:14.5px;font-weight:600;border-radius:100px;padding:11px 20px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:#fff;min-width:0}
+.ctrl button.go{background:var(--a);border-color:var(--a);color:#062418}
+.ctrl button[disabled]{opacity:.3;cursor:default}
+.ctrl .mapbtn{background:transparent;color:var(--soft)}
+.hint{font-size:12.5px;color:var(--faint)}
+@media(max-width:640px){.hint{display:none}.ctrl button{padding:10px 14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.slide{animation:none}.dot{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="rail"><div class="rail-in">
+  <div class="brand"><b>Ivano Sciretta</b> · call del 16 ottobre 2026</div>
+  <div class="trackwrap" id="tw"><div class="track" id="track"><div class="dots" id="dots"></div></div><div class="tlab"><span>Studentato</span><span>Sanità e gruppo</span></div></div>
+  <div class="count" id="count"></div>
+</div></div>
+
+<div class="stage" id="stage"><div class="slide" id="slide"></div></div>
+
+<div class="ctrl"><div class="ctrl-in">
+  <button type="button" id="prev">← Indietro</button>
+  <button type="button" class="mapbtn" id="tomap">Mappa</button>
+  <span class="hint">frecce della tastiera o scorrimento laterale</span>
+  <button type="button" class="go" id="nextb">Avanti →</button>
+</div></div>
+
+<script>
+(function(){
+  var S=[
+    {t:'cover'},
+    {t:'map'},
+    {t:'stop',l:'A',n:1,ti:'Candidature e documenti',ch:'Primo progetto',
+     q:'Le mail non arrivano a noi: quando hanno bisogno di qualcosa, scrivono direttamente alla chat.',
+     d:'Un receptionist digitale guida lo studente nella candidatura, seguendo le istruzioni dell\'amministrazione. La casella email riceve solo quello che serve davvero.',
+     li:['Documenti richiesti, scadenze, procedura','Le risposte sono quelle scritte dall\'amministrazione','Filtro sulle richieste ripetitive']},
+    {t:'stop',l:'A',n:2,ti:'Ogni studente nella sua lingua',ch:'Primo progetto',
+     q:'Il caricamento in multilingua: già così abbiamo risolto tanti problemi.',
+     d:'Il sistema riconosce la lingua in cui scrive lo studente e risponde nella stessa, con i vostri testi tradotti fedelmente, senza aggiungere nulla.',
+     li:['Rilevamento automatico della lingua','Traduzione fedele dei testi approvati','Lingue testate una per una secondo il livello']},
+    {t:'stop',l:'A',n:3,ti:'Regolamento, condotta e servizi',ch:'Primo progetto',
+     q:'La postura da tenere nello studentato, e mano a mano i servizi che si vanno a estendere.',
+     d:'Regole di convivenza, servizi disponibili e convenzioni sempre a portata di chat. Quando un servizio cambia, si aggiorna il testo e il receptionist risponde subito nel modo nuovo.',
+     li:['Regole di convivenza e orari','Servizi e convenzioni attive','Aggiornabili senza riprogrammare']},
+    {t:'stop',l:'A',n:4,ti:'Segnalazioni e lamentele',ch:'Primo progetto',
+     q:'Le lamentele rimangono all\'interno e vengono gestite in modo efficiente, senza finire direttamente all\'università.',
+     d:'Il receptionist dà una prima risposta ai casi semplici e registra gli altri in una scheda ordinata. Lo studentato diventa un presidio: il problema si risolve dentro.',
+     li:['Prima risposta ai casi banali','Scheda con categoria, data e stanza','Ogni segnalazione tracciata fino alla chiusura']},
+    {t:'stop',l:'A',n:5,ti:'Manutenzione, tecnico e stima dei costi',ch:'Primo progetto',
+     q:'La chiamata al tecnico, in modo da monitorare, e dove ci sono interventi da autorizzare li possiamo già stimare.',
+     d:'Idraulica, elettricità e pompe di calore: la segnalazione arriva al referente o al tecnico, e gli interventi sono stimati sul vostro listino. A fine anno avete già il quadro della spesa.',
+     li:['Avviso al referente o al tecnico','Monitoraggio di ogni intervento','Stima degli interventi e riepilogo di fine anno']},
+    {t:'stop',l:'A',n:6,ti:'Accesso semplice, costi ordinari bassi',ch:'Primo progetto',
+     q:'Facciamo attenzione anche ai costi di gestione.',
+     d:'Una chat web propria, raggiungibile da un link o da un QR in struttura. Le chiamate all\'intelligenza artificiale sono limitate ai passaggi in cui servono: costi ordinari stimati tra 25 e 55 € al mese.',
+     li:['Link e QR code in struttura','Ingresso con matricola e app studenti dopo una verifica tecnica','WhatsApp valutato a parte']},
+    {t:'stop',l:'A',n:7,ti:'Lavagna digitale degli studenti',ch:'Seconda fase',
+     q:'Una lavagna digitale, dove loro appuntano e leggono tra di loro, e si organizzano la serata.',
+     d:'Uno spazio comune per conoscersi e organizzarsi, a 3 km dal centro. Si costruisce dopo il receptionist, quando è chiaro cosa serve e chi lo modera.',
+     li:['Bacheca condivisa tra studenti','Regole di moderazione da definire','Si appoggia sullo stesso accesso']},
+    {t:'hub'},
+    {t:'stop',l:'B',n:8,ti:'La stazione leader del gruppo',ch:'Da progettare insieme',
+     q:'Questa stazione dovrebbe essere un po\' la leader del gruppo, dalla quale poi si diramano le varie attività.',
+     d:'Lo stesso motore dello studentato diventa il centro da cui partono gli altri servizi del gruppo, con una base dati unica in cui le informazioni si incrociano.',
+     li:['Un solo motore, più strutture','Dati incrociati in una base unica','Si cresce per tappe, ognuna misurata']},
+    {t:'stop',l:'B',n:9,ti:'Banca dati storica: riattivare chi è stato seguito',ch:'Da progettare insieme',
+     q:'Accendiamo a loro un servizio e creiamo una storicità: la struttura che ti ha trattato esiste ancora.',
+     d:'Le persone già seguite vengono ricontattate: primo contatto in chat, poi l\'operatore per la visita o il teleconsulto.',
+     li:['Verifica delle banche dati esistenti','Primo contatto automatico','Operatore per visita o teleconsulto']},
+    {t:'stop',l:'B',n:10,ti:'Centrale operativa di telereabilitazione',ch:'Da progettare insieme',
+     q:'Stiamo parlando di personale remoto: se non viene coordinato, non funziona.',
+     d:'La centrale coordina il personale da remoto e toglie peso al direttore operativo, con attività chiare e flussi ripetitivi ridotti. Protocolli e processi si arricchiscono dell\'esperienza raccolta.',
+     li:['Attività 1, 2, 3 per il direttore operativo','Riduzione dei flussi replicabili','Esperienza raccolta nei protocolli']},
+    {t:'stop',l:'B',n:11,ti:'Formazione con simulazioni',ch:'Da progettare insieme',
+     q:'Ti fai 45 minuti con un risponditore che ti fa domande, e intanto ti alleni.',
+     d:'Simulazioni guidate dall\'intelligenza artificiale per allenare i riabilitatori sui protocolli e sull\'uso dei dispositivi di telereabilitazione, prima di lavorare con i pazienti.',
+     li:['Sessioni da 45 minuti','Protocolli e uso dei dispositivi','Personale pronto prima della presa in carico']},
+    {t:'stop',l:'B',n:12,ti:'Screening della casistica',ch:'Da progettare insieme',
+     q:'La presa in carico diventa della struttura, e non del singolo riabilitatore.',
+     d:'Uno screening iniziale del paziente indica il professionista adatto in base alla casistica, non al rapporto personale.',
+     li:['Domande iniziali strutturate','Assegnazione per casistica','Continuità garantita dalla struttura']},
+    {t:'stop',l:'B',n:13,ti:'Liste d\'attesa e logopedia',ch:'Da progettare insieme',
+     q:'Nella centrale operativa vorrei fare business sulla logopedia.',
+     d:'Liste d\'attesa gestite in modo ordinato e un nuovo servizio privato di logopedia, che non richiede kit né dispositivi.',
+     li:['Liste d\'attesa ordinate','Nuovo servizio privato','Integrato con lo storico già disponibile']},
+    {t:'stop',l:'B',n:14,ti:'Consulenza alle istituzioni sulla telemedicina',ch:'Da progettare insieme',
+     q:'Consulenza alle ASL e alle strutture che ancora non fanno telemedicina: è il target dei prossimi due anni.',
+     d:'La conoscenza raccolta dalla centrale diventa la base per accompagnare le istituzioni nell\'uso clinico delle valigette di telemedicina.',
+     li:['Ricerche e storico del direttore operativo','Conoscenza organizzata e consultabile','Rapporto centrale operativa verso le istituzioni']},
+    {t:'stop',l:'B',n:15,ti:'Archivio documentale',ch:'Da progettare insieme',
+     q:'L\'archivio è fondamentale: i dati devono entrare, essere leggibili e consultabili nel modo più semplice possibile.',
+     d:'Riordino, semplificazione e un sistema di consultazione facile per chi oggi non è abituato a gestire gli archivi.',
+     li:['Raccolta e riorganizzazione','Regole semplici per chi inserisce','Ricerca rapida per chi consulta']},
+    {t:'levels'},
+    {t:'method'},
+    {t:'first'}
+  ];
+
+  var slideEl=document.getElementById('slide'), dotsEl=document.getElementById('dots'), countEl=document.getElementById('count');
+  var stage=document.getElementById('stage'), prev=document.getElementById('prev'), nextb=document.getElementById('nextb');
+  var cur=0;
+  var firstB=S.findIndex(function(s){return s.l==='B';});
+  document.getElementById('tw').style.setProperty('--split',(firstB/(S.length-1)*100)+'%');
+
+  function el(tag,cls,txt){var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e;}
+  function html(tag,cls,h){var e=el(tag,cls); e.innerHTML=h; return e;}
+
+  S.forEach(function(s,i){
+    var b=el('button','dot '+(s.l==='A'?'a':s.l==='B'?'lb':s.t==='hub'?'hub':'n'));
+    b.type='button'; b.setAttribute('aria-label','Vai alla schermata '+(i+1)+(s.ti?': '+s.ti:''));
+    b.title=s.ti||({cover:'Apertura',map:'La mappa',hub:'La stazione',levels:'Come procediamo',method:'Come si costruisce',first:'Il primo passo'})[s.t];
+    b.addEventListener('click',function(){go(i);}); dotsEl.appendChild(b);
+  });
+
+  function eyebrow(s){
+    var e=el('div','eyebrow');
+    var bd=el('span','lbadge'+(s.l==='B'?' b':'')); var i=el('i',null,String(s.n)); bd.appendChild(i);
+    bd.appendChild(document.createTextNode(s.l==='A'?'Studentato':'Sanità e gruppo')); e.appendChild(bd);
+    e.appendChild(el('span','chip',s.ch)); return e;
+  }
+  function nextLine(i){
+    var n=S[i+1]; if(!n) return null;
+    var name=n.ti||({hub:'La stazione: come funziona',levels:'Come procediamo',method:'Come si costruisce lo studentato',first:'Il primo passo'})[n.t];
+    var p=el('p','next'); p.appendChild(el('b',null,'Tappa successiva')); p.appendChild(document.createTextNode(name)); return p;
+  }
+
+  function render(){
+    var s=S[cur]; slideEl.innerHTML=''; slideEl.className='slide'+(s.l==='B'?' lineB':'');
+    slideEl.style.animation='none'; void slideEl.offsetWidth; slideEl.style.animation='';
+    if(s.t==='cover'){
+      var e=el('div','eyebrow'); e.appendChild(el('span','chip','Studentato e gruppo')); e.appendChild(el('span',null,'Sintesi della call del 16 ottobre 2026')); slideEl.appendChild(e);
+      slideEl.appendChild(html('h1','big','Tutto quello che ci siamo detti, <span>su una sola linea</span>'));
+      slideEl.appendChild(el('p','lead','Hai descritto l\'intelligenza artificiale come una stazione: un crocevia che interpreta e smista. Abbiamo messo in fila ogni punto della call lungo due linee. La prima, lo studentato, parte adesso. La seconda porta il gruppo verso l\'area sanitaria, una tappa alla volta.'));
+      var m=el('div','two');
+      var a=el('div','lv a'); a.appendChild(el('span','k','Linea verde · Studentato · si parte ora')); a.appendChild(el('p',null,'7 tappe: dalle candidature alla manutenzione. È il primo progetto, con prezzo e tempi definiti.'));
+      var b=el('div','lv b'); b.appendChild(el('span','k','Linea blu · Sanità e gruppo · da progettare')); b.appendChild(el('p',null,'8 tappe: banca dati, telereabilitazione, formazione, archivio. Ognuna con un suo documento, dopo lo studentato.'));
+      m.appendChild(a); m.appendChild(b); slideEl.appendChild(m);
+      var qk=el('div','quick'); var q1=el('button','qbtn go','Inizia dalla mappa →'); q1.type='button'; q1.addEventListener('click',function(){go(1);}); qk.appendChild(q1); slideEl.appendChild(qk);
+    }
+    else if(s.t==='map'){
+      var e2=el('div','eyebrow'); e2.appendChild(el('span','chip','La mappa')); slideEl.appendChild(e2);
+      slideEl.appendChild(el('h2','ttl','Due linee, quindici tappe, una stazione al centro'));
+      slideEl.appendChild(el('p','lead','Tocca una tappa per andarci direttamente. Il percorso completo si legge in 5 minuti.'));
+      var qm=el('div','quick'); [['levels','Come procediamo',0],['method','Come si costruisce',0],['first','Pacchetti e calendario',0]].forEach(function(x){var i=S.findIndex(function(z){return z.t===x[0];}); var bt=el('button','qbtn'+(x[2]?' go':''),x[1]+(x[2]?' →':'')); bt.type='button'; bt.addEventListener('click',function(){go(i);}); qm.appendChild(bt);}); slideEl.appendChild(qm);
+      var map=el('div','map');
+      [['A','Studentato','si parte ora, con il primo progetto'],['B','Sanità e gruppo','da progettare insieme, una tappa alla volta']].forEach(function(L,k){
+        var box=el('div','mline'+(L[0]==='B'?' b':' a')); var h=el('h3'); h.appendChild(el('span','sw')); h.appendChild(document.createTextNode(L[1]+' ')); h.appendChild(el('small',null,L[2])); box.appendChild(h);
+        var st=el('div','stations');
+        S.forEach(function(x,i){ if(x.l!==L[0]) return; var bt=el('button','st'); bt.type='button'; bt.appendChild(el('i',null,String(x.n))); bt.appendChild(document.createTextNode(x.ti)); bt.addEventListener('click',function(){go(i);}); st.appendChild(bt); });
+        box.appendChild(st); map.appendChild(box);
+        if(k===0){ var hi=S.findIndex(function(x){return x.t==='hub';}); var hb=el('button','hubrow'); hb.type='button'; hb.appendChild(el('i')); hb.appendChild(document.createTextNode('La stazione: il motore che serve tutte le tappe. Interpreta, risponde, orienta, passa a un operatore.')); hb.addEventListener('click',function(){go(hi);}); map.appendChild(hb); }
+      });
+      slideEl.appendChild(map);
+    }
+    else if(s.t==='stop'){
+      slideEl.appendChild(eyebrow(s));
+      slideEl.appendChild(el('h2','ttl',s.ti));
+      var g=el('div','stop');
+      var sd=el('div','said'); sd.appendChild(el('span','k','Hai detto')); sd.appendChild(el('q',null,s.q));
+      var dd=el('div','do'); dd.appendChild(el('span','k','Cosa facciamo')); dd.appendChild(el('p',null,s.d));
+      var ul=el('ul'); s.li.forEach(function(x){ul.appendChild(el('li',null,x));}); dd.appendChild(ul);
+      g.appendChild(sd); g.appendChild(dd); slideEl.appendChild(g);
+      var nl=nextLine(cur); if(nl) slideEl.appendChild(nl);
+    }
+    else if(s.t==='hub'){
+      var e3=el('div','eyebrow'); var hb2=el('span','lbadge h'); hb2.appendChild(el('i',null,'◆')); hb2.appendChild(document.createTextNode('La stazione')); e3.appendChild(hb2); e3.appendChild(el('span','chip','Il motore di tutte le tappe')); slideEl.appendChild(e3);
+      slideEl.appendChild(el('h2','ttl','Il crocevia: l\'intelligenza artificiale interpreta, le risposte restano vostre'));
+      var said=el('div','said'); said.style.marginTop='28px'; said.appendChild(el('span','k','Hai detto')); said.appendChild(el('q',null,'Il crocevia, la stazione, è l\'intelligenza artificiale.')); slideEl.appendChild(said);
+      var f=el('div','flow');
+      [['1 · Capisce','Lingua e intenzione','Riconosce in che lingua scrive la persona e cosa le serve, anche con parole sue.'],
+       ['2 · Risponde','Con testi approvati','Usa solo le risposte che avete approvato, tradotte fedelmente. Non inventa regole, date o importi.'],
+       ['3 · Orienta','Verso la direzione giusta','Pulsanti e percorsi guidati portano allo sportello giusto: candidatura, regolamento, segnalazione.'],
+       ['4 · Passa la mano','A un operatore','Se la richiesta non è convalidata, la passa a una persona e la registra. Ogni mese il registro diventa nuove risposte.']
+      ].forEach(function(x,k){var c=el('div','fs'+(k===3?' op':'')); c.appendChild(el('span','n',x[0])); c.appendChild(el('h3',null,x[1])); c.appendChild(el('p',null,x[2])); f.appendChild(c);});
+      slideEl.appendChild(f);
+      slideEl.appendChild(html('p','fine','Vuoi provarlo? La dimostrazione in tre lingue è nel <a href="/studentato-16-ottobre/riepilogo">riepilogo completo</a>: scrivi una frase in italiano, inglese o spagnolo e guarda cosa succede.'));
+      var nl2=nextLine(cur); if(nl2) slideEl.appendChild(nl2);
+    }
+    else if(s.t==='levels'){
+      var e4=el('div','eyebrow'); e4.appendChild(el('span','chip','Come procediamo')); slideEl.appendChild(e4);
+      slideEl.appendChild(el('h2','ttl','Due livelli, come hai detto tu'));
+      var t=el('div','two');
+      var la=el('div','lv a'); la.appendChild(el('span','k','Livello operativo · linea verde')); la.appendChild(el('q',null,'Non attendiamo quando alcune attività le possiamo fare, ma razionalizziamole ed evitiamo che diventino cambiali.')); la.appendChild(el('p',null,'Lo studentato parte subito: perimetro chiuso, prezzo fisso, prova in 5 giorni, costi ordinari bassi e nessun canone obbligatorio.'));
+      var lb=el('div','lv b'); lb.appendChild(el('span','k','Livello di sviluppo · linea blu')); lb.appendChild(el('q',null,'Bando che parte: a quel punto si fa l\'accordo e ci mettiamo a tavolino.')); lb.appendChild(el('p',null,'Le tappe del gruppo e dell\'area sanitaria si progettano insieme, con un documento dedicato per ciascuna, quando le risorse sono certe.'));
+      t.appendChild(la); t.appendChild(lb); slideEl.appendChild(t);
+      var r=el('div','rules');
+      [['Fase di lancio','Lo studentato è la sperimentazione: un risultato misurabile in pochi giorni, da cui partono le repliche.'],
+       ['Replica su altre strutture','Sorgenti e diritto di replica sulle altre strutture si definiscono con un accordo dedicato, prima della prima replica.'],
+       ['Dati sanitari','Telereabilitazione, screening e archivio clinico richiedono un\'analisi dedicata sulla protezione dei dati, con infrastruttura in Europa.']
+      ].forEach(function(x){var c=el('div','rule'); c.appendChild(el('b',null,x[0])); c.appendChild(document.createTextNode(x[1])); r.appendChild(c);});
+      slideEl.appendChild(r);
+    }
+    else if(s.t==='method'){
+      var e6=el('div','eyebrow'); var b6=el('span','lbadge'); b6.appendChild(el('i',null,'◆')); b6.appendChild(document.createTextNode('Studentato')); e6.appendChild(b6); e6.appendChild(el('span','chip','Il piano operativo')); slideEl.appendChild(e6);
+      slideEl.appendChild(el('h2','ttl','Come si costruisce, in quattro mosse'));
+      var sd6=el('div','said'); sd6.style.marginTop='28px'; sd6.appendChild(el('span','k','Hai detto')); sd6.appendChild(el('q',null,'Creo un gruppo con il responsabile amministrativo e la direttrice, per tutti gli ambiti organizzativi.')); slideEl.appendChild(sd6);
+      var f6=el('div','flow');
+      [['1 · Il gruppo','Un canale, tre persone','Amministrazione, direzione e io. Una domanda alla volta, risposte in un unico posto.'],
+       ['2 · I materiali','Un modulo guidato','Ricevete l\'elenco delle domande tipiche degli studenti: scrivete la risposta giusta, io la trasformo in percorso. Candidatura dall\'amministrazione, regolamento e servizi dalla direzione.'],
+       ['3 · La prova','Qualche giorno con il vostro team','Online su un link di prova: il gruppo la usa come farebbe uno studente. Ogni sera vi mando le domande non capite da sistemare.'],
+       ['4 · In funzione','Link e QR in struttura','Rilascio, breve guida per chi risponde come operatore e primo report dei costi reali.']
+      ].forEach(function(x,k){var c=el('div','fs'+(k===3?' op':'')); c.appendChild(el('span','n',x[0])); c.appendChild(el('h3',null,x[1])); c.appendChild(el('p',null,x[2])); f6.appendChild(c);});
+      slideEl.appendChild(f6);
+      var nl6=nextLine(cur); if(nl6) slideEl.appendChild(nl6);
+    }
+    else if(s.t==='first'){
+      var e5=el('div','eyebrow'); var b5=el('span','lbadge'); b5.appendChild(el('i',null,'1')); b5.appendChild(document.createTextNode('Si parte da qui')); e5.appendChild(b5); slideEl.appendChild(e5);
+      slideEl.appendChild(el('h2','ttl','Il primo passo: il receptionist dello studentato'));
+      var tr=el('div','tiers');
+      [['Essenziale','3.000 €','prova in 5 giorni · completo in 10',[[1,'Candidature e documenti'],[2,'Ogni studente nella sua lingua'],[3,'Regolamento, condotta e servizi'],[6,'Accesso con link e QR, costi bassi'],[0,'Fino a 30 risposte · 3 lingue testate']],false],
+       ['Plus','4.200 €','prova in 5 giorni · completo in 10',[[0,'Tutto l\'Essenziale, più:'],[4,'Segnalazioni e lamentele'],[5,'Manutenzione: avviso al referente o al tecnico, monitoraggio'],[0,'Fino a 60 risposte · 6 lingue testate']],true],
+       ['Completo','5.500 €','prova in 5 giorni · completo in 15',[[0,'Tutto il Plus, più:'],[5,'Stima degli interventi sul vostro listino e riepilogo di fine anno'],['+','Report mensile di richieste e segnalazioni'],[6,'Valutazione dell\'ingresso con matricola'],[0,'Fino a 100 risposte · 10 lingue testate']],false]
+      ].forEach(function(x){var c=el('div','tier'+(x[4]?' rec':'')); var nm=el('div','nm'); nm.appendChild(el('span',null,x[0])); if(x[4]) nm.appendChild(el('span',null,'consigliato')); c.appendChild(nm); c.appendChild(el('div','pr',x[1])); c.appendChild(el('div','tm',x[2])); var u=el('ul','tl2'); x[3].forEach(function(y){var li=el('li',y[0]?'':'plain'); if(y[0]){var b=el('i',null,String(y[0])); var ti=S.findIndex(function(z){return z.l==='A'&&z.n===y[0];}); if(ti>-1){b.className='jump'; b.setAttribute('role','button'); b.tabIndex=0; b.title='Vai alla tappa '+y[0]; b.addEventListener('click',function(){go(ti);}); b.addEventListener('keydown',function(e){if(e.key==='Enter')go(ti);});} li.appendChild(b);} li.appendChild(document.createTextNode(y[1])); u.appendChild(li);}); c.appendChild(u); tr.appendChild(c);});
+      var ex=el('p','fine'); ex.textContent='Non compresi nei pacchetti: tappa 7 (lavagna digitale) e tappe 8–15 (sanità e gruppo), ciascuna con un preventivo dedicato.'; ex.style.marginTop='10px'; slideEl.appendChild(tr); slideEl.appendChild(ex); tr=null;
+      /* tr appended above */
+      var sx=el('div','start');
+      [['1 · Il livello','Scegliamo insieme da quale partire'],['2 · Chi firma','Ragione sociale, partita IVA, legale rappresentante'],['3 · L\'acconto','50% all\'avvio, 50% alla consegna'],['4 · Il gruppo','Amministrazione e direzione con i materiali']].forEach(function(x){var c=el('div','sx'); c.appendChild(el('b',null,x[0])); c.appendChild(document.createTextNode(x[1])); sx.appendChild(c);});
+      slideEl.appendChild(sx);
+      var tm=el('div','when'); tm.appendChild(el('span','k','Il calendario, se scegliamo entro mercoledì 21 ottobre'));
+      var tg=el('div','wg'); [['lun 26 ott','Avvio'],['ven 30 ott','Prova online'],['ven 6 nov','Versione completa · Essenziale e Plus'],['ven 13 nov','Versione completa · Completo']].forEach(function(x){var c=el('div','wi'); c.appendChild(el('b',null,x[0])); c.appendChild(document.createTextNode(x[1])); tg.appendChild(c);}); tm.appendChild(tg); slideEl.appendChild(tm);
+      slideEl.appendChild(html('p','fine','Importi senza IVA (regime forfettario). Date valide con acconto e materiali ricevuti entro venerdì 23 ottobre; se arrivano dopo, il calendario si sposta di pari passo. Costi ordinari stimati 25–55 € al mese, pagati direttamente ai fornitori. Assistenza facoltativa da 140 € al mese. Dettagli, dimostrazione e condizioni nel <a href="/studentato-16-ottobre/riepilogo">riepilogo completo</a>. Ivano Sciretta · sciretta.clienti@gmail.com · +39 347 6498357'));
+    }
+    [].forEach.call(dotsEl.children,function(d,i){d.classList.toggle('past',i<=cur); if(i===cur) d.setAttribute('aria-current','step'); else d.removeAttribute('aria-current');});
+    countEl.innerHTML='<b>'+(cur+1)+'</b> / '+S.length;
+    prev.disabled=cur===0; nextb.disabled=cur===S.length-1;
+    nextb.textContent=cur===0?'Inizia →':'Avanti →';
+    stage.scrollTop=0;
+  }
+  function go(i){ if(i<0||i>=S.length) return; cur=i; render(); try{history.replaceState(null,'','#s'+(i+1));}catch(e){} }
+  prev.addEventListener('click',function(){go(cur-1);});
+  nextb.addEventListener('click',function(){go(cur+1);});
+  document.getElementById('tomap').addEventListener('click',function(){go(1);});
+  document.addEventListener('keydown',function(e){ if(e.target.tagName==='INPUT') return; if(e.key==='ArrowRight'||e.key==='PageDown'){go(cur+1);} if(e.key==='ArrowLeft'||e.key==='PageUp'){go(cur-1);} if(e.key==='Home') go(0); if(e.key==='End') go(S.length-1); });
+  var sx0=null,sy0=null;
+  stage.addEventListener('touchstart',function(e){sx0=e.touches[0].clientX; sy0=e.touches[0].clientY;},{passive:true});
+  stage.addEventListener('touchend',function(e){ if(sx0===null) return; var dx=e.changedTouches[0].clientX-sx0, dy=e.changedTouches[0].clientY-sy0; if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ go(cur+(dx<0?1:-1)); } sx0=null; },{passive:true});
+  var m=/^#s(\d+)$/.exec(location.hash||''); go(m?Math.min(S.length,Math.max(1,+m[1]))-1:0);
+})();
+</script>
+
+</body>
+</html>
