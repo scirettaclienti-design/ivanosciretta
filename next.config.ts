@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       // Presentazione privata per lo studentato (file statici in public/studentato-16-ottobre).
       { source: "/studentato-16-ottobre", destination: "/studentato-16-ottobre/index.html" },
       { source: "/studentato-16-ottobre/riepilogo", destination: "/studentato-16-ottobre/riepilogo/index.html" },
+      // Presentazione privata per Gregorio Maiorano (file statico in public/maiorano).
+      { source: "/maiorano", destination: "/maiorano/index.html" },
       // I file dell'app (js, css, video, immagini og) stanno tutti sotto /_scatole/.
       { source: "/_scatole/:path*", destination: `${SCATOLE}/_scatole/:path*` },
       { source: "/scatole", destination: `${SCATOLE}/scatole` },
@@ -32,6 +34,8 @@ const nextConfig: NextConfig = {
       // Presentazione per un cliente: link privato, mai indicizzata, nessun referrer.
       { source: "/studentato-16-ottobre/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       { source: "/studentato-16-ottobre", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
+      { source: "/maiorano/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
+      { source: "/maiorano", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       { source: "/s/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       { source: "/grazie-check", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Referrer-Policy", value: "no-referrer" }] },
       // /check è indicizzabile, ma ?mappa= contiene la chiave della mappa: niente referrer verso Stripe o WhatsApp.

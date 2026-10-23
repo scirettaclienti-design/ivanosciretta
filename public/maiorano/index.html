@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+<title>Progetto Gregorio Maiorano</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a one-screen deck of slides, one idea per slide, navigated by buttons, keys and swipe; dark stone and bronze, light travertine variant */
+:root{
+  --bg:#EFE9DF; --surface:#E4DCCD; --raised:#F8F4ED; --fg:#1B1713; --muted:#6B6155; --line:#CFC4B2;
+  --bronze:#86602F; --bronze-soft:#A88252; --on-bronze:#F8F4ED; --stamp:#7A2E22;
+  --scene-bg:#15120E; --scene-fg:#EFE6D6; --scene-line:#5A4A35; --glow:#D9AE72;
+  --display:"Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#100E0C; --surface:#1A1712; --raised:#211D17; --fg:#ECE4D6; --muted:#A0968A; --line:#352E25;
+  --bronze:#C99E66; --bronze-soft:#8F6F45; --on-bronze:#100E0C; --stamp:#C9786A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#100E0C; --surface:#1A1712; --raised:#211D17; --fg:#ECE4D6; --muted:#A0968A; --line:#352E25;
+  --bronze:#C99E66; --bronze-soft:#8F6F45; --on-bronze:#100E0C; --stamp:#C9786A; color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;overflow:hidden;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.06;text-wrap:balance;margin:0}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+.label{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+.hint{font-size:.86rem;color:var(--muted)}
+
+.app{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr)}
+.app>*{min-width:0}
+.progress{height:2px;background:var(--line);margin-top:10px}
+.progress i{display:block;height:100%;width:0;background:var(--bronze);transition:width .5s ease}
+.stage{position:relative;min-height:0}
+.slide{position:absolute;inset:0;overflow-y:auto;display:flex;opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .45s ease,transform .45s ease,visibility 0s linear .45s;overscroll-behavior:contain}
+.slide.is-active{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease,transform .45s ease}
+.inner{margin:auto;width:100%;min-width:0;max-width:1100px;padding-block:36px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.inner>*{min-width:0}
+.is-active .rise>*{animation:rise .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide,.slide.is-active{transition:none;transform:none}.is-active .rise>*{animation:none}}
+
+.kicker{display:flex;gap:12px;align-items:baseline}
+.kicker .n{font-family:var(--mono);font-size:.75rem;color:var(--bronze);letter-spacing:.1em}
+.h{font-size:clamp(2rem,5vw,3.4rem);font-weight:300}
+.h em{font-style:italic;color:var(--bronze)}
+.sub{font-size:1.15rem;max-width:620px}
+
+/* bottom bar */
+.bar{display:flex;align-items:center;gap:12px;padding-block:10px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.bar .where{flex:1;min-width:0;display:flex;gap:10px;align-items:baseline;overflow:hidden;white-space:nowrap}
+.bar .where strong{font-family:var(--display);font-weight:500;font-size:1.1rem;overflow:hidden;text-overflow:ellipsis}
+.bar .count{font-family:var(--mono);font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.nav{width:46px;height:46px;border:1px solid var(--line);background:var(--raised);display:grid;place-items:center;cursor:pointer}
+.nav.primary{background:var(--bronze);border-color:var(--bronze);color:var(--on-bronze)}
+.nav:disabled{opacity:.35;cursor:default}
+.nav svg{width:18px;height:18px}
+.menu-btn{display:flex;align-items:center;gap:8px;padding:0 14px;height:46px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:.9rem}
+
+.index{position:absolute;inset:0;z-index:5;background:var(--bg);overflow-y:auto;padding-block:32px}
+.index ol{list-style:none;margin:0 auto;padding:0;max-width:900px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 28px}
+.index button{width:100%;text-align:left;display:flex;gap:14px;align-items:baseline;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer}
+.index button span{font-family:var(--mono);font-size:.72rem;color:var(--bronze);min-width:22px}
+.index button strong{font-family:var(--display);font-weight:400;font-size:1.3rem}
+.index button[aria-current="true"] strong{color:var(--bronze)}
+.index .top{max-width:900px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:center}
+
+/* cover */
+.cover .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.mono{display:inline-grid;place-items:center;width:54px;height:54px;border:1px solid var(--bronze);border-radius:50%;font-family:var(--display);font-size:1.3rem;color:var(--bronze)}
+.stamp{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);padding:6px 10px;transform:rotate(-1.5deg)}
+.cover h1{font-size:clamp(2.7rem,8vw,5.6rem);font-weight:300;letter-spacing:-.01em}
+.cover h1 em{display:block;font-style:italic;color:var(--bronze)}
+.sweep{background:linear-gradient(100deg,var(--fg) 0%,var(--fg) 40%,var(--glow) 50%,var(--fg) 60%,var(--fg) 100%);background-size:300% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 4s ease-out .3s both}
+@keyframes sweep{to{background-position:0 0}}
+@media (prefers-reduced-motion:reduce){.sweep{animation:none;background:none;color:var(--fg)}}
+.meta{display:flex;flex-wrap:wrap;gap:12px 36px}
+.meta div{display:grid;gap:2px}
+.start{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;background:var(--bronze);color:var(--on-bronze);border:0;cursor:pointer;font-weight:500;justify-self:start}
+.start svg{width:18px;height:18px}
+
+/* generic blocks */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-size:1.5rem}
+.card .big{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--bronze)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.box{padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.box.fill{background:var(--surface)}
+.box.line{border:1px solid var(--line)}
+ul.clean{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+ul.clean li{padding-left:18px;position:relative}
+ul.clean li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--bronze)}
+
+.role{display:grid;gap:10px;padding-block:24px;border-block:1px solid var(--line)}
+.role .t{font-family:var(--display);font-weight:300;font-size:clamp(2rem,6vw,3.8rem);line-height:1.02}
+.role .s{font-family:var(--mono);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze)}
+.promise{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.3;padding-left:18px;border-left:1px solid var(--bronze);max-width:760px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.92rem;padding:7px 12px;border:1px solid var(--line);background:var(--raised)}
+.chip.no{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--stamp)}
+
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.bench article{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:6px;align-content:start}
+.bench h3{font-size:1.3rem}
+.bench .w{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.verdict{font-family:var(--display);font-size:clamp(1.4rem,3vw,2rem);line-height:1.25;max-width:780px}
+.verdict em{color:var(--bronze)}
+
+/* concepts */
+.concepts{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.concept{position:relative;border:1px solid var(--line);background:var(--raised);padding:26px;display:grid;gap:12px;align-content:start;min-width:0}
+.concept.rec{border-color:var(--bronze)}
+.concept .tag{position:absolute;top:-11px;right:18px;background:var(--bronze);color:var(--on-bronze);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px}
+.concept .letter{font-family:var(--display);font-size:3.2rem;line-height:1;color:var(--bronze)}
+.concept h3{font-size:1.9rem}
+.concept .motto{font-family:var(--display);font-style:italic;font-size:1.25rem}
+.concept .try{justify-self:start;margin-top:6px;border:1px solid var(--bronze);background:transparent;color:var(--bronze);padding:9px 14px;cursor:pointer;font-size:.9rem}
+
+/* simulator */
+.sim{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:820px){.sim{grid-template-columns:1fr}}
+.sim-view{position:relative;aspect-ratio:4/3;max-width:100%;background:var(--scene-bg);overflow:hidden;cursor:ns-resize;touch-action:none;user-select:none}
+.sim-view svg{position:absolute;inset:0;width:100%;height:100%}
+.sim-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(transparent,rgba(10,8,6,.85));color:var(--scene-fg);display:grid;gap:4px}
+.sim-cap .r{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--glow)}
+.sim-cap h4{font-size:1.5rem;font-weight:500}
+.sim-cap p{font-family:var(--display);font-style:italic;font-size:1.15rem}
+.sim-side{display:grid;gap:16px;align-content:start}
+.seg{display:inline-flex;border:1px solid var(--line)}
+.seg button{border:0;background:transparent;padding:10px 14px;cursor:pointer;font-size:.9rem}
+.seg button[aria-pressed="true"]{background:var(--bronze);color:var(--on-bronze)}
+.rooms-mini{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.rooms-mini button{width:100%;text-align:left;border:0;background:none;padding:7px 0;display:flex;gap:12px;align-items:baseline;cursor:pointer;color:var(--muted);border-bottom:1px solid var(--line)}
+.rooms-mini button span{font-family:var(--display);color:var(--bronze);min-width:28px;font-size:1.1rem}
+.rooms-mini button[aria-current="true"]{color:var(--fg)}
+.rooms-mini button[aria-current="true"] b{font-weight:600}
+.rooms-mini b{font-weight:400}
+.scene-note{font-size:.95rem;min-height:3em}
+input[type=range]{width:100%;accent-color:var(--bronze)}
+.play{justify-self:start;border:1px solid var(--line);background:var(--raised);padding:9px 14px;cursor:pointer;font-size:.9rem;display:inline-flex;gap:8px;align-items:center}
+
+.beyond{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.beyond div{border-top:1px solid var(--bronze-soft);padding-top:14px;display:grid;gap:6px;align-content:start}
+.beyond strong{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.15}
+
+/* sitemap explorer */
+.explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.explorer{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
+.tiles button{border:0;background:var(--bg);padding:16px;text-align:left;cursor:pointer;display:grid;gap:4px;min-height:84px}
+.tiles button .p{font-family:var(--mono);font-size:.7rem;color:var(--bronze)}
+.tiles button strong{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.1}
+.tiles button[aria-pressed="true"]{background:var(--bronze);color:var(--on-bronze)}
+.tiles button[aria-pressed="true"] .p{color:var(--on-bronze)}
+.detail{background:var(--surface);padding:26px;display:grid;gap:12px;min-height:100%}
+.detail h3{font-size:2rem}
+
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:j}
+@media (max-width:640px){.journey{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){
+  .journey{grid-template-columns:1fr}
+  .journey li{grid-template-columns:28px minmax(0,1fr);column-gap:12px;padding:12px 0;border-top-width:1px}
+  .journey li::before{grid-row:1 / 3;padding-top:6px}
+  .journey strong{font-size:1.25rem}
+}
+.journey li{counter-increment:j;border-top:2px solid var(--bronze-soft);padding:14px 14px 14px 0;display:grid;gap:4px;align-content:start}
+.journey li::before{content:counter(j);font-family:var(--mono);font-size:.72rem;color:var(--bronze)}
+.journey strong{font-family:var(--display);font-weight:500;font-size:1.4rem}
+.journey span{font-size:.92rem;color:var(--muted)}
+.is-active .journey li{animation:line .5s ease both;animation-delay:calc(var(--i) * 160ms + 200ms)}
+@keyframes line{from{border-top-color:var(--line)}to{border-top-color:var(--bronze)}}
+.qs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 24px;counter-reset:q}
+.qs li{counter-increment:q;display:flex;gap:10px;padding-block:7px;border-bottom:1px solid var(--line);font-size:.95rem}
+.qs li::before{content:counter(q);font-family:var(--mono);font-size:.72rem;color:var(--bronze);padding-top:3px;min-width:14px}
+
+/* tabs */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tabs button{border:0;background:none;padding:12px 16px;cursor:pointer;font-size:.95rem;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--bronze)}
+.draft{background:var(--raised);border:1px solid var(--line);padding:clamp(20px,4vw,36px);display:grid;gap:14px}
+.draft p{font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.35rem);line-height:1.5}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* editorial */
+.channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.channels div{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px;align-content:start}
+.channels strong{font-family:var(--display);font-weight:500;font-size:1.4rem}
+.channels .f{font-family:var(--mono);font-size:.72rem;color:var(--bronze)}
+.pillars{display:grid;gap:12px}
+.pillar{display:grid;grid-template-columns:minmax(110px,160px) minmax(0,1fr) 44px;gap:14px;align-items:center}
+.pillar .name{font-weight:500}
+.pillar .bar{height:8px;background:var(--surface);position:relative}
+.pillar .bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--bronze);transition:width 1s cubic-bezier(.2,.7,.2,1) .3s}
+.is-active .pillar .bar i{width:var(--w)}
+.pillar .pct{font-family:var(--mono);font-size:.8rem;text-align:right;font-variant-numeric:tabular-nums}
+.pillar .ex{grid-column:2 / 4;font-size:.88rem;color:var(--muted);margin-top:-6px}
+@media (max-width:560px){.pillar{grid-template-columns:minmax(0,1fr) 44px}.pillar .bar{grid-column:1 / 3;grid-row:2}.pillar .ex{grid-column:1 / 3;margin-top:0}}
+@media (prefers-reduced-motion:reduce){.pillar .bar i{transition:none}}
+
+.phases{display:grid;grid-template-columns:2fr 1fr 6fr 4fr;gap:0}
+@media (max-width:700px){.phases{grid-template-columns:1fr 1fr}}
+.phase{padding:0 14px 14px 0;display:grid;gap:6px;align-content:start}
+.phase::before{content:"";height:6px;background:var(--bronze-soft);margin-bottom:6px}
+.phase.hot::before{background:var(--bronze)}
+.phase .w{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.phase strong{font-family:var(--display);font-weight:500;font-size:1.25rem;line-height:1.15}
+.phase p{font-size:.88rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.kpi b{display:block;font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1;color:var(--bronze);font-variant-numeric:tabular-nums}
+.kpi span{font-size:.9rem}
+
+/* weeks */
+.weeks{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+@media (max-width:700px){.weeks{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.weeks button{border:1px solid var(--line);background:var(--raised);padding:12px 10px;cursor:pointer;text-align:left;display:grid;gap:2px}
+.weeks button .w{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.weeks button strong{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.1}
+.weeks button.gate{border-color:var(--bronze-soft)}
+.weeks button[aria-pressed="true"]{background:var(--bronze);border-color:var(--bronze);color:var(--on-bronze)}
+.weeks button[aria-pressed="true"] .w{color:var(--on-bronze)}
+.week-detail{background:var(--surface);padding:22px;display:grid;gap:8px;min-height:120px}
+.week-detail .ok{font-family:var(--mono);font-size:.72rem;color:var(--bronze);letter-spacing:.08em;text-transform:uppercase}
+
+/* wizard */
+.wiz{display:grid;gap:22px;max-width:760px}
+.dots{display:flex;gap:6px}
+.dots i{flex:1;height:3px;background:var(--line)}
+.dots i.on{background:var(--bronze)}
+.q-title{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;line-height:1.1}
+.answers{display:grid;gap:10px}
+.answers button{display:grid;gap:2px;text-align:left;border:1px solid var(--line);background:var(--raised);padding:16px 18px;cursor:pointer}
+.answers button strong{font-weight:500;font-size:1.05rem}
+.answers button span{font-size:.88rem;color:var(--muted)}
+.answers button[aria-pressed="true"]{border-color:var(--bronze);background:var(--bronze);color:var(--on-bronze)}
+.answers button[aria-pressed="true"] span{color:var(--on-bronze);opacity:.85}
+.answers .rec::after{content:"Consigliato";font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
+.answers button[aria-pressed="true"].rec::after{color:var(--on-bronze)}
+.wiz-nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-weight:500;font-size:.95rem;padding:13px 20px;border:1px solid var(--bronze);background:var(--bronze);color:var(--on-bronze);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--bronze)}
+textarea{width:100%;min-height:96px;font:inherit;font-size:.95rem;padding:12px;border:1px solid var(--line);background:var(--raised);color:var(--fg);resize:vertical}
+.summary{background:var(--surface);padding:18px;font-family:var(--mono);font-size:.8rem;white-space:pre-wrap;overflow-wrap:anywhere;user-select:all}
+.status{font-size:.88rem;color:var(--muted)}
+
+.final .sign{font-family:var(--display);font-style:italic;font-size:clamp(2.4rem,7vw,4.6rem);font-weight:300;line-height:1.05}
+@media (max-width:520px){
+  body{font-size:16px}
+  .inner{padding-block:24px;gap:22px}
+  .h{font-size:clamp(1.8rem,8.5vw,2.3rem)}
+  .box,.card,.concept,.detail,.week-detail{padding:18px}
+  .qs{grid-template-columns:1fr}
+  .qs li{font-size:.92rem}
+  .label{letter-spacing:.1em}
+  .bar{gap:8px}
+  .menu-btn span{display:none}
+  .menu-btn{padding:0 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+
+  <main class="stage" id="stage">
+
+    <!-- 1 -->
+    <section class="slide cover is-active" data-title="Copertina">
+      <div class="inner rise">
+        <div class="top" style="--i:0"><span class="mono" aria-hidden="true">GM</span><span class="stamp">Riservato · per Gregorio Maiorano</span></div>
+        <h1 style="--i:1"><span class="sweep">Il patrimonio ha una forma.</span><em>Il tuo sito ancora no.</em></h1>
+        <p class="sub" style="--i:2">La proposta per il nuovo gregoriomaiorano.it: posizionamento, esperienza, struttura, contenuti e piano editoriale. 17 schermate, circa 6 minuti.</p>
+        <div class="meta" style="--i:3"><div><span class="label">A cura di</span><strong>Ivano Sciretta</strong></div><div><span class="label">Data</span><strong>23 ottobre 2026</strong></div><div><span class="label">Alla fine</span><strong>5 scelte da approvare</strong></div></div>
+        <button class="start" style="--i:4" data-go="next">Inizia<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-title="In breve">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">In breve</span></div>
+        <h2 class="h" style="--i:1">Quattro cose, <em>prima di tutto.</em></h2>
+        <div class="cards" style="--i:2">
+          <div class="card"><span class="label">Chi sei</span><h3>Un custode di patrimoni</h3><p>Trust, family office, passaggio generazionale, collezioni.</p></div>
+          <div class="card"><span class="label">Come lo raccontiamo</span><h3>Un sito da attraversare</h3><p>Lo scroll muove una camera dentro sette sale, una per servizio.</p></div>
+          <div class="card"><span class="label">Perché funziona</span><h3>Nessuno lo fa</h3><p>Nel tuo settore i siti sono statici e si somigliano tutti.</p></div>
+          <div class="card"><span class="label">Cosa ti chiedo</span><h3>5 scelte e 45 minuti</h3><p>Le scelte alla fine, poi un'intervista per raccogliere la tua voce.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-title="Da dove partiamo">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Da dove partiamo</span></div>
+        <h2 class="h" style="--i:1">Il sito attuale racconta <em>il Gregorio del 2024.</em></h2>
+        <div class="split" style="--i:2">
+          <div class="box fill"><span class="label">Da cambiare</span><ul class="clean">
+            <li>Parla solo di arte digitale e NFT. Trust e family office non compaiono.</li>
+            <li>Le barre delle competenze sono ferme a 0%.</li>
+            <li>“Ideas &amp; Plans” non porta a nessuna pagina.</li>
+            <li>Google legge “Home - Gregorio Maiorano”: nessuna ricerca di settore ti trova.</li>
+          </ul></div>
+          <div class="box line"><span class="label">Da valorizzare</span><ul class="clean">
+            <li>Le radici: Manduria, Maruggio, la formazione in economia.</li>
+            <li>GMA dal 2022 e la collaborazione con Pedro Sandoval.</li>
+            <li>Davos, con Renaissance Coin, e il Global Blockchain Show di Dubai.</li>
+            <li>La New Renaissance Art Gallery a Roma.</li>
+          </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" data-title="Chi diventi online">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Chi diventi online</span></div>
+        <div class="role" style="--i:1"><span class="t">Advisor patrimoniale &amp; Family Office</span><span class="s">Trust · Generazioni · Collezioni</span></div>
+        <p class="promise" style="--i:2">Organizzo, custodisco e trasmetto ciò che una famiglia ha costruito.</p>
+        <div class="cards" style="--i:3">
+          <div class="card"><span class="label">Parliamo a</span><h3>Imprenditori di famiglia</h3><p>Un'azienda da far passare alla generazione successiva.</p></div>
+          <div class="card"><span class="label">Parliamo a</span><h3>Collezionisti</h3><p>Opere e raccolte da tutelare, documentare, trasmettere.</p></div>
+          <div class="card"><span class="label">Parliamo a</span><h3>Famiglie tra più Paesi</h3><p>Beni e residenze all'estero, Dubai compresa, sotto un'unica regia.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-title="Il tono di voce">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Il tono di voce</span></div>
+        <h2 class="h" style="--i:1">Sobrio, riservato, <em>preciso.</em></h2>
+        <div class="split" style="--i:2">
+          <div class="box fill"><span class="label">Parole che usiamo</span><div class="chips"><span class="chip">organizzare</span><span class="chip">custodire</span><span class="chip">trasmettere</span><span class="chip">continuità</span><span class="chip">governance di famiglia</span><span class="chip">tutela dei più fragili</span><span class="chip">colloquio riservato</span><span class="chip">poche famiglie</span></div></div>
+          <div class="box line"><span class="label">Parole che evitiamo</span><div class="chips"><span class="chip no">blindare</span><span class="chip no">al riparo dai creditori</span><span class="chip no">risparmio fiscale garantito</span><span class="chip no">rendimenti</span><span class="chip no">compra il token</span></div>
+            <p class="hint">Il trust organizza e dà continuità. Presentarlo come scudo contro i creditori è rischioso, perché la legge permette di contestarlo. GMA resta tra le tue attività, senza inviti all'acquisto del token.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-title="Il contesto">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Il contesto</span></div>
+        <h2 class="h" style="--i:1">Chi fa il tuo lavoro, <em>e come si presenta.</em></h2>
+        <div class="bench" style="--i:2">
+          <article><span class="w">Milano</span><h3>Family Office Reliance</h3><p>Trust company di Paolo Gaeta. Pianificazione, trust e arte.</p></article>
+          <article><span class="w">Milano · Verona</span><h3>Zefiro Family Office</h3><p>Trust company interna, arte, immobili, cambi di residenza.</p></article>
+          <article><span class="w">Studio legale</span><h3>Wealth Trust</h3><p>Trust familiari in rete con private banking e family office.</p></article>
+          <article><span class="w">Bolzano</span><h3>Professional Trust Company</h3><p>Trust anche per il mondo dell'arte e delle collezioni.</p></article>
+          <article><span class="w">Miami</span><h3>Family Office Club</h3><p>Autorevolezza da libri, eventi e oltre 1.500 family office.</p></article>
+        </div>
+        <p class="verdict" style="--i:3">Servizi simili ai tuoi. Siti statici, intercambiabili. <em>Nessuno offre un'esperienza: è lo spazio che prendiamo noi.</em></p>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-title="Due mondi visivi">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">L'esperienza</span></div>
+        <h2 class="h" style="--i:1">Due mondi visivi, <em>la stessa struttura.</em></h2>
+        <div class="concepts" style="--i:2">
+          <article class="concept"><span class="letter">A</span><h3>Il Caveau</h3><p class="motto">Sicurezza, precisione, silenzio.</p><p>Marmo scuro, bronzo, vetro. Una porta blindata che si apre, teche che si sigillano. Il linguaggio della custodia, immediato.</p><button class="try" data-try="a">Provalo nella prossima schermata</button></article>
+          <article class="concept rec"><span class="tag">Consigliato</span><span class="letter">B</span><h3>Palazzo del Nuovo Rinascimento</h3><p class="motto">Roma, arte, eredità.</p><p>Le sale di un palazzo che richiama Piazza dei Santi Apostoli, dove hai lo studio. Affreschi, cortili, sigilli di ceralacca. È solo tuo.</p><button class="try" data-try="b">Provalo nella prossima schermata</button></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-title="Prova l'esperienza">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Prova l'esperienza</span></div>
+        <h2 class="h" style="--i:1">Scorri dentro l'immagine. <em>Le sale si aprono.</em></h2>
+        <div class="sim" style="--i:2">
+          <div class="sim-view" id="simView" data-noswipe aria-label="Anteprima delle sale: trascina in verticale o usa la rotella">
+            <svg viewBox="0 0 400 300" aria-hidden="true">
+              <defs>
+                <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" style="stop-color:var(--glow);stop-opacity:.95"/><stop offset="1" style="stop-color:var(--glow);stop-opacity:0"/></radialGradient>
+                <clipPath id="archClip"><path d="M120 270 V140 A80 80 0 0 1 280 140 V270 Z"/></clipPath>
+              </defs>
+              <rect width="400" height="300" style="fill:var(--scene-bg)"/>
+              <line x1="0" y1="270" x2="400" y2="270" style="stroke:var(--scene-line)" stroke-width="1"/>
+              <circle id="halo" cx="200" cy="150" r="120" fill="url(#glow)" opacity="0"/>
+              <g id="sceneA">
+                <circle cx="200" cy="150" r="98" style="fill:none;stroke:var(--scene-line)" stroke-width="1"/>
+                <g id="doorA">
+                  <circle cx="0" cy="0" r="92" style="fill:#2A2219;stroke:var(--glow)" stroke-width="1.2"/>
+                  <circle cx="0" cy="0" r="70" style="fill:none;stroke:var(--scene-line)" stroke-width="1"/>
+                  <circle cx="0" cy="0" r="18" style="fill:none;stroke:var(--glow)" stroke-width="1.2"/>
+                  <g style="stroke:var(--glow)" stroke-width="1.2">
+                    <line x1="0" y1="-18" x2="0" y2="-62"/><line x1="0" y1="18" x2="0" y2="62"/><line x1="-18" y1="0" x2="-62" y2="0"/><line x1="18" y1="0" x2="62" y2="0"/>
+                    <line x1="13" y1="13" x2="44" y2="44"/><line x1="-13" y1="-13" x2="-44" y2="-44"/><line x1="13" y1="-13" x2="44" y2="-44"/><line x1="-13" y1="13" x2="-44" y2="44"/>
+                  </g>
+                </g>
+              </g>
+              <g id="sceneB" style="display:none">
+                <rect x="96" y="96" width="14" height="174" style="fill:#2A2219;stroke:var(--scene-line)"/>
+                <rect x="290" y="96" width="14" height="174" style="fill:#2A2219;stroke:var(--scene-line)"/>
+                <g clip-path="url(#archClip)">
+                  <rect id="leafL" x="120" y="60" width="80" height="210" style="fill:#2A2219;stroke:var(--glow)" stroke-width="1"/>
+                  <rect id="leafR" x="200" y="60" width="80" height="210" style="fill:#2A2219;stroke:var(--glow)" stroke-width="1"/>
+                </g>
+                <path d="M120 270 V140 A80 80 0 0 1 280 140 V270" style="fill:none;stroke:var(--glow)" stroke-width="1.4"/>
+                <path d="M104 96 A96 96 0 0 1 296 96" style="fill:none;stroke:var(--scene-line)" stroke-width="1"/>
+              </g>
+            </svg>
+            <div class="sim-cap"><span class="r" id="simNum">SALA I</span><h4 id="simName">Soglia</h4><p id="simLine">“Il patrimonio ha una forma.”</p></div>
+          </div>
+          <div class="sim-side">
+            <div class="seg" role="group" aria-label="Mondo visivo"><button type="button" data-concept="a" aria-pressed="false">A · Caveau</button><button type="button" data-concept="b" aria-pressed="true">B · Palazzo</button></div>
+            <input type="range" id="simRange" min="0" max="1000" value="0" aria-label="Avanza tra le sale" data-noswipe>
+            <ul class="rooms-mini" id="roomList"></ul>
+            <p class="scene-note" id="sceneNote"></p>
+            <button class="play" type="button" id="play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg><span>Riproduci il percorso</span></button>
+            <p class="hint">Questa è una bozza grafica. Nel sito ogni sala è un video cinematografico che segue lo scroll.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-title="Oltre GMA">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">La tecnica</span></div>
+        <h2 class="h" style="--i:1">Lo stesso principio di GMA, <em>portato oltre.</em></h2>
+        <div class="beyond" style="--i:2">
+          <div><strong>Fluido anche all'indietro</strong><p>Le immagini seguono il dito in entrambe le direzioni, anche su iPhone.</p></div>
+          <div><strong>Verticale nativo</strong><p>Sul telefono le scene sono girate in verticale, non ritagliate.</p></div>
+          <div><strong>Materia viva</strong><p>Grana da pellicola, una luce calda che segue il tocco, audio solo se lo attivi.</p></div>
+          <div><strong>Trovato da Google</strong><p>Ogni sala ha la sua pagina con testo vero: “trust”, “family office Roma”.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-title="Struttura del sito">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Struttura del sito</span></div>
+        <h2 class="h" style="--i:1">Otto aree. <em>Tocca per aprirle.</em></h2>
+        <div class="explorer" style="--i:2">
+          <div class="tiles" id="tiles"></div>
+          <div class="detail" id="tileDetail" aria-live="polite"></div>
+        </div>
+        <p class="hint" style="--i:3">Tutto in italiano e in inglese. Ogni pagina porta allo stesso punto: il colloquio riservato.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-title="Il percorso del visitatore">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Il percorso</span></div>
+        <h2 class="h" style="--i:1">Chi arriva al colloquio <em>ti conosce già.</em></h2>
+        <ol class="journey" style="--i:2">
+          <li style="--i:0"><strong>Legge</strong><span>Attraversa le sale e una pagina servizio.</span></li>
+          <li style="--i:1"><strong>Scarica</strong><span>La guida “Il trust in 12 domande”.</span></li>
+          <li style="--i:2"><strong>Si racconta</strong><span>Compila la Mappa del patrimonio.</span></li>
+          <li style="--i:3"><strong>Prenota</strong><span>Sceglie l'orario del colloquio.</span></li>
+        </ol>
+        <div class="box fill" style="--i:3"><span class="label">La Mappa del patrimonio · 6 domande, 2 minuti</span>
+          <ol class="qs"><li>Che tipo di beni compongono il patrimonio?</li><li>Com'è composta la famiglia?</li><li>C'è un'impresa di famiglia?</li><li>Ci sono opere d'arte o collezioni?</li><li>In quali Paesi ci sono beni o residenze?</li><li>Su quale orizzonte vuoi pianificare?</li></ol>
+          <p class="hint">Alla persona restituisce le sue tre priorità. A te arriva un profilo chiaro prima della chiamata.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-title="I contenuti">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">I contenuti</span></div>
+        <h2 class="h" style="--i:1">Come suonerà <em>il sito.</em></h2>
+        <div style="--i:2;display:grid;gap:18px">
+          <div class="tabs" role="tablist">
+            <button role="tab" id="tab-chi" aria-selected="true" aria-controls="pane-chi">Chi sono</button>
+            <button role="tab" id="tab-trust" aria-selected="false" aria-controls="pane-trust">Pagina Trust</button>
+          </div>
+          <div class="draft" role="tabpanel" id="pane-chi" aria-labelledby="tab-chi">
+            <span class="label">Bozza</span>
+            <p>Vengo da Maruggio, un paese dove le cose si costruiscono per durare: muretti a secco, uliveti, case che passano di padre in figlio. Sono nato a Manduria nel 1976 e mi sono formato in economia.</p>
+            <p>Nel 2022 ho fondato GMA, per dare all'arte nuovi strumenti di tutela e di accesso. Ho portato questo lavoro a Davos e a Dubai, e a Roma ho aperto la New Renaissance Art Gallery.</p>
+            <p>Oggi, dal mio studio in Piazza dei Santi Apostoli, affianco famiglie e imprenditori in una cosa precisa: dare al loro patrimonio una forma che resista al tempo. Seguo poche famiglie, con un metodo riservato.</p>
+          </div>
+          <div class="draft" role="tabpanel" id="pane-trust" aria-labelledby="tab-trust" hidden>
+            <div class="two">
+              <div style="display:grid;gap:12px"><span class="label">Bozza</span><h3 style="font-size:1.8rem">Trust e protezione del patrimonio familiare</h3><p>Il trust separa una parte del patrimonio e la affida a regole scritte da te. Serve a organizzare, a proteggere chi è più fragile e a far arrivare i beni dove hai deciso.</p></div>
+              <div style="display:grid;gap:8px"><span class="label">Le 5 domande della pagina</span><ol class="qs" style="grid-template-columns:1fr"><li>Che cos'è un trust e quando serve?</li><li>Trust o fondo patrimoniale?</li><li>Il trust è riconosciuto in Italia?</li><li>Chi gestisce i beni e chi ne beneficia?</li><li>Quanto tempo serve per istituirlo?</li></ol></div>
+            </div>
+          </div>
+          <p class="hint">I testi definitivi li scriviamo dopo l'intervista, con la tua voce. Li rilegge il tuo professionista di fiducia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide" data-title="Piano editoriale">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Piano editoriale</span></div>
+        <h2 class="h" style="--i:1">Le sale del sito <em>diventano i contenuti.</em></h2>
+        <div class="channels" style="--i:2">
+          <div><span class="f">3 post a settimana</span><strong>LinkedIn</strong><p>Il canale principale. Anche in inglese.</p></div>
+          <div><span class="f">3 contenuti + stories</span><strong>Instagram</strong><p>Video verticali presi dalle sale.</p></div>
+          <div><span class="f">1 al mese</span><strong>La Lettera</strong><p>Un tema patrimoniale, spiegato semplice.</p></div>
+          <div><span class="f">Solo rilancio</span><strong>X e Facebook</strong><p>Ripubblichiamo i contenuti migliori.</p></div>
+        </div>
+        <div class="pillars" style="--i:3">
+          <span class="label">Di cosa parliamo</span>
+          <div class="pillar"><span class="name">Proteggere</span><span class="bar"><i style="--w:30%"></i></span><span class="pct">30%</span><span class="ex">Il trust in 60 secondi, trust e fondo patrimoniale a confronto.</span></div>
+          <div class="pillar"><span class="name">Trasmettere</span><span class="bar"><i style="--w:25%"></i></span><span class="pct">25%</span><span class="ex">Passaggio generazionale, errori comuni nelle successioni.</span></div>
+          <div class="pillar"><span class="name">Custodire l'arte</span><span class="bar"><i style="--w:20%"></i></span><span class="pct">20%</span><span class="ex">Le collezioni come patrimonio, dietro le quinte della galleria.</span></div>
+          <div class="pillar"><span class="name">Visione</span><span class="bar"><i style="--w:15%"></i></span><span class="pct">15%</span><span class="ex">Tecnologia e patrimoni, Davos e Dubai.</span></div>
+          <div class="pillar"><span class="name">Persona</span><span class="bar"><i style="--w:10%"></i></span><span class="pct">10%</span><span class="ex">Roma, le radici in Puglia, il metodo riservato.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-title="I primi 90 giorni">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">I primi 90 giorni</span></div>
+        <h2 class="h" style="--i:1">Quattro fasi, <em>tu in camera.</em></h2>
+        <div class="phases" style="--i:2">
+          <div class="phase"><span class="w">Sett. 1–2</span><strong>Attesa</strong><p>Prime immagini della soglia, profili rinnovati.</p></div>
+          <div class="phase hot"><span class="w">Sett. 3</span><strong>Lancio</strong><p>Video manifesto e tuo post personale.</p></div>
+          <div class="phase"><span class="w">Sett. 4–9</span><strong>Una sala a settimana</strong><p>Un servizio a settimana: video, carosello, articolo, invito alla Mappa.</p></div>
+          <div class="phase"><span class="w">Sett. 10–13</span><strong>Autorevolezza</strong><p>Domande e risposte, un caso anonimo, serata in galleria per 15–20 ospiti.</p></div>
+        </div>
+        <div class="split" style="--i:3">
+          <div class="box fill"><span class="label">Tu in camera</span><p>Nel tuo settore la fiducia passa dal volto. Mezza giornata di riprese al mese nello studio: circa 8 video brevi, tu che parli, sottotitoli, le sale come sigla.</p></div>
+          <div class="box line"><span class="label">Obiettivi a 90 giorni · stime prudenti</span>
+            <div class="kpis"><div class="kpi"><b>3–6</b><span>colloqui riservati</span></div><div class="kpi"><b>25–40</b><span>Mappe compilate</span></div><div class="kpi"><b>200</b><span>iscritti alla Lettera</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide" data-title="Come lavoriamo">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Come lavoriamo</span></div>
+        <h2 class="h" style="--i:1">Dieci giorni, <em>un tuo via libera a ogni passo.</em></h2>
+        <div style="--i:2;display:grid;gap:12px">
+          <div class="weeks" id="weeks"></div>
+          <div class="week-detail" id="weekDetail" aria-live="polite"></div>
+        </div>
+        <div class="split" style="--i:3">
+          <div class="box line"><span class="label">Cosa mi serve da te</span><ul class="clean"><li>Risposte e approvazioni entro 24 ore: è ciò che rende possibili i dieci giorni</li><li>Anni di esperienza su trust e family office</li><li>I professionisti con cui collabori</li><li>Foto e video di Davos, Dubai, galleria</li><li>Accesso al dominio gregoriomaiorano.it</li></ul></div>
+          <div class="box fill"><span class="label">Investimento</span><p>Investimento e condizioni sono in un documento separato che ti invio a parte.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide" data-title="Le tue scelte">
+      <div class="inner rise">
+        <div class="kicker" style="--i:0"><span class="n">Le tue scelte</span></div>
+        <div class="wiz" id="wiz" style="--i:1"></div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="slide final" data-title="Chiusura">
+      <div class="inner rise">
+        <span class="mono" style="--i:0" aria-hidden="true">GM</span>
+        <p class="sign" style="--i:1">Iniziamo<br>dalla prima sala.</p>
+        <p class="sub" style="--i:2">Grazie, Gregorio. Appena ricevo le tue scelte fissiamo l'intervista: dieci giorni dopo il sito è online.</p>
+        <div class="meta" style="--i:3"><div><span class="label">Ivano Sciretta</span><strong>+39 347 6498357</strong></div><div><span class="label">Email</span><strong>sciretta.clienti@gmail.com</strong></div></div>
+      </div>
+    </section>
+
+    <div class="index" id="index" hidden>
+      <div class="top"><span class="label">Indice</span><button class="menu-btn" type="button" id="closeIndex">Chiudi</button></div>
+      <ol id="indexList"></ol>
+    </div>
+  </main>
+
+  <nav class="bar" aria-label="Navigazione">
+    <button class="menu-btn" type="button" id="openIndex" aria-label="Apri l'indice"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span>Indice</span></button>
+    <div class="where"><span class="count" id="count">01 / 17</span><strong id="where">Copertina</strong></div>
+    <button class="nav" type="button" id="prev" aria-label="Schermata precedente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <button class="nav primary" type="button" id="next" aria-label="Schermata successiva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </nav>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var cur=0, total=slides.length;
+  var prog=document.getElementById('prog'), countEl=document.getElementById('count'), whereEl=document.getElementById('where');
+  var prevBtn=document.getElementById('prev'), nextBtn=document.getElementById('next');
+  var index=document.getElementById('index'), indexList=document.getElementById('indexList');
+  function pad(n){return (n<10?'0':'')+n;}
+
+  slides.forEach(function(s,i){
+    var li=document.createElement('li'), b=document.createElement('button');
+    b.type='button'; b.innerHTML='<span>'+pad(i+1)+'</span><strong></strong>';
+    b.querySelector('strong').textContent=s.dataset.title;
+    b.addEventListener('click',function(){index.hidden=true;go(i);});
+    li.appendChild(b); indexList.appendChild(li);
+  });
+
+  function go(n){
+    n=Math.max(0,Math.min(total-1,n));
+    if(n===cur && slides[n].classList.contains('is-active')) return;
+    slides[cur].classList.remove('is-active');
+    cur=n; var s=slides[cur];
+    s.scrollTop=0; void s.offsetWidth; s.classList.add('is-active');
+    prog.style.width=((cur+1)/total*100)+'%';
+    countEl.textContent=pad(cur+1)+' / '+total;
+    whereEl.textContent=s.dataset.title;
+    prevBtn.disabled=cur===0; nextBtn.disabled=cur===total-1;
+    [].forEach.call(indexList.querySelectorAll('button'),function(b,i){b.setAttribute('aria-current',i===cur?'true':'false');});
+    try{history.replaceState(null,'','#s'+(cur+1));}catch(e){}
+    if(s.querySelector('#simView')) sim.render();
+  }
+  prevBtn.addEventListener('click',function(){go(cur-1);});
+  nextBtn.addEventListener('click',function(){go(cur+1);});
+  document.querySelectorAll('[data-go="next"]').forEach(function(b){b.addEventListener('click',function(){go(cur+1);});});
+  document.getElementById('openIndex').addEventListener('click',function(){index.hidden=false;});
+  document.getElementById('closeIndex').addEventListener('click',function(){index.hidden=true;});
+
+  document.addEventListener('keydown',function(e){
+    var t=e.target.tagName;
+    if(t==='TEXTAREA'||t==='INPUT') return;
+    if(e.key==='Escape'){index.hidden=true;return;}
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(cur+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1);}
+  });
+  var sx=0, sy=0, swipeOk=false;
+  var stage=document.getElementById('stage');
+  stage.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;swipeOk=!e.target.closest('[data-noswipe]');},{passive:true});
+  stage.addEventListener('touchend',function(e){
+    if(!swipeOk) return; var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.4){go(cur+(dx<0?1:-1));}
+  },{passive:true});
+
+  /* ---------- simulator ---------- */
+  var rooms=[
+    {n:'I',name:'Soglia',line:'“Il patrimonio ha una forma.”',a:'Una porta blindata in bronzo ruota e si apre nella polvere di luce.',b:'All\'alba, il portone di un palazzo romano si apre sul cortile.'},
+    {n:'II',name:'Proteggere · Trust',line:'“Ciò che custodisci non resta esposto.”',a:'Un oggetto prezioso viene chiuso in una teca che si sigilla.',b:'Uno scrigno si chiude e riceve il sigillo di ceralacca.'},
+    {n:'III',name:'Strutturare · Family Office',line:'“Un solo regista per tutto ciò che hai.”',a:'Colonne di pietra e acciaio si compongono in un\'architettura.',b:'Le arcate del cortile si costruiscono pietra dopo pietra.'},
+    {n:'IV',name:'Trasmettere · Generazioni',line:'“Arriva intatto a chi viene dopo.”',a:'Una chiave passa da una mano anziana a una giovane.',b:'Un ritratto di famiglia si completa, generazione dopo generazione.'},
+    {n:'V',name:'Custodire · Arte e collezioni',line:'“Anche la bellezza è patrimonio.”',a:'In una galleria buia un quadro si accende pennellata dopo pennellata.',b:'In una sala affrescata la luce svela l\'opera.'},
+    {n:'VI',name:'Orizzonte · Internazionale',line:'“Ovunque sia, resta tuo.”',a:'Il caveau si apre su Roma all\'alba, poi sul mondo.',b:'Dalla loggia lo sguardo va da Roma al mondo.'},
+    {n:'VII',name:'Ritorno · Il colloquio',line:'“Seguo poche famiglie.”',a:'La porta si richiude, vista da dentro.',b:'Il portone si chiude, luce calda nello studio.'}
+  ];
+  var range=document.getElementById('simRange'), view=document.getElementById('simView');
+  var doorA=document.getElementById('doorA'), leafL=document.getElementById('leafL'), leafR=document.getElementById('leafR'), halo=document.getElementById('halo');
+  var sA=document.getElementById('sceneA'), sB=document.getElementById('sceneB');
+  var numEl=document.getElementById('simNum'), nameEl=document.getElementById('simName'), lineEl=document.getElementById('simLine'), noteEl=document.getElementById('sceneNote');
+  var list=document.getElementById('roomList');
+  var concept='b', lastRoom=-1;
+  rooms.forEach(function(r,i){
+    var li=document.createElement('li'), b=document.createElement('button');
+    b.type='button'; b.innerHTML='<span>'+r.n+'</span><b></b>'; b.querySelector('b').textContent=r.name;
+    b.addEventListener('click',function(){stopPlay();range.value=Math.round((i+0.62)/7*1000);sim.render();});
+    li.appendChild(b); list.appendChild(li);
+  });
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+  var sim={render:function(){
+    var x=Math.min(6.999,range.value/1000*7), i=Math.floor(x), p=ease(Math.min(1,(x-i)/0.8));
+    sA.style.display=concept==='a'?'':'none'; sB.style.display=concept==='b'?'':'none';
+    halo.setAttribute('opacity',(0.15+p*0.85).toFixed(3));
+    doorA.setAttribute('transform','translate('+(200+p*150).toFixed(1)+' 150) rotate('+(p*160).toFixed(1)+') scale('+(1-p*0.3).toFixed(3)+')');
+    doorA.setAttribute('opacity',(1-p*0.55).toFixed(3));
+    var s=(1-p*0.94).toFixed(3);
+    leafL.setAttribute('transform','translate(120 0) scale('+s+' 1) translate(-120 0)');
+    leafR.setAttribute('transform','translate(280 0) scale('+s+' 1) translate(-280 0)');
+    if(i!==lastRoom||sim._c!==concept){
+      lastRoom=i; sim._c=concept; var r=rooms[i];
+      numEl.textContent='SALA '+r.n; nameEl.textContent=r.name; lineEl.textContent=r.line;
+      noteEl.textContent=(concept==='a'?'Nel Caveau: ':'Nel Palazzo: ')+r[concept];
+      [].forEach.call(list.querySelectorAll('button'),function(b,k){b.setAttribute('aria-current',k===i?'true':'false');});
+    }
+  }};
+  range.addEventListener('input',function(){stopPlay();sim.render();});
+  function setConcept(c){
+    concept=c;
+    document.querySelectorAll('[data-concept]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.concept===c?'true':'false');});
+    sim.render();
+  }
+  document.querySelectorAll('[data-concept]').forEach(function(b){b.addEventListener('click',function(){setConcept(b.dataset.concept);});});
+  document.querySelectorAll('[data-try]').forEach(function(b){b.addEventListener('click',function(){setConcept(b.dataset.try);range.value=0;go(cur+1);});});
+  view.addEventListener('wheel',function(e){e.preventDefault();stopPlay();range.value=Math.max(0,Math.min(1000,+range.value+e.deltaY*0.6));sim.render();},{passive:false});
+  var ty=null;
+  view.addEventListener('pointerdown',function(e){ty=e.clientY;stopPlay();try{view.setPointerCapture(e.pointerId);}catch(err){}});
+  view.addEventListener('pointermove',function(e){if(ty===null)return;var d=ty-e.clientY;ty=e.clientY;range.value=Math.max(0,Math.min(1000,+range.value+d*2.2));sim.render();});
+  ['pointerup','pointercancel'].forEach(function(ev){view.addEventListener(ev,function(){ty=null;});});
+  var raf=null, playBtn=document.getElementById('play');
+  function stopPlay(){if(raf){cancelAnimationFrame(raf);raf=null;playBtn.querySelector('span').textContent='Riproduci il percorso';}}
+  playBtn.addEventListener('click',function(){
+    if(raf){stopPlay();return;}
+    if(+range.value>=995) range.value=0;
+    var start=performance.now(), from=+range.value, dur=(1000-from)*14;
+    playBtn.querySelector('span').textContent='Pausa';
+    function step(now){var t=Math.min(1,(now-start)/dur);range.value=from+(1000-from)*t;sim.render();if(t<1){raf=requestAnimationFrame(step);}else{raf=null;playBtn.querySelector('span').textContent='Riproduci di nuovo';}}
+    raf=requestAnimationFrame(step);
+  });
+  sim.render();
+
+  /* ---------- sitemap ---------- */
+  var pages=[
+    {p:'/',t:'Home',d:'Le sette sale a scroll, una frase per sala, invito al colloquio in chiusura.',items:['Soglia','Trust','Family Office','Generazioni','Arte e collezioni','Internazionale','Il colloquio']},
+    {p:'/servizi',t:'Cinque servizi',d:'Una pagina per servizio, sempre con lo stesso schema.',items:['Cos\'è e per chi','Come lavori','Cinque domande frequenti','Invito al colloquio']},
+    {p:'/metodo',t:'Il metodo',d:'Quattro fasi che rendono concreto il lavoro con te.',items:['Ascolto riservato','Mappa del patrimonio','Struttura','Custodia nel tempo']},
+    {p:'/chi-sono',t:'Chi sono',d:'La tua storia raccontata con sobrietà.',items:['Radici e percorso','Ritratto e immagini dello studio','La rete di professionisti']},
+    {p:'/attivita',t:'Attività e progetti',d:'Ciò che hai costruito, come prova di visione.',items:['GMA, Global Market of Artification','New Renaissance Art Gallery','Davos e Dubai']},
+    {p:'/lettere',t:'Lettere',d:'Il tuo spazio editoriale.',items:['Articoli brevi e chiari','Iscrizione alla Lettera mensile']},
+    {p:'/guida',t:'Guida gratuita',d:'Il primo contatto concreto con chi ti visita.',items:['“Il trust in 12 domande”','Si scarica lasciando la mail']},
+    {p:'/colloquio',t:'Colloquio riservato',d:'Il punto d\'arrivo di ogni pagina.',items:['Mappa del patrimonio in 6 domande','Prenotazione diretta in agenda','Nessun numero in primo piano']}
+  ];
+  var tiles=document.getElementById('tiles'), td=document.getElementById('tileDetail');
+  function showPage(i){
+    [].forEach.call(tiles.children,function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false');});
+    var pg=pages[i];
+    td.innerHTML='<span class="label"></span><h3></h3><p></p><ul class="clean"></ul>';
+    td.querySelector('.label').textContent=pg.p; td.querySelector('h3').textContent=pg.t; td.querySelector('p').textContent=pg.d;
+    var ul=td.querySelector('ul'); pg.items.forEach(function(it){var li=document.createElement('li');li.textContent=it;ul.appendChild(li);});
+  }
+  pages.forEach(function(pg,i){
+    var b=document.createElement('button'); b.type='button';
+    b.innerHTML='<span class="p"></span><strong></strong>'; b.querySelector('.p').textContent=pg.p; b.querySelector('strong').textContent=pg.t;
+    b.addEventListener('click',function(){showPage(i);}); tiles.appendChild(b);
+  });
+  showPage(0);
+
+  /* ---------- tabs ---------- */
+  var tabs=document.querySelectorAll('[role="tab"]');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(o){o.setAttribute('aria-selected',o===t?'true':'false');document.getElementById(o.getAttribute('aria-controls')).hidden=(o!==t);});
+  });});
+
+  /* ---------- weeks ---------- */
+  var weeks=[
+    {w:'Giorno 1',t:'Ascolto',d:'Intervista di 45 minuti, raccolta dei materiali e storyboard delle sette sale.',ok:'Approvi lo storyboard'},
+    {w:'Giorni 2–3',t:'Prima sala',d:'Soglia e Trust animate, navigabili dal telefono.',ok:'Approvi la demo'},
+    {w:'Giorni 4–5',t:'Le sale',d:'Le altre cinque sale, nel mondo visivo che hai scelto.',ok:''},
+    {w:'Giorno 6',t:'Pagine e testi',d:'Pagine dei servizi, testi in italiano e inglese, guida sul trust.',ok:'Approvi i testi'},
+    {w:'Giorni 7–8',t:'Rifinitura',d:'Mappa del patrimonio, prove su telefono e computer, profili social rinnovati.',ok:''},
+    {w:'Giorno 9',t:'Revisione',d:'Giro finale insieme: ultime correzioni prima della pubblicazione.',ok:'Ultimo via libera'},
+    {w:'Giorno 10',t:'Online',d:'Pubblicazione del sito e partenza del piano editoriale.',ok:'Lancio'}
+  ];
+  var wk=document.getElementById('weeks'), wd=document.getElementById('weekDetail');
+  function showWeek(i){
+    [].forEach.call(wk.children,function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false');});
+    var w=weeks[i];
+    wd.innerHTML='<span class="label"></span><h3 style="font-size:1.6rem"></h3><p></p>'+(w.ok?'<span class="ok"></span>':'');
+    wd.querySelector('.label').textContent=w.w; wd.querySelector('h3').textContent=w.t; wd.querySelector('p').textContent=w.d;
+    if(w.ok) wd.querySelector('.ok').textContent='Il tuo via libera: '+w.ok;
+  }
+  weeks.forEach(function(w,i){
+    var b=document.createElement('button'); b.type='button'; if(w.ok) b.className='gate';
+    b.innerHTML='<span class="w"></span><strong></strong>'; b.querySelector('.w').textContent=w.w; b.querySelector('strong').textContent=w.t;
+    b.addEventListener('click',function(){showWeek(i);}); wk.appendChild(b);
+  });
+  showWeek(0);
+
+  /* ---------- wizard ---------- */
+  var qs=[
+    {k:'Mondo visivo',q:'Quale mondo visivo scegli?',o:[
+      {v:'B · Palazzo del Nuovo Rinascimento',s:'Roma, arte, eredità',rec:1},
+      {v:'A · Il Caveau',s:'Sicurezza, precisione, silenzio'},
+      {v:'Decido dopo aver visto le due demo',s:'Ti preparo entrambe le prime sale'}]},
+    {k:'Presentazione',q:'Come ti presentiamo?',hint:'Il titolo di consulente finanziario si usa solo con l\'iscrizione all\'albo OCF.',o:[
+      {v:'Advisor patrimoniale & Family Office',s:'Il titolo proposto',rec:1},
+      {v:'Consulente finanziario',s:'Sono iscritto all\'albo OCF'},
+      {v:'Ne parliamo all\'intervista',s:''}]},
+    {k:'Lingue',q:'In quali lingue?',o:[
+      {v:'Italiano e inglese',s:'Per l\'Italia e il pubblico internazionale',rec:1},
+      {v:'Solo italiano',s:''},
+      {v:'Italiano, inglese e arabo',s:'Per il pubblico di Dubai'}]},
+    {k:'GMA',q:'Come presentiamo GMA?',o:[
+      {v:'Nella sezione Attività',s:'Come visione imprenditoriale, senza inviti all\'acquisto del token',rec:1},
+      {v:'Anche in home, nella sala Arte',s:'Più visibilità al progetto'},
+      {v:'Non citarlo sul sito personale',s:''}]},
+    {k:'Social',q:'Dopo il lancio, i social?',o:[
+      {v:'Piano completo, con video in camera',s:'LinkedIn, Instagram, Lettera e riprese mensili',rec:1},
+      {v:'Piano senza riprese',s:'Solo contenuti dalle sale'},
+      {v:'Solo il sito',s:'I social li gestisco io'}]}
+  ];
+  var ans={}, step=0, note='';
+  qs.forEach(function(q){q.o.forEach(function(o){if(o.rec&&!ans[q.k])ans[q.k]=o.v;});});
+  var wiz=document.getElementById('wiz');
+  function summaryText(){
+    var t='Ciao Ivano, ho letto la proposta per il nuovo sito.\n\n';
+    qs.forEach(function(q,i){t+=(i+1)+'. '+q.k+': '+(ans[q.k]||'—')+'\n';});
+    if(note.trim()) t+='\nNote: '+note.trim()+'\n';
+    return t+'\nGregorio';
+  }
+  function dots(){var h='<div class="dots" aria-hidden="true">';for(var i=0;i<=qs.length;i++){h+='<i class="'+(i<=step?'on':'')+'"></i>';}return h+'</div>';}
+  function renderWiz(){
+    if(step<qs.length){
+      var q=qs[step];
+      wiz.innerHTML=dots()+'<span class="label">Scelta '+(step+1)+' di '+qs.length+'</span><h2 class="q-title"></h2>'+(q.hint?'<p class="hint"></p>':'')+'<div class="answers"></div><div class="wiz-nav"></div>';
+      wiz.querySelector('.q-title').textContent=q.q; if(q.hint) wiz.querySelector('.hint').textContent=q.hint;
+      var box=wiz.querySelector('.answers');
+      q.o.forEach(function(o){
+        var b=document.createElement('button'); b.type='button'; if(o.rec) b.className='rec';
+        b.innerHTML='<strong></strong>'+(o.s?'<span></span>':''); b.querySelector('strong').textContent=o.v; if(o.s) b.querySelector('span').textContent=o.s;
+        b.setAttribute('aria-pressed',ans[q.k]===o.v?'true':'false');
+        b.addEventListener('click',function(){ans[q.k]=o.v;step++;renderWiz();});
+        box.appendChild(b);
+      });
+      var nav=wiz.querySelector('.wiz-nav');
+      if(step>0){var bk=document.createElement('button');bk.type='button';bk.className='btn ghost';bk.textContent='Indietro';bk.addEventListener('click',function(){step--;renderWiz();});nav.appendChild(bk);}
+      var sk=document.createElement('button');sk.type='button';sk.className='btn ghost';sk.textContent='Tengo la scelta segnata';sk.addEventListener('click',function(){step++;renderWiz();});nav.appendChild(sk);
+    } else {
+      wiz.innerHTML=dots()+'<span class="label">Riepilogo</span><h2 class="q-title">Ecco le tue scelte.</h2>'+
+        '<label class="label" for="note">Note per Ivano</label><textarea id="note" placeholder="Un dubbio, un\'osservazione, un giorno per l\'intervista…"></textarea>'+
+        '<div class="summary" id="summary"></div>'+
+        '<div class="wiz-nav"><button type="button" class="btn" id="copy">Copia il riepilogo</button><a class="btn ghost" id="wa" target="_blank" rel="noopener" href="https://wa.me/393476498357">Invia su WhatsApp</a><button type="button" class="btn ghost" id="redo">Rivedi le scelte</button></div>'+
+        '<p class="status" id="status"></p><p class="hint">WhatsApp di Ivano: +39 347 6498357. Nessun dato viene salvato in questa pagina.</p>';
+      var ta=wiz.querySelector('#note'), sm=wiz.querySelector('#summary'), wa=wiz.querySelector('#wa'), st=wiz.querySelector('#status');
+      ta.value=note;
+      function upd(){note=ta.value;var t=summaryText();sm.textContent=t;wa.href='https://wa.me/393476498357?text='+encodeURIComponent(t);}
+      ta.addEventListener('input',upd); upd();
+      wiz.querySelector('#redo').addEventListener('click',function(){step=0;renderWiz();});
+      wiz.querySelector('#copy').addEventListener('click',function(){
+        var t=summaryText();
+        function fb(){var r=document.createRange();r.selectNodeContents(sm);var s=window.getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Testo selezionato: copialo con il comando copia del telefono.';}
+        try{navigator.clipboard.writeText(t).then(function(){st.textContent='Riepilogo copiato.';},fb);}catch(e){fb();}
+      });
+    }
+  }
+  renderWiz();
+
+  /* start */
+  var m=/^#s(\d+)$/.exec(location.hash||''), startAt=m?Math.min(total,Math.max(1,+m[1]))-1:0;
+  slides.forEach(function(s){s.classList.remove('is-active');});
+  cur=startAt; slides[cur].classList.add('is-active');
+  prog.style.width=((cur+1)/total*100)+'%'; countEl.textContent=pad(cur+1)+' / '+total; whereEl.textContent=slides[cur].dataset.title;
+  prevBtn.disabled=cur===0; nextBtn.disabled=cur===total-1;
+  [].forEach.call(indexList.querySelectorAll('button'),function(b,i){b.setAttribute('aria-current',i===cur?'true':'false');});
+})();
+</script>
+</body>
+</html>
