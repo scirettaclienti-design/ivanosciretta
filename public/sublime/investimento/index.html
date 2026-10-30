@@ -37,12 +37,17 @@
   .top{position:relative;background:var(--notte);color:var(--avorio);overflow:hidden}
   .top-img{position:absolute;inset:0;background:url('/sublime/img/160b892caf.jpg') center 40%/cover no-repeat;opacity:.32;filter:saturate(.85)}
   .top-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,13,.55),rgba(8,15,13,.85) 55%,var(--notte))}
-  .top .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:80px}
+  .top .wrap{position:relative;z-index:2;padding-top:110px;padding-bottom:100px}
   .frame{position:absolute;inset:20px;border:1px solid rgba(196,154,78,.3);border-radius:10px;pointer-events:none;z-index:1}
   .top h1{font-size:clamp(2.3rem,5.6vw,4.2rem);color:#fff;margin:16px 0 14px;max-width:18ch}
   .top h1 em{color:var(--ottone-soft)}
-  .top .lede{max-width:560px;color:rgba(245,240,230,.78);font-size:1.06rem;margin-bottom:46px}
+  .top .lede{max-width:560px;color:rgba(245,240,230,.78);font-size:1.06rem;margin-bottom:30px}
 
+
+  .jump{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone-bright);text-decoration:none;border-bottom:1px solid var(--ottone);padding-bottom:4px}
+  .jump:hover{color:#fff}
+  .offer-sec{background:var(--notte);color:var(--avorio);scroll-margin-top:0}
+  .offer-sec .head h2{color:#fff}
   .offer{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:stretch}
   @media(max-width:860px){.offer{grid-template-columns:1fr}}
   .price-card{background:var(--avorio);color:var(--ink);border-radius:18px;padding:34px 32px 30px;display:flex;flex-direction:column}
@@ -127,7 +132,7 @@
   /* come si parte */
   .go{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   @media(max-width:820px){.go{grid-template-columns:1fr}}
-  .go div{background:var(--avorio-2);border-radius:16px;padding:26px 24px;border:1px solid var(--line-soft)}
+  .go>div{background:var(--avorio-2);border-radius:16px;padding:26px 24px;border:1px solid var(--line-soft)}
   .go .ic{font-family:'Fraunces';font-style:italic;font-size:1.8rem;color:var(--ottone);line-height:1}
   .go h3{font-size:1.25rem;margin:10px 0 6px}
   .go p{font-size:.92rem;color:var(--muted)}
@@ -152,30 +157,10 @@
   <div class="top-img"></div><div class="top-veil"></div><div class="frame"></div>
   <div class="wrap">
     <div class="eyebrow">Sublime La Villa · L'investimento</div>
-    <h1>La villa che vende da sola, <em>a un prezzo solo.</em></h1>
-    <p class="lede">Sito nuovo, concierge AI, configuratore e cruscotto: tutto quello che avete visto nella visione, in un unico contratto, pagato a rate.</p>
+    <h1>La villa che vende da sola. <em>Ecco cosa costruiamo.</em></h1>
+    <p class="lede">Sito nuovo, concierge AI, configuratore degli eventi e cruscotto dati: tutto quello che avete visto nella visione, in un unico progetto. Prima vi mostriamo cosa cambia per la villa, poi il prezzo.</p>
 
-    <div class="offer">
-      <div class="price-card reveal">
-        <div class="lab">Progetto completo · Tappe 1–4</div>
-        <div class="list">6.500 €</div>
-        <div class="now">6.000 €</div>
-        <span class="now-note">Alla firma del contratto</span>
-        <div class="rate"><span class="n">6 × 1.000 €</span><span>al mese, senza interessi.<br>La prima rata alla firma.</span></div>
-        <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20per%20Sublime%20procediamo%3A%20mandaci%20il%20contratto." target="_blank" rel="noopener">Mandateci il contratto</a>
-        <p class="fine">Regime forfettario: nessuna IVA da aggiungere. Offerta valida fino al 30 novembre 2026.</p>
-      </div>
-
-      <div class="perks reveal">
-        <div class="lab">Cosa ottenete firmando</div>
-        <div class="perk hl"><i>✓</i><div><b>Bonifica del sito attuale, inclusa</b><span>Lo ripuliamo e lo mettiamo in sicurezza subito, e lo teniamo sorvegliato fino al passaggio.</span></div></div>
-        <div class="perk hl"><i>✓</i><div><b>500 € di sconto</b><span>Il prezzo scende da 6.500 a 6.000 € con la firma del contratto.</span></div></div>
-        <div class="perk"><i>✓</i><div><b>Rate mensili da 1.000 €</b><span>Nessun esborso unico: il progetto si paga mentre cresce.</span></div></div>
-        <div class="perk"><i>✓</i><div><b>Sito nuovo online in circa 7 settimane</b><span>Senza WordPress, in italiano e inglese. Il vecchio resta attivo fino al cambio.</span></div></div>
-        <div class="perk"><i>✓</i><div><b>Tutto resta vostro</b><span>Design, codice e dati delle richieste. Nessun vincolo a restare.</span></div></div>
-        <div class="perk"><i>✓</i><div><b>Prezzo bloccato e scritto</b><span>Tappe, date e consegne nel contratto. Niente extra a sorpresa.</span></div></div>
-      </div>
-    </div>
+    <a class="jump" href="#prezzo">Prezzo e condizioni ↓</a>
   </div>
 </header>
 
@@ -227,6 +212,37 @@
       <div class="step reveal"><div class="n">Tappa 4</div><h3>L'intelligenza</h3><p>Concierge 24/7, configuratore delle sale, cruscotto delle richieste.</p><div class="w">AI attiva · 3 settimane</div></div>
     </div>
     <div class="after reveal"><span><b>Dopo la messa online · la regia continua:</b> hosting, sicurezza, aggiornamenti, costi del concierge, report mensile. Minimo 6 mesi.</span><span class="p">290 € / mese</span></div>
+  </div>
+</section>
+
+<section class="offer-sec" id="prezzo">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">L'investimento</div>
+      <h2>Tutto questo, a un prezzo solo</h2>
+    </div>
+    <div class="offer">
+      <div class="price-card reveal">
+        <div class="lab">Progetto completo · Tappe 1–4</div>
+        <div class="list">6.500 €</div>
+        <div class="now">6.000 €</div>
+        <span class="now-note">Alla firma del contratto</span>
+        <div class="rate"><span class="n">6 × 1.000 €</span><span>al mese, senza interessi.<br>La prima rata alla firma.</span></div>
+        <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20per%20Sublime%20procediamo%3A%20mandaci%20il%20contratto." target="_blank" rel="noopener">Mandateci il contratto</a>
+        <p class="fine">Regime forfettario: nessuna IVA da aggiungere. Offerta valida fino al 30 novembre 2026.</p>
+      </div>
+
+      <div class="perks reveal">
+        <div class="lab">Cosa ottenete firmando</div>
+        <div class="perk hl"><i>✓</i><div><b>Bonifica del sito attuale, inclusa</b><span>Lo ripuliamo e lo mettiamo in sicurezza subito, e lo teniamo sorvegliato fino al passaggio.</span></div></div>
+        <div class="perk hl"><i>✓</i><div><b>500 € di sconto</b><span>Il prezzo scende da 6.500 a 6.000 € con la firma del contratto.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Rate mensili da 1.000 €</b><span>Nessun esborso unico: il progetto si paga mentre cresce.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Sito nuovo online in circa 7 settimane</b><span>Senza WordPress, in italiano e inglese. Il vecchio resta attivo fino al cambio.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Tutto resta vostro</b><span>Design, codice e dati delle richieste. Nessun vincolo a restare.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Prezzo bloccato e scritto</b><span>Tappe, date e consegne nel contratto. Niente extra a sorpresa.</span></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
