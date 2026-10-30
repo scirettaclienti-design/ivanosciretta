@@ -71,6 +71,31 @@
   .head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:12px 0 10px}
   .head p{color:var(--muted)}
 
+
+  /* cosa compra il prezzo */
+  .value{padding-bottom:40px}
+  .vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
+  @media(max-width:900px){.vgrid{grid-template-columns:1fr}}
+  .brief{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px;box-shadow:0 30px 60px -36px rgba(21,46,40,.45);position:relative}
+  .brief .bh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .brief .bh span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .brief .bh em{font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.08em;color:var(--bosco);background:var(--avorio-2);padding:4px 10px;border-radius:20px}
+  .brief h3{font-size:1.5rem;margin-bottom:12px}
+  .brief dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.92rem}
+  .brief dt{color:var(--muted)}
+  .brief dd{color:var(--ink);font-weight:500}
+  .brief .bf{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:.84rem;color:var(--muted)}
+  .brief .bf b{color:var(--bosco)}
+  .vlist{display:grid;gap:4px}
+  .vi{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+  .vi:last-child{border-bottom:0}
+  .vi .ic{font-family:'Fraunces';font-style:italic;font-size:1.5rem;color:var(--ottone);line-height:1.1}
+  .vi h3{font-size:1.2rem;margin-bottom:4px}
+  .vi p{font-size:.93rem;color:var(--muted)}
+  .why{margin-top:34px;background:var(--avorio-2);border-left:3px solid var(--ottone);border-radius:0 14px 14px 0;padding:22px 26px}
+  .why b{display:block;font-family:'Fraunces';font-weight:400;font-size:1.3rem;color:var(--bosco);margin-bottom:6px}
+  .why p{font-size:.95rem;color:var(--muted);max-width:80ch}
+
   /* cosa include */
   .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
   @media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -154,7 +179,41 @@
   </div>
 </header>
 
-<section>
+<section class="value">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Cosa compra questo prezzo</div>
+      <h2>Non un sito. Il modo in cui la villa vende.</h2>
+      <p>Oggi una richiesta arriva come "vorrei fare un compleanno, quanto costa?" e il vostro staff deve ricostruire tutto al telefono. Con il nuovo sistema arriva così.</p>
+    </div>
+    <div class="vgrid">
+      <div class="brief reveal" aria-label="Esempio di richiesta già compilata">
+        <div class="bh"><span>Nuova richiesta · ore 01:47</span><em>Pronta da chiudere</em></div>
+        <h3>Diciottesimo · The Club</h3>
+        <dl>
+          <dt>Data</dt><dd>sabato 13 marzo 2027 · libera</dd>
+          <dt>Ospiti</dt><dd>120</dd>
+          <dt>Formula</dt><dd>Cena a buffet + open bar + DJ</dd>
+          <dt>Atmosfera</dt><dd>Tema anni '20, ingresso con photobooth</dd>
+          <dt>Budget indicativo</dt><dd>6–8 mila €</dd>
+          <dt>Lingua</dt><dd>Italiano</dd>
+          <dt>Contatto</dt><dd>Mamma della festeggiata · telefono verificato</dd>
+        </dl>
+        <p class="bf">Compilata dal cliente con il configuratore e il concierge. Allo staff resta <b>una telefonata per chiudere</b>, non tre per capire.</p>
+      </div>
+      <div class="vlist">
+        <div class="vi reveal"><div class="ic">i</div><div><h3>Il cliente sceglie come, non solo cosa</h3><p>Il configuratore guida evento, piano, formula, atmosfera e budget. La richiesta arriva già come una scheda completa.</p></div></div>
+        <div class="vi reveal"><div class="ic">ii</div><div><h3>Risposte in minuti, anche di notte</h3><p>Il concierge risponde 24 ore su 24 su spazi, formule e date libere, dentro i binari decisi da voi.</p></div></div>
+        <div class="vi reveal"><div class="ic">iii</div><div><h3>Ogni cliente ha una storia</h3><p>Richieste, conversazioni e preferenze restano legate al cliente: chi torna per il matrimonio dopo il diciottesimo non riparte da zero.</p></div></div>
+        <div class="vi reveal"><div class="ic">iv</div><div><h3>Un solo sistema, non dieci strumenti</h3><p>Sito, concierge, calendario, prenotazioni del Garden e richieste in un unico pannello. Niente fogli, chat e mail da ricucire.</p></div></div>
+        <div class="vi reveal"><div class="ic">v</div><div><h3>I numeri della villa, ogni mese</h3><p>Da dove arrivano le richieste, quali spazi tirano, quali date restano vuote, quanto si converte. Decisioni su dati, non su sensazioni.</p></div></div>
+      </div>
+    </div>
+    <div class="why reveal"><b>Perché a questo prezzo</b><p>Sublime sarebbe la prima location di Roma con un sistema di questo livello. Per noi è il progetto di riferimento con cui mostrarlo al mercato, con il vostro consenso e alle condizioni scritte nel contratto. Per questo il prezzo è riservato a voi e vale fino al 30 novembre.</p></div>
+  </div>
+</section>
+
+<section style="padding-top:40px">
   <div class="wrap">
     <div class="head reveal">
       <div class="eyebrow">Cosa include</div>
