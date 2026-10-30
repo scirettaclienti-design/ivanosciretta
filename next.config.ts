@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       { source: "/maiorano", destination: "/maiorano/index.html" },
       // Presentazione privata per Sublime La Villa (file statici in public/sublime).
       { source: "/sublime", destination: "/sublime/index.html" },
+      { source: "/sublime/investimento", destination: "/sublime/investimento/index.html" },
       // I file dell'app (js, css, video, immagini og) stanno tutti sotto /_scatole/.
       { source: "/_scatole/:path*", destination: `${SCATOLE}/_scatole/:path*` },
       { source: "/scatole", destination: `${SCATOLE}/scatole` },
