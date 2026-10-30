@@ -222,6 +222,7 @@
   /* OBIEZIONI */
   .obj{background:var(--avorio)}
   .obj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  @media(min-width:700px){.obj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .obj-card{background:var(--avorio-2);border:1px solid var(--line);border-radius:16px;padding:36px 32px;transition:border-color .3s,transform .3s,box-shadow .3s}
   .obj-card:hover{border-color:var(--ottone);transform:translateY(-4px);box-shadow:0 16px 44px rgba(21,46,40,.1)}
   .obj-card .q{font-family:'Fraunces';font-style:italic;font-size:1.25rem;color:var(--bosco);margin-bottom:14px;line-height:1.3}
@@ -379,7 +380,7 @@
   <div class="wrap reveal">
     <div class="big" id="counter-year">2018</div>
     <div class="big-sub">l'ultimo anno in cui il vostro sito ha lavorato per voi.</div>
-    <p>Da allora la villa è cresciuta, il mercato romano degli eventi è esploso, il pubblico è diventato internazionale — e i concorrenti hanno iniziato a muoversi. <span class="hard">Ogni giorno il vostro sito riceve visitatori pronti a spendere e li congeda con un numero di telefono.</span></p>
+    <p>Da allora la villa è cresciuta, il mercato romano degli eventi è esploso, il pubblico è diventato internazionale — e i concorrenti hanno iniziato a muoversi. <span class="hard">Ogni giorno il vostro sito riceve visitatori pronti a spendere e li congeda con un numero di telefono.</span> <span class="hard">E mentre perde clienti, un motore WordPress del 2018 con plugin obsoleti resta una porta aperta a malware, spam e blocchi: rattopparlo costa, non risolve e danneggia la reputazione del brand.</span></p>
   </div>
 </section>
 
@@ -760,6 +761,14 @@
       <p class="desc">Chi gestisce attività vere fa domande vere. Eccole — messe per iscritto, perché un progetto serio non le teme.</p>
     </div>
     <div class="obj-grid">
+      <div class="obj-card reveal">
+        <div class="q">Basta siti bucati, malware e interventi d'emergenza?</div>
+        <div class="a"><b>Definitivamente.</b> Il sito attuale gira su un WordPress del 2018 appesantito da template e plugin di terze parti che non reggono più gli aggiornamenti PHP: una porta sempre aperta agli attacchi automatici. La nuova piattaforma nasce su <b>architettura proprietaria 2026</b>: zero plugin vulnerabili, nessun database esposto a iniezioni spam, immunità totale ai malware di WordPress e fine delle spese di bonifica.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">Conviene aggiornare i vecchi plugin o partire col nuovo?</div>
+        <div class="a">Acquistare oggi licenze di template e plugin vecchi per forzare l'aggiornamento PHP significa <b>spendere su una macchina del 2018</b> che resterà lenta e ferma al Livello 1. Dirottare quello stesso budget sulla Tappa 1 del nuovo progetto trasforma un costo di riparazione in un <b>investimento definitivo</b>.</div>
+      </div>
       <div class="obj-card reveal">
         <div class="q">E se l'AI dice una cosa sbagliata a un cliente?</div>
         <div class="a">Il concierge lavora <b>dentro binari definiti da voi</b>: risponde solo su spazi, formule e disponibilità approvate. Non inventa prezzi, non conferma prenotazioni — <b>qualifica e passa allo staff</b>, che resta l'unico a chiudere. Ogni conversazione è registrata e verificabile.</div>
