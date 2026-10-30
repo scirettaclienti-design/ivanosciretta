@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sublime · L'investimento</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Il percorso a tappe per la nuova piattaforma di Sublime La Villa: prezzi fissi, consegne concrete, si paga quello che si vede.">
+<meta name="description" content="La nuova piattaforma di Sublime La Villa: un prezzo unico, rate mensili, bonifica del sito attuale inclusa alla firma.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sublime · L'investimento">
-<meta property="og:description" content="Un percorso a tappe. Prezzo fisso per ogni tappa, consegne concrete, si paga quello che si vede.">
+<meta property="og:description" content="Un prezzo unico, 6 rate mensili, bonifica del sito attuale inclusa alla firma.">
 <meta property="og:image" content="https://www.ivanosciretta.tech/sublime/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,202 +21,153 @@
     --bosco:#152e28;--bosco-2:#0d211c;--notte:#080f0d;
     --ottone:#c49a4e;--ottone-soft:#e0bd7e;--ottone-bright:#f2d79c;
     --avorio:#f5f0e6;--avorio-2:#ebe2d1;--ink:#151f1b;--muted:#5a6862;--muted-2:#93a099;
-    --line:rgba(196,154,78,.45);--line-soft:rgba(196,154,78,.22);--maxw:1140px;
+    --line:rgba(196,154,78,.45);--line-soft:rgba(196,154,78,.22);--maxw:1100px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--avorio);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--avorio);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
   b{font-weight:600}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
   .eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ottone)}
-  html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
   html.js .reveal.in{opacity:1;transform:none}
-  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--ottone),var(--ottone-bright));width:0;z-index:99}
 
-  /* hero */
-  .hero{position:relative;color:var(--avorio);overflow:hidden;background:var(--notte)}
-  .hero-img{position:absolute;inset:0;background:url('/sublime/img/160b892caf.jpg') center 40%/cover no-repeat;opacity:.42;filter:saturate(.85)}
-  .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,13,.45),rgba(8,15,13,.75) 60%,var(--notte))}
-  .hero .wrap{position:relative;z-index:2;padding-top:120px;padding-bottom:90px}
-  .hero-frame{position:absolute;inset:20px;border:1px solid rgba(196,154,78,.3);border-radius:10px;pointer-events:none;z-index:1}
-  .kick{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;padding:9px 20px;border:1px solid rgba(245,240,230,.3);border-radius:40px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ottone-bright)}
-  .hero h1{font-size:clamp(2.5rem,6.4vw,4.8rem);color:#fff;margin-bottom:22px;max-width:15ch}
-  .hero h1 em{color:var(--ottone-soft)}
-  .hero .lede{max-width:600px;font-size:1.12rem;color:rgba(245,240,230,.8)}
-  .hero-pts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;padding-top:22px;border-top:1px solid rgba(196,154,78,.3);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone-bright)}
-  .hero-pts span::before{content:"✓";margin-right:8px;color:var(--ottone)}
+  /* apertura + offerta: prezzo e vantaggi affiancati */
+  .top{position:relative;background:var(--notte);color:var(--avorio);overflow:hidden}
+  .top-img{position:absolute;inset:0;background:url('/sublime/img/160b892caf.jpg') center 40%/cover no-repeat;opacity:.32;filter:saturate(.85)}
+  .top-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,13,.55),rgba(8,15,13,.85) 55%,var(--notte))}
+  .top .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:80px}
+  .frame{position:absolute;inset:20px;border:1px solid rgba(196,154,78,.3);border-radius:10px;pointer-events:none;z-index:1}
+  .top h1{font-size:clamp(2.3rem,5.6vw,4.2rem);color:#fff;margin:16px 0 14px;max-width:18ch}
+  .top h1 em{color:var(--ottone-soft)}
+  .top .lede{max-width:560px;color:rgba(245,240,230,.78);font-size:1.06rem;margin-bottom:46px}
 
-  section{padding:110px 0}
-  .head{max-width:720px;margin-bottom:54px}
-  .head h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:14px 0 16px}
-  .head p{color:var(--muted);font-size:1.05rem}
+  .offer{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:stretch}
+  @media(max-width:860px){.offer{grid-template-columns:1fr}}
+  .price-card{background:var(--avorio);color:var(--ink);border-radius:18px;padding:34px 32px 30px;display:flex;flex-direction:column}
+  .price-card .lab{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .list{font-family:'Fraunces';font-size:1.4rem;color:var(--muted-2);text-decoration:line-through;margin-top:14px}
+  .now{font-family:'Fraunces';font-size:clamp(3.4rem,8vw,4.6rem);color:var(--bosco);line-height:1}
+  .now-note{display:inline-block;margin-top:10px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--notte);background:var(--ottone-soft);padding:5px 12px;border-radius:20px;align-self:flex-start}
+  .rate{margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .rate .n{font-family:'Fraunces';font-size:2.2rem;color:var(--bosco)}
+  .rate span{color:var(--muted);font-size:.95rem}
+  .price-card .fine{margin-top:auto;padding-top:22px;font-size:.82rem;color:var(--muted)}
+  .btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:16px 28px;border-radius:40px;background:var(--bosco);color:var(--avorio);font-weight:600;text-decoration:none;min-height:48px;margin-top:22px;transition:background .3s,transform .3s}
+  .btn:hover{background:var(--ottone);color:var(--notte);transform:translateY(-2px)}
 
-  /* scelta modalità */
-  .switch{display:inline-flex;border:1px solid var(--line);border-radius:40px;padding:5px;background:var(--avorio-2);margin-bottom:44px;flex-wrap:wrap}
-  .switch button{font:inherit;font-size:.92rem;font-weight:600;border:0;background:transparent;color:var(--muted);padding:12px 22px;border-radius:30px;cursor:pointer;min-height:44px;transition:background .3s,color .3s}
-  .switch button[aria-pressed=true]{background:var(--bosco);color:var(--avorio)}
-  .switch .tag{display:inline-block;margin-left:8px;font-size:.66rem;letter-spacing:.1em;padding:3px 8px;border-radius:20px;background:var(--ottone);color:var(--notte);vertical-align:middle}
+  .perks{border:1px solid rgba(196,154,78,.35);border-radius:18px;padding:30px 30px 18px;background:rgba(21,46,40,.45)}
+  .perks .lab{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ottone-soft);margin-bottom:8px}
+  .perk{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(196,154,78,.18)}
+  .perk:last-child{border-bottom:0}
+  .perk i{font-style:normal;width:26px;height:26px;border-radius:50%;border:1px solid var(--ottone);color:var(--ottone-bright);display:grid;place-items:center;font-size:.8rem;margin-top:1px}
+  .perk b{color:#fff;display:block;font-size:1rem}
+  .perk span{color:rgba(245,240,230,.68);font-size:.9rem}
+  .perk.hl b{color:var(--ottone-bright)}
 
-  /* tappe */
-  .steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-  @media(max-width:760px){.steps{grid-template-columns:1fr}}
-  .step{background:#fff;border:1px solid var(--line-soft);border-radius:16px;padding:34px 32px 30px;display:flex;flex-direction:column;position:relative;transition:border-color .3s,box-shadow .3s}
-  .step:hover{border-color:var(--line);box-shadow:0 24px 50px -30px rgba(21,46,40,.35)}
-  .step .n{font-family:'Fraunces';font-style:italic;color:var(--ottone);font-size:1rem;letter-spacing:.02em}
-  .step h3{font-size:1.65rem;margin:6px 0 4px}
-  .step .sub{color:var(--muted);font-size:.95rem;margin-bottom:18px}
-  .step ul{list-style:none;margin-bottom:22px}
-  .step li{padding:7px 0 7px 22px;position:relative;font-size:.94rem;color:var(--ink);border-bottom:1px solid var(--line-soft)}
-  .step li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border:1px solid var(--ottone);transform:rotate(45deg)}
-  .step .get{font-size:.9rem;color:var(--bosco);background:var(--avorio);border-left:2px solid var(--ottone);padding:10px 14px;margin-bottom:22px}
-  .step .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
-  .price{font-family:'Fraunces';font-size:2.3rem;color:var(--bosco);line-height:1}
-  .price small{font-family:'Inter';font-size:.8rem;color:var(--muted);margin-left:6px}
-  .when{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .pay{font-size:.82rem;color:var(--muted);margin-top:8px;width:100%}
+  section{padding:96px 0}
+  .head{max-width:680px;margin-bottom:40px}
+  .head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:12px 0 10px}
+  .head p{color:var(--muted)}
 
-  /* totale */
-  .total{margin-top:26px;background:var(--bosco);color:var(--avorio);border-radius:16px;padding:34px 36px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
-  @media(max-width:760px){.total{grid-template-columns:1fr;padding:28px 24px}}
-  .total .lab{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ottone-soft)}
-  .total .big{font-family:'Fraunces';font-size:clamp(2.6rem,6vw,3.6rem);color:#fff;line-height:1;margin:10px 0 8px}
-  .total .big s{font-size:.5em;color:var(--muted-2);margin-left:10px}
-  .total p{color:rgba(245,240,230,.75);font-size:.95rem}
-  .total ul{list-style:none}
-  .total li{padding:9px 0;border-bottom:1px solid rgba(196,154,78,.22);font-size:.94rem;color:rgba(245,240,230,.9)}
-  .total li b{color:var(--ottone-bright)}
-
-  /* regia */
-  .regia{margin-top:20px;border:1px dashed var(--line);border-radius:16px;padding:30px 32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
-  @media(max-width:760px){.regia{grid-template-columns:1fr}}
-  .regia h3{font-size:1.45rem;margin-bottom:6px}
-  .regia p{color:var(--muted);font-size:.95rem;max-width:62ch}
+  /* cosa include */
+  .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--line-soft);border-radius:16px;padding:26px 24px}
+  .step .n{font-family:'Fraunces';font-style:italic;color:var(--ottone)}
+  .step h3{font-size:1.35rem;margin:4px 0 10px}
+  .step p{font-size:.92rem;color:var(--muted)}
+  .step .w{margin-top:14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bosco);font-weight:600}
+  .after{margin-top:16px;border:1px dashed var(--line);border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.94rem;color:var(--muted)}
+  .after b{color:var(--ink)}
+  .after .p{font-family:'Fraunces';font-size:1.5rem;color:var(--bosco);white-space:nowrap}
 
   /* rientro */
-  .dark{background:var(--notte);color:var(--avorio)}
-  .dark .head p{color:rgba(245,240,230,.7)}
-  .calc{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  @media(max-width:860px){.calc{grid-template-columns:1fr}}
-  .panel{border:1px solid rgba(196,154,78,.3);border-radius:16px;padding:32px;background:rgba(21,46,40,.35)}
-  .panel label{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ottone-soft);margin-bottom:10px}
-  .panel .val{font-family:'Fraunces';font-size:2.6rem;color:#fff;margin-bottom:8px}
+  .dark{background:var(--bosco);color:var(--avorio)}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:820px){.calc{grid-template-columns:1fr}}
+  .panel{border:1px solid rgba(196,154,78,.3);border-radius:16px;padding:28px;background:rgba(8,15,13,.35)}
+  .panel label{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone-soft);margin-bottom:8px}
+  .panel .val{font-family:'Fraunces';font-size:2.4rem;color:#fff;margin-bottom:6px}
   .panel input[type=range]{width:100%;accent-color:var(--ottone);height:30px}
-  .panel .hint{font-size:.85rem;color:var(--muted-2);margin-top:6px}
-  .res{display:grid;gap:14px}
-  .res div{border-bottom:1px solid rgba(196,154,78,.22);padding-bottom:14px}
-  .res .k{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
-  .res .v{font-family:'Fraunces';font-size:2rem;color:var(--ottone-bright);line-height:1.15}
-  .res .v small{font-family:'Inter';font-size:.85rem;color:rgba(245,240,230,.7)}
-  .note{font-size:.82rem;color:var(--muted-2);margin-top:22px;max-width:70ch}
+  .panel .hint{font-size:.84rem;color:var(--muted-2);margin-top:6px}
+  .out{display:grid;gap:12px}
+  .out div{border-bottom:1px solid rgba(196,154,78,.22);padding-bottom:12px}
+  .out .k{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+  .out .v{font-family:'Fraunces';font-size:1.9rem;color:var(--ottone-bright);line-height:1.2}
+  .note{font-size:.8rem;color:var(--muted-2);margin-top:18px;max-width:70ch}
 
-  /* garanzie e partenza */
-  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
-  .card{background:var(--avorio-2);border:1px solid var(--line-soft);border-radius:16px;padding:30px 28px}
-  .card .ic{font-family:'Fraunces';font-style:italic;font-size:1.9rem;color:var(--ottone);line-height:1;margin-bottom:12px}
-  .card h3{font-size:1.3rem;margin-bottom:8px}
-  .card p{font-size:.94rem;color:var(--muted)}
-  .start{counter-reset:s}
-  .start .card{position:relative}
+  /* come si parte */
+  .go{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media(max-width:820px){.go{grid-template-columns:1fr}}
+  .go div{background:var(--avorio-2);border-radius:16px;padding:26px 24px;border:1px solid var(--line-soft)}
+  .go .ic{font-family:'Fraunces';font-style:italic;font-size:1.8rem;color:var(--ottone);line-height:1}
+  .go h3{font-size:1.25rem;margin:10px 0 6px}
+  .go p{font-size:.92rem;color:var(--muted)}
 
-  .close{background:var(--bosco);color:var(--avorio);text-align:center}
-  .close h2{font-size:clamp(2.1rem,5vw,3.6rem);color:#fff;margin:14px auto 18px;max-width:18ch}
+  .close{background:var(--notte);color:var(--avorio);text-align:center}
+  .close h2{font-size:clamp(2rem,4.8vw,3.4rem);color:#fff;margin:12px auto 14px;max-width:18ch}
   .close h2 em{color:var(--ottone-soft)}
-  .close p{color:rgba(245,240,230,.75);max-width:560px;margin:0 auto}
-  .btn{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:17px 32px;border-radius:40px;background:var(--ottone);color:var(--notte);font-weight:600;text-decoration:none;min-height:48px;transition:background .3s,transform .3s}
-  .btn:hover{background:var(--ottone-bright);transform:translateY(-2px)}
-  .valid{margin-top:22px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone-soft)}
-  footer{background:var(--notte);color:var(--muted-2);text-align:center;padding:40px 24px;font-size:.85rem}
+  .close p{color:rgba(245,240,230,.74);max-width:540px;margin:0 auto}
+  .close .btn{background:var(--ottone);color:var(--notte)}
+  .close .btn:hover{background:var(--ottone-bright)}
+  .valid{margin-top:20px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone-soft)}
+  footer{background:var(--notte);color:var(--muted-2);text-align:center;padding:0 24px 40px;font-size:.84rem}
   footer a{color:var(--ottone-soft)}
-  .back{display:inline-block;margin-top:10px;font-size:.85rem;color:var(--ottone-soft)}
-  @media(max-width:600px){.wrap{padding:0 20px}section{padding:80px 0}.step{padding:28px 22px 24px}.regia{padding:26px 22px}.panel{padding:26px 22px}}
+  @media(max-width:600px){.wrap{padding:0 20px}section{padding:72px 0}.top .wrap{padding-top:70px;padding-bottom:60px}.price-card,.perks{padding:26px 22px}}
   @media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<div id="progress"></div>
 
-<header class="hero">
-  <div class="hero-img"></div><div class="hero-veil"></div><div class="hero-frame"></div>
+<header class="top">
+  <div class="top-img"></div><div class="top-veil"></div><div class="frame"></div>
   <div class="wrap">
-    <div class="kick">Sublime La Villa · L'investimento</div>
-    <h1>Un percorso a tappe. <em>Si paga quello che si vede.</em></h1>
-    <p class="lede">Avete visto la visione. Qui c'è il piano: quattro tappe con un prezzo fisso, una consegna concreta e la vostra approvazione prima di passare alla successiva. Nessun salto nel buio, nessun preventivo aperto.</p>
-    <div class="hero-pts"><span>Prezzi fissi</span><span>Contratto prima di iniziare</span><span>Codice e dati vostri</span><span>Vi fermate quando volete</span></div>
+    <div class="eyebrow">Sublime La Villa · L'investimento</div>
+    <h1>La villa che vende da sola, <em>a un prezzo solo.</em></h1>
+    <p class="lede">Sito nuovo, concierge AI, configuratore e cruscotto: tutto quello che avete visto nella visione, in un unico contratto, pagato a rate.</p>
+
+    <div class="offer">
+      <div class="price-card reveal">
+        <div class="lab">Progetto completo · Tappe 1–4</div>
+        <div class="list">6.500 €</div>
+        <div class="now">6.000 €</div>
+        <span class="now-note">Alla firma del contratto</span>
+        <div class="rate"><span class="n">6 × 1.000 €</span><span>al mese, senza interessi.<br>La prima rata alla firma.</span></div>
+        <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20per%20Sublime%20procediamo%3A%20mandaci%20il%20contratto." target="_blank" rel="noopener">Mandateci il contratto</a>
+        <p class="fine">Regime forfettario: nessuna IVA da aggiungere. Offerta valida fino al 30 novembre 2026.</p>
+      </div>
+
+      <div class="perks reveal">
+        <div class="lab">Cosa ottenete firmando</div>
+        <div class="perk hl"><i>✓</i><div><b>Bonifica del sito attuale, inclusa</b><span>Lo ripuliamo e lo mettiamo in sicurezza subito, e lo teniamo sorvegliato fino al passaggio.</span></div></div>
+        <div class="perk hl"><i>✓</i><div><b>500 € di sconto</b><span>Il prezzo scende da 6.500 a 6.000 € con la firma del contratto.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Rate mensili da 1.000 €</b><span>Nessun esborso unico: il progetto si paga mentre cresce.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Sito nuovo online in circa 7 settimane</b><span>Senza WordPress, in italiano e inglese. Il vecchio resta attivo fino al cambio.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Tutto resta vostro</b><span>Design, codice e dati delle richieste. Nessun vincolo a restare.</span></div></div>
+        <div class="perk"><i>✓</i><div><b>Prezzo bloccato e scritto</b><span>Tappe, date e consegne nel contratto. Niente extra a sorpresa.</span></div></div>
+      </div>
+    </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
     <div class="head reveal">
-      <div class="eyebrow">Le quattro tappe</div>
-      <h2>Ogni tappa consegna qualcosa che funziona</h2>
-      <p>Scegliete come procedere: una tappa alla volta, oppure il percorso completo con il vantaggio sul prezzo e il pagamento in rate mensili.</p>
+      <div class="eyebrow">Cosa include</div>
+      <h2>Quattro tappe, ognuna con una consegna</h2>
+      <p>Approvate ogni tappa prima di passare alla successiva.</p>
     </div>
-
-    <div class="switch reveal" role="group" aria-label="Modalità di pagamento">
-      <button type="button" data-mode="tappe" aria-pressed="true">Una tappa alla volta</button>
-      <button type="button" data-mode="completo" aria-pressed="false">Percorso completo<span class="tag">−10%</span></button>
-    </div>
-
     <div class="steps">
-      <article class="step reveal">
-        <div class="n">Tappa 1</div>
-        <h3>Le fondamenta</h3>
-        <p class="sub">Strategia, materiali, regia</p>
-        <ul><li>Incontro in villa e studio dei flussi reali</li><li>Selezione delle foto e dei materiali migliori</li><li>Percorsi dalla visita alla richiesta, per i tre piani</li></ul>
-        <p class="get"><b>Consegna:</b> il documento di regia, approvato da voi.</p>
-        <div class="foot"><div class="price" data-p="800">800 €</div><div class="when">1 settimana</div><p class="pay">50% all'avvio · 50% alla consegna</p></div>
-      </article>
-      <article class="step reveal">
-        <div class="n">Tappa 2</div>
-        <h3>Il volto</h3>
-        <p class="sub">Design e prototipo navigabile</p>
-        <ul><li>Sistema visivo dei tre piani: Garden, Piano Nobile, Club</li><li>Prototipo cliccabile da provare sul telefono</li><li>Due giri di revisione inclusi</li></ul>
-        <p class="get"><b>Consegna:</b> la villa digitale si tocca, e potete già mostrarla.</p>
-        <div class="foot"><div class="price" data-p="1200">1.200 €</div><div class="when">2 settimane</div><p class="pay">50% all'avvio · 50% alla consegna</p></div>
-      </article>
-      <article class="step reveal">
-        <div class="n">Tappa 3</div>
-        <h3>La macchina</h3>
-        <p class="sub">La piattaforma completa, online</p>
-        <ul><li>Sito su architettura proprietaria 2026, senza WordPress</li><li>Pagine evento, gallerie, prenotazione tavoli del Garden</li><li>Italiano e inglese, mobile impeccabile, indicizzazione</li></ul>
-        <p class="get"><b>Consegna:</b> il nuovo sito online, con il passaggio dal vecchio in poche ore.</p>
-        <div class="foot"><div class="price" data-p="3500">3.500 €</div><div class="when">4 settimane</div><p class="pay">40% all'avvio · 30% a metà · 30% online</p></div>
-      </article>
-      <article class="step reveal">
-        <div class="n">Tappa 4</div>
-        <h3>L'intelligenza</h3>
-        <p class="sub">Concierge, configuratore, cruscotto</p>
-        <ul><li>Concierge 24/7 in italiano e inglese, dentro binari decisi da voi</li><li>Configuratore del Piano Nobile e del Club con richiesta guidata</li><li>Cruscotto: richieste, provenienza, spazi più richiesti</li></ul>
-        <p class="get"><b>Consegna:</b> lo strato AI acceso sul sito già attivo.</p>
-        <div class="foot"><div class="price" data-p="2500">2.500 €</div><div class="when">3 settimane</div><p class="pay">50% all'avvio · 50% alla consegna</p></div>
-      </article>
+      <div class="step reveal"><div class="n">Tappa 1</div><h3>Le fondamenta</h3><p>Incontro in villa, materiali migliori, percorsi dalla visita alla richiesta.</p><div class="w">Documento di regia · 1 settimana</div></div>
+      <div class="step reveal"><div class="n">Tappa 2</div><h3>Il volto</h3><p>Design dei tre piani e prototipo da provare sul telefono.</p><div class="w">Prototipo · 2 settimane</div></div>
+      <div class="step reveal"><div class="n">Tappa 3</div><h3>La macchina</h3><p>Sito completo: pagine evento, gallerie, prenotazione tavoli, due lingue.</p><div class="w">Sito online · 4 settimane</div></div>
+      <div class="step reveal"><div class="n">Tappa 4</div><h3>L'intelligenza</h3><p>Concierge 24/7, configuratore delle sale, cruscotto delle richieste.</p><div class="w">AI attiva · 3 settimane</div></div>
     </div>
-
-    <div class="total reveal" aria-live="polite">
-      <div>
-        <div class="lab" id="t-lab">Una tappa alla volta</div>
-        <div class="big" id="t-big">8.000 €</div>
-        <p id="t-txt">Pagate solo la tappa che parte. Dopo ogni consegna decidete voi se proseguire: quello che è stato consegnato resta vostro.</p>
-      </div>
-      <ul id="t-list">
-        <li><b>Flessibilità totale:</b> nessun impegno oltre la tappa in corso</li>
-        <li><b>Tempi:</b> sito nuovo online in circa 7 settimane, AI dopo altre 3</li>
-        <li><b>Prezzi bloccati</b> per tutte le tappe fino al 30 novembre 2026</li>
-      </ul>
-    </div>
-
-    <div class="regia reveal">
-      <div>
-        <div class="eyebrow">Tappa 5 · Dalla messa online</div>
-        <h3>La regia continua</h3>
-        <p>Hosting, sicurezza e aggiornamenti, costi del concierge AI nell'uso normale, piccole modifiche ogni mese e un report con i numeri delle richieste. La piattaforma è seguita, non consegnata e abbandonata. Minimo 6 mesi, poi disdetta con 60 giorni di preavviso.</p>
-      </div>
-      <div class="price">290 €<small>/ mese</small></div>
-    </div>
+    <div class="after reveal"><span><b>Dopo la messa online · la regia continua:</b> hosting, sicurezza, aggiornamenti, costi del concierge, report mensile. Minimo 6 mesi.</span><span class="p">290 € / mese</span></div>
   </div>
 </section>
 
@@ -224,50 +175,34 @@
   <div class="wrap">
     <div class="head reveal">
       <div class="eyebrow">Il rientro, con i vostri numeri</div>
-      <h2>Quanti eventi servono per ripagare tutto?</h2>
-      <p>Impostate il valore medio di un evento. Il calcolo usa il prezzo del percorso scelto qui sopra.</p>
+      <h2>Quanti eventi servono per ripagarlo?</h2>
     </div>
     <div class="calc reveal">
       <div class="panel">
         <label for="ev">Valore medio di un evento</label>
         <div class="val" id="ev-v">6.000 €</div>
         <input type="range" id="ev" min="3000" max="50000" step="1000" value="6000">
-        <p class="hint">Diciottesimi e feste private: 3–8 mila · Matrimoni e gala: 15–50 mila</p>
+        <p class="hint">Diciottesimi e feste: 3–8 mila · Matrimoni e gala: 15–50 mila</p>
       </div>
-      <div class="panel res">
-        <div><div class="k">Eventi in più per ripagare il progetto</div><div class="v" id="r-ev">2</div></div>
-        <div><div class="k">Con un solo evento in più al mese</div><div class="v" id="r-mo">rientro in 2 mesi</div></div>
-        <div><div class="k">Peso sull'anno, nello scenario minimo</div><div class="v" id="r-pc">11% <small>di quanto rende 1 evento in più al mese</small></div></div>
+      <div class="panel out">
+        <div><div class="k">Eventi in più per ripagare tutto</div><div class="v" id="r-ev">1 evento</div></div>
+        <div><div class="k">Una rata mensile vale</div><div class="v" id="r-rt">1/6 di un evento</div></div>
       </div>
     </div>
-    <p class="note reveal">Calcolo illustrativo sul fatturato degli eventi, non sul margine, e senza la ristorazione del Garden. Serve a dare l'ordine di grandezza, non è una promessa di risultato.</p>
+    <p class="note reveal">Calcolo illustrativo sul fatturato degli eventi, senza la ristorazione del Garden. Dà l'ordine di grandezza, non è una promessa di risultato.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="head reveal">
-      <div class="eyebrow">Le garanzie</div>
-      <h2>Messo per iscritto, prima di iniziare</h2>
-    </div>
-    <div class="grid3">
-      <div class="card reveal"><div class="ic">i</div><h3>Contratto chiaro</h3><p>Tappe, date, consegne, prezzi e modalità di pagamento in un unico contratto firmato prima di partire. Ogni richiesta fuori perimetro si quantifica prima, mai a sorpresa.</p></div>
-      <div class="card reveal"><div class="ic">ii</div><h3>Tutto resta vostro</h3><p>Al saldo di ogni tappa, quello che è stato consegnato è vostro: documenti, design, codice, dati delle richieste. Nessun vincolo a restare.</p></div>
-      <div class="card reveal"><div class="ic">iii</div><h3>Zero interruzioni</h3><p>Il sito attuale resta online fino al passaggio. Con il percorso completo lo teniamo anche sotto sorveglianza e pulito fino al giorno del cambio, senza costi di bonifica.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="head reveal">
       <div class="eyebrow">Come si parte</div>
       <h2>Tre passi, una settimana</h2>
     </div>
-    <div class="grid3 start">
-      <div class="card reveal"><div class="ic">1</div><h3>Scegliete la modalità</h3><p>Una tappa alla volta o percorso completo. Vi mando il contratto da leggere con calma.</p></div>
-      <div class="card reveal"><div class="ic">2</div><h3>Firma e avvio</h3><p>Firma del contratto e primo pagamento: l'acconto della Tappa 1, oppure la prima rata del percorso completo.</p></div>
-      <div class="card reveal"><div class="ic">3</div><h3>Incontro in villa</h3><p>Entro 7 giorni dalla firma: sopralluogo, materiali e inizio della Tappa 1.</p></div>
+    <div class="go">
+      <div class="reveal"><div class="ic">1</div><h3>Contratto</h3><p>Ve lo mando oggi: tappe, date, consegne, rate. Da leggere con calma.</p></div>
+      <div class="reveal"><div class="ic">2</div><h3>Firma e prima rata</h3><p>Parte subito la bonifica del sito attuale.</p></div>
+      <div class="reveal"><div class="ic">3</div><h3>Incontro in villa</h3><p>Entro 7 giorni: sopralluogo e avvio della Tappa 1.</p></div>
     </div>
   </div>
 </section>
@@ -275,61 +210,32 @@
 <section class="close">
   <div class="wrap reveal">
     <div class="eyebrow">Il prossimo passo</div>
-    <h2>Si comincia dalle <em>fondamenta.</em></h2>
-    <p>Ditemi la modalità che preferite e vi mando il contratto. La prima consegna arriva in una settimana.</p>
-    <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20abbiamo%20visto%20l%27investimento%20per%20Sublime.%20Preferiamo%20la%20modalit%C3%A0%3A%20" target="_blank" rel="noopener">Scriviamoci su WhatsApp</a>
-    <div class="valid">Offerta valida fino al 30 novembre 2026 · Importi in regime forfettario, senza IVA</div>
+    <h2>6.000 €, sei rate, <em>bonifica inclusa.</em></h2>
+    <p>Un messaggio e vi mando il contratto. Il sito attuale si mette in sicurezza dal giorno della firma.</p>
+    <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20per%20Sublime%20procediamo%3A%20mandaci%20il%20contratto." target="_blank" rel="noopener">Mandateci il contratto</a>
+    <div class="valid">Offerta valida fino al 30 novembre 2026</div>
   </div>
 </section>
 
 <footer>
-  Visione e progetto: <b>Ivano Sciretta</b> · Documento riservato · Ottobre 2026<br>
-  <a class="back" href="/sublime">← Rivedi la visione</a>
+  Visione e progetto: <b>Ivano Sciretta</b> · Documento riservato · Ottobre 2026 · <a href="/sublime">Rivedi la visione</a>
 </footer>
 
 <script>
-  /* reveal + progress */
   (function(){
     var els=document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
-    else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)});}
-    var pb=document.getElementById('progress');
-    window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;pb.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
-  })();
-
-  /* modalità e calcolo */
-  (function(){
-    var fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €'};
-    var BASE=8000,DISC=.9,mode='tappe';
-    var total=function(){return mode==='completo'?BASE*DISC:BASE};
-    var T={
-      tappe:{lab:'Una tappa alla volta',big:function(){return fmt(BASE)},txt:'Pagate solo la tappa che parte. Dopo ogni consegna decidete voi se proseguire: quello che è stato consegnato resta vostro.',
-        list:['<b>Flessibilità totale:</b> nessun impegno oltre la tappa in corso','<b>Tempi:</b> sito nuovo online in circa 7 settimane, AI dopo altre 3','<b>Prezzi bloccati</b> per tutte le tappe fino al 30 novembre 2026']},
-      completo:{lab:'Percorso completo · tappe 1–4',big:function(){return fmt(BASE*DISC)+' <s>'+fmt(BASE)+'</s>'},txt:'Un unico contratto per le quattro tappe, in 6 rate mensili da '+fmt(BASE*DISC/6)+'. La prima alla firma.',
-        list:['<b>Risparmio:</b> '+fmt(BASE*(1-DISC))+' rispetto alle tappe singole','<b>Rate:</b> 6 × '+fmt(BASE*DISC/6)+', senza interessi','<b>Incluso:</b> sorveglianza e pulizia del sito attuale fino al passaggio','<b>Priorità</b> in calendario: si parte entro 7 giorni']}
-    };
-    var btns=document.querySelectorAll('.switch button');
-    function render(){
-      var t=T[mode];
-      document.getElementById('t-lab').textContent=t.lab;
-      document.getElementById('t-big').innerHTML=t.big();
-      document.getElementById('t-txt').textContent=t.txt;
-      document.getElementById('t-list').innerHTML=t.list.map(function(x){return '<li>'+x+'</li>'}).join('');
-      btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-mode')===mode?'true':'false')});
-      calc();
-    }
-    btns.forEach(function(b){b.addEventListener('click',function(){mode=b.getAttribute('data-mode');render()})});
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')})}
+    else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)})}
+    var TOT=6000,fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €'};
     var ev=document.getElementById('ev');
     function calc(){
-      var v=+ev.value,tot=total();
+      var v=+ev.value,n=Math.ceil(TOT/v);
       document.getElementById('ev-v').textContent=fmt(v);
-      var n=Math.ceil(tot/v);
       document.getElementById('r-ev').textContent=n===1?'1 evento':n+' eventi';
-      document.getElementById('r-mo').textContent='rientro in '+(n===1?'1 mese':n+' mesi');
-      document.getElementById('r-pc').innerHTML=Math.max(1,Math.round(tot/(v*12)*100))+'% <small>di quanto rende 1 evento in più al mese</small>';
+      var r=1000/v;
+      document.getElementById('r-rt').textContent=r>=1?'più di un evento':'1/'+Math.round(1/r)+' di un evento';
     }
-    ev.addEventListener('input',calc);
-    render();
+    ev.addEventListener('input',calc);calc();
   })();
 </script>
 </body>
