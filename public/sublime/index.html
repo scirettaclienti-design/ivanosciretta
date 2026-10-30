@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sublime · La Villa che vende da sola</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Villa Mazzanti, Collina Fleming: la visione digitale per far vendere la villa anche online, 24 ore su 24.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sublime · La Villa che vende da sola">
+<meta property="og:description" content="La visione digitale per Villa Mazzanti · 1908 · Collina Fleming, Roma. Documento riservato.">
+<meta property="og:image" content="https://ivanosciretta.tech/sublime/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1411">
+<link rel="preload" as="image" href="/sublime/img/160b892caf.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bosco:#152e28;
+    --bosco-2:#0d211c;
+    --notte:#080f0d;
+    --ottone:#c49a4e;
+    --ottone-soft:#e0bd7e;
+    --ottone-bright:#f2d79c;
+    --avorio:#f5f0e6;
+    --avorio-2:#ebe2d1;
+    --ink:#151f1b;
+    --muted:#5a6862;
+    --muted-2:#93a099;
+    --rosso:#b0584a;
+    --line:rgba(196,154,78,.45);
+    --line-soft:rgba(196,154,78,.22);
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--avorio);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ottone)}
+  html.js .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal.in{opacity:1;transform:none}
+
+  /* progress bar */
+  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--ottone),var(--ottone-bright));width:0;z-index:99;box-shadow:0 0 12px rgba(196,154,78,.5)}
+
+  /* HERO with real photo */
+  .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;color:var(--avorio);overflow:hidden}
+  .hero-img{position:absolute;inset:0;background:url('/sublime/img/d1c64e08a3.jpg') center 30%/cover no-repeat;background-color:#12241d;animation:kenburns 24s ease-in-out infinite alternate;filter:saturate(.9)}
+  @keyframes kenburns{0%{transform:scale(1)}100%{transform:scale(1.09)}}
+  .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,13,.35) 0%,rgba(8,15,13,.15) 35%,rgba(8,15,13,.88) 82%,var(--notte) 100%)}
+  .hero .wrap{position:relative;z-index:3;padding-bottom:96px;padding-top:130px}
+  .hero-frame{position:absolute;inset:20px;border:1px solid rgba(196,154,78,.3);border-radius:10px;pointer-events:none;z-index:2}
+  .hero .kick{display:inline-flex;align-items:center;gap:12px;margin-bottom:30px;padding:9px 20px;border:1px solid rgba(245,240,230,.3);border-radius:40px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ottone-bright);backdrop-filter:blur(8px);background:rgba(8,15,13,.3)}
+  .hero .kick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ottone-bright);box-shadow:0 0 14px var(--ottone-bright);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{font-size:clamp(2.8rem,7.2vw,5.6rem);color:#fff;margin-bottom:24px;text-shadow:0 4px 40px rgba(0,0,0,.4)}
+  .hero h1 em{font-style:italic;color:var(--ottone-bright)}
+  .hero .lead{font-size:clamp(1.05rem,2vw,1.25rem);max-width:620px;color:rgba(245,240,230,.88)}
+  .hero .scroll{margin-top:52px;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,240,230,.55);display:flex;align-items:center;gap:14px}
+  .hero .scroll::before{content:"";width:44px;height:1px;background:var(--ottone)}
+
+  /* TENSIONE */
+  .tension{background:var(--notte);color:var(--avorio);padding:120px 0;text-align:center;position:relative;overflow:hidden}
+  .tension::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid var(--line-soft);left:50%;top:50%;transform:translate(-50%,-50%)}
+  .tension .wrap{position:relative}
+  .tension .big{font-family:'Fraunces';font-size:clamp(4rem,13vw,9.5rem);color:var(--ottone-soft);line-height:.9}
+  .tension .big-sub{font-family:'Fraunces';font-style:italic;font-size:clamp(1.05rem,2.6vw,1.6rem);color:var(--avorio);margin:14px 0 42px}
+  .tension p{max-width:640px;margin:0 auto;color:rgba(245,240,230,.66);font-size:1.12rem}
+  .tension .hard{color:var(--ottone-bright);font-weight:600}
+
+  section{padding:clamp(84px,10vw,124px) 0}
+  .section-head{max-width:800px;margin-bottom:66px}
+  .section-head h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-top:18px}
+  .section-head h2::after{content:"";display:block;width:68px;height:7px;margin-top:24px;border-top:1px solid var(--ottone);border-bottom:1px solid rgba(196,154,78,.4)}
+  .section-head .desc{margin-top:22px;color:var(--muted);font-size:1.12rem}
+
+  /* dettagli liberty sulle card */
+  .stat,.socio,.obj-card{position:relative}
+  .stat::before,.socio::after,.obj-card::after{content:"";position:absolute;top:16px;right:16px;width:20px;height:20px;border-top:1px solid var(--ottone);border-right:1px solid var(--ottone);opacity:.6;pointer-events:none}
+
+  /* MARKET — animated counters */
+  .market{background:var(--avorio-2)}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:18px;overflow:hidden}
+  .stat{background:var(--avorio);padding:40px 30px;position:relative;overflow:hidden}
+  .stat::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--ottone),transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.2s ease .3s}
+  .stat.in::after{transform:scaleX(1)}
+  .stat .num{font-family:'Fraunces';font-size:3rem;color:var(--bosco);line-height:1;letter-spacing:-.02em}
+  .stat .num em{font-style:normal;color:var(--ottone);font-size:1.5rem}
+  .stat .lbl{margin-top:14px;font-size:.92rem;color:var(--muted);line-height:1.45}
+  .stat .src{margin-top:10px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+  .market-note{margin-top:36px;padding:30px 36px;background:var(--bosco);color:var(--avorio);border-radius:16px;font-size:1.1rem;border-left:3px solid var(--ottone)}
+  .market-note b{color:var(--ottone-soft);font-weight:600}
+
+  /* POSIZIONAMENTO — competitive matrix */
+  .position{background:var(--notte);color:var(--avorio)}
+  .position .section-head h2{color:var(--avorio)}
+  .position .section-head .desc{color:rgba(245,240,230,.62)}
+  .matrix{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .mrow{display:grid;grid-template-columns:1.4fr .8fr .8fr;align-items:center}
+  .mrow.mhead{background:rgba(196,154,78,.08);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+  .mrow.mhead>div{padding:20px 26px;color:var(--ottone-soft)}
+  .mrow:not(.mhead){border-top:1px solid var(--line-soft)}
+  .mrow:not(.mhead)>div{padding:18px 26px;font-size:.96rem}
+  .mrow .feat-name{color:rgba(245,240,230,.88)}
+  .mrow .others{color:var(--muted-2);text-align:center}
+  .mrow .subl{text-align:center;color:var(--ottone-bright);font-weight:600}
+  .mrow .no{color:#7d5a52;font-size:1.05rem}
+  .mrow .yes{color:var(--ottone-bright);font-size:1.05rem}
+  .matrix-punch{margin-top:38px;font-family:'Fraunces';font-size:clamp(1.3rem,3vw,1.9rem);font-style:italic;color:var(--ottone-soft);text-align:center;line-height:1.4}
+
+  /* SCALA competitiva */
+  .rung{display:grid;grid-template-columns:150px 1fr;gap:36px;padding:40px 38px;border:1px solid var(--line);border-radius:18px;margin-bottom:20px;background:rgba(255,255,255,.02);transition:transform .3s,border-color .3s}
+  .rung:hover{border-color:var(--ottone-soft);transform:translateX(6px)}
+  .rung .lv{font-family:'Fraunces';font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);padding-top:5px}
+  .rung h3{font-size:1.55rem;color:var(--avorio);margin-bottom:10px}
+  .rung p{color:rgba(245,240,230,.72);font-size:.98rem;max-width:720px}
+  .rung .who{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+  .rung .pill{border:1px solid var(--line);border-radius:22px;padding:9px 18px;font-size:.82rem;color:rgba(245,240,230,.88);background:rgba(8,15,13,.35)}
+  .rung .pill b{color:var(--ottone-soft);font-weight:600}
+  .rung.hot{background:linear-gradient(135deg,rgba(196,154,78,.16),rgba(196,154,78,.04));border-color:var(--ottone);box-shadow:0 24px 70px rgba(196,154,78,.14)}
+  .rung.hot .lv{color:var(--ottone-bright)}
+  .rung.hot .pill{border-color:var(--ottone);background:rgba(196,154,78,.12)}
+  .verify-note{margin-top:14px;font-size:.74rem;letter-spacing:.08em;color:var(--muted-2)}
+
+  /* PLATFORM layers */
+  .platform{background:var(--bosco)}
+  .platform .section-head h2{color:var(--avorio)}
+  .platform .section-head .desc{color:rgba(245,240,230,.62)}
+  .layer{display:grid;grid-template-columns:110px 1fr;gap:32px;padding:38px 0;border-top:1px solid var(--line-soft);align-items:start;transition:background .4s,padding-left .4s}
+  .layer:last-child{border-bottom:1px solid var(--line-soft)}
+  .layer:hover{background:rgba(196,154,78,.05);padding-left:14px}
+  .layer .lchip{font-family:'Fraunces';font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ottone);padding-top:8px}
+  .layer h3{font-size:1.6rem;color:var(--avorio);margin-bottom:10px}
+  .layer p{color:rgba(245,240,230,.72);max-width:680px;font-size:1rem}
+  .layer .why{margin-top:12px;font-size:.9rem;color:var(--ottone-bright);font-weight:600}
+  .layer .why::before{content:"€ ";opacity:.7}
+
+  /* DEMO — concierge live */
+  .demo{background:var(--notte);color:var(--avorio);position:relative;overflow:hidden}
+  .demo::before{content:"";position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(196,154,78,.07) 0%,transparent 65%);right:-300px;top:-200px}
+  .demo .section-head h2{color:var(--avorio)}
+  .demo .section-head .desc{color:rgba(245,240,230,.62)}
+  .demo-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+  .demo-copy h3{color:var(--avorio);font-size:1.9rem;margin-bottom:18px}
+  .demo-copy h3 em{font-style:italic;color:var(--ottone-soft)}
+  .demo-copy p{color:rgba(245,240,230,.7);font-size:1.05rem;margin-bottom:18px}
+  .demo-copy .pt{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line-soft);font-size:.95rem;color:rgba(245,240,230,.8)}
+  .demo-copy .pt b{color:var(--ottone-soft);font-family:'Fraunces';white-space:nowrap}
+  .phone{background:#0f1a16;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(196,154,78,.08);max-width:430px;margin-left:auto}
+  .phone-head{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line-soft);margin-bottom:16px}
+  .phone-head .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--ottone),var(--ottone-bright));display:flex;align-items:center;justify-content:center;font-family:'Fraunces';color:var(--notte);font-size:1.1rem}
+  .phone-head .who{font-size:.9rem;font-weight:600;color:var(--avorio)}
+  .phone-head .status{font-size:.72rem;color:#7fc79a;display:flex;align-items:center;gap:6px}
+  .phone-head .status::before{content:"";width:6px;height:6px;border-radius:50%;background:#7fc79a}
+  .phone-head .clock{margin-left:auto;font-size:.72rem;color:var(--muted-2);font-variant-numeric:tabular-nums}
+  .chat{display:flex;flex-direction:column;gap:10px;min-height:340px}
+  .msg{max-width:85%;padding:11px 15px;border-radius:16px;font-size:.86rem;line-height:1.5;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+  .msg.show{opacity:1;transform:none}
+  .msg.bot{background:rgba(196,154,78,.13);border:1px solid rgba(196,154,78,.2);color:var(--avorio);align-self:flex-start;border-bottom-left-radius:4px}
+  .msg.usr{background:rgba(245,240,230,.1);color:rgba(245,240,230,.92);align-self:flex-end;border-bottom-right-radius:4px}
+  .msg.sys{align-self:center;background:transparent;border:1px dashed var(--line);color:var(--ottone-soft);font-size:.74rem;letter-spacing:.06em;text-align:center;max-width:95%}
+  .typing{display:inline-flex;gap:4px;padding:4px 0}
+  .typing i{width:5px;height:5px;border-radius:50%;background:var(--ottone-soft);animation:tp 1s infinite}
+  .typing i:nth-child(2){animation-delay:.16s}.typing i:nth-child(3){animation-delay:.32s}
+  @keyframes tp{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+  .replay{margin-top:16px;text-align:center}
+  .replay button{background:transparent;border:1px solid var(--line);color:var(--ottone-soft);border-radius:24px;padding:9px 22px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'Inter';transition:all .25s}
+  .replay button:hover{background:rgba(196,154,78,.12);border-color:var(--ottone)}
+
+  /* FLOORS with real photos */
+  .floors{background:var(--avorio)}
+  .floor-cards{display:flex;flex-direction:column;gap:26px}
+  .fcard{display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;background:var(--bosco);color:var(--avorio);min-height:380px}
+  .fcard:nth-child(even){direction:rtl}
+  .fcard:nth-child(even)>*{direction:ltr}
+  .fimg{position:relative;overflow:hidden;min-height:280px;background:radial-gradient(120% 100% at 28% 22%,rgba(196,154,78,.14),transparent 62%),var(--bosco-2)}
+  .fimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),opacity .5s;filter:saturate(.92);color:transparent;font-size:0}
+  .fcard:hover .fimg img{transform:scale(1.07)}
+  .fimg .flv{position:absolute;top:22px;left:22px;background:rgba(8,15,13,.72);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-family:'Fraunces';color:var(--ottone-bright);font-size:1.2rem}
+  .fbody{padding:44px 46px;display:flex;flex-direction:column;justify-content:center}
+  .fbody .role{color:var(--ottone-soft);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+  .fbody h3{font-size:1.9rem;color:var(--avorio);margin-bottom:14px}
+  .fbody p{color:rgba(245,240,230,.72);font-size:.98rem;margin-bottom:22px}
+  .fbody .specs{display:flex;gap:28px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line-soft)}
+  .fbody .spec .n{font-family:'Fraunces';font-size:1.5rem;color:var(--ottone-bright)}
+  .fbody .spec .u{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+
+  /* SOCI — per chi guarda i numeri */
+  .soci{background:var(--avorio-2)}
+  .soci-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .socio{background:var(--avorio);border:1px solid var(--line);border-radius:16px;padding:38px 32px;transition:transform .3s,box-shadow .3s,border-color .3s}
+  .socio:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(21,46,40,.12);border-color:var(--ottone)}
+  .socio .tag{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ottone);margin-bottom:16px;display:block}
+  .socio h4{font-size:1.3rem;margin-bottom:12px}
+  .socio p{font-size:.93rem;color:var(--muted)}
+  .socio p b{color:var(--ink)}
+
+  /* ROI */
+  .roi-box{background:var(--bosco);border-radius:22px;overflow:hidden;color:var(--avorio);display:grid;grid-template-columns:1fr 1fr;box-shadow:0 30px 80px rgba(13,33,28,.25)}
+  .roi-inputs{padding:50px 46px;border-right:1px solid var(--line-soft)}
+  .roi-inputs h3{color:var(--avorio);font-size:1.5rem;margin-bottom:8px}
+  .roi-inputs .hint{font-size:.9rem;color:rgba(245,240,230,.55);margin-bottom:34px}
+  .field{margin-bottom:30px}
+  .field label{display:flex;justify-content:space-between;font-size:.9rem;color:rgba(245,240,230,.85);margin-bottom:12px}
+  .field label b{color:var(--ottone-bright);font-family:'Fraunces';font-size:1.15rem}
+  input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:var(--line);border-radius:3px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ottone-bright);cursor:pointer;box-shadow:0 0 0 5px rgba(196,154,78,.18);transition:box-shadow .2s}
+  input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 0 0 9px rgba(196,154,78,.25)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--ottone-bright);cursor:pointer}
+  .roi-out{padding:50px 46px;background:var(--bosco-2);display:flex;flex-direction:column;justify-content:center}
+  .roi-out .olbl{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ottone);margin-bottom:14px}
+  .roi-out .oval{font-family:'Fraunces';font-size:clamp(2.6rem,6vw,4.2rem);color:var(--ottone-bright);line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums}
+  .roi-out .odesc{font-size:.95rem;color:rgba(245,240,230,.62);margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--line-soft)}
+  .roi-out .sec{font-size:.94rem;color:rgba(245,240,230,.8);margin-bottom:10px;display:flex;justify-content:space-between}
+  .roi-out .sec span:last-child{font-family:'Fraunces';color:var(--avorio);font-variant-numeric:tabular-nums}
+  .roi-disc{margin-top:22px;font-size:.74rem;color:var(--muted-2);line-height:1.5}
+
+  /* OBIEZIONI */
+  .obj{background:var(--avorio)}
+  .obj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .obj-card{background:var(--avorio-2);border:1px solid var(--line);border-radius:16px;padding:36px 32px;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .obj-card:hover{border-color:var(--ottone);transform:translateY(-4px);box-shadow:0 16px 44px rgba(21,46,40,.1)}
+  .obj-card .q{font-family:'Fraunces';font-style:italic;font-size:1.25rem;color:var(--bosco);margin-bottom:14px;line-height:1.3}
+  .obj-card .q::before{content:"« "}
+  .obj-card .q::after{content:" »"}
+  .obj-card .a{font-size:.94rem;color:var(--muted)}
+  .obj-card .a b{color:var(--ink)}
+
+  /* SVILUPPI — evolution timeline */
+  .evolve{background:var(--notte);color:var(--avorio)}
+  .evolve .section-head h2{color:var(--avorio)}
+  .evolve .section-head .desc{color:rgba(245,240,230,.62)}
+  .timeline{position:relative;padding-left:44px}
+  .timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--ottone),rgba(196,154,78,.1))}
+  .tstep{position:relative;padding:0 0 52px 24px}
+  .tstep:last-child{padding-bottom:0}
+  .tstep::before{content:"";position:absolute;left:-39px;top:6px;width:22px;height:22px;border-radius:50%;border:1px solid var(--ottone);background:var(--notte);transition:background .4s,box-shadow .4s}
+  .tstep.in::before{background:var(--ottone);box-shadow:0 0 20px rgba(196,154,78,.5)}
+  .tstep .twhen{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ottone);margin-bottom:8px}
+  .tstep h4{font-size:1.5rem;color:var(--avorio);margin-bottom:10px}
+  .tstep p{color:rgba(245,240,230,.68);max-width:680px;font-size:.98rem}
+  .tstep .unlock{margin-top:16px;display:inline-block;background:rgba(196,154,78,.1);border:1px solid var(--line);border-radius:12px;padding:12px 20px;font-size:.88rem;color:var(--ottone-bright)}
+  .tstep .unlock b{font-weight:600}
+  .tstep .unlock::before{content:"⬡ Si sblocca: ";color:var(--ottone);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+  /* SPACCATO interattivo */
+  .spaccato{background:linear-gradient(180deg,var(--notte) 0%,var(--bosco-2) 100%);color:var(--avorio)}
+  .spaccato .section-head h2{color:var(--avorio)}
+  .spaccato .section-head .desc{color:rgba(245,240,230,.62)}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+  .chip-btn{background:transparent;border:1px solid var(--line);color:rgba(245,240,230,.8);border-radius:26px;padding:11px 22px;font-size:.86rem;font-family:'Inter';cursor:pointer;transition:all .25s}
+  .chip-btn:hover{border-color:var(--ottone);color:var(--ottone-bright)}
+  .chip-btn.on{background:var(--ottone);border-color:var(--ottone);color:var(--notte);font-weight:600}
+  .spac-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .spac-svg{width:100%;height:auto;display:block}
+  .svgfl{cursor:pointer}
+  .svgfl .body{fill:rgba(196,154,78,.03);stroke:rgba(196,154,78,.4);stroke-width:1.2;transition:fill .4s,stroke .4s}
+  .svgfl .det{stroke:rgba(196,154,78,.4);stroke-width:1;fill:none;transition:stroke .4s}
+  .svgfl .fl-lab{fill:rgba(245,240,230,.35);font-family:'Fraunces',serif;font-size:15px;letter-spacing:2px;transition:fill .4s}
+  .svgfl:hover .body{fill:rgba(196,154,78,.08)}
+  .svgfl.on .body{fill:rgba(196,154,78,.16);stroke:var(--ottone-bright);filter:drop-shadow(0 0 14px rgba(196,154,78,.45))}
+  .svgfl.on .det{stroke:var(--ottone-bright)}
+  .svgfl.on .fl-lab{fill:var(--ottone-bright)}
+  .svg-static{stroke:rgba(196,154,78,.3);stroke-width:1;fill:none}
+  .spac-panel{background:rgba(8,15,13,.55);border:1px solid var(--line);border-radius:20px;overflow:hidden;backdrop-filter:blur(6px)}
+  .spac-panel .pimg{height:230px;overflow:hidden;position:relative;background:radial-gradient(120% 100% at 28% 22%,rgba(196,154,78,.14),transparent 62%),var(--bosco-2)}
+  .spac-panel .pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .45s,transform .8s;color:transparent;font-size:0}
+  .spac-panel .pimg .pl{position:absolute;bottom:14px;left:18px;background:rgba(8,15,13,.75);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:10px;padding:7px 14px;font-family:'Fraunces';color:var(--ottone-bright);font-size:.85rem}
+  .spac-panel .pbody{padding:28px 30px}
+  .spac-panel .prole{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ottone);margin-bottom:8px}
+  .spac-panel h3{color:var(--avorio);font-size:1.6rem;margin-bottom:10px}
+  .spac-panel p{color:rgba(245,240,230,.7);font-size:.93rem;margin-bottom:20px;min-height:64px}
+  .spac-panel .pspecs{display:flex;gap:26px;padding-top:18px;border-top:1px solid var(--line-soft)}
+  .spac-panel .ps .n{font-family:'Fraunces';font-size:1.35rem;color:var(--ottone-bright)}
+  .spac-panel .ps .u{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+  .spac-hint{margin-top:26px;font-size:.78rem;letter-spacing:.1em;color:var(--muted-2);text-align:center}
+  .spac-hint b{color:var(--ottone-soft);font-weight:600}
+
+  /* MARQUEE fotografico */
+  .strip{background:var(--notte);padding:0;overflow:hidden;position:relative}
+  .strip::before,.strip::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .strip::before{left:0;background:linear-gradient(90deg,var(--notte),transparent)}
+  .strip::after{right:0;background:linear-gradient(-90deg,var(--notte),transparent)}
+  .strip-track{display:flex;gap:14px;width:max-content;animation:marq 46s linear infinite;padding:14px 0}
+  .strip:hover .strip-track{animation-play-state:paused}
+  .strip-track img{height:210px;width:auto;min-width:180px;border-radius:12px;object-fit:cover;filter:saturate(.85) brightness(.92);transition:filter .4s,transform .4s;color:transparent;font-size:0;background:radial-gradient(120% 100% at 30% 20%,rgba(196,154,78,.12),transparent 60%),var(--bosco-2)}
+  .strip-track img:hover{filter:saturate(1) brightness(1);transform:scale(1.02)}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* CTA */
+  .cta{background:radial-gradient(130% 110% at 50% 0%,#1d3a33 0%,var(--notte) 68%);color:var(--avorio);text-align:center;padding:140px 0;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;border:1px solid var(--line-soft);left:50%;top:-450px;transform:translateX(-50%)}
+  .cta .wrap{position:relative}
+  .cta h2{font-size:clamp(2.3rem,6vw,4.2rem);color:var(--avorio);margin-bottom:24px}
+  .cta h2 em{font-style:italic;color:var(--ottone-bright)}
+  .cta p{color:rgba(245,240,230,.72);max-width:580px;margin:0 auto 46px;font-size:1.12rem}
+  .btn{display:inline-block;background:var(--ottone);color:var(--notte);text-decoration:none;font-weight:700;padding:19px 50px;border-radius:44px;font-size:1rem;transition:transform .2s,box-shadow .2s,background .2s;letter-spacing:.02em}
+  .btn:hover{transform:translateY(-3px);background:var(--ottone-bright);box-shadow:0 18px 50px rgba(196,154,78,.32)}
+  .cta .after{margin-top:26px;font-size:.82rem;color:var(--muted-2);letter-spacing:.06em}
+
+  footer{background:var(--notte);color:rgba(245,240,230,.4);padding:42px 0;font-size:.84rem;text-align:center;border-top:1px solid var(--line-soft)}
+  footer b{color:var(--ottone-soft);font-weight:600}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px}
+    .hero .wrap{padding-bottom:64px;padding-top:110px}
+    .hero-frame{inset:12px}
+    .demo-grid{grid-template-columns:1fr;gap:44px}
+    .phone{margin:0 auto;max-width:100%}
+    .fcard{grid-template-columns:1fr}
+    .fcard:nth-child(even){direction:ltr}
+    .fbody{padding:34px 26px}
+    .roi-box{grid-template-columns:1fr}
+    .roi-inputs{border-right:0;border-bottom:1px solid var(--line-soft);padding:38px 28px}
+    .roi-out{padding:38px 28px}
+    .layer{grid-template-columns:1fr;gap:10px}
+    .layer .lchip{padding-top:0}
+    .layer:hover{padding-left:0}
+    .rung{grid-template-columns:1fr;gap:14px;padding:28px 24px}
+    .rung:hover{transform:none}
+    .rung .lv br{display:none}
+    .spac-grid{grid-template-columns:1fr;gap:38px}
+    .spac-svg{max-width:440px;margin:0 auto;display:block}
+    .chips{overflow-x:auto;flex-wrap:nowrap;padding-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .chips::-webkit-scrollbar{display:none}
+    .chip-btn{white-space:nowrap;flex:0 0 auto}
+    .strip-track img{height:150px}
+    .timeline{padding-left:36px}
+    .tstep{padding-left:18px}
+    .tstep::before{left:-31px;width:18px;height:18px}
+  }
+  @media(max-width:560px){
+    .hero h1{letter-spacing:0}
+    .hero .kick{font-size:.62rem;padding:8px 14px}
+    .tension{padding:88px 0}
+    .stat{padding:30px 24px}
+    .stat .num{font-size:2.4rem}
+    .market-note{padding:24px 22px;font-size:1rem}
+    .obj-card,.socio{padding:28px 22px}
+    .spac-panel .pbody{padding:26px 22px}
+    .spac-panel p{min-height:0}
+    .spac-panel .pimg{height:190px}
+    .fbody .specs{gap:18px}
+    .fbody .spec .n{font-size:1.3rem}
+    .demo-copy h3{font-size:1.5rem}
+    .chat{min-height:300px}
+    .rung .pill{font-size:.76rem;padding:8px 14px}
+    .cta{padding:100px 0}
+    .btn{padding:16px 34px;display:block;max-width:340px;margin:0 auto}
+    footer{font-size:.78rem}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.msg{opacity:1;transform:none}html{scroll-behavior:auto}.hero-img{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div style="position:fixed;bottom:14px;right:14px;z-index:90;background:rgba(8,15,13,.82);backdrop-filter:blur(8px);border:1px solid rgba(196,154,78,.4);border-radius:20px;padding:7px 15px;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#e0bd7e;pointer-events:none">Documento riservato · Ottobre 2026</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-frame"></div>
+  <div class="wrap">
+    <div class="kick">Villa Mazzanti · 1908 · Collina Fleming · Roma</div>
+    <h1>La villa più richiesta di Roma<br><em>merita il sito che nessuno ha.</em></h1>
+    <p class="lead">Un ristorante-spettacolo che lavora ogni sera, un Piano Nobile da matrimoni e gala internazionali, il club dei diciottesimi più richiesto della città — 1200 persone su tre piani, nel quartiere giusto. Questo documento mostra come far vendere tutto questo anche online: da solo, 24 ore su 24, un gradino sopra chiunque altro sulla piazza.</p>
+    <div class="scroll">Sei minuti di lettura. Poi ne parliamo.</div>
+  </div>
+</header>
+
+<!-- TENSIONE -->
+<section class="tension">
+  <div class="wrap reveal">
+    <div class="big" id="counter-year">2018</div>
+    <div class="big-sub">l'ultimo anno in cui il vostro sito ha lavorato per voi.</div>
+    <p>Da allora la villa è cresciuta, il mercato romano degli eventi è esploso, il pubblico è diventato internazionale — e i concorrenti hanno iniziato a muoversi. <span class="hard">Ogni giorno il vostro sito riceve visitatori pronti a spendere e li congeda con un numero di telefono.</span></p>
+  </div>
+</section>
+
+<!-- MERCATO -->
+<section class="market">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Il campo da gioco · Dati verificati 2025</div>
+      <h2>Il mercato è già qui. Va solo intercettato.</h2>
+      <p class="desc">Voi conoscete la piazza meglio di chiunque. Questi numeri dicono una cosa sola: la domanda c'è, è ricca, ed è in crescita. La differenza la fa chi la cattura per primo.</p>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat">
+        <div class="num"><span data-count="1.1" data-dec="1">0</span><em> mld €</em></div>
+        <div class="lbl">Destination wedding in Italia nel 2025. Cresce del 19,6% l'anno.</div>
+        <div class="src">Osservatorio Destination Wedding</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="67">0</span><em>k €</em></div>
+        <div class="lbl">Spesa media per un singolo evento wedding internazionale.</div>
+        <div class="src">Forbes Italia · 2026</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="750">0</span><em> eventi</em></div>
+        <div class="lbl">Wedding ospitati a Roma nel 2025, +7,8%. La città fa record da 4 anni.</div>
+        <div class="src">Roma Capitale · Grandi Eventi</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="40">0</span><em>%</em></div>
+        <div class="lbl">Delle nuove acquisizioni nel settore eventi passa dal web.</div>
+        <div class="src">Analisi mercato eventi Italia</div>
+      </div>
+    </div>
+    <div class="market-note reveal">
+      Le ville storiche del centro arrivano a <b>50.000€ al giorno per i soli spazi</b>. Il cliente che spende così arriva da New York, Dubai, Londra — e prima di prendere l'aereo <b>giudica dal sito</b>. In quel momento non state competendo sulla villa: state competendo sullo schermo di un telefono. E lì, oggi, vince chi ha investito.
+    </div>
+  </div>
+</section>
+
+<!-- POSIZIONAMENTO -->
+<section class="position">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Il posizionamento · Verifica diretta, luglio 2026</div>
+      <h2>La scala del digitale a Roma. E il gradino vuoto.</h2>
+      <p class="desc">Non opinioni: abbiamo aperto i siti delle location di riferimento della Capitale, uno per uno, e verificato cosa offrono davvero. Nomi, date e fatti — controllabili in cinque minuti, anche adesso, insieme.</p>
+    </div>
+    <div class="reveal">
+      <div class="rung">
+        <div class="lv">Livello 1<br>Vetrina</div>
+        <div>
+          <h3>Foto, descrizioni, un numero di telefono</h3>
+          <p>La conversione è interamente sulle spalle di chi risponde al telefono o alla mail. Il cliente guarda, esce, e nessuno sa che è passato.</p>
+          <div class="who">
+            <span class="pill"><b>Villa Miani</b> · Monte Mario, 1837 · fino a 700 ospiti · richiesta solo via modulo e telefono</span>
+            <span class="pill"><b>Sublime oggi</b> · WordPress 2018 · form e telefono</span>
+          </div>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="lv">Livello 2<br>Vetrina moderna</div>
+        <div>
+          <h3>Design aggiornato, doppia lingua, form strutturato</h3>
+          <p>Bello da vedere, meglio da navigare — ma la sostanza non cambia: il cliente compila un modulo e aspetta. Nessuna disponibilità, nessuna stima, nessuna risposta fuori orario.</p>
+          <div class="who">
+            <span class="pill"><b>Casina Valadier</b> · Villa Borghese · restyling 2024 · italiano/inglese · form e contatti telefonici</span>
+          </div>
+        </div>
+      </div>
+      <div class="rung hot">
+        <div class="lv">Livello 3<br>Esperienza intelligente</div>
+        <div>
+          <h3>Risposta immediata 24/7, data verificabile, preventivo istantaneo, spazi esplorabili</h3>
+          <p>Il cliente non aspetta: interagisce. E ogni interazione diventa una richiesta qualificata nel vostro pannello. È lo standard verso cui il mercato sta andando — e a Roma, oggi, questo gradino è vuoto.</p>
+          <div class="who">
+            <span class="pill"><b>Nessuna location romana verificata</b> lo offre oggi</span>
+            <span class="pill"><b>Sublime, domani</b> · il primo nome sul gradino</span>
+          </div>
+        </div>
+      </div>
+      <div class="verify-note">Verifica diretta dei siti ufficiali e dei portali di settore, luglio 2026. Prima della presentazione la ripetiamo volentieri in diretta, davanti a voi.</div>
+    </div>
+    <div class="matrix-punch reveal">Il competitor più blasonato si è già mosso — e si è fermato al livello 2.<br>Il livello 3 appartiene a chi lo prende per primo.</div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Vedere per credere</div>
+      <h2>Il concierge digitale, dal vivo</h2>
+      <p class="desc">Non ve lo raccontiamo: ve lo mostriamo. Questa è una richiesta reale, simulata, di una notte qualsiasi. Guardate cosa succede mentre voi dormite.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="demo-copy reveal">
+        <h3>L'una e 47 di notte.<br><em>Il vostro miglior venditore è sveglio.</em></h3>
+        <p>Una ragazza cerca la location per il suo diciottesimo. È il momento di massima intenzione: sta sognando la festa, adesso. Il sito attuale le darebbe un numero da chiamare domattina — e domattina avrà già visto tre concorrenti.</p>
+        <div class="pt"><b>Oggi</b><span>la richiesta si perde, o arriva come mail generica da ricostruire al telefono.</span></div>
+        <div class="pt"><b>Domani</b><span>alle 8:00 il vostro staff trova un dossier completo: evento, data, ospiti, piano richiesto, contatto. Da chiudere, non da inseguire.</span></div>
+      </div>
+      <div class="reveal">
+        <div class="phone">
+          <div class="phone-head">
+            <div class="avatar">S</div>
+            <div>
+              <div class="who">Sublime Concierge</div>
+              <div class="status">sempre disponibile</div>
+            </div>
+            <div class="clock">01:47</div>
+          </div>
+          <div class="chat" id="chat"></div>
+          <div class="replay"><button id="replay">↻ Rivedi la conversazione</button>
+          <div style="margin-top:12px;font-size:.68rem;letter-spacing:.08em;color:var(--muted-2)">Simulazione fedele del sistema in costruzione — alla tappa 4 risponde a un cliente vero.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACCATO -->
+<section class="spaccato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Il concept, in anteprima · Provatelo ora</div>
+      <h2>Il sito prende la forma della villa. Letteralmente.</h2>
+      <p class="desc">Questo è il cuore dell'esperienza: la navigazione segue l'architettura. Scegliete un evento — o toccate direttamente un piano — e guardate la villa rispondere.</p>
+    </div>
+    <div class="chips reveal">
+      <button class="chip-btn" data-fl="2">Diciottesimo</button>
+      <button class="chip-btn" data-fl="1">Matrimonio</button>
+      <button class="chip-btn" data-fl="1b">Evento aziendale</button>
+      <button class="chip-btn" data-fl="0">Cena &amp; spettacolo</button>
+      <button class="chip-btn" data-fl="all">Grande evento · 1200 pax</button>
+    </div>
+    <div class="spac-grid reveal">
+      <div>
+        <svg class="spac-svg" viewBox="0 0 560 620" role="img" aria-label="Spaccato interattivo della villa: tre piani cliccabili">
+          <!-- cielo/decori -->
+          <circle class="svg-static" cx="470" cy="70" r="34"/>
+          <circle class="svg-static" cx="470" cy="70" r="46" opacity=".4"/>
+          <!-- tetto -->
+          <path class="svg-static" d="M120 118 L280 58 L440 118 Z" stroke-width="1.4"/>
+          <line class="svg-static" x1="104" y1="118" x2="456" y2="118" stroke-width="2"/>
+          <!-- PIANO 02 · CLUB -->
+          <g class="svgfl" data-fl="2" tabindex="0">
+            <rect class="body" x="128" y="126" width="304" height="118" rx="2"/>
+            <path class="det" d="M168 200 v-34 a14 14 0 0 1 28 0 v34 Z"/>
+            <path class="det" d="M232 200 v-34 a14 14 0 0 1 28 0 v34 Z"/>
+            <path class="det" d="M296 200 v-34 a14 14 0 0 1 28 0 v34 Z"/>
+            <path class="det" d="M360 200 v-34 a14 14 0 0 1 28 0 v34 Z"/>
+            <line class="det" x1="128" y1="222" x2="432" y2="222"/>
+            <text class="fl-lab" x="443" y="190">02</text>
+          </g>
+          <!-- cornicione + terrazza nobile -->
+          <line class="svg-static" x1="112" y1="248" x2="448" y2="248" stroke-width="2"/>
+          <g class="svg-static">
+            <line x1="120" y1="248" x2="120" y2="262"/><line x1="136" y1="248" x2="136" y2="262"/>
+            <line x1="152" y1="248" x2="152" y2="262"/><line x1="168" y1="248" x2="168" y2="262"/>
+            <line x1="112" y1="262" x2="176" y2="262" stroke-width="1.6"/>
+          </g>
+          <!-- PIANO 01 · NOBILE -->
+          <g class="svgfl" data-fl="1" tabindex="0">
+            <rect class="body" x="128" y="252" width="304" height="150" rx="2"/>
+            <path class="det" d="M158 378 v-64 a19 19 0 0 1 38 0 v64 Z"/>
+            <path class="det" d="M212 378 v-64 a19 19 0 0 1 38 0 v64 Z"/>
+            <path class="det" d="M266 378 v-64 a19 19 0 0 1 38 0 v64 Z"/>
+            <path class="det" d="M320 378 v-64 a19 19 0 0 1 38 0 v64 Z"/>
+            <path class="det" d="M374 378 v-64 a19 19 0 0 1 38 0 v64 Z"/>
+            <line class="det" x1="128" y1="392" x2="432" y2="392"/>
+            <text class="fl-lab" x="443" y="332">01</text>
+          </g>
+          <line class="svg-static" x1="112" y1="406" x2="448" y2="406" stroke-width="2"/>
+          <!-- PIANO 00 · GARDEN — loggia 6 colonne -->
+          <g class="svgfl" data-fl="0" tabindex="0">
+            <rect class="body" x="128" y="410" width="304" height="130" rx="2"/>
+            <g class="det">
+              <line x1="160" y1="424" x2="160" y2="524"/><path d="M152 424 h16 l-3 -8 h-10 Z"/>
+              <line x1="212" y1="424" x2="212" y2="524"/><path d="M204 424 h16 l-3 -8 h-10 Z"/>
+              <line x1="264" y1="424" x2="264" y2="524"/><path d="M256 424 h16 l-3 -8 h-10 Z"/>
+              <line x1="316" y1="424" x2="316" y2="524"/><path d="M308 424 h16 l-3 -8 h-10 Z"/>
+              <line x1="368" y1="424" x2="368" y2="524"/><path d="M360 424 h16 l-3 -8 h-10 Z"/>
+              <line x1="420" y1="424" x2="420" y2="524"/><path d="M412 424 h16 l-3 -8 h-10 Z"/>
+            </g>
+            <text class="fl-lab" x="443" y="480">00</text>
+          </g>
+          <!-- terreno + parco -->
+          <line class="svg-static" x1="60" y1="544" x2="500" y2="544" stroke-width="2"/>
+          <g class="svg-static">
+            <path d="M84 544 v-46"/><circle cx="84" cy="482" r="20"/><circle cx="70" cy="496" r="12"/>
+            <path d="M486 544 v-58"/><circle cx="486" cy="468" r="24"/><circle cx="502" cy="486" r="13"/>
+            <path d="M60 566 h150 M230 566 h120 M370 566 h130" opacity=".5"/>
+            <path d="M90 588 h110 M260 588 h90 M400 588 h80" opacity=".3"/>
+          </g>
+          <text x="60" y="612" fill="rgba(245,240,230,.3)" font-family="Inter" font-size="10" letter-spacing="2">VILLA MAZZANTI · 1908 · 2 ETTARI DI PARCO</text>
+        </svg>
+      </div>
+      <div class="spac-panel">
+        <div class="pimg"><img id="sp-img" src="/sublime/img/160b892caf.jpg" alt="Spazio selezionato"><div class="pl" id="sp-tag">01 · Piano Nobile</div></div>
+        <div class="pbody">
+          <div class="prole" id="sp-role">Contratti alti · Wedding, gala, corporate</div>
+          <h3 id="sp-title">Il Piano Nobile</h3>
+          <p id="sp-desc">Cinque sale con nome proprio — Cupola, Cubi, Grande, Lune, Luci — terrazza belvedere su Roma e accesso indipendente. Il piano dove si firmano i contratti importanti.</p>
+          <div class="pspecs">
+            <div class="ps"><div class="n" id="sp-n1">5</div><div class="u" id="sp-u1">sale modulari</div></div>
+            <div class="ps"><div class="n" id="sp-n2">5m</div><div class="u" id="sp-u2">soffitti</div></div>
+            <div class="ps"><div class="n" id="sp-n3">90</div><div class="u" id="sp-u3">posti auto</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spac-hint reveal">Questo che avete appena usato <b>è il concept del nuovo sito</b> — su mobile, con foto immersive e prenotazione alla fine del percorso.</div>
+  </div>
+</section>
+
+<!-- FLOORS -->
+<section class="floors">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">L'asset · Tre piani, tre business</div>
+      <h2>Ogni piano è un'azienda. Il sito deve trattarlo così.</h2>
+      <p class="desc">Il Garden fattura ogni sera, il Piano Nobile chiude i grandi contratti, il Club riempie il calendario dei privati. Tre modelli di ricavo diversi, tre percorsi digitali dedicati — con le foto e i numeri veri della vostra struttura.</p>
+    </div>
+    <div class="floor-cards">
+      <div class="fcard reveal">
+        <div class="fimg">
+          <img src="/sublime/img/5032e0798b.jpg" alt="Sublime Garden — terrazza" loading="lazy">
+          <div class="flv">00 · Garden</div>
+        </div>
+        <div class="fbody">
+          <div class="role">Ricavo quotidiano · Ristorazione &amp; show</div>
+          <h3>Sublime Garden</h3>
+          <p>Il primo cabaret-ristorante di Roma su 480mq di terrazza panoramica, operativo 12 mesi l'anno. Online diventa una macchina di prenotazione tavoli: menù, show della settimana, prenota in tre tocchi. Meno telefonate, meno no-show, tavoli pieni.</p>
+          <div class="specs">
+            <div class="spec"><div class="n">480</div><div class="u">mq terrazza</div></div>
+            <div class="spec"><div class="n">200</div><div class="u">posti a sedere</div></div>
+            <div class="spec"><div class="n">12/12</div><div class="u">mesi operativi</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fcard reveal">
+        <div class="fimg">
+          <img src="/sublime/img/160b892caf.jpg" alt="Piano Nobile" loading="lazy">
+          <div class="flv">01 · Piano Nobile</div>
+        </div>
+        <div class="fbody">
+          <div class="role">Contratti alti · Gala, wedding, corporate</div>
+          <h3>Il Piano Nobile</h3>
+          <p>Cinque sale con nome proprio — Cupola, Cubi, Grande, Lune, Luci — collegate ma riservabili singolarmente, terrazza belvedere su Roma, accesso indipendente con 90 posti auto. Online diventa un configuratore: il cliente compone sale e allestimenti e chiede il suo evento, in italiano o in inglese.</p>
+          <div class="specs">
+            <div class="spec"><div class="n">5</div><div class="u">sale modulari</div></div>
+            <div class="spec"><div class="n">5m</div><div class="u">soffitti cassettone</div></div>
+            <div class="spec"><div class="n">90</div><div class="u">posti auto dedicati</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fcard reveal">
+        <div class="fimg">
+          <img src="/sublime/img/9070aff25a.jpg" alt="Music Club" loading="lazy">
+          <div class="flv">02 · The Club</div>
+        </div>
+        <div class="fbody">
+          <div class="role">Volume · Diciottesimi &amp; feste private</div>
+          <h3>The Club</h3>
+          <p>Taverna British con travi originali a volta, dancefloor, bancone bar di 9 metri, cigar room, ingresso indipendente. Il piano più richiesto di Roma per i diciottesimi. Online diventa un flusso continuo: data libera → configura la festa → richiesta partita. Il pubblico ha 17 anni e vive sul telefono: o lo prendete lì, o non lo prendete.</p>
+          <div class="specs">
+            <div class="spec"><div class="n">9m</div><div class="u">bancone bar</div></div>
+            <div class="spec"><div class="n">3</div><div class="u">sale + dancefloor</div></div>
+            <div class="spec"><div class="n">1200</div><div class="u">pax intera villa</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP FOTOGRAFICA -->
+<div class="strip">
+  <div class="strip-track">
+    <img src="/sublime/img/b8638448c3.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/5032e0798b.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/9070aff25a.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/80a803e9b8.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/f04d046a7b.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/160b892caf.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/669d1a2d68.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/35b63dc009.jpg" alt="Sublime La Villa" loading="lazy">
+    <img src="/sublime/img/b8638448c3.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/5032e0798b.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/9070aff25a.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/80a803e9b8.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/f04d046a7b.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/160b892caf.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/669d1a2d68.jpg" alt="" aria-hidden="true" loading="lazy">
+    <img src="/sublime/img/35b63dc009.jpg" alt="" aria-hidden="true" loading="lazy">
+  </div>
+</div>
+
+<!-- SOCI -->
+<section class="soci">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Per chi guarda i numeri</div>
+      <h2>Quattro modi di leggere lo stesso investimento</h2>
+      <p class="desc">Chi siede a questo tavolo viene da business diversi. La stessa piattaforma risponde a ciascuno nella sua lingua.</p>
+    </div>
+    <div class="soci-grid">
+      <div class="socio reveal">
+        <span class="tag">Chi viene dal club</span>
+        <h4>Riempimento</h4>
+        <p>Il Club vive di calendario pieno. La piattaforma mostra le date libere e trasforma ogni serata vuota in un'opportunità visibile. <b>Una data che si vede si vende; una data al telefono si perde.</b></p>
+      </div>
+      <div class="socio reveal">
+        <span class="tag">Chi viene dalla ristorazione</span>
+        <h4>Coperti &amp; no-show</h4>
+        <p>Il Garden è un ristorante: prenotazione digitale, conferme automatiche, promemoria che tagliano i no-show. <b>Ogni tavolo recuperato è margine puro, ogni sera, tutto l'anno.</b></p>
+      </div>
+      <div class="socio reveal">
+        <span class="tag">Chi viene dall'immobiliare</span>
+        <h4>Valorizzazione dell'asset</h4>
+        <p>Un immobile si valuta anche per il reddito che genera e per come si presenta. Una piattaforma proprietaria con dati, storico richieste e brand digitale <b>aumenta il valore dell'asset stesso — non solo il suo fatturato.</b></p>
+      </div>
+      <div class="socio reveal">
+        <span class="tag">Chi guarda il capitale</span>
+        <h4>Dati, non intuito</h4>
+        <p>Il cruscotto di regia mostra provenienza delle richieste, conversioni, spazi più richiesti, stagionalità. <b>Ogni decisione — prezzi, promozioni, investimenti — poggia su numeri, non su sensazioni.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Il calcolo, fatelo voi</div>
+      <h2>Quanto vale un evento in più al mese?</h2>
+      <p class="desc">Nessuna promessa: una calcolatrice. Il valore medio lo impostate voi, che i vostri numeri li conoscete — un diciottesimo e un matrimonio internazionale vivono su ordini di grandezza diversi. Noi forniamo la macchina che intercetta la richiesta.</p>
+    </div>
+    <div class="roi-box reveal">
+      <div class="roi-inputs">
+        <h3>I vostri numeri</h3>
+        <div class="hint">Partiamo prudenti. Alzate voi.</div>
+        <div class="field">
+          <label>Valore medio di un evento <b id="v-valore">6.000 €</b></label>
+          <input type="range" id="valore" min="1500" max="50000" step="500" value="6000">
+          <div style="font-size:.74rem;color:var(--muted-2);margin-top:8px">Diciottesimi e feste private: 3–8k · Matrimoni e gala: 15–50k</div>
+        </div>
+        <div class="field">
+          <label>Eventi in più al mese, grazie al digitale <b id="v-extra">3</b></label>
+          <input type="range" id="extra" min="1" max="20" step="1" value="3">
+        </div>
+        <div class="field">
+          <label>Coperti extra a settimana sul Garden <b id="v-coperti">20</b></label>
+          <input type="range" id="coperti" min="0" max="200" step="10" value="20">
+        </div>
+      </div>
+      <div class="roi-out">
+        <div class="olbl">Ricavo aggiuntivo potenziale / anno</div>
+        <div class="oval" id="out-anno">271.600 €</div>
+        <div class="odesc">generato da richieste che oggi si perdono per attrito digitale.</div>
+        <div class="sec"><span>Dagli eventi</span><span id="out-eventi-val">216.000 €</span></div>
+        <div class="sec"><span>Dalla ristorazione (55€/coperto)</span><span id="out-cop-val">55.600 €</span></div>
+        <div class="sec"><span>Eventi aggiuntivi l'anno</span><span id="out-eventi-n">36</span></div>
+        <div class="sec" style="padding-top:10px;border-top:1px solid var(--line-soft);margin-top:6px"><span>Anche nello scenario minimo — 1 solo evento in più al mese</span><span id="out-min">72.000 €</span></div>
+        <div class="roi-disc">Proiezione illustrativa sui parametri inseriti, non una garanzia. Serve a fissare l'ordine di grandezza: anche la metà di questi numeri ripaga l'operazione molte volte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBIEZIONI -->
+<section class="obj">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Prima che le facciate voi</div>
+      <h2>Le domande giuste, con le risposte pronte</h2>
+      <p class="desc">Chi gestisce attività vere fa domande vere. Eccole — messe per iscritto, perché un progetto serio non le teme.</p>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card reveal">
+        <div class="q">E se l'AI dice una cosa sbagliata a un cliente?</div>
+        <div class="a">Il concierge lavora <b>dentro binari definiti da voi</b>: risponde solo su spazi, formule e disponibilità approvate. Non inventa prezzi, non conferma prenotazioni — <b>qualifica e passa allo staff</b>, che resta l'unico a chiudere. Ogni conversazione è registrata e verificabile.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">Chi lo gestisce, poi? Non abbiamo un reparto IT.</div>
+        <div class="a">Non serve. I contenuti si aggiornano da un pannello <b>semplice come i social</b>: cambiare un menù, una foto, una serata è questione di minuti, dal telefono. Per tutto il resto c'è <b>la regia continua</b> — la piattaforma è seguita, non consegnata e abbandonata.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">E il sito attuale? Restiamo fermi durante i lavori?</div>
+        <div class="a"><b>Zero interruzioni.</b> Il sito attuale resta online e operativo fino al giorno del passaggio, che avviene in poche ore, a piattaforma nuova già testata. Nessun buco, nessuna richiesta persa nella transizione.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">I dati delle richieste di chi sono?</div>
+        <div class="a"><b>Vostri. Punto.</b> Ogni contatto, ogni richiesta, ogni statistica vive su un'infrastruttura di vostra proprietà. È la differenza tra affittare visibilità sui portali altrui e <b>costruire un patrimonio commerciale</b> che resta nell'asset — e ne aumenta il valore.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">Quanto ci mette a essere online?</div>
+        <div class="a">Il nuovo sito completo è la <b>tappa 3 del percorso</b> — parliamo di settimane, non di mesi indefiniti. Lo strato AI si accende subito dopo, sul sito già attivo. A ogni tappa avete qualcosa di funzionante in mano, con date fissate nel piano operativo.</div>
+      </div>
+      <div class="obj-card reveal">
+        <div class="q">La demo che abbiamo visto è vera?</div>
+        <div class="a">È una <b>simulazione fedele</b>, costruita sul funzionamento reale del sistema — dichiarato, non nascosto. La tecnologia che la muove è la stessa che uso ogni giorno sulle mie piattaforme in produzione. Alla tappa 4 quella conversazione la farà <b>un vostro cliente vero</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SVILUPPI -->
+<section class="evolve">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Gli sviluppi · Cosa succede, quando</div>
+      <h2>Non un cantiere infinito. Un percorso a sblocchi.</h2>
+      <p class="desc">Ogni tappa consegna qualcosa che funziona e che potete usare da subito. A ogni passo si sblocca una capacità commerciale nuova — la villa cresce online come è cresciuta nella realtà.</p>
+    </div>
+    <div class="timeline">
+      <div class="tstep reveal">
+        <div class="twhen">Tappa 1 · Le fondamenta</div>
+        <h4>Strategia, materiali, regia</h4>
+        <p>Studio dei flussi reali della villa, selezione dei materiali visivi migliori, definizione dei percorsi che portano dalla visita alla richiesta. Tutto approvato da voi prima di costruire.</p>
+        <div class="unlock"><b>Il documento di regia</b> — la mappa condivisa su cui si costruisce tutto il resto.</div>
+      </div>
+      <div class="tstep reveal">
+        <div class="twhen">Tappa 2 · Il volto</div>
+        <h4>Design e prototipo navigabile</h4>
+        <p>Il sistema visivo dei tre piani prende forma. Ricevete un prototipo cliccabile — non slide, un'esperienza da provare col pollice — e lo validate prima che si scriva una riga di codice.</p>
+        <div class="unlock"><b>La villa digitale si tocca</b> — e potete già mostrarla a chi volete.</div>
+      </div>
+      <div class="tstep reveal">
+        <div class="twhen">Tappa 3 · La macchina</div>
+        <h4>La piattaforma completa</h4>
+        <p>Sito costruito su architettura 2026: i tre mondi, le pagine evento, le gallerie immersive, prenotazione tavoli sul Garden, doppia lingua, mobile impeccabile.</p>
+        <div class="unlock"><b>Il nuovo sito online</b> — già superiore a qualsiasi concorrente romano, anche senza AI.</div>
+      </div>
+      <div class="tstep reveal">
+        <div class="twhen">Tappa 4 · L'intelligenza</div>
+        <h4>Concierge, configuratore, calendario, cruscotto</h4>
+        <p>Si accende lo strato AI: il concierge 24/7, il configuratore con stima istantanea, la disponibilità in tempo reale, il pannello di regia con i dati delle richieste.</p>
+        <div class="unlock"><b>Il vantaggio che nessuno ha</b> — e il vostro staff smette di fare centralino.</div>
+      </div>
+      <div class="tstep reveal">
+        <div class="twhen">Tappa 5 · La regia continua</div>
+        <h4>Dati, taratura, crescita</h4>
+        <p>La piattaforma impara dai numeri veri: quali spazi tirano, da dove arrivano le richieste, quando spingere. Si ottimizza mese su mese, come si fa con un locale che funziona.</p>
+        <div class="unlock"><b>Un asset che si rivaluta</b> — ogni mese di dati aumenta il valore di ciò che possedete.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <div class="eyebrow">Il prossimo passo</div>
+    <h2>Voi avete costruito la villa.<br><em>Costruiamo il suo futuro digitale.</em></h2>
+    <p>Questa è la visione. Piano operativo e investimento li mettiamo sul tavolo insieme, guardando i vostri numeri veri — come si fa tra chi le imprese le costruisce davvero.</p>
+    <a class="btn" href="https://wa.me/393476498357?text=Ciao%20Ivano%2C%20abbiamo%20visto%20la%20visione%20per%20Sublime%20La%20Villa%20-%20parliamone" target="_blank" rel="noopener">Parliamone su WhatsApp</a>
+    <div class="after">Trenta minuti in villa. La visione a schermo, i numeri alla mano.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Sublime La Villa</b> · Via Alessandro Fleming 55 · Collina Fleming, Roma<br>
+    Visione e progetto: <b>Ivano Sciretta</b> — chi questa villa l'ha già raccontata una volta, e sa come raccontarla di nuovo.
+    <div style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:.78rem;color:var(--muted-2)">
+      Lavori selezionati: ivanosciretta.tech · aispace.works · mykonosmadeinitaly.com<br>
+      <span style="letter-spacing:.14em;text-transform:uppercase;font-size:.68rem">Documento riservato · Ottobre 2026 · non destinato alla diffusione</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(()=>document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in')),3500);
+  // progress bar
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+
+  // reveal
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal,.stat,.tstep').forEach(el=>io.observe(el));
+
+  // animated counters
+  const cio=new IntersectionObserver(es=>{es.forEach(e=>{
+    if(!e.isIntersecting)return;cio.unobserve(e.target);
+    const el=e.target,target=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),t0=performance.now(),dur=1600;
+    (function tick(t){const p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+      el.textContent=(target*ease).toFixed(dec).replace('.',',');
+      if(p<1)requestAnimationFrame(tick)})(t0);
+  })},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  // ROI
+  const fmt=n=>new Intl.NumberFormat('it-IT').format(Math.round(n));
+  const valore=document.getElementById('valore'),extra=document.getElementById('extra'),coperti=document.getElementById('coperti');
+  function calc(){
+    const val=+valore.value,ex=+extra.value,cp=+coperti.value;
+    document.getElementById('v-valore').textContent=fmt(val)+' €';
+    document.getElementById('v-extra').textContent=ex;
+    document.getElementById('v-coperti').textContent=cp;
+    const evAnno=val*ex*12, copAnno=cp*52*55, tot=evAnno+copAnno;
+    document.getElementById('out-anno').textContent=fmt(tot)+' €';
+    document.getElementById('out-eventi-val').textContent=fmt(evAnno)+' €';
+    document.getElementById('out-cop-val').textContent=fmt(copAnno)+' €';
+    document.getElementById('out-eventi-n').textContent=ex*12;
+    document.getElementById('out-min').textContent=fmt(val*12)+' €';
+  }
+  [valore,extra,coperti].forEach(el=>el.addEventListener('input',calc));calc();
+
+  // ===== CONCIERGE DEMO =====
+  const script_=[
+    {t:'usr',txt:'Ciao! Cerco un posto per il mio diciottesimo, saremo tipo 120 persone 🎉',d:900},
+    {t:'bot',txt:'Che bello, auguri in anticipo! 120 invitati è il numero perfetto per il nostro Club al secondo piano: dancefloor centrale, bancone bar di 9 metri e ingresso indipendente solo per voi. Hai già una data in mente?',d:2100},
+    {t:'usr',txt:'Sabato 24 ottobre… è libero?',d:1400},
+    {t:'bot',txt:'Il 24 ottobre risulta libero a calendario — la conferma te la dà il nostro staff. Intanto: preferisci DJ set con open bar analcolico o musica live?',d:1900},
+    {t:'usr',txt:'DJ set! E si può fare anche la torta a mezzanotte sulla terrazza?',d:1500},
+    {t:'bot',txt:'Assolutamente: il taglio della torta sulla terrazza panoramica è il momento più fotografato delle nostre feste. Ti preparo un riepilogo con una stima indicativa e lo giro al nostro event manager: ti ricontatta domattina con la proposta completa. Mi lasci un contatto?',d:2400},
+    {t:'usr',txt:'giulia.r***@gmail.com — grazie!! 😍',d:1300},
+    {t:'sys',txt:'✓ Lead qualificato salvato · 18° compleanno · 120 pax · 24 ott · The Club + terrazza · DJ set — dossier inviato allo staff',d:1600},
+    {t:'bot',txt:'Fatto, Giulia! Troverai tutto nella tua email. A prestissimo in villa ✨',d:1200},
+  ];
+  const chat=document.getElementById('chat');let playing=false;
+  function typeBubble(){const b=document.createElement('div');b.className='msg bot show';b.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';chat.appendChild(b);return b}
+  async function play(){
+    if(playing)return;playing=true;chat.innerHTML='';
+    for(const m of script_){
+      await new Promise(r=>setTimeout(r,400));
+      let node;
+      if(m.t==='bot'){node=typeBubble();await new Promise(r=>setTimeout(r,Math.min(m.d,1400)));node.innerHTML=m.txt}
+      else{node=document.createElement('div');node.className='msg '+m.t;node.textContent=m.txt;chat.appendChild(node);requestAnimationFrame(()=>node.classList.add('show'));await new Promise(r=>setTimeout(r,m.d*.5))}
+      node.classList.add('show');chat.scrollTop=chat.scrollHeight;
+    }
+    playing=false;
+  }
+  const dio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){dio.unobserve(e.target);play()}})},{threshold:.35});
+  dio.observe(document.querySelector('.phone'));
+  document.getElementById('replay').addEventListener('click',play);
+
+  // ===== SPACCATO INTERATTIVO =====
+  const spData={
+    '0':{tag:'00 · Sublime Garden',role:'Ricavo quotidiano · Cena & spettacolo',title:'Sublime Garden',
+      desc:'Il primo cabaret-ristorante di Roma: 480mq di terrazza panoramica, show, dj set e mixology. Lo spazio che fattura ogni sera, dodici mesi l\u2019anno.',
+      img:'/sublime/img/5032e0798b.jpg',
+      s:[['480','mq terrazza'],['200','posti a sedere'],['12/12','mesi operativi']]},
+    '1':{tag:'01 · Piano Nobile',role:'Contratti alti · Wedding & gala',title:'Il Piano Nobile',
+      desc:'Cinque sale con nome proprio — Cupola, Cubi, Grande, Lune, Luci — terrazza belvedere su Roma e accesso indipendente. Il piano dove si firmano i contratti importanti.',
+      img:'/sublime/img/160b892caf.jpg',
+      s:[['5','sale modulari'],['5m','soffitti'],['90','posti auto']]},
+    '1b':{tag:'01 · Piano Nobile',role:'Corporate · Meeting, incentive, conferenze',title:'Il Piano Nobile — Business',
+      desc:'Sale modulari e collegabili, ingressi indipendenti, parcheggio dedicato: la configurazione perfetta per convention e cene aziendali, riservabile sala per sala o in esclusiva.',
+      img:'/sublime/img/160b892caf.jpg',
+      s:[['5','sale configurabili'],['600','sedute totali villa'],['90','posti auto']]},
+    '2':{tag:'02 · The Club',role:'Volume · Diciottesimi & feste private',title:'The Club',
+      desc:'Taverna British con travi originali, dancefloor, bancone bar di 9 metri e cigar room. Il piano più richiesto di Roma per i diciottesimi, con ingresso tutto suo.',
+      img:'/sublime/img/9070aff25a.jpg',
+      s:[['9m','bancone bar'],['3','sale + dancefloor'],['★','cigar room']]},
+    'all':{tag:'Villa in esclusiva',role:'L\u2019esclusiva totale · Grandi eventi',title:'Tutta la villa, solo per voi',
+      desc:'Tre piani, due cucine, ingressi e servizi indipendenti, due ettari di parco. L\u2019intera struttura riservata a un unico grande evento: il prodotto di punta, quello dei contratti più alti.',
+      img:'/sublime/img/b8638448c3.jpg',
+      s:[['1200','pax massima'],['2','ettari di parco'],['3','ingressi indipendenti']]}
+  };
+  const spImg=document.getElementById('sp-img');
+  function setFloor(key){
+    const d=spData[key];if(!d)return;
+    const svgKey=key==='1b'?'1':key;
+    document.querySelectorAll('.svgfl').forEach(g=>{
+      g.classList.toggle('on', svgKey==='all' || g.dataset.fl===svgKey);
+    });
+    document.querySelectorAll('.chip-btn').forEach(b=>b.classList.toggle('on',b.dataset.fl===key));
+    spImg.style.opacity=0;
+    setTimeout(()=>{spImg.src=d.img;spImg.onload=()=>spImg.style.opacity=1;},220);
+    document.getElementById('sp-tag').textContent=d.tag;
+    document.getElementById('sp-role').textContent=d.role;
+    document.getElementById('sp-title').textContent=d.title;
+    document.getElementById('sp-desc').textContent=d.desc;
+    d.s.forEach((pair,i)=>{
+      document.getElementById('sp-n'+(i+1)).textContent=pair[0];
+      document.getElementById('sp-u'+(i+1)).textContent=pair[1];
+    });
+  }
+  document.querySelectorAll('.chip-btn').forEach(b=>b.addEventListener('click',()=>setFloor(b.dataset.fl)));
+  document.querySelectorAll('.svgfl').forEach(g=>{
+    g.addEventListener('click',()=>setFloor(g.dataset.fl));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setFloor(g.dataset.fl)}});
+  });
+  setFloor('1');
+
+  // fallback immagini: se una foto non carica, resta il fondo decorativo (niente testo a bordo)
+  document.querySelectorAll('img').forEach(im=>{
+    im.addEventListener('error',()=>{im.style.opacity='0'});
+    if(im.complete&&im.naturalWidth===0){im.style.opacity='0'}
+  });
+</script>
+
+</body>
+</html>
